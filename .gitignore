@@ -13,6 +13,8 @@ Latex/diploma.toc
 Latex/diploma.synctex.gz
 
 *.asv
+*.mat
+*.grd
 
 #################
 ## Eclipse
