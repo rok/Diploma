@@ -7,8 +7,9 @@
 % vkup spravil Gašper Fijavž, december 2010
 % množica popravkov v januarju, februarju marcu 2011
 % verzijo 29. marec 2011 za FMF 19.9.2013 prilagodil Rok Mihevc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper, 12pt]{book}
+\documentclass[a4paper, oneside, 12pt]{book}
 
 \usepackage[utf8]{inputenc}   % omogoča uporabo slovenskih črk kodiranih v formatu UTF-8 
 \usepackage[slovene,english]{babel}    % naloži, med drugim, slovenske delilne vzorce
@@ -17,7 +18,7 @@
 \usepackage{amssymb}           % dodatni simboli
 \usepackage{amsmath}           % eqref, npr.
 \usepackage{verbatim}           % \begin{comment} in \end{comment}
-
+\usepackage{float}
 
 \renewcommand{\baselinestretch}{1.3} % ustrezen razmik med vrsticami
 
@@ -38,7 +39,7 @@
 
 % konstrukti
 \newtheorem{izrek}{Izrek}[chapter]
-%\newtheorem{trditev}{Trditev}[izrek]
+\newtheorem{trditev}{Trditev}[izrek]
 \newenvironment{dokaz}{\emph{Dokaz.}\ }{\hspace{\fill}{$\Box$}}
 
 \begin{document}
@@ -47,58 +48,52 @@
 \setcounter{page}{1} %
 \renewcommand{\thepage}{}       % preprecimo težave s številkami strani v kazalu 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ODREZANA NASLOVNICA ITD.
 \begin{comment}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %naslovnica
- \thispagestyle{empty}%
-   \begin{center}
-    {\large\sc Univerza v Ljubljani\\%
-      Fakulteta za Matematiko in Fiziko\\%
-      Oddelek za Fiziko\\%
-      Univerzitetni študij, naravoslovna smer}%
-    \vskip 10em%
-    {\autfont Matjaž Kralj\par}%
-    {\titfont Naslov diplomskega dela \par}%
-    {\vskip 2em \textsc{DIPLOMSKO DELO}\par}%
-    \vfill\null%
-    {\large \textsc{Mentor}: doc.\ dr.  Peter Klepec\par}%
-   {\large \textsc{Somentor}:  izr.\ prof.\ dr. Martin Krpan \par}%
-    {\vskip 2em \large Ljubljana, 2013 \par}%
+\thispagestyle{empty}%
+\begin{center}
+  {\large\sc Univerza v Ljubljani\\%
+    Fakulteta za Matematiko in Fiziko\\%
+    Oddelek za Fiziko\\%
+  Univerzitetni študij, naravoslovna smer}%
+  \vskip 10em%
+  {\autfont Rok Mihevc \par}%
+  {\titfont Kraške vrtače Dinarskega krasa \par}%
+  {\vskip 2em \textsc{DIPLOMSKO DELO}\par}%
+  \vfill\null%
+  {\large \textsc{Mentor}: prof.\ dr.  Rudolf Podgornik\par}%
+%  {\large \textsc{Somentor}:  izr.\ prof.\ dr. \par}%
+  {\vskip 2em \large Ljubljana, 2013 \par}%
 \end{center}
 % prazna stran
 \clearemptydoublepage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % prazna stran
 \clearemptydoublepage
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % izjava o avtorstvu
 \vspace*{1cm}
 \begin{center} 
-{\Large \textbf{\sc Izjava o avtorstvu diplomskega dela}}
+  {\Large \textbf{\sc Izjava o avtorstvu diplomskega dela}}
 \end{center}
 
 \vspace{1cm}
-\noindent Spodaj podpisani Matjaž Kralj,
-z vpisno številko \textbf{12345678}, sem avtor  diplomskega dela z naslovom:
-   
+\noindent Spodaj podpisani Rok Mihevc,
+z vpisno številko \textbf{28030017}, sem avtor  diplomskega dela z naslovom: Kraške vrtače Dinarskega krasa
+
 \vspace{0.5cm}
 \emph{Vzorec diplomskega dela}
 
 \vspace{1.5cm}
 \noindent S svojim podpisom zagotavljam, da:
 \begin{itemize}
-	\item sem diplomsko delo izdelal samostojno pod mentorstvom 
-		doc.\ dr.\ Petra Klepca in somentorstvom izr.\ prof.\ dr.\ Martina Krpana,
+  \item sem diplomsko delo izdelal samostojno pod mentorstvom 
+    prof.\ dr.\ \mbox{Rudolfa} \mbox{Podgornika}, %in somentorstvom izr.\ prof.\ dr.\,
 
-	\item	so elektronska oblika diplomskega dela, naslov (slov., angl.), povzetek (slov., angl.) ter ključne besede (slov., angl.) identični s tiskano obliko diplomskega dela
+  \item	so elektronska oblika diplomskega dela, naslov (slov., angl.), povzetek (slov., angl.) ter ključne besede (slov., angl.) identični s tiskano obliko diplomskega dela
 \end{itemize}
 
 \vspace{1cm}
@@ -119,9 +114,9 @@ Na tem mestu zapišite, komu se zahvaljujete za izdelavo diplomske naloge. Pazit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % posvetilo
 \thispagestyle{empty}\mbox{}{\vskip0.20\textheight}\mbox{}\hfill\begin{minipage}{0.55\textwidth}%
-Svoji dragi Alenčici.
-\normalfont\end{minipage}
- 
+  Svoji dragi Alenčici.
+  \normalfont\end{minipage}
+
 % prazna stran
 \clearemptydoublepage
 
@@ -173,35 +168,43 @@ This sample document presents an approach to typesetting your BSc thesis using \
 
 \chapter{Uvod}
 
-Namen tega dela je dokumentirati in statistično opisati kraške vrtače na slovenskem dinarskem krasu, ter predlagati analitični model, ki bi razložil njihov nastanek in obliko.
+Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statistično preučiti velik vzorec realnih kraških vrtač na slovenskem Dinarskem krasu, predlagati analitično funkcijo, ki bi opisala idealno vrtačo, ter na podlagi le-te poiskusiti modelirati naravne procese, ki povzročajo nastanek in obliko vrtač.
 
+\chapter{Preučevanje realnih vrtač}
 
-\chapter{Pridobivanje in manipulacija empiričnih podatkov iz digitalnega modela reliefa}
+Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Za identifikacijo velike količine vrtač se poslužmo računske metode, ki jo uporabljajo tudi drugi avtorji (\cite{doctor13}) - izračunamo indeks konkavnosti reliefa in na podlagi le-tega klasificiramo dele površja kot vrtače.
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=9cm]{slike/D22-35-10}
-\end{center}
-\caption{Relief D22-35-10}
-\label{pic1}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=11cm]{slike/menisija-relief.png}
+  \caption{Menišija, območje med Cerknico in Logatcem vsebuje nekaj tisoč vrtač in več udornic}
+  \label{fig:menisija-relief}
 \end{figure}
 
 \begin{figure}
-\begin{center}
-\includegraphics[width=9cm]{slike/D22-35-10-TPI}
-\end{center}
-\caption{Topology Position Index reliefa D22-35-10}
-\label{pic2}
+  \begin{center}
+    \includegraphics[width=9cm]{slike/D22-35-10}
+  \end{center}
+  \caption{Relief D22-35-10}
+  \label{pic1}
 \end{figure}
 
 \begin{figure}
-\begin{center}
-\includegraphics[width=3cm]{slike/D22-35-10-fig11}
-\includegraphics[width=3cm]{slike/D22-35-10-fig14}
-\includegraphics[width=3cm]{slike/D22-35-10-fig32}
-\end{center}
-\caption{Primer vrtač iz reliefa D22-35-10}
-\label{pic3}
+  \begin{center}
+    \includegraphics[width=9cm]{slike/D22-35-10-TPI}
+  \end{center}
+  \caption{Topology Position Index reliefa D22-35-10}
+  \label{pic2}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=3cm]{slike/D22-35-10-fig11}
+    \includegraphics[width=3cm]{slike/D22-35-10-fig14}
+    \includegraphics[width=3cm]{slike/D22-35-10-fig32}
+  \end{center}
+  \caption{Primer vrtač iz reliefa D22-35-10}
+  \label{pic3}
 \end{figure}
 
 \chapter{Numerično modeliranje skupine vrtač}
@@ -222,22 +225,21 @@ Namen tega dela je dokumentirati in statistično opisati kraške vrtače na slov
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{comment}
+%\begin{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Zaključek}
 
-~\cite{Fiz1}
-~\cite{FLoP}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{comment}
+%\end{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{thebibliography}{99}
-\bibitem{Fiz1} Janez Strnad: Fizika. Del 1, Ljubljana, DMFA - založništvo, 2002
-\bibitem{FLoP} Richard P. Feynman: The Feynman lectures on physics. Vol. 1,  Addison-Wesley, 1964
-\end{thebibliography}
+\nocite{*}
+\newpage
+\bibliography{bibliography}{}
+\bibliographystyle{alpha}
+
 
 \end{document}
 
