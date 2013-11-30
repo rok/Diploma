@@ -167,45 +167,53 @@ This sample document presents an approach to typesetting your BSc thesis using \
 \pagestyle{fancy}
 
 \chapter{Uvod}
-
+\label{ch1}
 Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statistično preučiti velik vzorec realnih kraških vrtač na slovenskem Dinarskem krasu, predlagati analitično funkcijo, ki bi opisala idealno vrtačo, ter na podlagi le-te poiskusiti modelirati naravne procese, ki povzročajo nastanek in obliko vrtač.
-
-\chapter{Preučevanje realnih vrtač}
-
-Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Za identifikacijo velike količine vrtač se poslužmo računske metode, ki jo uporabljajo tudi drugi avtorji (\cite{doctor13}) - izračunamo indeks konkavnosti reliefa in na podlagi le-tega klasificiramo dele površja kot vrtače.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=11cm]{slike/menisija-relief.png}
-  \caption{Menišija, območje med Cerknico in Logatcem vsebuje nekaj tisoč vrtač in več udornic}
+  \includegraphics[width=14cm]{slike/menisija-relief.png}
+  \caption{Menišija, $60 km^2$ območje med Cerknico in Logatcem vsebuje nekaj tisoč vrtač in več udornic}
   \label{fig:menisija-relief}
 \end{figure}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=9cm]{slike/D22-35-10}
-  \end{center}
-  \caption{Relief D22-35-10}
-  \label{pic1}
+\chapter{Preučevanje realnih vrtač}
+
+Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Za identifikacijo velike količine vrtač se poslužimo računske metode, ki jo uporabljajo tudi drugi avtorji \cite{doctor13} - izračunamo indeks konkavnosti reliefa in na podlagi le-tega klasificiramo dele površja kot vrtače.
+
+Posamezne realne vrtače zaradi lokalnih pogojev niso simetrične, a zdi se da so si med seboj podobne. Da bi ugotovili idealno obliko vrtače izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=3.5cm]{slike/vrtaca-menisija}
+  \caption{Povprečje 8687 realnih vrtač z območja Menišije, pred povprečjem so bile vrtače raztegnjene na velikost največje v setu.}
+  \label{fig:menisija-vrtaca}
 \end{figure}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=9cm]{slike/D22-35-10-TPI}
-  \end{center}
-  \caption{Topology Position Index reliefa D22-35-10}
-  \label{pic2}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8cm]{slike/vrtace-po-razredih-menisija}
+  \caption{Vrtače po velikosti razdelimo v pet razredov (najmanjša petina gre v prvi razred, itn.), in jih znotraj razredov povprečimo.}
+  \label{fig:menisija-vrtace-po-razredih}
+ \end{figure}
+
+ Na prvi pogled se zdijo profili dobljenih oblik gaussove oblike (\ref{fit-vrtace}), kar ne zbuja nujno zaupanja v metodo.
+
+\begin{equation}
+  f(x,y) = - A \cdot e^{-\frac{x-x_0}{\sigma_x}-\frac{y-y_0}{\sigma_y}} + B \cdot x + C \cdot y + D  
+  \label{fit-vrtace}
+\end{equation}
+
+Če sedaj pogledamo razporeditev efektivnih polmerov profile vrtač (\mbox{$r_{eff}=\frac{\sqrt{A_{eff}}}{\pi}$}) dobimo:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=7cm]{slike/menisija-polmeri-hist}
+  \caption{Polmeri vrtač v Menišiji}
+  \label{fig:menisija-polmeri-hist}
 \end{figure}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=3cm]{slike/D22-35-10-fig11}
-    \includegraphics[width=3cm]{slike/D22-35-10-fig14}
-    \includegraphics[width=3cm]{slike/D22-35-10-fig32}
-  \end{center}
-  \caption{Primer vrtač iz reliefa D22-35-10}
-  \label{pic3}
-\end{figure}
+
 
 \chapter{Numerično modeliranje skupine vrtač}
 \label{ch2}
@@ -214,8 +222,6 @@ Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj de
 \section{Semistohastične polzeče korozijske točke}
 \section{Preizkus modela korozijskih točk na geološki karti}
 
-
-%\chapter{}
 
 \chapter{Analitično modeliranje posamezne vrtače}
 \label{ch3}
