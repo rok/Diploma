@@ -181,39 +181,58 @@ Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statis
 
 Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Za identifikacijo velike količine vrtač se poslužimo računske metode, ki jo uporabljajo tudi drugi avtorji \cite{doctor13} - izračunamo indeks konkavnosti reliefa in na podlagi le-tega klasificiramo dele površja kot vrtače.
 
+Konkavni objekti, ki jih najdemo imajo porazdelitev efektivnih polmerov (\mbox{$r_{eff}=\frac{\sqrt{A_{eff}}}{\pi}$}), kot vidno na sliki \ref{fig:menisija-polmeri-hist}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics{slike/menisija-polmeri-hist}
+  \caption{Polmeri konkavnih objektov v Menišiji, vrh pade v razred od 16m do 17m}
+  \label{fig:menisija-polmeri-hist}
+\end{figure}
+
+Poradelitev efektivnih polmerov daje slutiti, da obstaja ravnovesna velikost vrtače, h kateri konvergirajo vse globeli v območju ne glede na njihov nastanek.
+To nas napelje na misel, da obstaja tudi ravnovesna oblika vrtače, ki bi se pojavila na idelani podlagi, če bi preteklo dovolj časa.
+
 Posamezne realne vrtače zaradi lokalnih pogojev niso simetrične, a zdi se da so si med seboj podobne. Da bi ugotovili idealno obliko vrtače izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh. 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=3.5cm]{slike/vrtaca-menisija}
+  \includegraphics[width=7cm]{slike/vrtaca-menisija}
   \caption{Povprečje 8687 realnih vrtač z območja Menišije, pred povprečjem so bile vrtače raztegnjene na velikost največje v setu.}
   \label{fig:menisija-vrtaca}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=8cm]{slike/vrtace-po-razredih-menisija}
+  \includegraphics[width=13cm]{slike/vrtace-po-razredih-menisija}
   \caption{Vrtače po velikosti razdelimo v pet razredov (najmanjša petina gre v prvi razred, itn.), in jih znotraj razredov povprečimo.}
   \label{fig:menisija-vrtace-po-razredih}
  \end{figure}
 
- Na prvi pogled se zdijo profili dobljenih oblik gaussove oblike (\ref{fit-vrtace}), kar ne zbuja nujno zaupanja v metodo.
+Na prvi pogled se zdijo profili dobljenih oblik gaussove oblike (\ref{fit-vrtace}), kar ne zbuja nujno zaupanja v metodo. Prav tako se ne zdi, da bi bil ta rezultat pretirano fizikalno uporaben.
 
 \begin{equation}
   f(x,y) = - A \cdot e^{-\frac{x-x_0}{\sigma_x}-\frac{y-y_0}{\sigma_y}} + B \cdot x + C \cdot y + D  
   \label{fit-vrtace}
 \end{equation}
 
-Če sedaj pogledamo razporeditev efektivnih polmerov profile vrtač (\mbox{$r_{eff}=\frac{\sqrt{A_{eff}}}{\pi}$}) dobimo:
+To informacijo lahko uporabimo tako, da gaussovo funkcijo fitamo na realne vrtače in tako dobimo precej dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izmerimo povprečne profile vrtač z istimi efektivnimi polmeri, naprimer: Slika \ref{fig:menisija-profil-21}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=7cm]{slike/menisija-polmeri-hist}
-  \caption{Polmeri vrtač v Menišiji}
-  \label{fig:menisija-polmeri-hist}
+  \includegraphics{slike/menisija-profil-21}
+  \caption{Povprecje profilov vrtač z efektivnimi polmeri med 20m in 22m }
+  \label{fig:menisija-profil-21}
 \end{figure}
 
+Če pa vse profile združimo v eno sliko, tako da polmer postavimo v smeri osi $y$ in efektivni polmer v smeri $x$ osi, dobimo sledeč Sliko \ref{fig:menisija-profil-profilov}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics{slike/menisija-profil-profilov}
+  \caption{Odvisnost profila vrtace od velikosti vrtace}
+  \label{fig:menisija-profil-profilov}
+\end{figure}
 
 \chapter{Numerično modeliranje skupine vrtač}
 \label{ch2}
@@ -231,14 +250,14 @@ Posamezne realne vrtače zaradi lokalnih pogojev niso simetrične, a zdi se da s
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{comment}
+\begin{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Zaključek}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\end{comment}
+\end{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \nocite{*}

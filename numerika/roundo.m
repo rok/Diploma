@@ -31,36 +31,50 @@
 %
 %%save(strrep(podatki,'.grd','-profili.mat'),'s')
 %save('/home/user/diploma/numerika/menisija-profili2.mat','s')
-
+%
 %load /home/user/diploma/numerika/menisija-profili2.mat
+%
+%maxprofil = max([s.profilsize]);
+%profi  = zeros(maxprofil);
+%n = zeros(maxprofil,1);
+%
+%for j=1:maxprofil
+    %n(j) = sum([s.profilsize] == j);
+%end
+%n(n==0)=1;
+%
+%for i=5:size(s,1)
+    %s(i).profil = [s(i).profil,zeros(1,maxprofil - s(i).profilsize)];
+    %if s(i).profilsize > 0
+        %profi(:,s(i).profilsize) = profi(:,s(i).profilsize) + s(i).profil' / n(s(i).profilsize);
+    %end
+%end
 
-for i=1:size(s,1)
-    stevec = s(i).profil;
-    s(i).profilsize = size(s(i).profil,2);
-    s(i).profil = stevec(~isnan(stevec));
+if 0 % Plot histograma efektivnih velikosti
+    hist([s.profilsize],max([s.profilsize]))
+    title('Porazdelitev konkavnih objektov po efektivnem polmeru')
+    xlabel('Efektivni polmer [m]')
+    ylabel('N [ ]')
+    print ../Latex/slike/menisija-polmeri-hist.eps -depsc "-S750,420"
 end
-maxprofil = max([s.profilsize]);
-minprofil = min([s.profilsize]);
 
-for i=1:size(s,1)
-    s(i).profil = [s(i).profil,zeros(1,maxprofil - s(i).profilsize)];
+if 1 % Plot enega od povprecnih profilov vrtac
+    plot(nonzeros(profi(:,21)))
+    title('Profil povprecja objektov z enakim efektivnim polmerom')
+    xlabel('Polmer [m]')
+    ylabel('Visina [m]')
+    print ../Latex/slike/menisija-profil-21.eps -depsc "-S700,400"
 end
 
-for j=minprofil:maxprofil
-    n = 0;
-    profi  = zeros(maxprofil,1);
-    for i=1:size(s,1)
-        if s(i).profilsize == j
-            profi = profi + s(i).profil';
-            n=n+1;
-        end
-    end
-    plot(profi(1:j)/n);
-    pause
+if 1 % Plot povprecnih profilov vrtac razlicnih velikosti
+    contour(5:60,5:60,profi(5:60,5:60),100)
+    title('Visina v odvisnosti od polmera za povprecja konkavnih objektov razlicih velikosti [m]')
+    xlabel('Efektivni polmer objektov [m]')
+    ylabel('Polmer profila  [m]')
+    print ../Latex/slike/menisija-profil-profilov.eps -depsc "-S700,400"
 end
-plot(profi/n);
 
-print menisija-polmeri-hist -depsc2
+% print menisija-polmeri-hist -depsc2
 
 %save(strrep(podatki,'.grd','-profili.mat'),'s')
 %save('/home/user/diploma/numerika/menisija-profili.mat','s')
