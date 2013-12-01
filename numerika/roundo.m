@@ -50,6 +50,9 @@
     %end
 %end
 
+%save('/home/user/diploma/numerika/menisija-profil-profilov.mat','profi')
+%load /home/user/diploma/numerika/menisija-profil-profilov.mat
+
 if 0 % Plot histograma efektivnih velikosti
     hist([s.profilsize],max([s.profilsize]))
     title('Porazdelitev konkavnih objektov po efektivnem polmeru')
@@ -58,23 +61,21 @@ if 0 % Plot histograma efektivnih velikosti
     print ../Latex/slike/menisija-polmeri-hist.eps -depsc "-S750,420"
 end
 
-if 1 % Plot enega od povprecnih profilov vrtac
+if 0 % Plot enega od povprecnih profilov vrtac
     plot(nonzeros(profi(:,21)))
     title('Profil povprecja objektov z enakim efektivnim polmerom')
     xlabel('Polmer [m]')
     ylabel('Visina [m]')
-    print ../Latex/slike/menisija-profil-21.eps -depsc "-S700,400"
+    print ../Latex/slike/menisija-profil-21.eps -depsc "-S900,400"
 end
 
-if 1 % Plot povprecnih profilov vrtac razlicnih velikosti
-    contour(5:60,5:60,profi(5:60,5:60),100)
-    title('Visina v odvisnosti od polmera za povprecja konkavnih objektov razlicih velikosti [m]')
+if 0 % Plot povprecnih profilov vrtac razlicnih velikosti
+    contour(5:60,5:60,profi(5:60,5:60),50)
+    title('Visina v odvisnosti od polmera za povprecja vrtac razlicih velikosti')
     xlabel('Efektivni polmer objektov [m]')
     ylabel('Polmer profila  [m]')
-    print ../Latex/slike/menisija-profil-profilov.eps -depsc "-S700,400"
+    print ../Latex/slike/menisija-profil-profilov.eps -depsc "-S900,500"
 end
-
-% print menisija-polmeri-hist -depsc2
 
 %save(strrep(podatki,'.grd','-profili.mat'),'s')
 %save('/home/user/diploma/numerika/menisija-profili.mat','s')
