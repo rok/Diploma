@@ -212,16 +212,16 @@ Posamezne realne vrtače zaradi lokalnih pogojev niso simetrične, a zdi se da s
 Na prvi pogled se zdijo profili dobljenih oblik gaussove oblike (\ref{fit-vrtace}), kar ne zbuja nujno zaupanja v metodo. Prav tako se ne zdi, da bi bil ta rezultat pretirano fizikalno uporaben.
 
 \begin{equation}
-  f(x,y) = - A \cdot e^{-\frac{x-x_0}{\sigma_x}-\frac{y-y_0}{\sigma_y}} + B \cdot x + C \cdot y + D  
+  f(x,y) = A \cdot e^{-\frac{(x-x_0)^2}{\sigma_x^2}-\frac{(y-y_0)^2}{\sigma_y^2}} + B \cdot x + C \cdot y + D  
   \label{fit-vrtace}
 \end{equation}
 
-To informacijo lahko uporabimo tako, da gaussovo funkcijo fitamo na realne vrtače in tako dobimo precej dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izmerimo povprečne profile vrtač z istimi efektivnimi polmeri, naprimer: Slika \ref{fig:menisija-profil-21}
+Rezultat vseeno uporabimo tako da gaussovo funkcijo nalegamo na realne vrtače in tako dobimo precej dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izmerimo povprečne profile vrtač, ki imajo enake efektivne polmere, naprimer: Slika \ref{fig:menisija-profil-21}
 
 \begin{figure}[H]
   \centering
   \includegraphics{slike/menisija-profil-21}
-  \caption{Povprecje profilov vrtač z efektivnimi polmeri med 20m in 22m }
+  \caption{Povprecje profilov vrtač z efektivnimi polmeri med 21,5m in 22,5m }
   \label{fig:menisija-profil-21}
 \end{figure}
 
@@ -234,18 +234,23 @@ To informacijo lahko uporabimo tako, da gaussovo funkcijo fitamo na realne vrta�
   \label{fig:menisija-profil-profilov}
 \end{figure}
 
-Zdi se, da so vrtače podobne oblike ne glede na velikost po celi površini, le v normalno površje se iztečejo po različnih pretečenih polmerih.
-Če dobljene profile fitamo \dots
+Zdi se, da so vrtače podobne oblike ne glede na velikost in to po celi  njihovi površini, le v normalno površje se iztečejo prej ali kasneje, a zopet na podoben način.
+Če na dobljene profile ponovno nalegamo gaussovko (\ref{fit-profila}) \dots
 
-\chapter{Numerično modeliranje skupine vrtač}
+\begin{equation}
+  f(x) = A \cdot e^{-\frac{(x-x_0)^2}{\sigma_x^2}} + C  
+  \label{fit-profila}
+\end{equation}
+
+\chapter{Numerično modeliranje vrtač} 
 \label{ch2}
 
-\section{Stohastične korozijske točke}
-\section{Semistohastične polzeče korozijske točke}
+\section{Model naključnih korozijskih toče}
+\section{Naključne korozjske točke na realni kamnini}
 \section{Preizkus modela korozijskih točk na geološki karti}
 
 
-\chapter{Analitično modeliranje posamezne vrtače}
+\chapter{Analitično modeliranje vrtač}
 \label{ch3}
 
 \section{Elastomehanični model}
