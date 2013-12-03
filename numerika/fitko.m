@@ -1,19 +1,30 @@
-% load /home/user/diploma/numerika/menisija-profil-profilov.mat
+load /home/user/diploma/numerika/menisija-profil-profilov.mat
 
-## independents
-indep = 1:5;
-## residual function:
-p=[1,1,1,1];
-%f = @ (p) p(1) + p(2) * exp (((p(3) - 1:size(profi,2))/p(4))^2) - profi(:,j);
-f = @ (p) p(1) + p(2) * exp (((p(3) - x)/p(4))^2);
-x=0:0.1:10;
-  ## initial values:
-  init = [.25; .25;1;2];
-  ## linear constraints, A.' * parametervector + B >= 0
-  A = [1; -1]; B = 0; # p(1) >= p(2);
-  settings = optimset ("inequc", {A, B});
+if 1 # Fitting
+    ps = zeros(4,60-5);
+    for j=5:60
+        ## independents and observations
+        indep = 0:(size(nonzeros(profi(:,j))',2)-1);
+        obs = profi(1:j,j)';
+        obs = obs - min(obs);
+	
+        f = @ (p, x) p(1) *(1 - exp (-(p(2) * (x-p(3))).^2))+p(4);
+        ## initial values:
+        init = [max(obs); 1; 0;0];
+    
+        ## start optimization
+        [p, model_values, cvg, outp] = nonlin_curvefit (f, init, indep, obs)
+        ps(:,j-4) = p;
+        if j==22 # plotting
+            plot(obs,'linewidth',1,'b','marker','+');
+            hold on;
+            plot(model_values,'linewidth',2,'r');
+            hold off;
+            pause
+        end
+    end
+end
 
-  ## start optimization
-  [p, residuals, cvg, outp] = nonlin_residmin (f, init, settings)
-  
-%  ft = fittype('a + b*exp(-((x-c)*d)^2-((y-e)*f)^2) + g*x + h*y', 'indep', {'x', 'y'}, 'depend', 'z' );
+if 0
+    plot(sqrt(abs(ps(2,3:end))))
+end
