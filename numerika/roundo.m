@@ -51,7 +51,7 @@
 %end
 
 %save('/home/user/diploma/numerika/menisija-profil-profilov.mat','profi')
-%load /home/user/diploma/numerika/menisija-profil-profilov.mat
+load /home/user/diploma/numerika/menisija-profil-profilov.mat
 
 if 0 % Plot histograma efektivnih velikosti
     hist([s.profilsize],max([s.profilsize]))
@@ -63,7 +63,7 @@ end
 
 if 0 % Plot enega od povprecnih profilov vrtac
     plot(nonzeros(profi(:,21)))
-    title('Profil povprecja objektov z enakim efektivnim polmerom')
+    title('Profil povprecja objektov z enakim efektivnim polmerom (r_{eff} = 21m)')
     xlabel('Polmer [m]')
     ylabel('Visina [m]')
     print ../Latex/slike/menisija-profil-21.eps -depsc "-S900,400"

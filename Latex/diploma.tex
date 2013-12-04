@@ -207,7 +207,7 @@ Posamezne realne vrtače zaradi lokalnih pogojev niso simetrične, a zdi se da s
   \includegraphics[width=13cm]{slike/vrtace-po-razredih-menisija}
   \caption{Vrtače po velikosti razdelimo v pet razredov (najmanjša petina gre v prvi razred, itn.), in jih znotraj razredov povprečimo.}
   \label{fig:menisija-vrtace-po-razredih}
- \end{figure}
+\end{figure}
 
 Na prvi pogled se zdijo profili dobljenih oblik gaussove oblike (\ref{fit-vrtace}), kar ne zbuja nujno zaupanja v metodo. Prav tako se ne zdi, da bi bil ta rezultat pretirano fizikalno uporaben.
 
@@ -216,13 +216,13 @@ Na prvi pogled se zdijo profili dobljenih oblik gaussove oblike (\ref{fit-vrtace
   \label{fit-vrtace}
 \end{equation}
 
-Rezultat vseeno uporabimo tako da gaussovo funkcijo nalegamo na realne vrtače in tako dobimo precej dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izmerimo povprečne profile vrtač, ki imajo enake efektivne polmere, naprimer: Slika \ref{fig:menisija-profil-21}
+Rezultat vseeno uporabimo tako da gaussovo funkcijo nalegamo na realne vrtače in tako dobimo precej dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izmerimo povprečne profile vrtač, ki imajo enake efektivne polmere, naprimer: Slika \ref{fig:menisija-profil-21-fit}
 
 \begin{figure}[H]
   \centering
-  \includegraphics{slike/menisija-profil-21}
-  \caption{Povprecje profilov vrtač z efektivnimi polmeri med 21,5m in 22,5m }
-  \label{fig:menisija-profil-21}
+  \includegraphics{slike/menisija-profil-21-fit}
+  \caption{Povprecje profilov vrtač z efektivnimi polmeri med 21,5m in 22,5m. Prilegamo gaussovko (\ref{fit-profila}).}
+  \label{fig:menisija-profil-21-fit}
 \end{figure}
 
 Če pa vse profile združimo v eno sliko, tako da polmer postavimo v smeri osi $y$ in efektivni polmer v smeri $x$ osi, dobimo sledečo sliko \ref{fig:menisija-profil-profilov}
@@ -235,13 +235,28 @@ Rezultat vseeno uporabimo tako da gaussovo funkcijo nalegamo na realne vrtače i
 \end{figure}
 
 Zdi se torej, da so si vrtače podobne oblike ne glede na velikost in to po celi njihovi površini, le v normalno površje se iztečejo prej ali kasneje, a zopet na podoben način.
-Če na dobljene profile ponovno nalegamo gaussovko (\ref{fit-profila}) vidimo, da to ne drži popolnoma.  
+Če na dobljene profile ponovno nalegamo gaussovko (\ref{fit-profila}) in izrišemo odvisnost $\sigma_x (r_{eff})$ vidimo, da to ne drži popolnoma  (Slika \ref{fig:menisija-sigma}).  
 
 \begin{equation}
-  f(x) = A \cdot e^{-\frac{(x-x_0)^2}{\sigma_x^2}} + C  
+  f(r) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C  
   \label{fit-profila}
 \end{equation}
 
+Odvisnost $\sigma_x(r_{eff})$ je iz naših podatkov težko določiti, zaenkrat poskusimo z eksponentno funkcijo (\ref{sigma-od-reff})
+
+\begin{equation}
+  \sigma (r_{eff}) = A \cdot e^{-\frac{r_{eff}-r_{eff_0}}{\sigma_{\sigma}}} + C 
+  \label{sigma-od-reff}
+\end{equation}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics{slike/menisija-sigme}
+  \caption{$\sigma$ s polmerom pada, torej večje kot so vrtače, bolj položna so njihova pobočja.}
+  \label{fig:menisija-sigma}
+\end{figure}
+
+Na podlagi teh podatkov bi težko skleniti, da (\ref{fit-profila}) opiše profil idealne vrtače, a ujemanje je dobro in ga bomo uporabili za analitično modeliranje. 
 
 \chapter{Numerično modeliranje vrtač} 
 \label{ch2}
