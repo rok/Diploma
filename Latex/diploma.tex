@@ -170,16 +170,29 @@ This sample document presents an approach to typesetting your BSc thesis using \
 \label{ch1}
 Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statistično preučiti velik vzorec realnih kraških vrtač na slovenskem Dinarskem krasu, predlagati analitično funkcijo, ki bi opisala idealno vrtačo, ter na podlagi le-te poiskusiti modelirati naravne procese, ki povzročajo nastanek in obliko vrtač.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=14cm]{slike/menisija-relief.png}
-  \caption{Menišija, $60 km^2$ območje med Cerknico in Logatcem vsebuje nekaj tisoč vrtač in več udornic}
-  \label{fig:menisija-relief}
-\end{figure}
+Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Obstaja več geomorfoloških modelov njihovega nastanka.
 
 \chapter{Preučevanje realnih vrtač}
 
-Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Za identifikacijo velike količine vrtač se poslužimo računske metode, ki jo uporabljajo tudi drugi avtorji \cite{doctor13} - izračunamo indeks konkavnosti reliefa in na podlagi le-tega klasificiramo dele površja kot vrtače.
+Za študij realnih vrtač sem uporabil digitalni model reliefa Menišije ločljivosti 1m, na ki je omogočil zanesljivo identifikacijo in študij vrtač. Vir: \cite{LAK} po metodi \cite{Kobler20079}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8cm]{slike/menisija-karta}
+  \caption{Menišija, $60 km^2$ veliko območje med Cerknico in Logatcem vsebuje nekaj tisoč vrtač in več udornic. Vir: Geopedia, Geodetski inštitut Slovenije}
+  \label{fig:menisija-karta}
+\end{figure}
+
+Identifikacijo velike količine se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}. Točke, ki so nižje od svoje okolice imajo nižji indeks konkavnosti, točke višje od svoje okolice pa višjega. Pri tem je pomembna tudi pametna izbiro okolice - od nje je odvisno kako velike konkavnosti bomo zaznali. Končno zavržemo konveksne dele površja in konkavne odberemo izberemo kot vrtače. Rezultat vidimo na sliki \ref{fig:menisija-vrtace}. Opaziti velja, da izbrana metoda segmetacije del robov konkavnih objektov klasificira kot konkavne in zato podceni radij. Za naše namene to ni pretirano moteče, saj to podcenitev kompenziramo kasneje.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=13cm]{slike/menisija-vrtace}
+  \end{center}
+  \caption{Del najdenih konkavnih objektov na območju Menišije. $N\approx8000$ Poleg vrtač, so na sliki vidne tudi udornice.}
+  \label{fig:menisija-vrtace}
+\end{figure}
+
 
 Konkavni objekti, ki jih najdemo imajo porazdelitev efektivnih polmerov (\mbox{$r_{eff}=\frac{\sqrt{A_{eff}}}{\pi}$}), kot vidno na sliki \ref{fig:menisija-polmeri-hist}.
 
