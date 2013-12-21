@@ -183,7 +183,7 @@ Za študij realnih vrtač sem uporabil digitalni model reliefa Menišije ločlji
   \label{fig:menisija-karta}
 \end{figure}
 
-Identifikacijo velike količine se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}. Točke, ki so nižje od svoje okolice imajo nižji indeks konkavnosti, točke višje od svoje okolice pa višjega. Pri tem je pomembna tudi pametna izbiro okolice - od nje je odvisno kako velike konkavnosti bomo zaznali. Končno zavržemo konveksne dele površja in konkavne odberemo izberemo kot vrtače. Rezultat vidimo na sliki \ref{fig:menisija-vrtace}. Opaziti velja, da izbrana metoda segmetacije del robov konkavnih objektov klasificira kot konkavne in zato podceni radij. Za naše namene to ni pretirano moteče, saj to podcenitev kompenziramo kasneje.
+Identifikacijo velike količine se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}. Točke, ki so nižje od svoje okolice imajo nižji indeks konkavnosti, točke višje od svoje okolice pa višjega. Pri tem je pomembna tudi pametna izbiro okolice - od nje je odvisno kako velike konkavnosti bomo zaznali. Končno zavržemo konveksne dele površja in konkavne odberemo izberemo kot vrtače. Rezultat vidimo na sliki \ref{fig:menisija-vrtace}. Opaziti velja, da izbrana metoda segmetacije del robov konkavnih objektov klasificira kot konkavne in zato podceni radij. Za naše namene to ni pretirano moteče, saj to podcenitev zlahka kompenziramo kasneje.
 
 \begin{figure}[H]
   \begin{center}
@@ -194,7 +194,7 @@ Identifikacijo velike količine se lotimo s segmentacijo po konkavnosti, kot pre
 \end{figure}
 
 
-Konkavni objekti, ki jih najdemo imajo porazdelitev efektivnih polmerov (\mbox{$r_{eff}=\frac{\sqrt{A_{eff}}}{\pi}$}), kot vidno na sliki \ref{fig:menisija-polmeri-hist}.
+Najdeni konkavni objekti imajo porazdelitev efektivnih polmerov (\mbox{$r_{eff}=\frac{\sqrt{A_{eff}}}{\pi}$}), kot vidno na sliki \ref{fig:menisija-polmeri-hist}.
 
 \begin{figure}[H]
   \centering
@@ -203,7 +203,7 @@ Konkavni objekti, ki jih najdemo imajo porazdelitev efektivnih polmerov (\mbox{$
   \label{fig:menisija-polmeri-hist}
 \end{figure}
 
-Poradelitev efektivnih polmerov daje slutiti, da obstaja ravnovesna velikost vrtače, h kateri konvergirajo vse globeli v območju ne glede na njihov nastanek.
+To daje slutiti, da obstaja ravnovesna velikost vrtače, h kateri konvergirajo vse konkavne oblike v območju ne glede na njihov nastanek.
 To nas napelje na misel, da obstaja tudi ravnovesna oblika vrtače, ki bi se pojavila na idelani podlagi, če bi preteklo dovolj časa.
 
 Posamezne realne vrtače zaradi lokalnih pogojev niso simetrične, a zdi se da so si med seboj podobne. Da bi ugotovili idealno obliko vrtače izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh. 
