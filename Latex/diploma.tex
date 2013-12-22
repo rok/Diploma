@@ -172,9 +172,7 @@ Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statis
 
 Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Obstaja več geomorfoloških modelov njihovega nastanka.
 
-\chapter{Preučevanje realnih vrtač}
-
-Za študij realnih vrtač sem uporabil digitalni model reliefa Menišije ločljivosti 1m, na ki je omogočil zanesljivo identifikacijo in študij vrtač. Vir: \cite{LAK} po metodi \cite{Kobler20079}.
+Za študij realnih vrtač uporabimo digitalni model reliefa Menišije (Slika \ref{fig:menisija-karta}) ločljivosti 1m, ki omogoča zanesljivo identifikacijo in študij vrtačter udornic (Slika \ref{fig:menisija-relief}).
 
 \begin{figure}[H]
   \centering
@@ -183,13 +181,22 @@ Za študij realnih vrtač sem uporabil digitalni model reliefa Menišije ločlji
   \label{fig:menisija-karta}
 \end{figure}
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=12cm]{slike/menisija-relief}
+  \end{center}
+  \caption{Senčen 3D relief dela Menišije uporabljen v tej nalogi. Vir: Geodetski inštitur Slovenije \cite{LAK} po metodi \cite{Kobler20079}.}
+  \label{fig:menisija-relief}
+\end{figure}
+\chapter{Preučevanje realnih vrtač}
+
 Identifikacijo velike količine se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}. Točke, ki so nižje od svoje okolice imajo nižji indeks konkavnosti, točke višje od svoje okolice pa višjega. Pri tem je pomembna tudi pametna izbiro okolice - od nje je odvisno kako velike konkavnosti bomo zaznali. Končno zavržemo konveksne dele površja in konkavne odberemo izberemo kot vrtače. Rezultat vidimo na sliki \ref{fig:menisija-vrtace}. Opaziti velja, da izbrana metoda segmetacije del robov konkavnih objektov klasificira kot konkavne in zato podceni radij. Za naše namene to ni pretirano moteče, saj to podcenitev zlahka kompenziramo kasneje.
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=13cm]{slike/menisija-vrtace}
   \end{center}
-  \caption{Del najdenih konkavnih objektov na območju Menišije. $N\approx8000$ Poleg vrtač, so na sliki vidne tudi udornice.}
+  \caption{Del od 8687 zaznanih konkavnih objektov na območju Menišije. Poleg vrtač, so na sliki vidne tudi udornice.}
   \label{fig:menisija-vrtace}
 \end{figure}
 
@@ -206,7 +213,7 @@ Najdeni konkavni objekti imajo porazdelitev efektivnih polmerov (\mbox{$r_{eff}=
 To daje slutiti, da obstaja ravnovesna velikost vrtače, h kateri konvergirajo vse konkavne oblike v območju ne glede na njihov nastanek.
 To nas napelje na misel, da obstaja tudi ravnovesna oblika vrtače, ki bi se pojavila na idelani podlagi, če bi preteklo dovolj časa.
 
-Posamezne realne vrtače zaradi lokalnih pogojev niso simetrične, a zdi se da so si med seboj podobne. Da bi ugotovili idealno obliko vrtače izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh. 
+Posamezne realne vrtače zaradi lokalnih pogojev in zgodovine razvoja reliefa niso simetrične, a zdi se da so si med seboj podobne. Da bi ugotovili idealno obliko vrtače izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh. 
 
 \begin{figure}[H]
   \centering
@@ -215,21 +222,21 @@ Posamezne realne vrtače zaradi lokalnih pogojev niso simetrične, a zdi se da s
   \label{fig:menisija-vrtaca}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
   \centering
-  \includegraphics[width=13cm]{slike/vrtace-po-razredih-menisija}
+  \includegraphics[width=19cm,angle=90]{slike/vrtace-po-razredih-menisija}
   \caption{Vrtače po velikosti razdelimo v pet razredov (najmanjša petina gre v prvi razred, itn.), in jih znotraj razredov povprečimo.}
   \label{fig:menisija-vrtace-po-razredih}
 \end{figure}
 
-Na prvi pogled se zdijo profili dobljenih oblik gaussove oblike (\ref{fit-vrtace}), kar ne zbuja nujno zaupanja v metodo. Prav tako se ne zdi, da bi bil ta rezultat pretirano fizikalno uporaben.
+Na prvi pogled se zdijo dobljeni profili gaussove oblike (\ref{fit-vrtace}), kar ne zbuja nujno zaupanja v metodo. Zdi pa se, da so oblike simetrične po kotu, torej lahko problem reduciramo na študij njihovih profilov. 
 
 \begin{equation}
   f(x,y) = A \cdot e^{-\frac{(x-x_0)^2}{\sigma_x^2}-\frac{(y-y_0)^2}{\sigma_y^2}} + B \cdot x + C \cdot y + D  
   \label{fit-vrtace}
 \end{equation}
 
-Rezultat vseeno uporabimo tako da gaussovo funkcijo nalegamo na realne vrtače in tako dobimo precej dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izmerimo povprečne profile vrtač, ki imajo enake efektivne polmere, naprimer: Slika \ref{fig:menisija-profil-21-fit}
+Rezultat uporabimo tako da gaussovo funkcijo nalegamo na realne vrtače in tako dobimo dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izračunamo povprečne profile vrtač ($z(r)$), ki imajo enake efektivne polmere, naprimer: Slika \ref{fig:menisija-profil-21-fit}
 
 \begin{figure}[H]
   \centering
@@ -247,9 +254,8 @@ Rezultat vseeno uporabimo tako da gaussovo funkcijo nalegamo na realne vrtače i
   \label{fig:menisija-profil-profilov}
 \end{figure}
 
-Zdi se torej, da so si vrtače podobne oblike ne glede na velikost in to po celi njihovi površini, le v normalno površje se iztečejo prej ali kasneje, a zopet na podoben način.
-Če na dobljene profile ponovno nalegamo gaussovko (\ref{fit-profila}) in izrišemo odvisnost $\sigma_x (r_{eff})$ vidimo, da to ne drži popolnoma  (Slika \ref{fig:menisija-sigma}).  
-
+Zdi se torej, da so vrtače enake oblike ne glede na velikost in to po celi njihovi površini, le v okoliško površje se iztečejo prej ali kasneje, a zopet na podoben način.
+Če na dobljene profile ponovno nalegamo gaussovko (\ref{fit-profila}) in izrišemo odvisnost $\sigma_x (r_{eff})$ vidimo, da to ne drži (Slika \ref{fig:menisija-sigma}).  
 \begin{equation}
   f(r) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C  
   \label{fit-profila}
