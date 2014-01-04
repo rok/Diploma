@@ -199,7 +199,7 @@ Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 
   \label{fig:menisija-relief}
 \end{figure}
 \chapter{Preučevanje realnih vrtač}
-
+\label{realne-vrtace}
 Identifikacijo velike količine se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}. Točke, ki so nižje od svoje okolice imajo nižji indeks konkavnosti, točke višje od svoje okolice pa višjega. Pri tem je pomembna tudi pametna izbiro okolice - od nje je odvisno kako velike konkavnosti bomo zaznali. Končno zavržemo konveksne dele površja in konkavne odberemo izberemo kot vrtače. Rezultat vidimo na sliki \ref{fig:menisija-vrtace}. Opaziti velja, da izbrana metoda segmetacije del robov konkavnih objektov klasificira kot konkavne in zato podceni radij. Za naše namene to ni pretirano moteče, saj to podcenitev zlahka kompenziramo kasneje.
 
 \begin{figure}[H]
@@ -290,14 +290,52 @@ Na podlagi teh podatkov bi težko skleniti, da (\ref{fit-profila}) opiše profil
 
 
 \chapter{Analitično modeliranje vrtač}
-\label{ch2}
+\label{ch3}
+
+\section{Difuzijski model}
+
+Za izhodišče privzamemo difuzijski model, kot ga predlaga Heimsath \cite{Heimsath2001}.
+\begin{equation}
+  \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} - \nabla q_s
+  \label{kontinuitetna-enacba-original}
+\end{equation}
+
+Kjer je $h$ višina stolpca sedimenta, $z_b$ višina skalne podlage, $z$ višina površja, $\rho_r$ in $\rho_s$ gostoti skalne podlage in sedimenta, $q_s$ pa gostota toka sedimenta. Za gostoto toka sedimenta vzamemo, da je sorazmeren z naklonom površja:
+\begin{equation}
+  q_s = - \rho_s K \nabla z
+  \label{difuzijski-tok}
+\end{equation}
+
+Kjer je $K$ analogna konstanta difuzijski.
+Model dopolnimo z raztapljanjem in izpiranjem sedimenta v podzemlje - dodamo člen $Q_s$.
+\begin{equation}
+  \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} - \nabla q_s - Q_s
+  \label{kontinuitetna-enacba}
+\end{equation}
+
+V ravnovesnem stanju vrtače, ki smo ga domnevno našli v \ref{realne-vrtace}. poglavju (enačba \ref{fit-profila}) zahtevamo, da velja $\frac{\partial h}{\partial t} = 0$ in $\frac{\partial z_b}{\partial t} = C$. Dobimo:
+
+\begin{equation}
+  Q_s = - \rho_r C + \rho_s K \Delta z
+  \label{kontinuitetna-enacba-ravnovesje}
+\end{equation}
+
+Vstavimo še ravnovesni profil vrtače (enačba \ref{fit-profila}) in zahtevamo, da je hitrost raztapljanja sedimenta daleč od središča vrtače enaka hitrosti zniževanja ravnega površja in tako do konstante določimo profil raztapljanja sedimenta $Q_s$.
+\begin{equation}
+  Q_s(r \to \infty)= - \rho_r C + \rho_s K \Delta z(r \to \infty) = - \rho_r C
+  \label{kontinuitetna-enacba-robni}
+\end{equation}
+
+Dobljeni profil se \dots \dots ujema? z madzarskimi meritvami.
+
+Če ravnovesno obliko vrtače zmotimo s spremembo vrednosti $\sigma$ ali A v enačbi \ref{fit-profila}, vidmo da se nam sistem odzove \dots
 
 \section{Elastomehanični model}
 \section{Boussinesqov približek}
 
 
 \chapter{Numerično modeliranje vrtač} 
-\label{ch3}
+\label{ch4}
 
 \section{Model naključnih korozijskih točk}
 \section{Naključne korozijske točke na realni kamnini}
