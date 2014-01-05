@@ -296,36 +296,18 @@ Na podlagi teh podatkov bi težko skleniti, da (\ref{fit-profila}) opiše profil
 \section{Difuzijski model}
 
 Za izhodišče privzamemo difuzijski model, kot ga predlaga Heimsath \cite{Heimsath2001}.
+
+\begin{figure}[H]
+  \centering
+  \input{slike/difuzijski-model.pgf}
+  \caption{Skica difuzijskega modela nastajanja vrtače}
+  \label{fig:difuzijski-model}
+\end{figure}
+
 \begin{equation}
   \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} - \nabla q_s
   \label{kontinuitetna-enacba-original}
 \end{equation}
-
-
-\setlength{\unitlength}{0.8cm}
-\begin{picture}(6,6)(-1,-1)
-  \put(0,0){\vector(1,0){5}}
-  \put(0,0){\vector(0,1){5}}
-
-\end{picture}
-
-\begin{tikzpicture}[scale=1.5]
-    % Draw axes
-    \draw [<->,thick] (0,2) node (yaxis) [above] {$y$}
-        |- (3,0) node (xaxis) [right] {$x$};
-    % Draw two intersecting lines
-    \draw (0,0) coordinate (a_1) -- (2,1.8) coordinate (a_2);
-    \draw (0,1.5) coordinate (b_1) -- (2.5,0) coordinate (b_2);
-    % Calculate the intersection of the lines a_1 -- a_2 and b_1 -- b_2
-    % and store the coordinate in c.
-    \coordinate (c) at (intersection of a_1--a_2 and b_1--b_2);
-    % Draw lines indicating intersection with y and x axis. Here we use
-    % the perpendicular coordinate system
-    \draw[dashed] (yaxis |- c) node[left] {$y'$}
-        -| (xaxis -| c) node[below] {$x'$};
-    % Draw a dot to indicate intersection point
-    \fill[red] (c) circle (2pt);
-\end{tikzpicture}
 
 Kjer je $h$ višina stolpca sedimenta, $z_b$ višina skalne podlage, $z$ višina površja, $\rho_r$ in $\rho_s$ gostoti skalne podlage in sedimenta, $q_s$ pa gostota toka sedimenta. Za gostoto toka sedimenta vzamemo, da je sorazmeren z naklonom površja:
 \begin{equation}
@@ -334,11 +316,13 @@ Kjer je $h$ višina stolpca sedimenta, $z_b$ višina skalne podlage, $z$ višina
 \end{equation}
 
 Kjer je $K$ analogna konstanta difuzijski.
-Model dopolnimo z raztapljanjem in izpiranjem sedimenta v podzemlje - dodamo člen $Q_s$.
+Model dopolnimo z raztapljanjem in izpiranjem delno raztopljene kamnine v podzemlje - to pospravimo v člen $Q_s$.
 \begin{equation}
   \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} - \nabla q_s - Q_s
   \label{kontinuitetna-enacba}
 \end{equation}
+
+Dobljen model skiciramo na Sliko \ref{fig:difuzijski-model}.
 
 V ravnovesnem stanju vrtače, ki smo ga domnevno našli v \ref{realne-vrtace}. poglavju (enačba \ref{fit-profila}) zahtevamo, da velja $\frac{\partial h}{\partial t} = 0$ in $\frac{\partial z_b}{\partial t} = C$. Dobimo:
 
