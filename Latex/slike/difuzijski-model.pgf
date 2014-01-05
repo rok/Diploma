@@ -1,0 +1,40 @@
+\begin{tikzpicture}[
+    scale=1.8,
+    arrow/.style={thick,->,shorten <=-2pt, shorten >=-2pt},
+    media/.style={font={\footnotesize\sffamily}}
+]
+
+    \fill[color=black!5] (0,4) coordinate (a_1) -- (6,2.5) coordinate (a_2) -- (6,0.5) coordinate (b_2) -- (0,2) coordinate (b_1)-- cycle;
+    \fill[color=black!10] (b_1) -- (b_2) -- (6,0.2) coordinate (c_2) -- (0,1.7) coordinate (c_1) -- cycle;
+    \fill[color=black!25] (c_1) -- (c_2) -- (6,0) -- (0,0) -- cycle;
+
+    \path[media] (1,2.8) node [rotate=-13.5] {Delno preperela}
+                            (1,2.5) node [rotate=-13.5] {kamnina, $\rho_s$}
+                            (2,0.6) node [rotate=-13.5] {Nepreperela kamnina, $\rho_r$}
+                            (1.3,1.5) node [rotate=-13.5] {Preperevanje};
+
+    % Draw surface, solid rock boundary and dz_b
+    \draw [thick]               (a_1) -- (a_2) node [above, xshift=-5pt] {$z$};
+    \draw [thick]               (b_1) -- (b_2) node [above, xshift=-5pt] {$z_b$};
+    \draw [dashed,thick] (c_1) -- (c_2);
+
+    % Draw dr volume
+    \draw (2,1.5) -- (2,3.5);
+    \draw (4,1) -- (4,3);
+
+    %Draw currents
+    \draw [arrow] (1.75,2.4375) -- (2.25,2.3125) node [above=1pt] {$q_s(r)$};
+    \draw [arrow] (3.75,1.9375) -- (4.25,1.8125) node [above left =9pt] {$q_s(r+dr)$};
+    \draw [arrow] (2.5,1.25) -- (2.5,1.55) node [above] {$\rho_r \frac{\partial z_b}{\partial t}$};
+    \draw [arrow] (3.5,1.3) -- (3.5,0.6) node [above=36] {$Q_s$};
+    \draw [arrow] (3,3.1) -- (3,3.45) node [below=18pt] {$\rho_s \frac{\partial h}{\partial t}$};
+
+    % Draw h and dz_b
+    \draw [<->] (5,0.75) -- (5,2.75) node [midway, right] {$h$};
+    \draw [<->] (5,0.45) -- (5,0.75) node [midway, right, yshift=-0pt,rotate=-13.5] {$dz_b$};
+
+    % Draw axes
+    \draw [<->,thick] (0,4.3) node (yaxis) [above] {$z$}
+        |- (6.3,0) node (xaxis) [right] {$r$};
+
+\end{tikzpicture}
