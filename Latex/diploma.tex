@@ -316,9 +316,9 @@ Kjer je $h$ višina stolpca sedimenta, $z_b$ višina skalne podlage, $z$ višina
 \end{equation}
 
 Kjer je $K$ analogna konstanta difuzijski.
-Model dopolnimo z raztapljanjem in izpiranjem delno raztopljene kamnine v podzemlje - to pospravimo v člen $Q_s$.
+Model dopolnimo z raztapljanjem in izpiranjem delno raztopljene kamnine v podzemlje - to pospravimo v člen $Q_s$ in vstavimo \ref{difuzijski-tok}.
 \begin{equation}
-  \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} - \nabla q_s - Q_s
+  \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} + K \rho_s \Delta z - Q_s
   \label{kontinuitetna-enacba}
 \end{equation}
 
@@ -331,21 +331,41 @@ V ravnovesnem stanju vrtače, ki smo ga domnevno našli v \ref{realne-vrtace}. p
   \label{kontinuitetna-enacba-ravnovesje}
 \end{equation}
 
-Vstavimo še ravnovesni profil vrtače (enačba \ref{fit-profila}) in zahtevamo, da je hitrost raztapljanja sedimenta daleč od središča vrtače enaka hitrosti zniževanja ravnega površja in tako do konstante določimo profil raztapljanja sedimenta $Q_s$.
-\begin{equation}
-  Q_s(r \to \infty)= - \rho_r C + \rho_s K \Delta z(r \to \infty) = - \rho_r C
-  \label{kontinuitetna-enacba-robni}
-\end{equation}
+Vstavimo ravnovesni profil vrtače (enačba \ref{fit-profila}) in vrednosti iz tabele (\ref{tab:tabela-konstant}), da dobimo profil $Q_s$ profil raztapljanja apnenca v na površju (Slika (\ref{fig:profil-raztapljanja})).
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{| l | c | l | l |} \hline
+    $\rho_r$ & $2700$ $kg/m^3$ & Gostota apnenca                                            \\ \hline
+    $\rho_s$ & $1000$ $kg/m^3$ & Gostota delno preperele kamnine                            \\ \hline
+    $C$      & $50 \cdot 10^{-6} m/leto$  & Hitrost preperevanja apnenca na ravnini         \\ \hline
+    $K$      & $1 \cdot 10^{-4} m^2/leto$ & Difuzijska konstanta za delno preperelo kamnino \\ \hline
+    $\sigma$ & $4.5m$ & $\sigma$ vrtače po nastavku (\ref{fit-profila})                     \\ \hline
+    $A$      & $6m$ & Globina vrtače $A$ po nastavku (\ref{fit-profila})                    \\ \hline
+  \end{tabular}
+  \caption{Vrednosti iz literature \cite{Gams1967} \cite{ford2007karst} \cite{fleurant2008modelling} in \ref{realne-vrtace}. poglavja}
+  \label{tab:tabela-konstant}
+\end{table}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics{slike/vrtaca-aggtelek.jpg}
+    \includegraphics[width=10cm]{slike/profil-raztapljanja}
   \end{center}
-  \caption{Meritve odtekanja vode in raztapljanja apnenca realni vrtači v dolini Beke na Madžarskem je opisal \cite{Zambo1997}}
+  \caption{(a) Profil vrtače (b) modeliran profil raztapljanja delno preperele kamnine}
+  \label{fig:profil-raztapljanja}
+\end{figure}
+
+Dobljeni profil raztapljanja nakazuje kvalitativno podobnost meritvam, ki jih je opravil Zambo (\cite{Zambo1997}) v osemdesetih (Slika \ref{fig:vrtaca-aggtelek}).
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=10cm]{slike/vrtaca-aggtelek}
+  \end{center}
+  \caption{Meritve raztapljanja apnenca v realni vrtači - dolina Beke, nacionalni park Aggtelek na Madžarskem \cite{Zambo1997}}
   \label{fig:vrtaca-aggtelek}
 \end{figure}
 
-Če ravnovesno obliko vrtače zmotimo s spremembo vrednosti $\sigma$ ali A v enačbi \ref{fit-profila}, vidmo da se nam sistem odzove \dots
+Profil vrtače blizu ravnovesja zmotimo s spremembo vrednosti oblike profila ($z(r)$), vstavimo nastavek za $\frac{\partial z_b}{\partial t}=\frac{1}{|h_0-h|}$ in \dots
 
 \section{Elastomehanični model}
 \section{Boussinesqov približek}
