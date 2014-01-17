@@ -45,7 +45,7 @@ for i=1:size(s,1)
                         'Cx',   fitresult.g, ...
                         'Cy',   fitresult.h  );
 
-	if 1
+	if 0
         x0 = [size(tmp,2)/2;size(tmp,1)/2];
         x = fsolve(@(x)vrtaca(x,s(i).fit),x0);
 
@@ -76,8 +76,7 @@ for i=1:size(s,1)
     s(i).y = x(2);
 end
 
-%%
-%save strrep(podatki,'.grd','-fiti.mat') 
+save(strrep(podatki,'.grd','-fiti2.mat'), 's')
 %X = [[fity.h]',[fity.A]',[fity.x0]',[fity.sx]',[fity.y0]',[fity.sy]',[fity.Cx]',[fity.Cy]'];
 
 %%
