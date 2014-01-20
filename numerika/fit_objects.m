@@ -1,28 +1,28 @@
-% function fixo(podatki)
+function fit_objects(data)
 
-podatki='menisija.grd';
-grid=grd_read_v2(podatki);
+grid=grd_read_v2(data);
 grid(grid==1.701410000000000e+038)=0;grid(grid==-1)=0;
-load(strrep(podatki,'.grd','-obj.mat'))
+load(strrep(data,'.grd','-obj.mat'))
 
-% Izracunamo statistiko
+% Calculate statistics of objects
 s = [regionprops(TPI{2}-1,'Area','BoundingBox','Image'); ...
      regionprops(TPI{1}-1,'Area','BoundingBox','Image'); ...
      regionprops(TPI{3}-1,'Area','BoundingBox','Image')];
-% Odstranimo premajhne vrtace
+% Remove objects too small
 s( find([s.Area] == 0) ) = [];
 
-% Izracunamo lokacije izrezov
+% Save bounding boxes
 bb = fix(reshape([s.BoundingBox],4,[]));
 
 %%
-% Manjkajoce podatke nadomestimo s povprecjem v bounding box-u,
-% vsem tockam vrtac odstejemo visino minimalne tocke,
-% vrtace raztegnemo na velikost najvecje vrtace v mnozici.
+% Missing data is replaced by average of other data within
+% bounding box. Values of pixles are set so that minimum points
+% are at zero height.
 
+tic; disp 'Fitting ..';
 for i=1:size(s,1)
     tmp = grid(bb(2,i):(bb(2,i)+bb(4,i)-1),bb(1,i):(bb(1,i)+bb(3,i)-1));
-    tmp(tmp==0) = mean(tmp(tmp~=0)); % popravek zaradi manjkajocih tock na mejah
+    tmp(tmp==0) = mean(tmp(tmp~=0)); % Correncting for missing points at borders
     tmp = tmp - min(min(tmp));
     weights = s(i).Image;
 
@@ -45,9 +45,9 @@ for i=1:size(s,1)
                         'Cx',   fitresult.g, ...
                         'Cy',   fitresult.h  );
 
-	if 0
+	if 0 % If set to '1' enables debugging plot
         x0 = [size(tmp,2)/2;size(tmp,1)/2];
-        x = fsolve(@(x)vrtaca(x,s(i).fit),x0);
+        x = fsolve(@(x)doline(x,s(i).fit),x0);
 
         figure(gcf);
         subplot(1,2,1);	
@@ -64,22 +64,19 @@ for i=1:size(s,1)
         pause
     end
 end
+disp 'Fitting ended'; toc;
 
 %%
-% Najdemo minimum fita, ga sprejmemo za center vrtace
+% Find minimum of fit, declare it center of doline
 
 for i=1:size(s,1)
     x0 = [bb(3,i)/2;bb(4,i)/2];
-    x = fsolve(@(x)vrtaca(x,s(i).fit),x0);
+    x = fsolve(@(x)doline(x,s(i).fit),x0);
     disp(strcat(num2str(i), '/', num2str(size(s,1))));
     s(i).x = x(1);
     s(i).y = x(2);
 end
 
-save(strrep(podatki,'.grd','-fiti2.mat'), 's')
-%X = [[fity.h]',[fity.A]',[fity.x0]',[fity.sx]',[fity.y0]',[fity.sy]',[fity.Cx]',[fity.Cy]'];
+save(strrep(data,'.grd','-fits.mat'), 's')
 
-%%
-%grd_write(Z,1,size(Z,1),1,size(Z,2),strcat('vrtaca-',podatki));
-
-%end
+end
