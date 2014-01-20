@@ -1,57 +1,64 @@
-%%podatki='/media/user/90A9-8DF8/menisija.grd';
-%%grid=grd_read_v2(podatki);
-%%load /home/user/diploma/numerika/centri-po-fitu.mat
-%
-%bb = fix(reshape([s.BoundingBox],4,[]));
-%
-%for i=1:size(s,1)
-    %tmp = grid(bb(2,i):(bb(2,i)+bb(4,i)-1),bb(1,i):(bb(1,i)+bb(3,i)-1));
-    %tmp(tmp==0) = mean(tmp(tmp~=0)); % popravek zaradi manjkajocih tock na mejah
-    %tmp = tmp - min(min(tmp));
-    %%imagesc(tmp);
-    %
-    %if (s(i).y > 0) && ( s(i).y < size(tmp,1) ) && (s(i).x > 0) && ( s(i).x < size(tmp,2) )
-%
-    %stevec = zeros(2,sqrt(size(tmp,1)^2+size(tmp,2)^2));
-    %
-    %for j=1:size(tmp,1)
-        %for k=1:size(tmp,2)
-            %r = nonzeros(round( sqrt((k-s(i).x)^2 + (j-s(i).y)^2) ));
-            %stevec(1,r) = stevec(1,r) + tmp(j,k);
-            %stevec(2,r) = stevec(2,r) + 1;
-        %end
-    %end
-    %stevec(1,:)  = stevec(1,:) ./ stevec(2,:);
-    %s(i).profil = stevec(1,~isnan(stevec(1,:)));
-    %s(i).profilsize = size(s(i).profil,2);
-%end
-%end
-%maxprofil = max([s.profilsize]);
-%minprofil = min([s.profilsize]);
-%
-%%save(strrep(podatki,'.grd','-profili.mat'),'s')
-%save('/home/user/diploma/numerika/menisija-profili2.mat','s')
-%
-%load /home/user/diploma/numerika/menisija-profili2.mat
-%
-%maxprofil = max([s.profilsize]);
-%profi  = zeros(maxprofil);
-%n = zeros(maxprofil,1);
-%
-%for j=1:maxprofil
-    %n(j) = sum([s.profilsize] == j);
-%end
-%n(n==0)=1;
-%
-%for i=5:size(s,1)
-    %s(i).profil = [s(i).profil,zeros(1,maxprofil - s(i).profilsize)];
-    %if s(i).profilsize > 0
-        %profi(:,s(i).profilsize) = profi(:,s(i).profilsize) + s(i).profil' / n(s(i).profilsize);
-    %end
-%end
+podatki='menisija.grd';
+grid=grd_read_v2(podatki);
+%load menisija-fiti2.mat
 
+<<<<<<< HEAD
 %save('/home/user/diploma/numerika/menisija-profil-profilov.mat','profi')
 podatki='/home/rok/Diploma/numerika/menisija.grd';
+=======
+bb = fix(reshape([s.BoundingBox],4,[]));
+
+for i=1:size(s,1)
+    tmp = grid(bb(2,i):(bb(2,i)+bb(4,i)-1),bb(1,i):(bb(1,i)+bb(3,i)-1));
+    tmp(tmp==0) = mean(tmp(tmp~=0)); % popravek zaradi manjkajocih tock na mejah
+    tmp = tmp - min(min(tmp));
+    %imagesc(tmp);
+    
+    if (s(i).y > 0) && ( s(i).y < size(tmp,1) ) && (s(i).x > 0) && ( s(i).x < size(tmp,2) )
+
+    stevec = zeros(2,sqrt(size(tmp,1)^2+size(tmp,2)^2));
+    
+    for j=1:size(tmp,1)
+        for k=1:size(tmp,2)
+            r = nonzeros(round( sqrt((k-s(i).x)^2 + (j-s(i).y)^2) ));
+            stevec(1,r) = stevec(1,r) + tmp(j,k);
+            stevec(2,r) = stevec(2,r) + 1;
+        end
+    end
+    stevec(1,:)  = stevec(1,:) ./ stevec(2,:);
+    s(i).profil = stevec(1,~isnan(stevec(1,:)));
+    s(i).profilsize = size(s(i).profil,2);
+end
+end
+maxprofil = max([s.profilsize]);
+minprofil = min([s.profilsize]);
+
+save(strrep(podatki,'.grd','-profili.mat'),'s')
+
+%%
+
+load(strrep(podatki,'.grd','-profili.mat'))
+
+maxprofil = max([s.profilsize]);
+profi  = zeros(maxprofil);
+n = zeros(maxprofil,1);
+
+for j=1:maxprofil
+    n(j) = sum([s.profilsize] == j);
+end
+n(n==0)=1;
+
+for i=5:size(s,1)
+    s(i).profil = [s(i).profil,zeros(1,maxprofil - s(i).profilsize)];
+    if s(i).profilsize > 0
+        profi(:,s(i).profilsize) = profi(:,s(i).profilsize) + s(i).profil(:) / n(s(i).profilsize);
+    end
+end
+
+save(strrep(podatki,'.grd','-profil-profilov.mat'),'profi','s')
+
+%%
+>>>>>>> edc2f95ff49fadd7ba9e016cf1a32d95c22d0afe
 load(strrep(podatki,'.grd','-profil-profilov.mat'))
 
 if 0 % Plot histograma efektivnih velikosti
