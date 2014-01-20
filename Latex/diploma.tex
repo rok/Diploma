@@ -256,6 +256,16 @@ Rezultat uporabimo tako da gaussovo funkcijo nalegamo na realne vrtače in tako 
   \label{fig:menisija-profil-21-fit}
 \end{figure}
 
+Pri tem pa je porazdelitev uteži gaussove funkcije Slika (\ref{fig:menisija-globine-hist}).
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics{slike/menisija-globine-hist}
+  \end{center}
+  \caption{Porazdelitev uteži A za gaussovo funkcijo prilegano na vrtače v menišiji}
+  \label{fig:menisija-globine-hist}
+\end{figure}
+
 Če pa vse profile združimo v eno sliko, tako da polmer postavimo v smeri osi $y$ in efektivni polmer v smeri $x$ osi, dobimo sledečo sliko \ref{fig:menisija-profil-profilov}
 
 \begin{figure}[H]
@@ -272,18 +282,18 @@ Zdi se torej, da so vrtače enake oblike ne glede na velikost in to po celi njih
   \label{fit-profila}
 \end{equation}
 
-Odvisnost $\sigma_x(r_{eff})$ je iz naših podatkov težko določiti, zaenkrat poskusimo z eksponentno funkcijo (\ref{sigma-od-reff})
+Odvisnost $\sigma_x(r_{eff})$ je iz naših podatkov težko določiti, zaenkrat poskusimo z linearno funkcijo (\ref{sigma-od-reff})
 
 
 \begin{equation}
-  \sigma (r_{eff}) = A \cdot e^{-\frac{r_{eff}-r_{eff_0}}{\sigma_{\sigma}}} + C 
+  \sigma (r_{eff}) = k \cdot r_{eff} + C
   \label{sigma-od-reff}
 \end{equation}
 
 \begin{figure}[H]
   \centering
   \includegraphics{slike/menisija-sigme}
-  \caption{$\sigma$ s polmerom pada, torej večje kot so vrtače, bolj položna so njihova pobočja.}
+  \caption{$\sigma$ s polmerom narašča, torej večje kot so vrtače, bolj položna so njihova pobočja.}
   \label{fig:menisija-sigma}
 \end{figure}
 

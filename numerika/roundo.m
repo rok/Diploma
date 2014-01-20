@@ -51,7 +51,8 @@
 %end
 
 %save('/home/user/diploma/numerika/menisija-profil-profilov.mat','profi')
-load /home/user/diploma/numerika/menisija-profil-profilov.mat
+podatki='/home/rok/Diploma/numerika/menisija.grd';
+load(strrep(podatki,'.grd','-profil-profilov.mat'))
 
 if 0 % Plot histograma efektivnih velikosti
     hist([s.profilsize],max([s.profilsize]))
@@ -59,6 +60,24 @@ if 0 % Plot histograma efektivnih velikosti
     xlabel('Efektivni polmer [m]')
     ylabel('N [ ]')
     print ../Latex/slike/menisija-polmeri-hist.eps -depsc "-S750,420"
+end
+
+if 1 % Plot histograma utezi za globino A
+    B=zeros(1, size(s,1));
+    for i=1:size(s,1)
+        try
+        B(1,i)=s(i).profilsize;
+        end
+    end
+    A = (B>0) .* [[s(:).fit].A];
+    A=abs(A(A!=0));
+    A=A(A<30);
+    A=A(A>1);
+    hist(A,30)
+    title('Porazdelitev utezi prislonjenih funkcij')
+    xlabel('Utez gaussove funkcije - A [m]')
+    ylabel('N(A) [ ]')
+    print ../Latex/slike/menisija-globine-hist.eps -depsc "-S750,420"
 end
 
 if 0 % Plot enega od povprecnih profilov vrtac
