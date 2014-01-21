@@ -3,7 +3,7 @@
 % The input file, ASCII grid file
 data='menisija.grd';
 
-%% Identify concave objects if analysis wasn't done yet
+%% Identify concave objects
 if ~exist(strrep(data,'.grd','-obj.mat'), 'file') == 1
     extract_objects(data)
 end
