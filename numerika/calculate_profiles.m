@@ -1,4 +1,4 @@
-function  calculate_profiles(data)
+function calculate_profiles(data)
 grid=grd_read_v2(data);
 load(strrep(data,'.grd','-fits.mat'))
 bb = fix(reshape([s.BoundingBox],4,[]));

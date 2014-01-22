@@ -25,5 +25,5 @@ end
 
 %% Average found concave objects
 if ~exist(strcat('vrtaca-',data), 'file') == 1
-    zoomo(data);
+    average_dolines(data);
 end
