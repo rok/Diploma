@@ -12,7 +12,7 @@ if 1
     title('Porazdelitev konkavnih objektov po efektivnem polmeru')
     xlabel('Efektivni polmer [m]')
     ylabel('N [ ]')
-    printpdf(gcf,'../Latex/slike/menisija-polmeri-hist',16,12); %'-S750,420'
+    printpdf(gcf,'../Latex/slike/menisija-polmeri-hist',14.5,8); %'-S750,420'
 end
 
 %%
@@ -28,7 +28,7 @@ if 1
     title('Porazdelitev utezi prislonjenih funkcij')
     xlabel('Utez gaussove funkcije - A [m]')
     ylabel('N(A) [ ]')
-    printpdf(gcf,'../Latex/slike/menisija-globine-hist',16,12); %'-S750,420'
+    printpdf(gcf,'../Latex/slike/menisija-globine-hist',14.5,6); %'-S750,420'
 end
 
 %%
@@ -39,10 +39,10 @@ if 1
 
     figure(gcf);
     hist(sigmas(sigmas<60),60)
-    title('Porazdelitev \sigma = \surd{(\sigma_x^2 + \sigma_y^2)} prislonjenih funkcij')
-    xlabel('\sigma [m]')
+    title('Porazdelitev \sigma prislonjenih funkcij')
+    xlabel('\sigma = (\sigma_x^2 + \sigma_y^2)^{1/2} [m]')
     ylabel('N(\sigma) [ ]')
-    printpdf(gcf,'../Latex/slike/menisija-sigme-hist',16,12); %'-S750,420'
+    printpdf(gcf,'../Latex/slike/menisija-sigme-hist',14.5,8); %'-S750,420'
 end
 
 %%
@@ -71,7 +71,7 @@ if 1
     xlabel('Polmer [m]')
     ylabel('Odstopanje modela f(r) [m]')
     legend('f(r) = z_{izmerjen}(r) - A e^{-((r-r_0)/\sigma)^2}','location','southeast')
-    printpdf(gcf,'../Latex/slike/menisija-profil-21-fit',16,12); %'-S900,400'
+    printpdf(gcf,'../Latex/slike/menisija-profil-21-fit',14.5,8); %'-S900,400'
 end
 
 %%
@@ -110,12 +110,12 @@ if 1
     plot(sigmas);
     hold on;
     plot(sigma_fit);
-    title('Odvisnost sigma od r_{eff}');
+    title('Odvisnost \sigma(r_{eff})');
     ylabel('\sigma [m]');
     xlabel('Velikost vrtac r_{eff} [m]');
     legend('Izmerjena \sigma',sprintf('Sigma(r_{eff}) = %f * r_{eff} + %f',sigma_fit.k,sigma_fit.const),'location','southeast');
     hold off;
-    printpdf(gcf,'../Latex/slike/menisija-sigme',16,12);
+    printpdf(gcf,'../Latex/slike/menisija-sigme',14.5,8);
 end
 
 
@@ -127,7 +127,7 @@ if 1
     title('Visina v odvisnosti od polmera za povprecja vrtac razlicih velikosti')
     xlabel('Efektivni polmer objektov [m]')
     ylabel('Polmer profila  [m]')
-    printpdf(gcf,'../Latex/slike/menisija-profil-profilov',16,12);
+    % printpdf(gcf,'../Latex/slike/menisija-profil-profilov',16,12);
 end
 
 end

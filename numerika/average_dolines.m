@@ -8,7 +8,8 @@ load(strrep(data,'.grd','-obj.mat'))
 s = [regionprops(TPI{2}-1,'Area','BoundingBox'); ...
      regionprops(TPI{1}-1,'Area','BoundingBox'); ...
      regionprops(TPI{3}-1,'Area','BoundingBox')];
-% REmove too small objects
+
+% Remove objects too small
 s( find([s.Area] == 0) ) = [];
 
 %%
@@ -54,10 +55,10 @@ for i=1:size(s,1)
 %    imagesc(tmp);
 %    pause
 end
-imagesc(Z);
+%imagesc(Z);
 
 %%
 % Write the result into a .grd file
-grd_write(Z,1,size(Z,1),1,size(Z,2),strcat('vrtaca-',data));
+grd_write(Z,1,size(Z,1),1,size(Z,2),strrep(data,'.grd','-average-doline.grd'));
 
 end
