@@ -127,7 +127,7 @@ if 1
     title('Visina v odvisnosti od polmera za povprecja vrtac razlicih velikosti')
     xlabel('Efektivni polmer objektov [m]')
     ylabel('Polmer profila  [m]')
-    % printpdf(gcf,'../Latex/slike/menisija-profil-profilov',16,12);
+    printpdf(gcf,'../Latex/slike/menisija-profil-profilov',14.5,8);
 end
 
 end

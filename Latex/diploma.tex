@@ -181,7 +181,7 @@ Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj de
   \label{fig:vrtaca-ford-williams}
 \end{figure}
 
-Za študij realnih vrtač uporabimo digitalni model reliefa Menišije (Slika \ref{fig:menisija-karta}) ločljivosti 1m, ki omogoča zanesljivo identifikacijo in študij vrtačter udornic (Slika \ref{fig:menisija-relief}).
+Za študij realnih vrtač uporabimo digitalni model reliefa Menišije (Slika \ref{fig:menisija-karta}) ločljivosti 1m, ki omogoča zanesljivo identifikacijo in študij vrtač ter udornic (Slika \ref{fig:menisija-relief}).
 
 \begin{figure}[H]
   \centering
@@ -190,7 +190,7 @@ Za študij realnih vrtač uporabimo digitalni model reliefa Menišije (Slika \re
   \label{fig:menisija-karta}
 \end{figure}
 
-Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 miljonov let), ki so na površje prišli zaradi odgodkov povezanih s podrivanjem Adriatske plošče (17-7 miljonov let). Menišija je bila uravnano kraško polje do 3.5 miljona let pred sedanjostjo, ko se je zaradi tektonske aktivnosti dvignila nad okolico in so bili vzpostavljeni hidrološki pogoji za nastanek vrtač. Hitrost zniževanja (denudacije) kraškega površja se ocenjuje na 20-50 m / miljon let, torej se je površje Menišije v času od nastanka znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. (Citati: Vrabec, Ford-Williams, Gams)
+Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 miljonov let), ki so na površje prišli zaradi dogodkov povezanih s podrivanjem Adriatske plošče (17-7 miljonov let). Menišija je bila uravnano kraško polje do 3.5 miljona let pred sedanjostjo, ko se je zaradi tektonske aktivnosti dvignila nad okolico in vzpostavljeni so bili hidrološki pogoji za nastanek vrtač. Hitrost zniževanja (denudacije) kraškega površja se ocenjuje na 20-50 m / miljon let, torej se je površje Menišije v času od nastanka znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. (Citati: Vrabec, Ford-Williams, Gams)
 
 \begin{figure}[H]
   \begin{center}
@@ -201,13 +201,13 @@ Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 
 \end{figure}
 \chapter{Preučevanje realnih vrtač}
 \label{realne-vrtace}
-Identifikacijo velike količine se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}. Točke, ki so nižje od svoje okolice imajo nižji indeks konkavnosti, točke višje od svoje okolice pa višjega. Pri tem je pomembna tudi pametna izbiro okolice - od nje je odvisno kako velike konkavnosti bomo zaznali. Končno zavržemo konveksne dele površja in konkavne odberemo izberemo kot vrtače. Rezultat vidimo na sliki \ref{fig:menisija-vrtace}. Opaziti velja, da izbrana metoda segmetacije del robov konkavnih objektov klasificira kot konkavne in zato podceni radij. Za naše namene to ni pretirano moteče, saj to podcenitev zlahka kompenziramo kasneje.
+Identifikacijo velike količine se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}. Točke, ki so nižje od svoje okolice imajo nižji indeks konkavnosti, točke višje od svoje okolice pa višjega. Pri tem je pomembna tudi pametna izbiro okolice - od nje je odvisno kako velike konkavnosti bomo zaznali. Končno zavržemo konveksne dele površja in konkavne odberemo kot vrtače. Rezultat vidimo na sliki \ref{fig:menisija-vrtace}. Opaziti velja, da izbrana metoda segmetacije del robov konkavnih objektov klasificira kot konkavne in zato podceni radij. Za naše namene to ni pretirano moteče, saj to podcenitev zlahka kompenziramo kasneje.
 
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=13cm]{slike/menisija-vrtace}
   \end{center}
-  \caption{Del od 8687 zaznanih konkavnih objektov na območju Menišije. Poleg vrtač, so na sliki vidne tudi udornice.}
+  \caption{Del od 8687 zaznanih konkavnih objektov na območju Menišije. Poleg vrtač so na sliki vidne tudi udornice.}
   \label{fig:menisija-vrtace}
 \end{figure}
 
@@ -217,14 +217,14 @@ Najdeni konkavni objekti imajo porazdelitev efektivnih polmerov (\mbox{$r_{eff}=
 \begin{figure}[H]
   \centering
   \includegraphics{slike/menisija-polmeri-hist}
-  \caption{Polmeri konkavnih objektov v Menišiji, vrh pade v razred od 16m do 17m}
+  \caption{Polmeri konkavnih objektov v Menišiji, vrh pade v razred od 24m do 25m}
   \label{fig:menisija-polmeri-hist}
 \end{figure}
 
 To daje slutiti, da obstaja ravnovesna velikost vrtače, h kateri konvergirajo vse konkavne oblike v območju ne glede na njihov nastanek.
 To nas napelje na misel, da obstaja tudi ravnovesna oblika vrtače, ki bi se pojavila na idelani podlagi, če bi preteklo dovolj časa.
 
-Posamezne realne vrtače zaradi lokalnih pogojev in zgodovine razvoja reliefa niso simetrične, a zdi se da so si med seboj podobne. Da bi ugotovili idealno obliko vrtače izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh. 
+Posamezne realne vrtače zaradi lokalnih pogojev in zgodovine razvoja reliefa niso simetrične, a zdi se, da so si med seboj podobne. Da bi ugotovili idealno obliko vrtače, izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh. 
 
 \begin{figure}[H]
   \centering
@@ -247,7 +247,7 @@ Na prvi pogled se zdijo dobljeni profili gaussove oblike (\ref{fit-vrtace}), kar
   \label{fit-vrtace}
 \end{equation}
 
-Rezultat uporabimo tako da gaussovo funkcijo nalegamo na realne vrtače in tako dobimo dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izračunamo povprečne profile vrtač ($z(r)$), ki imajo enake efektivne polmere, naprimer: Slika \ref{fig:menisija-profil-21-fit}
+Rezultat uporabimo tako, da gaussovo funkcijo nalegamo na realne vrtače in tako dobimo dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izračunamo povprečne profile vrtač ($z(r)$), ki imajo enake efektivne polmere, naprimer: Slika \ref{fig:menisija-profil-21-fit}
 
 \begin{figure}[H]
   \centering
@@ -262,7 +262,7 @@ Pri tem pa je porazdelitev uteži gaussove funkcije Slika (\ref{fig:menisija-glo
   \begin{center}
     \includegraphics{slike/menisija-globine-hist}
   \end{center}
-  \caption{Porazdelitev uteži A za gaussovo funkcijo prilegano na vrtače v menišiji}
+  \caption{Porazdelitev uteži A za gaussovo funkcijo prilegano na vrtače v Menišiji}
   \label{fig:menisija-globine-hist}
 \end{figure}
 
@@ -270,7 +270,7 @@ Pri tem pa je porazdelitev uteži gaussove funkcije Slika (\ref{fig:menisija-glo
   \begin{center}
     \includegraphics{slike/menisija-sigme-hist}
   \end{center}
-  \caption{Porazdelitev uteži $\sigma$ za gaussovo funkcijo prilegano na vrtače v menišiji}
+  \caption{Porazdelitev uteži $\sigma$ za gaussovo funkcijo prilegano na vrtače v Menišiji}
   \label{fig:menisija-sigme-hist}
 \end{figure}
 
@@ -284,7 +284,7 @@ Pri tem pa je porazdelitev uteži gaussove funkcije Slika (\ref{fig:menisija-glo
 \end{figure}
 
 Zdi se torej, da so vrtače enake oblike ne glede na velikost in to po celi njihovi površini, le v okoliško površje se iztečejo prej ali kasneje, a zopet na podoben način.
-Če na dobljene profile ponovno nalegamo gaussovko (\ref{fit-profila}) in izrišemo odvisnost $\sigma_x (r_{eff})$ vidimo, da to ne drži (Slika \ref{fig:menisija-sigma}).  
+Če na dobljene profile ponovno nalegamo gaussovko (\ref{fit-profila}) in izrišemo odvisnost $\sigma_x (r_{eff})$, vidimo, da to ne drži (Slika \ref{fig:menisija-sigma}).  
 \begin{equation}
   f(r) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C  
   \label{fit-profila}
@@ -313,6 +313,70 @@ Na podlagi teh podatkov bi težko skleniti, da (\ref{fit-profila}) opiše profil
 
 \section{Difuzijski model}
 
+Dinamiko vrtače poskusimo opisati s preprostim difuzijskim modelom:
+
+\begin{equation}
+  \nabla \cdot \mathbf{j} = - \rho c_d \frac{\partial z}{\partial t} + q
+  \label{kontinuitetna-enacba-1}
+\end{equation}
+
+Kjer je $q$ gostota 'ponorov snovi'. Za tok privzamemo:
+
+\begin{equation}
+  \mathbf{j} = - \rho D(z) \nabla z
+  \label{tok}
+\end{equation}
+
+Dobimo
+
+\begin{equation}
+  \nabla \cdot (k(r) \nabla z) = \rho c_d \frac{\partial z}{\partial t} - q
+  \label{kontinuitetna-enacba-2}
+\end{equation}
+
+Če privzamemo $k(r) = \frac{4(r^2 -\sigma^2)}{\sigma^4}$ in radialno simetričnost dobimo v cilindričnih koordinatah izraz:
+
+\begin{equation}
+  \frac{1}{r} \frac{\partial}{\partial r} (\frac{4(r^2 -\sigma^2)}{\sigma^4} \cdot \frac{\partial z(r,t)}{\partial r}) = \rho c_d \frac{\partial z}{\partial t} - q(r,t)
+  \label{kontinuitetna-enacba-3}
+\end{equation}
+
+vstavimo z nastavek:
+
+\begin{equation}
+  z(r,t) = -A e^{-(\frac{r}{\sigma})^2} (1-e^{-\frac{t}{\tau}})
+  \label{nastavek-difuzija-1}
+\end{equation}
+
+In dobimo:
+
+\begin{equation}
+  q(r,t) = \frac{16 A e^{-(\frac{r}{\sigma})^2-\frac{t}{\tau}}(e^{\frac{t}{\tau}}-1)(r^4-3 r^2 \sigma^2 + \sigma^4)}{\sigma^8} - \frac{\rho c_d A e^{-(\frac{r}{\sigma})^2-\frac{t}{\tau}}}{\tau}
+  \label{kontinuitetna-enacba-4}
+\end{equation}
+
+\begin{equation}
+  q(r,t) = -\frac{A e^{-(\frac{r}{\sigma})^2-\frac{t}{\tau}} (\rho c_d \sigma^8 -16\tau (-1 + e^{\frac{t}{\tau}}) ( r^4-3r^2\sigma^2+\sigma^4) )}{\sigma^8 \tau}
+  \label{kontinuitetna-enacba-4}
+\end{equation}
+
+Vstavimo ocenjene konstante in izrišemo funkcije:
+
+\begin{figure}[H]
+  \centering
+  \input{slike/vrtaca-ravnovesje-z.png}
+  \caption{Časovna odvisnost modela nastajanja}
+  \label{fig:difuzijski-casovna-odvisnost-z}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \input{slike/vrtaca-ravnovesje-q.png}
+  \caption{Časovna odvisnost modela nastajanja vrtače}
+  \label{fig:difuzijski-casovna-odvisnost-q}
+\end{figure}
+
+\newpage
 
 \section{Dvofazni difuzijski model}
 
