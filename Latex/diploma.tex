@@ -190,7 +190,7 @@ Za študij realnih vrtač uporabimo digitalni model reliefa Menišije (Slika \re
   \label{fig:menisija-karta}
 \end{figure}
 
-Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 miljonov let), ki so na površje prišli zaradi dogodkov povezanih s podrivanjem Adriatske plošče (17-7 miljonov let). Menišija je bila uravnano kraško polje do 3.5 miljona let pred sedanjostjo, ko se je zaradi tektonske aktivnosti dvignila nad okolico in vzpostavljeni so bili hidrološki pogoji za nastanek vrtač. Hitrost zniževanja (denudacije) kraškega površja se ocenjuje na 20-50 m / miljon let, torej se je površje Menišije v času od nastanka znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. (Citati: Vrabec, Ford-Williams, Gams)
+Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 miljonov let), ki so na površje prišli zaradi dogodkov povezanih s podrivanjem Adriatske plošče (17-7 miljonov let). Menišija je bila uravnano kraško polje do 3.5 miljona let pred sedanjostjo, ko se je zaradi tektonske aktivnosti dvignila nad okolico in vzpostavljeni so bili hidrološki pogoji za nastanek vrtač. Hitrost zniževanja (denudacije) kraškega površja se ocenjuje na 20-50 m / miljon let, torej se je površje Menišije v času od nastanka znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. \cite{Vrabec2006} \cite{Placer2010}
 
 \begin{figure}[H]
   \begin{center}
@@ -313,69 +313,122 @@ Na podlagi teh podatkov bi težko skleniti, da (\ref{fit-profila}) opiše profil
 
 \section{Difuzijski model}
 
-Dinamiko vrtače poskusimo opisati s preprostim difuzijskim modelom:
+Dinamiko vrtače poskusimo opisati s preprostim difuzijskim modelom in predpostavljeno difuzijsko konstanto (\ref{difuzijska-enacba-difuzijska-konstanta-1}):
 
 \begin{equation}
-  \nabla \cdot \mathbf{j} = - \rho c_d \frac{\partial z}{\partial t} + q
-  \label{kontinuitetna-enacba-1}
+  \nabla \cdot \mathbf{j} = - \rho \frac{\partial z}{\partial t}
+  \label{difuzijska-enacba-1}
 \end{equation}
-
-Kjer je $q$ gostota 'ponorov snovi'. Za tok privzamemo:
 
 \begin{equation}
-  \mathbf{j} = - \rho D(z) \nabla z
-  \label{tok}
+  \mathbf{j} = - \rho k(r) \nabla z
+  \label{difuzijska-enacba-tok}
 \end{equation}
-
-Dobimo
 
 \begin{equation}
-  \nabla \cdot (k(r) \nabla z) = \rho c_d \frac{\partial z}{\partial t} - q
-  \label{kontinuitetna-enacba-2}
+  k(r) = k_0 + \alpha z
+  \label{difuzijska-enacba-difuzijska-konstanta-1}
 \end{equation}
 
-Če privzamemo $k(r) = \frac{4(r^2 -\sigma^2)}{\sigma^4}$ in radialno simetričnost dobimo v cilindričnih koordinatah izraz:
+Privzamemo radialno simetričnost in v cilindričnih koordinatah računamo $k_0$ v ravnovesnem stanju.
 
 \begin{equation}
-  \frac{1}{r} \frac{\partial}{\partial r} (\frac{4(r^2 -\sigma^2)}{\sigma^4} \cdot r \frac{\partial z(r,t)}{\partial r}) = \rho c_d \frac{\partial z}{\partial t} - q(r,t)
-  \label{kontinuitetna-enacba-3}
+  z(r,t \rightarrow\infty) = z(r) = -A e^{-(\frac{r}{\sigma})^2}
+  \label{nastavek-ravnovesje}
 \end{equation}
 
-vstavimo z nastavek:
+\begin{equation}
+  \frac{1}{r} \frac{\partial}{\partial r} \left((k_0 + \alpha z(r)) \cdot r \frac{\partial}{\partial r} z(r) \right) = 0
+  \label{difuzijska-enacba-2}
+\end{equation}
+
+\begin{equation}
+  k_0 = C \frac{e^{(\frac{r}{\sigma})^2}}{r^2} + A e^{-(\frac{r}{\sigma})^2} \alpha = - C \frac{A}{z(r) r^2} - z(r) \alpha
+  \label{difuzijska-enacba-difuzijska-konstanta-2}
+\end{equation}
+
+Nato za dinamični nastavek uporabimo (\ref{nastavek-dinamicno}) in poskusimo ugotoviti $\alpha$.
 
 \begin{equation}
   z(r,t) = -A e^{-(\frac{r}{\sigma})^2} (1-e^{-\frac{t}{\tau}})
-  \label{nastavek-difuzija-1}
+  \label{nastavek-dinamicno}
 \end{equation}
 
-In dobimo:
+Računamo:
+
+\[
+  \alpha(r,t) = - \frac{\rho \sigma^4}{4 A \tau r^2 (1-e^{\frac{t}{\tau}})} \cdot e^{(\frac{r}{\sigma})^2 + \frac{t}{\tau}} + \frac{D e^{\frac{2r^2}{\sigma^2}}}{r^2}
+\]
+
+\[
+  \alpha(r,t) = \frac{\rho \sigma^4}{4 A \tau r^2 (1-e^{\frac{t}{\tau}})} \cdot \frac{1}{e^{-(\frac{r}{\sigma})^2 - \frac{t}{\tau}}} - \frac{D A}{z^2(r) r^2}
+\]
+
+\[
+  \alpha(r,t) = -\frac{\rho \sigma^4}{4 \tau r^2} \cdot \frac{1}{-A (1-e^{-\frac{t}{\tau}}) e^{-(\frac{r}{\sigma})^2 }} - \frac{D A}{z^2(r) r^2}
+\]
 
 \begin{equation}
-  q(r,t) = \frac{16 A e^{-(\frac{r}{\sigma})^2-\frac{t}{\tau}}(e^{\frac{t}{\tau}}-1)(r^4-3 r^2 \sigma^2 + \sigma^4)}{\sigma^8} - \frac{\rho c_d A e^{-(\frac{r}{\sigma})^2-\frac{t}{\tau}}}{\tau}
-  \label{kontinuitetna-enacba-4}
+  \alpha(r,t) = -\frac{\rho \sigma^4}{4 \tau r^2} \cdot \frac{1}{z(r,t)} - \frac{D A}{z^2(r) r^2}
+  \label{difuzijska-enacba-difuzijska-alfa}
 \end{equation}
+
+V (\ref{difuzijska-enacba-difuzijska-konstanta-1}) vstavimo nastavek (\ref{nastavek-dinamicno}) in rezultat (\ref{difuzijska-enacba-difuzijska-alfa}), sledi:
+\[
+  k(r) = - C \frac{A}{z(r) r^2} + \left(  -\frac{\rho \sigma^4}{4 \tau r^2} \cdot \frac{1}{z(r,t)} - \frac{D A}{z^2(r) r^2} \right) (z(r,t)-z(r))
+\]
+
+\[
+  k(r) = - C \frac{A}{z(r) r^2} - \frac{\rho \sigma^4}{4 \tau r^2} - \frac{D A}{z(r) r^2} (1-e^{-\frac{t}{\tau}}) + \frac{\rho \sigma^4}{4 \tau r^2} \frac{1}{(1-e^{-\frac{t}{\tau}})} +  \frac{D A}{z(r) r^2}
+\]
+
+\[
+  k(r) = - C \frac{A}{z(r) r^2} - \frac{\rho \sigma^4}{4 \tau r^2} + \frac{D A}{z(r) r^2} e^{-\frac{t}{\tau}} + \frac{\rho \sigma^4}{4 \tau r^2} \frac{1}{(1-e^{-\frac{t}{\tau}})} 
+\]
 
 \begin{equation}
-  q(r,t) = -\frac{A e^{-(\frac{r}{\sigma})^2-\frac{t}{\tau}} (\rho c_d \sigma^8 -16\tau (-1 + e^{\frac{t}{\tau}}) ( r^4-3r^2\sigma^2+\sigma^4) )}{\sigma^8 \tau}
-  \label{kontinuitetna-enacba-4}
+  k(r) = \frac{A}{z(r) r^2} (D e^{-\frac{t}{\tau}} - C) + \frac{\rho \sigma^4}{4 \tau r^2} \left( \frac{e^{-\frac{t}{\tau}}}{1-e^{-\frac{t}{\tau}}} \right)
+  \label{difuzijska-enacba-difuzijska-konstanta-2}
 \end{equation}
 
-Vstavimo ocenjene konstante in izrišemo funkcije:
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=14cm]{slike/vrtaca-ravnovesje-z}
-  \end{center}
-  \caption{Casovna odvisnost $z(r,t)$}
-  \label{fig:difuzijski-casovna-odvisnost-z}
-\end{figure}
+Rezultat (\ref{difuzijska-enacba-difuzijska-konstanta-2}) vstavimo v splošno difuzijsko enačbo (\ref{difuzijska-enacba-3}):
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=14cm]{slike/vrtaca-ravnovesje-q}
-  \end{center}
-  \caption{Casovna odvisnost $q(r,t)$}
-  \label{fig:difuzijski-casovna-odvisnost-q}
-\end{figure}
+\begin{equation}
+  \frac{1}{r} \frac{\partial}{\partial r} \left((k_0 + \alpha z(r,t)) \cdot r \frac{\partial}{\partial r} z(r,t) \right) = - \rho \frac{\partial z(r,t)}{\partial t}
+  \label{difuzijska-enacba-3}
+\end{equation}
+
+\[
+  \frac{1}{r} \frac{\partial}{\partial r} \left( \left( \frac{A}{z(r) r^2} (D e^{-\frac{t}{\tau}} - C) + \frac{\rho \sigma^4}{4 \tau r^2} \left( \frac{e^{-\frac{t}{\tau}}}{1-e^{-\frac{t}{\tau}}} \right) \right) \cdot r \frac{\partial}{\partial r} z(r,t) \right) = - \rho \frac{\partial z(r,t)}{\partial t}
+\]
+
+\[
+  \frac{1}{r} \frac{\partial}{\partial r} \left( \left( \frac{A}{z(r) r} (D e^{-\frac{t}{\tau}} - C) + \frac{\rho \sigma^4}{4 \tau r} \left( \frac{e^{-\frac{t}{\tau}}}{1-e^{-\frac{t}{\tau}}} \right) \right) \cdot \frac{-2 r}{\sigma^2} z(r,t) \right) = - \rho \frac{\partial z(r,t)}{\partial t}
+\]
+
+\[
+  \frac{2}{\sigma^2 r} \frac{\partial}{\partial r} \left( \left(\frac{A}{z(r)} (D e^{-\frac{t}{\tau}} - C) + \frac{\rho \sigma^4}{4 \tau} \left( \frac{e^{-\frac{t}{\tau}}}{1-e^{-\frac{t}{\tau}}} \right) \right) \cdot z(r,t) \right) = \rho \frac{\partial z(r,t)}{\partial t}
+\]
+
+\[
+  \frac{2}{\sigma^2 r} \frac{\partial}{\partial r} \left( A(D e^{-\frac{t}{\tau}} - C) + \frac{\rho \sigma^4}{4 \tau} e^{-\frac{t}{\tau}} \cdot z(r) \right) = \rho \frac{\partial z(r,t)}{\partial t}
+\]
+
+\[
+  \frac{2}{\sigma^2 r} \frac{\rho \sigma^4}{4 \tau} e^{-\frac{t}{\tau}} \cdot \frac{-2r}{\sigma^2} z(r) = \rho \frac{\partial z(r,t)}{\partial t}
+\]
+
+\begin{equation}
+  \frac{\partial z(r,t)}{\partial t} = - \frac{1}{\tau} e^{-\frac{t}{\tau}} \cdot z(r)
+  \label{nastavek-dinamicno-odvod}
+\end{equation}
+
+Časovni odvod dinamičnega nastavka za vrtačo (\ref{nastavek-dinamicno}) se torej pri difuzijski konstanti (\ref{difuzijska-enacba-difuzijska-konstanta-2}) ujema z rezultatom difuzijske enačbe (\ref{nastavek-dinamicno-odvod}). Minimalen nastavek za $k(z)$ pa je (\ref{difuzijska-enacba-difuzijska-konstanta-3}).
+
+\begin{equation}
+  k(z) = \frac{\rho \sigma^4}{4 \tau r^2} \left( \frac{e^{-\frac{t}{\tau}}}{1-e^{-\frac{t}{\tau}}} \right)
+  \label{difuzijska-enacba-difuzijska-konstanta-3}
+\end{equation}
 
 
 \newpage
