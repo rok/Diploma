@@ -9,196 +9,196 @@
 % verzijo 29. marec 2011 za FMF 19.9.2013 prilagodil Rok Mihevc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper, oneside, 12pt]{book}
+  \documentclass[a4paper, oneside, 12pt]{book}
 
-\usepackage[utf8]{inputenc}   % omogoča uporabo slovenskih črk kodiranih v formatu UTF-8 
-\usepackage[slovene,english]{babel}    % naloži, med drugim, slovenske delilne vzorce
-\usepackage[pdftex]{graphicx}  % omogoča vlaganje slik različnih formatov 
-\usepackage{fancyhdr}          % poskrbi, na primer, za glave strani
-\usepackage{amssymb}           % dodatni simboli
-\usepackage{amsmath}           % eqref, npr.
-\usepackage{verbatim}           % \begin{comment} in \end{comment}
-\usepackage{float}
-\usepackage{tikz}
+  \usepackage[utf8]{inputenc}   % omogoča uporabo slovenskih črk kodiranih v formatu UTF-8 
+  \usepackage[slovene,english]{babel}    % naloži, med drugim, slovenske delilne vzorce
+  \usepackage[pdftex]{graphicx}  % omogoča vlaganje slik različnih formatov 
+  \usepackage{fancyhdr}          % poskrbi, na primer, za glave strani
+  \usepackage{amssymb}           % dodatni simboli
+  \usepackage{amsmath}           % eqref, npr.
+  \usepackage{verbatim}           % \begin{comment} in \end{comment}
+  \usepackage{float}
+  \usepackage{tikz}
 
-\renewcommand{\baselinestretch}{1.3} % ustrezen razmik med vrsticami
+  \renewcommand{\baselinestretch}{1.3} % ustrezen razmik med vrsticami
 
-%oznake strani
+  %oznake strani
 
-\renewcommand{\chaptermark}[1]%
-{\markboth{\MakeUppercase{\thechapter.\ #1}}{}} \renewcommand{\sectionmark}[1]%
-{\markright{\MakeUppercase{\thesection.\ #1}}} \renewcommand{\headrulewidth}{0.5pt} \renewcommand{\footrulewidth}{0pt} 
-\fancyhf{}
-\fancyhead[LE,RO]{\sl \thepage} \fancyhead[LO]{\sl \rightmark} \fancyhead[RE]{\sl \leftmark}
+  \renewcommand{\chaptermark}[1]%
+  {\markboth{\MakeUppercase{\thechapter.\ #1}}{}} \renewcommand{\sectionmark}[1]%
+  {\markright{\MakeUppercase{\thesection.\ #1}}} \renewcommand{\headrulewidth}{0.5pt} \renewcommand{\footrulewidth}{0pt} 
+  \fancyhf{}
+  \fancyhead[LE,RO]{\sl \thepage} \fancyhead[LO]{\sl \rightmark} \fancyhead[RE]{\sl \leftmark}
 
-\newcommand{\BibTeX}{{\sc Bib}\TeX}
+  \newcommand{\BibTeX}{{\sc Bib}\TeX}
 
-\newcommand{\autfont}{\Large}
-\newcommand{\titfont}{\LARGE\bf}
-\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
-\setcounter{tocdepth}{1}	      % globina kazala
+  \newcommand{\autfont}{\Large}
+  \newcommand{\titfont}{\LARGE\bf}
+  \newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
+  \setcounter{tocdepth}{1}	      % globina kazala
 
-% konstrukti
-\newtheorem{izrek}{Izrek}[chapter]
-\newtheorem{trditev}{Trditev}[izrek]
-\newenvironment{dokaz}{\emph{Dokaz.}\ }{\hspace{\fill}{$\Box$}}
+  % konstrukti
+  \newtheorem{izrek}{Izrek}[chapter]
+  \newtheorem{trditev}{Trditev}[izrek]
+  \newenvironment{dokaz}{\emph{Dokaz.}\ }{\hspace{\fill}{$\Box$}}
 
-\begin{document}
-\selectlanguage{slovene}
-\frontmatter
-\setcounter{page}{1} %
-\renewcommand{\thepage}{}       % preprecimo težave s številkami strani v kazalu 
+  \begin{document}
+  \selectlanguage{slovene}
+  \frontmatter
+  \setcounter{page}{1} %
+  \renewcommand{\thepage}{}       % preprecimo težave s številkami strani v kazalu 
 
-\begin{comment}
+  \begin{comment}
 
-%naslovnica
-\thispagestyle{empty}%
-\begin{center}
-  {\large\sc Univerza v Ljubljani\\%
-    Fakulteta za Matematiko in Fiziko\\%
-    Oddelek za Fiziko\\%
-  Univerzitetni študij, naravoslovna smer}%
-  \vskip 10em%
-  {\autfont Rok Mihevc \par}%
-  {\titfont Kraške vrtače Dinarskega krasa \par}%
-  {\vskip 2em \textsc{DIPLOMSKO DELO}\par}%
-  \vfill\null%
-  {\large \textsc{Mentor}: prof.\ dr.  Rudolf Podgornik\par}%
-%  {\large \textsc{Somentor}:  izr.\ prof.\ dr. \par}%
-  {\vskip 2em \large Ljubljana, 2013 \par}%
-\end{center}
-% prazna stran
-\clearemptydoublepage
-
-
-% prazna stran
-\clearemptydoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% izjava o avtorstvu
-\vspace*{1cm}
-\begin{center} 
-  {\Large \textbf{\sc Izjava o avtorstvu diplomskega dela}}
-\end{center}
-
-\vspace{1cm}
-\noindent Spodaj podpisani Rok Mihevc,
-z vpisno številko \textbf{28030017}, sem avtor  diplomskega dela z naslovom: Kraške vrtače Dinarskega krasa
-
-\vspace{0.5cm}
-\emph{Vzorec diplomskega dela}
-
-\vspace{1.5cm}
-\noindent S svojim podpisom zagotavljam, da:
-\begin{itemize}
-  \item sem diplomsko delo izdelal samostojno pod mentorstvom 
-    prof.\ dr.\ \mbox{Rudolfa} \mbox{Podgornika}, %in somentorstvom izr.\ prof.\ dr.\,
-
-  \item	so elektronska oblika diplomskega dela, naslov (slov., angl.), povzetek (slov., angl.) ter ključne besede (slov., angl.) identični s tiskano obliko diplomskega dela
-\end{itemize}
-
-\vspace{1cm}
-\noindent V Ljubljani, dne 11. januarja 2013 \hfill Podpis avtorja:
-
-% prazna stran
-\clearemptydoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% zahvala
-\thispagestyle{empty}\mbox{}\vfill\null\it%
-Na tem mestu zapišite, komu se zahvaljujete za izdelavo diplomske naloge. Pazite, da ne boste koga pozabili. Utegnil vam bo zameriti. Temu se da izogniti tako, da pozabite na celo zahvalo.
-\rm\normalfont
-
-% prazna stran
-\clearemptydoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% posvetilo
-\thispagestyle{empty}\mbox{}{\vskip0.20\textheight}\mbox{}\hfill\begin{minipage}{0.55\textwidth}%
-  Svoji dragi Alenčici.
-  \normalfont\end{minipage}
-
-% prazna stran
-\clearemptydoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ODREZANA NASLOVNICA ITD. DO KAZALA
-\end{comment}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% kazalo
-\def\thepage{}% preprecimo tezave s stevilkami strani v kazalu 
-\tableofcontents{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ODREZAN POVZETEK  ITD.
-\begin{comment}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% prazna stran
-\clearemptydoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% povzetek 
-\addcontentsline{toc}{chapter}{Povzetek}
-\chapter*{Povzetek}
-V vzorcu je predstavljen postopek priprave diplomskega dela z uporabo okolja \LaTeX. Vaš povzetek mora sicer vsebovati približno 100 besed, ta tukaj je odločno prekratek.
-% prazna stran
-\clearemptydoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% abstract
-\selectlanguage{english}
-\addcontentsline{toc}{chapter}{Abstract}
-\chapter*{Abstract}
-This sample document presents an approach to typesetting your BSc thesis using \LaTeX. A proper abstract should contain around 100 words which makes this one way too short.
-\selectlanguage{slovene}
-% prazna stran
-\clearemptydoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ODREZAN POVZETEK  ITD.
-\end{comment}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\mainmatter
-\setcounter{page}{1}
-\pagestyle{fancy}
-
-\chapter{Uvod}
-\label{ch1}
-Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statistično preučiti velik vzorec realnih kraških vrtač na slovenskem Dinarskem krasu, predlagati analitično funkcijo, ki bi opisala idealno vrtačo, ter na podlagi le-te poiskusiti modelirati naravne procese, ki povzročajo nastanek in obliko vrtač.
-
-Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Obstaja več geomorfoloških modelov njihovega nastanka.
-
-\begin{figure}[H]
+  %naslovnica
+  \thispagestyle{empty}%
   \begin{center}
-    \includegraphics[width=13cm]{slike/vrtaca-ford-williams}
+    {\large\sc Univerza v Ljubljani\\%
+      Fakulteta za Matematiko in Fiziko\\%
+      Oddelek za Fiziko\\%
+    Univerzitetni študij, naravoslovna smer}%
+    \vskip 10em%
+    {\autfont Rok Mihevc \par}%
+    {\titfont Kraške vrtače Dinarskega krasa \par}%
+    {\vskip 2em \textsc{DIPLOMSKO DELO}\par}%
+    \vfill\null%
+    {\large \textsc{Mentor}: prof.\ dr.  Rudolf Podgornik\par}%
+  %  {\large \textsc{Somentor}:  izr.\ prof.\ dr. \par}%
+    {\vskip 2em \large Ljubljana, 2013 \par}%
   \end{center}
-  \caption{Priljubljena geomorfološka shema za razlago vrtač. Vir: \cite{ford2007karst}}
-  \label{fig:vrtaca-ford-williams}
-\end{figure}
+  % prazna stran
+  \clearemptydoublepage
 
-Za študij realnih vrtač uporabimo digitalni model reliefa Menišije (Slika \ref{fig:menisija-karta}) ločljivosti 1m, ki omogoča zanesljivo identifikacijo in študij vrtač ter udornic (Slika \ref{fig:menisija-relief}).
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=8cm]{slike/menisija-karta}
-  \caption{Menišija, $60 km^2$ veliko območje med Cerknico in Logatcem vsebuje nekaj tisoč vrtač in več udornic in predstavlja približno odstotek slovenskega krasa. Vir: Geopedia, Geodetski inštitut Slovenije}
-  \label{fig:menisija-karta}
-\end{figure}
+  % prazna stran
+  \clearemptydoublepage
 
-Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 miljonov let), ki so na površje prišli zaradi dogodkov povezanih s podrivanjem Adriatske plošče (17-7 miljonov let). Menišija je bila uravnano kraško polje do 3.5 miljona let pred sedanjostjo, ko se je zaradi tektonske aktivnosti dvignila nad okolico in vzpostavljeni so bili hidrološki pogoji za nastanek vrtač. Hitrost zniževanja (denudacije) kraškega površja se ocenjuje na 20-50 m / miljon let, torej se je površje Menišije v času od nastanka znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. \cite{Vrabec2006} \cite{Placer2010}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=12cm]{slike/menisija-relief}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % izjava o avtorstvu
+  \vspace*{1cm}
+  \begin{center} 
+    {\Large \textbf{\sc Izjava o avtorstvu diplomskega dela}}
   \end{center}
-  \caption{Senčen 3D relief dela Menišije uporabljen v tej nalogi. Vir: Geodetski inštitur Slovenije \cite{LAK} po metodi \cite{Kobler20079}.}
-  \label{fig:menisija-relief}
-\end{figure}
+
+  \vspace{1cm}
+  \noindent Spodaj podpisani Rok Mihevc,
+  z vpisno številko \textbf{28030017}, sem avtor  diplomskega dela z naslovom: Kraške vrtače Dinarskega krasa
+
+  \vspace{0.5cm}
+  \emph{Vzorec diplomskega dela}
+
+  \vspace{1.5cm}
+  \noindent S svojim podpisom zagotavljam, da:
+  \begin{itemize}
+    \item sem diplomsko delo izdelal samostojno pod mentorstvom 
+      prof.\ dr.\ \mbox{Rudolfa} \mbox{Podgornika}, %in somentorstvom izr.\ prof.\ dr.\,
+
+    \item	so elektronska oblika diplomskega dela, naslov (slov., angl.), povzetek (slov., angl.) ter ključne besede (slov., angl.) identični s tiskano obliko diplomskega dela
+  \end{itemize}
+
+  \vspace{1cm}
+  \noindent V Ljubljani, dne 11. januarja 2013 \hfill Podpis avtorja:
+
+  % prazna stran
+  \clearemptydoublepage
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % zahvala
+  \thispagestyle{empty}\mbox{}\vfill\null\it%
+  Na tem mestu zapišite, komu se zahvaljujete za izdelavo diplomske naloge. Pazite, da ne boste koga pozabili. Utegnil vam bo zameriti. Temu se da izogniti tako, da pozabite na celo zahvalo.
+  \rm\normalfont
+
+  % prazna stran
+  \clearemptydoublepage
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % posvetilo
+  \thispagestyle{empty}\mbox{}{\vskip0.20\textheight}\mbox{}\hfill\begin{minipage}{0.55\textwidth}%
+    Svoji dragi Alenčici.
+    \normalfont\end{minipage}
+
+  % prazna stran
+  \clearemptydoublepage
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % ODREZANA NASLOVNICA ITD. DO KAZALA
+  \end{comment}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % kazalo
+  \def\thepage{}% preprecimo tezave s stevilkami strani v kazalu 
+  \tableofcontents{}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % ODREZAN POVZETEK  ITD.
+  \begin{comment}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  % prazna stran
+  \clearemptydoublepage
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % povzetek 
+  \addcontentsline{toc}{chapter}{Povzetek}
+  \chapter*{Povzetek}
+  V vzorcu je predstavljen postopek priprave diplomskega dela z uporabo okolja \LaTeX. Vaš povzetek mora sicer vsebovati približno 100 besed, ta tukaj je odločno prekratek.
+  % prazna stran
+  \clearemptydoublepage
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % abstract
+  \selectlanguage{english}
+  \addcontentsline{toc}{chapter}{Abstract}
+  \chapter*{Abstract}
+  This sample document presents an approach to typesetting your BSc thesis using \LaTeX. A proper abstract should contain around 100 words which makes this one way too short.
+  \selectlanguage{slovene}
+  % prazna stran
+  \clearemptydoublepage
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % ODREZAN POVZETEK  ITD.
+  \end{comment}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \mainmatter
+  \setcounter{page}{1}
+  \pagestyle{fancy}
+
+  \chapter{Uvod}
+  \label{ch1}
+  Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statistično preučiti velik vzorec realnih kraških vrtač na slovenskem Dinarskem krasu, predlagati analitično funkcijo, ki bi opisala idealno vrtačo, ter na podlagi le-te poiskusiti modelirati naravne procese, ki povzročajo nastanek in obliko vrtač.
+
+  Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Obstaja več geomorfoloških modelov njihovega nastanka.
+
+  \begin{figure}[H]
+    \begin{center}
+      \includegraphics[width=13cm]{slike/vrtaca-ford-williams}
+    \end{center}
+    \caption{Priljubljena geomorfološka shema za razlago vrtač. Vir: \cite{ford2007karst}}
+    \label{fig:vrtaca-ford-williams}
+  \end{figure}
+
+  Za študij realnih vrtač uporabimo digitalni model reliefa Menišije (Slika \ref{fig:menisija-karta}) ločljivosti 1m, ki omogoča zanesljivo identifikacijo in študij vrtač ter udornic (Slika \ref{fig:menisija-relief}).
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{slike/menisija-karta}
+    \caption{Menišija, $60 km^2$ veliko območje med Cerknico in Logatcem vsebuje nekaj tisoč vrtač in več udornic in predstavlja približno odstotek slovenskega krasa. Vir: Geopedia, Geodetski inštitut Slovenije}
+    \label{fig:menisija-karta}
+  \end{figure}
+
+  Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 miljonov let), ki so na površje prišli zaradi dogodkov povezanih s podrivanjem Adriatske plošče (17-7 miljonov let). Menišija je bila uravnano kraško polje do 3.5 miljona let pred sedanjostjo, ko se je zaradi tektonske aktivnosti dvignila nad okolico in vzpostavljeni so bili hidrološki pogoji za nastanek vrtač. Hitrost zniževanja (denudacije) kraškega površja se ocenjuje na 20-50 m / miljon let, torej se je površje Menišije v času od nastanka znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. \cite{Vrabec2006} \cite{Placer2010}
+
+  \begin{figure}[H]
+    \begin{center}
+      \includegraphics[width=12cm]{slike/menisija-relief}
+    \end{center}
+    \caption{Senčen 3D relief dela Menišije uporabljen v tej nalogi. Vir: Geodetski inštitur Slovenije \cite{LAK} po metodi \cite{Kobler20079}.}
+    \label{fig:menisija-relief}
+  \end{figure}
 \chapter{Preučevanje realnih vrtač}
 \label{realne-vrtace}
 Identifikacijo velike količine se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}. Točke, ki so nižje od svoje okolice imajo nižji indeks konkavnosti, točke višje od svoje okolice pa višjega. Pri tem je pomembna tudi pametna izbiro okolice - od nje je odvisno kako velike konkavnosti bomo zaznali. Končno zavržemo konveksne dele površja in konkavne odberemo kot vrtače. Rezultat vidimo na sliki \ref{fig:menisija-vrtace}. Opaziti velja, da izbrana metoda segmetacije del robov konkavnih objektov klasificira kot konkavne in zato podceni radij. Za naše namene to ni pretirano moteče, saj to podcenitev zlahka kompenziramo kasneje.
@@ -313,123 +313,65 @@ Na podlagi teh podatkov bi težko skleniti, da (\ref{fit-profila}) opiše profil
 
 \section{Difuzijski model}
 
-Dinamiko vrtače poskusimo opisati s preprostim difuzijskim modelom in predpostavljeno difuzijsko konstanto (\ref{difuzijska-enacba-difuzijska-konstanta-1}):
+Dinamiko vrtače poskusimo opisati z nelinearnim difuzijskim modelom, v prejšnjem poglavju najdenim (\ref{fit-profila}) in dimamično opremljenim nastavkom za stacionarno obliko vrtače (\ref{dinamicni-nastavek-vrtace}), ter  predpostavljeno difuzijsko konstanto (\ref{difuzijska-konstanta-1}). Privzamemo radialno simetričnost in računamo v cilindričnih koordinatah.
 
 \begin{equation}
-  \nabla \cdot \mathbf{j} = - \rho \frac{\partial z}{\partial t}
-  \label{difuzijska-enacba-1}
+  z(r,t) = A\left(1-e^{-\left(\frac{r}{\sigma }\right)^2}\left(1-e^{-\frac{t}{\tau }}\right)\right)
+  \label{dinamicni-nastavek-vrtace}
 \end{equation}
 
 \begin{equation}
-  \mathbf{j} = - \rho k(r) \nabla z
-  \label{difuzijska-enacba-tok}
+  \frac{\partial z}{\partial t} = - \nabla \cdot \mathbf{j}
+  \label{kontinuitetna-enacba}
 \end{equation}
 
 \begin{equation}
-  k(r) = k_0 + \alpha z
-  \label{difuzijska-enacba-difuzijska-konstanta-1}
-\end{equation}
-
-Privzamemo radialno simetričnost in v cilindričnih koordinatah računamo $k_0$ v ravnovesnem stanju.
-
-\begin{equation}
-  z(r,t \rightarrow\infty) = z(r) = -A e^{-(\frac{r}{\sigma})^2}
-  \label{nastavek-ravnovesje}
+  \frac{\partial z}{\partial t} = \nabla (K(z) \nabla z)
+  \label{nelinearna-difuzijska-enacba}
 \end{equation}
 
 \begin{equation}
-  \frac{1}{r} \frac{\partial}{\partial r} \left((k_0 + \alpha z(r)) \cdot r \frac{\partial}{\partial r} z(r) \right) = 0
-  \label{difuzijska-enacba-2}
+  K(z) = -\frac{\left(-1+e^{\frac{r^2}{\sigma ^2}}\right) \sigma ^4}{4 \left(-1+e^{t/\tau }\right) r^2 \tau } = -\frac{e^{\frac{r^2}{\sigma ^2}+\frac{t}{\tau }} \left(-1+e^{\frac{r^2}{\sigma ^2}}\right) \sigma ^4}{4 A \left(1+e^{\frac{r^2}{\sigma ^2}+\frac{t}{\tau }}-e^{t/\tau }\right) \left(-1+e^{t/\tau }\right) r^2 \tau } \cdot z(r,t)
+  \label{difuzijska-konstanta-1}
 \end{equation}
 
 \begin{equation}
-  k_0 = C \frac{e^{(\frac{r}{\sigma})^2}}{r^2} + A e^{-(\frac{r}{\sigma})^2} \alpha = - C \frac{A}{z(r) r^2} - z(r) \alpha
-  \label{difuzijska-enacba-difuzijska-konstanta-2}
+  \mathbf{j} = \frac{A \sigma^2}{2 \tau} \frac{e^{-(\frac{r}{\sigma})^2}-1}{r} e^{-\frac{t}{\tau}} = \frac{A \sigma^2}{2 \tau} \frac{\left( 1-\frac{r^2}{\sigma ^2}+O[r]^4 \right)-1}{r} e^{-\frac{t}{\tau}} = -\frac{A \sigma^2}{2 \tau} \frac{r}{\sigma ^2} e^{-\frac{t}{\tau}} + O[r^3]
+  \label{tok}
 \end{equation}
 
-Nato za dinamični nastavek uporabimo (\ref{nastavek-dinamicno}) in poskusimo ugotoviti $\alpha$.
+Časovni odvod dinamičnega nastavka za vrtačo (\ref{dinamicni-nastavek-vrtace}) se pri difuzijski konstanti (\ref{difuzijska-konstanta-1}) ujema z rezultatom difuzijske enačbe (\ref{nelinearna-difuzijska-enacba}).
+
+Izrišemo še časovni potek profila vrtače (\ref{dinamicni-nastavek-vrtace}) in toka (\ref{tok}) - sliki (\ref{fig:vrtaca-dinamicno}) in (\ref{fig:tok-dinamicno}).
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=9cm]{slike/tok-dinamicno}
+  \end{center}
+  \caption{Časovni razvoj toka $\mathbf{j}$, enačba (\ref{tok})}
+  \label{fig:tok-dinamicno}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=9cm]{slike/vrtaca-dinamicno}
+  \end{center}
+  \caption{Časovni razvoj vrtače, po nastavku (\ref{dinamicni-nastavek-vrtace})}
+  \label{fig:vrtaca-dinamicno}
+\end{figure}
+
+Sedaj se postavimo daleč stran od centra vrtače, kjer po dolgem času velja:
 
 \begin{equation}
-  z(r,t) = -A e^{-(\frac{r}{\sigma})^2} (1-e^{-\frac{t}{\tau}})
-  \label{nastavek-dinamicno}
+  \frac{\partial z}{\partial t} = -\frac{A e^{-\frac{(r \rightarrow \infty)^2}{\sigma ^2}-\frac{t \rightarrow \infty}{\tau }}}{\tau } = -\frac{A}{\tau} = v_{denudacije}
+  \label{hitrost-denudacije}
 \end{equation}
 
-Računamo:
-
-\[
-  \alpha(r,t) = - \frac{\rho \sigma^4}{4 A \tau r^2 (1-e^{\frac{t}{\tau}})} \cdot e^{(\frac{r}{\sigma})^2 + \frac{t}{\tau}} + \frac{D e^{\frac{2r^2}{\sigma^2}}}{r^2}
-\]
-
-\[
-  \alpha(r,t) = \frac{\rho \sigma^4}{4 A \tau r^2 (1-e^{\frac{t}{\tau}})} \cdot \frac{1}{e^{-(\frac{r}{\sigma})^2 - \frac{t}{\tau}}} - \frac{D A}{z^2(r) r^2}
-\]
-
-\[
-  \alpha(r,t) = -\frac{\rho \sigma^4}{4 \tau r^2} \cdot \frac{1}{-A (1-e^{-\frac{t}{\tau}}) e^{-(\frac{r}{\sigma})^2 }} - \frac{D A}{z^2(r) r^2}
-\]
-
+Tako približno ocenimo $\tau$ vrtač na 
 \begin{equation}
-  \alpha(r,t) = -\frac{\rho \sigma^4}{4 \tau r^2} \cdot \frac{1}{z(r,t)} - \frac{D A}{z^2(r) r^2}
-  \label{difuzijska-enacba-difuzijska-alfa}
+  \tau = \frac{-A}{v_{denudacije}}=\frac{-5m}{-50\cdot 10^{-6} m/leto} = 10^5 leto
+  \label{tau-vrtace}
 \end{equation}
-
-V (\ref{difuzijska-enacba-difuzijska-konstanta-1}) vstavimo nastavek (\ref{nastavek-dinamicno}) in rezultat (\ref{difuzijska-enacba-difuzijska-alfa}), sledi:
-\[
-  k(r) = - C \frac{A}{z(r) r^2} + \left(  -\frac{\rho \sigma^4}{4 \tau r^2} \cdot \frac{1}{z(r,t)} - \frac{D A}{z^2(r) r^2} \right) (z(r,t)-z(r))
-\]
-
-\[
-  k(r) = - C \frac{A}{z(r) r^2} - \frac{\rho \sigma^4}{4 \tau r^2} - \frac{D A}{z(r) r^2} (1-e^{-\frac{t}{\tau}}) + \frac{\rho \sigma^4}{4 \tau r^2} \frac{1}{(1-e^{-\frac{t}{\tau}})} +  \frac{D A}{z(r) r^2}
-\]
-
-\[
-  k(r) = - C \frac{A}{z(r) r^2} - \frac{\rho \sigma^4}{4 \tau r^2} + \frac{D A}{z(r) r^2} e^{-\frac{t}{\tau}} + \frac{\rho \sigma^4}{4 \tau r^2} \frac{1}{(1-e^{-\frac{t}{\tau}})} 
-\]
-
-\begin{equation}
-  k(r) = \frac{A}{z(r) r^2} (D e^{-\frac{t}{\tau}} - C) + \frac{\rho \sigma^4}{4 \tau r^2} \left( \frac{e^{-\frac{t}{\tau}}}{1-e^{-\frac{t}{\tau}}} \right)
-  \label{difuzijska-enacba-difuzijska-konstanta-3}
-\end{equation}
-
-Rezultat (\ref{difuzijska-enacba-difuzijska-konstanta-3}) vstavimo v splošno difuzijsko enačbo (\ref{difuzijska-enacba-3}):
-
-\begin{equation}
-  \frac{1}{r} \frac{\partial}{\partial r} \left((k_0 + \alpha z(r,t)) \cdot r \frac{\partial}{\partial r} z(r,t) \right) = - \rho \frac{\partial z(r,t)}{\partial t}
-  \label{difuzijska-enacba-3}
-\end{equation}
-
-\[
-  \frac{1}{r} \frac{\partial}{\partial r} \left( \left( \frac{A}{z(r) r^2} (D e^{-\frac{t}{\tau}} - C) + \frac{\rho \sigma^4}{4 \tau r^2} \left( \frac{e^{-\frac{t}{\tau}}}{1-e^{-\frac{t}{\tau}}} \right) \right) \cdot r \frac{\partial}{\partial r} z(r,t) \right) = - \rho \frac{\partial z(r,t)}{\partial t}
-\]
-
-\[
-  \frac{1}{r} \frac{\partial}{\partial r} \left( \left( \frac{A}{z(r) r} (D e^{-\frac{t}{\tau}} - C) + \frac{\rho \sigma^4}{4 \tau r} \left( \frac{e^{-\frac{t}{\tau}}}{1-e^{-\frac{t}{\tau}}} \right) \right) \cdot \frac{-2 r}{\sigma^2} z(r,t) \right) = - \rho \frac{\partial z(r,t)}{\partial t}
-\]
-
-\[
-  \frac{2}{\sigma^2 r} \frac{\partial}{\partial r} \left( \left(\frac{A}{z(r)} (D e^{-\frac{t}{\tau}} - C) + \frac{\rho \sigma^4}{4 \tau} \left( \frac{e^{-\frac{t}{\tau}}}{1-e^{-\frac{t}{\tau}}} \right) \right) \cdot z(r,t) \right) = \rho \frac{\partial z(r,t)}{\partial t}
-\]
-
-\[
-  \frac{2}{\sigma^2 r} \frac{\partial}{\partial r} \left( A(D e^{-\frac{t}{\tau}} - C) + \frac{\rho \sigma^4}{4 \tau} e^{-\frac{t}{\tau}} \cdot z(r) \right) = \rho \frac{\partial z(r,t)}{\partial t}
-\]
-
-\[
-  \frac{2}{\sigma^2 r} \frac{\rho \sigma^4}{4 \tau} e^{-\frac{t}{\tau}} \cdot \frac{-2r}{\sigma^2} z(r) = \rho \frac{\partial z(r,t)}{\partial t}
-\]
-
-\begin{equation}
-  \frac{\partial z(r,t)}{\partial t} = - \frac{1}{\tau} e^{-\frac{t}{\tau}} \cdot z(r)
-  \label{nastavek-dinamicno-odvod}
-\end{equation}
-
-Časovni odvod dinamičnega nastavka za vrtačo (\ref{nastavek-dinamicno}) se torej pri difuzijski konstanti (\ref{difuzijska-enacba-difuzijska-konstanta-3}) ujema z rezultatom difuzijske enačbe (\ref{nastavek-dinamicno-odvod}). Minimalen nastavek za $k(z)$ pa je (\ref{difuzijska-enacba-difuzijska-konstanta-4}).
-
-\begin{equation}
-  k(z) = \frac{\rho \sigma^4}{4 \tau r^2} \left( \frac{e^{-\frac{t}{\tau}}}{1-e^{-\frac{t}{\tau}}} \right)
-  \label{difuzijska-enacba-difuzijska-konstanta-4}
-\end{equation}
-
 
 \newpage
 
@@ -459,7 +401,7 @@ Kjer je $K$ analogna konstanta difuzijski.
 Model dopolnimo z raztapljanjem in izpiranjem delno raztopljene kamnine v podzemlje - to pospravimo v člen $Q_s$ in vstavimo \ref{difuzijski-tok}.
 \begin{equation}
   \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} + K \rho_s \Delta z - Q_s
-  \label{kontinuitetna-enacba}
+  \label{kontinuitetna-enacba-1}
 \end{equation}
 
 Dobljen model skiciramo na Sliko \ref{fig:difuzijski-model}.
