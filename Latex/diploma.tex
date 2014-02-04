@@ -331,150 +331,159 @@ Na tem mestu zapišite, komu se zahvaljujete za izdelavo diplomske naloge. Pazit
   \end{equation}
 
   \begin{equation}
-    K(z) = -\frac{\left(-1+e^{\frac{r^2}{\sigma ^2}}\right) \sigma ^4}{4 \left(-1+e^{t/\tau }\right) r^2 \tau } = -\frac{e^{\frac{r^2}{\sigma ^2}+\frac{t}{\tau }} \left(-1+e^{\frac{r^2}{\sigma ^2}}\right) \sigma ^4}{4 A \left(1+e^{\frac{r^2}{\sigma ^2}+\frac{t}{\tau }}-e^{t/\tau }\right) \left(-1+e^{t/\tau }\right) r^2 \tau } \cdot z(r,t)
+    K(z) = -\frac{\left(-1+e^{\frac{r^2}{\sigma ^2}}\right) \sigma ^4}{4 \left(-1+e^{t/\tau }\right) r^2 \tau }
     \label{difuzijska-konstanta-1}
   \end{equation}
 
-  \begin{equation}
-    \mathbf{j} = \frac{A \sigma^2}{2 \tau} \frac{e^{-(\frac{r}{\sigma})^2}-1}{r} e^{-\frac{t}{\tau}} = \frac{A \sigma^2}{2 \tau} \frac{\left( 1-\frac{r^2}{\sigma ^2}+O[r]^4 \right)-1}{r} e^{-\frac{t}{\tau}} = -\frac{A \sigma^2}{2 \tau} \frac{r}{\sigma ^2} e^{-\frac{t}{\tau}} + O[r^3]
-    \label{tok}
-  \end{equation}
+  \[
+    K(z) = -\frac{e^{\frac{r^2}{\sigma ^2}+\frac{t}{\tau }} \left(-1+e^{\frac{r^2}{\sigma ^2}}\right) \sigma ^4}{4 a \left(1+e^{\frac{r^2}{\sigma ^2}+\frac{t}{\tau }}-e^{t/\tau }\right) \left(-1+e^{t/\tau }\right) r^2 \tau } \cdot z(r,t)
+    \]
 
-  Časovni odvod dinamičnega nastavka za vrtačo (\ref{dinamicni-nastavek-vrtace}) se pri difuzijski konstanti (\ref{difuzijska-konstanta-1}) ujema z rezultatom difuzijske enačbe (\ref{nelinearna-difuzijska-enacba}).
+    \begin{equation}
+      \mathbf{j} = \frac{A \sigma^2}{2 \tau} \frac{e^{-(\frac{r}{\sigma})^2}-1}{r} e^{-\frac{t}{\tau}}
+      \label{tok}
+    \end{equation}
 
-  Izrišemo še časovni potek profila vrtače (\ref{dinamicni-nastavek-vrtace}) in toka (\ref{tok}) - sliki (\ref{fig:vrtaca-dinamicno}) in (\ref{fig:tok-dinamicno}).
+    \[
+      \mathbf{j} = \frac{A \sigma^2}{2 \tau} \frac{\left( 1-\frac{r^2}{\sigma ^2}+O[r]^4 \right)-1}{r} e^{-\frac{t}{\tau}} = -\frac{A \sigma^2}{2 \tau} \frac{r}{\sigma ^2} e^{-\frac{t}{\tau}} + O[r^3]
+      \]
 
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=8cm]{slike/tok-dinamicno}
-    \end{center}
-    \caption{Časovni razvoj toka $\mathbf{j}$, enačba (\ref{tok})}
-    \label{fig:tok-dinamicno}
-  \end{figure}
 
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=6.5cm]{slike/vrtaca-dinamicno}
-    \end{center}
-    \caption{Časovni razvoj vrtače, po nastavku (\ref{dinamicni-nastavek-vrtace})}
-    \label{fig:vrtaca-dinamicno}
-  \end{figure}
+      Časovni odvod dinamičnega nastavka za vrtačo (\ref{dinamicni-nastavek-vrtace}) se pri difuzijski konstanti (\ref{difuzijska-konstanta-1}) ujema z rezultatom difuzijske enačbe (\ref{nelinearna-difuzijska-enacba}).
 
-  Sedaj se postavimo daleč stran od centra vrtače, kjer po dolgem času velja:
+      Izrišemo časovno dinamiko profila vrtače (\ref{dinamicni-nastavek-vrtace}) in toka (\ref{tok}) - sliki (\ref{fig:vrtaca-dinamicno}) in (\ref{fig:tok-dinamicno}) (določimo $A=6,\sigma=5,\tau = 1$).
 
-  \begin{equation}
-    \frac{\partial z}{\partial t} = -\frac{A e^{-\frac{(r \rightarrow \infty)^2}{\sigma ^2}-\frac{t \rightarrow \infty}{\tau }}}{\tau } = -\frac{A}{\tau} = v_{denudacije}
-    \label{hitrost-denudacije}
-  \end{equation}
+      \begin{figure}[H]
+        \begin{center}
+          \includegraphics[width=14cm]{slike/tok-dinamicno}
+        \end{center}
+        \caption{Časovni razvoj toka $\mathbf{j}$, enačba (\ref{tok})}
+        \label{fig:tok-dinamicno}
+      \end{figure}
 
-  Tako približno ocenimo $\tau$ vrtač
-  \begin{equation}
-    \tau = \frac{-A}{v_{denudacije}}=\frac{-5m}{-50\cdot 10^{-6} m/leto} = 10^5 leto
-    \label{tau-vrtace}
-  \end{equation}
+      \begin{figure}[H]
+        \begin{center}
+          \includegraphics[width=14cm]{slike/vrtaca-dinamicno}
+        \end{center}
+        \caption{Časovni razvoj vrtače, po nastavku (\ref{dinamicni-nastavek-vrtace})}
+        \label{fig:vrtaca-dinamicno}
+      \end{figure}
 
-  \newpage
+      Sedaj se postavimo daleč stran od centra vrtače, kjer po dolgem času velja:
 
-  \section{Dvofazni difuzijski model}
+      \begin{equation}
+        \frac{\partial z}{\partial t} = -\frac{A e^{-\frac{(r \rightarrow \infty)^2}{\sigma ^2}-\frac{t \rightarrow \infty}{\tau }}}{\tau } = -\frac{A}{\tau} = v_{denudacije}
+        \label{hitrost-denudacije}
+      \end{equation}
 
-  Za izhodišče privzamemo difuzijski model, kot ga predlaga Heimsath \cite{Heimsath2001}.
+      Ocenimo $\tau$ vrtač
+      \begin{equation}
+        \tau = \frac{-A}{v_{denudacije}}=\frac{-5m}{-50\cdot 10^{-6} m/leto} = 10^5 leto
+        \label{tau-vrtace}
+      \end{equation}
 
-  \begin{figure}[H]
-    \centering
-    \input{slike/difuzijski-model.pgf}
-    \caption{Skica difuzijskega modela nastajanja vrtače}
-    \label{fig:difuzijski-model}
-  \end{figure}
+      \newpage
 
-  \begin{equation}
-    \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} - \nabla q_s
-    \label{kontinuitetna-enacba-original}
-  \end{equation}
+      \section{Dvofazni difuzijski model}
 
-  Kjer je $h$ višina stolpca sedimenta, $z_b$ višina skalne podlage, $z$ višina površja, $\rho_r$ in $\rho_s$ gostoti skalne podlage in sedimenta, $q_s$ pa gostota toka sedimenta. Za gostoto toka sedimenta vzamemo, da je sorazmeren z naklonom površja:
-  \begin{equation}
-    q_s = - \rho_s K \nabla z
-    \label{difuzijski-tok}
-  \end{equation}
+      Za izhodišče privzamemo difuzijski model, kot ga predlaga Heimsath \cite{Heimsath2001}.
 
-  Kjer je $K$ analogna konstanta difuzijski.
-  Model dopolnimo z raztapljanjem in izpiranjem delno raztopljene kamnine v podzemlje - to pospravimo v člen $Q_s$ in vstavimo \ref{difuzijski-tok}.
-  \begin{equation}
-    \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} + K \rho_s \Delta z - Q_s
-    \label{kontinuitetna-enacba-1}
-  \end{equation}
+      \begin{figure}[H]
+        \centering
+        \input{slike/difuzijski-model.pgf}
+        \caption{Skica difuzijskega modela nastajanja vrtače}
+        \label{fig:difuzijski-model}
+      \end{figure}
 
-  Dobljen model skiciramo na Sliko \ref{fig:difuzijski-model}.
+      \begin{equation}
+        \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} - \nabla q_s
+        \label{kontinuitetna-enacba-original}
+      \end{equation}
 
-  V ravnovesnem stanju vrtače, ki smo ga domnevno našli v \ref{realne-vrtace}. poglavju (enačba \ref{fit-profila}) zahtevamo, da velja $\frac{\partial h}{\partial t} = 0$ in $\frac{\partial z_b}{\partial t} = C$, kjer $C<0$, saj se meja preperelosti znižuje. Dobimo:
+      Kjer je $h$ višina stolpca sedimenta, $z_b$ višina skalne podlage, $z$ višina površja, $\rho_r$ in $\rho_s$ gostoti skalne podlage in sedimenta, $q_s$ pa gostota toka sedimenta. Za gostoto toka sedimenta vzamemo, da je sorazmeren z naklonom površja:
+      \begin{equation}
+        q_s = - \rho_s K \nabla z
+        \label{difuzijski-tok}
+      \end{equation}
 
-  \begin{equation}
-    Q_s = - \rho_r C + \rho_s K \Delta z
-    \label{kontinuitetna-enacba-ravnovesje}
-  \end{equation}
+      Kjer je $K$ analogna konstanta difuzijski.
+      Model dopolnimo z raztapljanjem in izpiranjem delno raztopljene kamnine v podzemlje - to pospravimo v člen $Q_s$ in vstavimo \ref{difuzijski-tok}.
+      \begin{equation}
+        \rho_s \frac{\partial h}{\partial t} = -\rho_r \frac{\partial z_b}{\partial t} + K \rho_s \Delta z - Q_s
+        \label{kontinuitetna-enacba-1}
+      \end{equation}
 
-  Vstavimo ravnovesni profil vrtače (enačba \ref{fit-profila}) in vrednosti iz tabele (\ref{tab:tabela-konstant}), da dobimo profil $Q_s$ profil raztapljanja apnenca v na površju (Slika (\ref{fig:profil-raztapljanja})).
+      Dobljen model skiciramo na Sliko \ref{fig:difuzijski-model}.
 
-  \begin{table}[h]
-    \centering
-    \begin{tabular}{| l | c | l | l |} \hline
-      $\rho_r$ & $2700$ $kg/m^3$ & Gostota apnenca                                            \\ \hline
-      $\rho_s$ & $1000$ $kg/m^3$ & Gostota delno preperele kamnine                            \\ \hline
-      $C$      & $50 \cdot 10^{-6} m/leto$  & Hitrost preperevanja apnenca na ravnini         \\ \hline
-      $K$      & $1 \cdot 10^{-4} m^2/leto$ & Difuzijska konstanta za delno preperelo kamnino \\ \hline
-      $\sigma$ & $4.5m$ & $\sigma$ vrtače po nastavku (\ref{fit-profila})                     \\ \hline
-      $A$      & $6m$ & Globina vrtače $A$ po nastavku (\ref{fit-profila})                    \\ \hline
-    \end{tabular}
-    \caption{Vrednosti iz literature \cite{Gams1967} \cite{ford2007karst} \cite{fleurant2008modelling} in \ref{realne-vrtace}. poglavja}
-    \label{tab:tabela-konstant}
-  \end{table}
+      V ravnovesnem stanju vrtače, ki smo ga domnevno našli v \ref{realne-vrtace}. poglavju (enačba \ref{fit-profila}) zahtevamo, da velja $\frac{\partial h}{\partial t} = 0$ in $\frac{\partial z_b}{\partial t} = C$, kjer $C<0$, saj se meja preperelosti znižuje. Dobimo:
 
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=10cm]{slike/profil-raztapljanja}
-    \end{center}
-    \caption{(a) Profil vrtače (b) modeliran profil raztapljanja delno preperele kamnine}
-    \label{fig:profil-raztapljanja}
-  \end{figure}
+      \begin{equation}
+        Q_s = - \rho_r C + \rho_s K \Delta z
+        \label{kontinuitetna-enacba-ravnovesje}
+      \end{equation}
 
-  Dobljeni profil raztapljanja nakazuje kvalitativno podobnost meritvam, ki jih je opravil Zambo (\cite{Zambo1997}) v osemdesetih (Slika \ref{fig:vrtaca-aggtelek}).
+      Vstavimo ravnovesni profil vrtače (enačba \ref{fit-profila}) in vrednosti iz tabele (\ref{tab:tabela-konstant}), da dobimo profil $Q_s$ profil raztapljanja apnenca v na površju (Slika (\ref{fig:profil-raztapljanja})).
 
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=10cm]{slike/vrtaca-aggtelek}
-    \end{center}
-    \caption{Meritve raztapljanja apnenca v realni vrtači - dolina Beke, nacionalni park Aggtelek na Madžarskem \cite{Zambo1997}}
-    \label{fig:vrtaca-aggtelek}
-  \end{figure}
+      \begin{table}[h]
+        \centering
+        \begin{tabular}{| l | c | l | l |} \hline
+          $\rho_r$ & $2700$ $kg/m^3$ & Gostota apnenca                                            \\ \hline
+          $\rho_s$ & $1000$ $kg/m^3$ & Gostota delno preperele kamnine                            \\ \hline
+          $C$      & $50 \cdot 10^{-6} m/leto$  & Hitrost preperevanja apnenca na ravnini         \\ \hline
+          $K$      & $1 \cdot 10^{-4} m^2/leto$ & Difuzijska konstanta za delno preperelo kamnino \\ \hline
+          $\sigma$ & $4.5m$ & $\sigma$ vrtače po nastavku (\ref{fit-profila})                     \\ \hline
+          $A$      & $6m$ & Globina vrtače $A$ po nastavku (\ref{fit-profila})                    \\ \hline
+        \end{tabular}
+        \caption{Vrednosti iz literature \cite{Gams1967} \cite{ford2007karst} \cite{fleurant2008modelling} in \ref{realne-vrtace}. poglavja}
+        \label{tab:tabela-konstant}
+      \end{table}
 
-  Profil vrtače blizu ravnovesja zmotimo s spremembo vrednosti oblike profila ($z(r)$), vstavimo nastavek za $\frac{\partial z_b}{\partial t}=\frac{1}{|h_0-h|}$ in \dots
+      \begin{figure}[H]
+        \begin{center}
+          \includegraphics[width=10cm]{slike/profil-raztapljanja}
+        \end{center}
+        \caption{(a) Profil vrtače (b) modeliran profil raztapljanja delno preperele kamnine}
+        \label{fig:profil-raztapljanja}
+      \end{figure}
+
+      Dobljeni profil raztapljanja nakazuje kvalitativno podobnost meritvam, ki jih je opravil Zambo (\cite{Zambo1997}) v osemdesetih (Slika \ref{fig:vrtaca-aggtelek}).
+
+      \begin{figure}[H]
+        \begin{center}
+          \includegraphics[width=10cm]{slike/vrtaca-aggtelek}
+        \end{center}
+        \caption{Meritve raztapljanja apnenca v realni vrtači - dolina Beke, nacionalni park Aggtelek na Madžarskem \cite{Zambo1997}}
+        \label{fig:vrtaca-aggtelek}
+      \end{figure}
+
+      Profil vrtače blizu ravnovesja zmotimo s spremembo vrednosti oblike profila ($z(r)$), vstavimo nastavek za $\frac{\partial z_b}{\partial t}=\frac{1}{|h_0-h|}$ in \dots
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{comment}
+      \begin{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  \section{Elastomehanični model}
-  \section{Boussinesqov približek}
+      \section{Elastomehanični model}
+      \section{Boussinesqov približek}
 
-  \chapter{Numerično modeliranje vrtač} 
-  \label{ch4}
+      \chapter{Numerično modeliranje vrtač} 
+      \label{ch4}
 
-  \section{Model naključnih korozijskih točk}
-  \section{Naključne korozijske točke na realni kamnini}
-  \section{Preizkus modela korozijskih točk na geološki karti}
+      \section{Model naključnih korozijskih točk}
+      \section{Naključne korozijske točke na realni kamnini}
+      \section{Preizkus modela korozijskih točk na geološki karti}
 
-  \chapter{Zaključek}
+      \chapter{Zaključek}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \end{comment}
+      \end{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  \nocite{*}
-  \newpage
-  \bibliography{bibliography}{}
-  \bibliographystyle{alpha}
+      \nocite{*}
+      \newpage
+      \bibliography{bibliography}{}
+      \bibliographystyle{alpha}
 
 
-  \end{document}
+      \end{document}
 
