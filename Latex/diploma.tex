@@ -331,6 +331,11 @@
         \end{equation}
 
         \begin{equation}
+          z(r,\infty) = A\left(1-e^{-\left(\frac{r}{\sigma }\right)^2}\right)
+          \label{ravnovesni-nastavek-vrtace}
+        \end{equation}
+
+        \begin{equation}
           \frac{\partial z}{\partial t} = - \nabla \cdot \mathbf{j}
           \label{kontinuitetna-enacba}
         \end{equation}
@@ -343,6 +348,11 @@
         \begin{equation}
           K(z) = -\frac{\left(-1+e^{\frac{r^2}{\sigma ^2}}\right) \sigma ^4}{4 \left(-1+e^{t/\tau }\right) r^2 \tau }
           \label{difuzijska-konstanta-1}
+        \end{equation}
+
+        \begin{equation}
+          K(z) = -\frac{\frac{1}{A} z(r,\infty) \sigma ^4 e^{-\frac{t}{\tau}}}{4 \left(e^{-t/\tau } - 1 \right) r^2 \tau }
+          \label{difuzijska-konstanta-2}
         \end{equation}
 
         \begin{comment}
