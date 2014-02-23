@@ -47,7 +47,7 @@ for i=1:size(s,1)
                         'Cx',   fitresult.g, ...
                         'Cy',   fitresult.h  );
 
-	if 0 % If set to '1' enables debugging plot
+	if 1 % If set to '1' enables debugging plot
         tfit=s(i).fit;
         doline = @(x) tfit.h + tfit.A*exp(-((tfit.x0-x(1))/tfit.sx)^2-((tfit.y0-x(2))/tfit.sy)^2) + tfit.Cx*x(1) + tfit.Cy*x(2);
         x = fminsearch(doline,[size(tmp,1)/2;size(tmp,2)/2]);
