@@ -320,25 +320,11 @@
 
         Rezultat seveda ni pravilen, saj neskočnih brezen na krasu ne opazimo, je pa zanimiv, kot premislek, ki pravi, da se bo še tako drobna vrtača poglabljala.
 
+        \newpage
 
         \section{Difuzijski model}
 
-        Dinamiko vrtače poskusimo opisati z nelinearnim difuzijskim modelom, v prejšnjem poglavju najdenim in dimamično opremljenim nastavkom za stacionarno obliko vrtače (\ref{dinamicni-nastavek-vrtace}), ter  predpostavljeno difuzijsko konstanto (\ref{difuzijska-konstanta-1}). Privzamemo radialno simetričnost in računamo v cilindričnih koordinatah.
-
-        \begin{equation}
-          z(r,t) = A\left(1-e^{-\left(\frac{r}{\sigma }\right)^2}\left(1-e^{-\frac{t}{\tau }}\right)\right)
-          \label{dinamicni-nastavek-vrtace}
-        \end{equation}
-
-        \begin{equation}
-          z(r,\infty) = A\left(1-e^{-\left(\frac{r}{\sigma }\right)^2}\right)
-          \label{ravnovesni-nastavek-vrtace}
-        \end{equation}
-
-        \begin{equation}
-          \frac{\partial z}{\partial t} = - \nabla \cdot \mathbf{j}
-          \label{kontinuitetna-enacba}
-        \end{equation}
+        Dinamiko vrtače poskusimo opisati z nelinearno difuzijsko enačbo (\ref{nelinearna-difuzijska-enacba}). V prejšnjem poglavju smo našli nastavek za stacionano stanje (\ref{ravnovesni-nastavek-vrtace}), ki ga dopolnimo še s časovnim delom (\ref{dinamicni-nastavek-vrtace}), ter predpostavimo difuzijsko konstanto (\ref{difuzijska-konstanta-1}). Privzamemo radialno simetričnost in računamo v cilindričnih koordinatah.
 
         \begin{equation}
           \frac{\partial z}{\partial t} = \nabla (K(z) \nabla z)
@@ -346,37 +332,37 @@
         \end{equation}
 
         \begin{equation}
-          K(z) = -\frac{\left(-1+e^{\frac{r^2}{\sigma ^2}}\right) \sigma ^4}{4 \left(-1+e^{t/\tau }\right) r^2 \tau }
+          z_0(r) = z(r,\infty) = Ae^{-\left(\frac{r}{\sigma }\right)^2}
+          \label{ravnovesni-nastavek-vrtace}
+        \end{equation}
+
+        \begin{equation}
+          z(r,t) = A e^{-\left(\frac{r}{\sigma }\right)^2} \left(1- e^{-\frac{t}{\tau }}\right)
+          \label{dinamicni-nastavek-vrtace}
+        \end{equation}
+
+        \begin{equation}
+          K(z) = -\frac{\sigma ^4}{4 r^2 \tau } \left(1-\frac{A}{z_0(r)}\right) \left(1-\frac{z_0(r)}{z(r,t)}\right)
           \label{difuzijska-konstanta-1}
         \end{equation}
 
+        Vidimo, da je tok $\mathbf{j}$:
         \begin{equation}
-          K(z) = -\frac{\frac{1}{A} z(r,\infty) \sigma ^4 e^{-\frac{t}{\tau}}}{4 \left(e^{-t/\tau } - 1 \right) r^2 \tau }
-          \label{difuzijska-konstanta-2}
-        \end{equation}
-
-        \begin{comment}
-        \begin{equation}
-          K(z) = -\frac{e^{\frac{r^2}{\sigma ^2}+\frac{t}{\tau }} \left(-1+e^{\frac{r^2}{\sigma ^2}}\right) \sigma ^4}{4 a \left(1+e^{\frac{r^2}{\sigma ^2}+\frac{t}{\tau }}-e^{t/\tau }\right) \left(-1+e^{t/\tau }\right) r^2 \tau } \cdot z(r,t)
-        \end{equation}
-        \end{comment}
-
-        \begin{equation}
-          \mathbf{j} = \frac{A \sigma^2}{2 \tau} \frac{e^{-(\frac{r}{\sigma})^2}-1}{r} e^{-\frac{t}{\tau}}
+          \mathbf{j} = -\frac{A \sigma^2}{2 r \tau } \left( 1-e^{-(\frac{r^2}{\sigma ^2})} \right) e^{-\frac{t}{\tau }}
           \label{tok}
         \end{equation}
 
+        Ali zapisano z $z_0(r)$ in $z(r,t)$:
         \begin{equation}
-          \mathbf{j} = \frac{A \sigma^2}{2 \tau} \frac{\left( 1-\frac{r^2}{\sigma ^2}+O[r]^4 \right)-1}{r} e^{-\frac{t}{\tau}} = -\frac{A \sigma^2}{2 \tau} \frac{r}{\sigma ^2} e^{-\frac{t}{\tau}} + O[r^3]
+          \mathbf{j} = - K(z) \nabla z(r,t) = \frac{\sigma^2}{2 r \tau} \left(1- \frac{A}{z_0(r)}\right) (z_0(r)-z(r,t))
         \end{equation}
 
-        Časovni odvod dinamičnega nastavka za vrtačo (\ref{dinamicni-nastavek-vrtace}) se pri difuzijski konstanti (\ref{difuzijska-konstanta-1}) ujema z rezultatom difuzijske enačbe (\ref{nelinearna-difuzijska-enacba}).
 
-        Izrišemo časovno dinamiko profila vrtače (\ref{dinamicni-nastavek-vrtace}) in toka (\ref{tok}) - sliki (\ref{fig:vrtaca-dinamicno}) in (\ref{fig:tok-dinamicno}) (določimo $A=6,\sigma=5,\tau = 1$).
+        Izrišemo časovno dinamiko profila vrtače (\ref{dinamicni-nastavek-vrtace}) in toka (\ref{tok}) - sliki (\ref{fig:vrtaca-dinamicno}) in (\ref{fig:tok-dinamicno}) (vzamemo $A=-6,\sigma=5,\tau = 1$).
 
         \begin{figure}[H]
           \begin{center}
-            \includegraphics[width=14cm]{slike/tok-dinamicno}
+            \includegraphics[width=9cm]{slike/tok-dinamicno}
           \end{center}
           \caption{Časovni razvoj toka $\mathbf{j}$, enačba (\ref{tok})}
           \label{fig:tok-dinamicno}
@@ -384,11 +370,13 @@
 
         \begin{figure}[H]
           \begin{center}
-            \includegraphics[width=14cm]{slike/vrtaca-dinamicno}
+            \includegraphics[width=9cm]{slike/vrtaca-dinamicno}
           \end{center}
           \caption{Časovni razvoj vrtače, po nastavku (\ref{dinamicni-nastavek-vrtace})}
           \label{fig:vrtaca-dinamicno}
         \end{figure}
+
+\newpage
 
         Sedaj se postavimo daleč stran od centra vrtače, kjer po dolgem času velja:
 
