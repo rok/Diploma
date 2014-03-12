@@ -481,6 +481,18 @@
 
         \end{comment}
 
+        \section{Kardar-Parisi-Zhang}
+        Za opis področja vrtač uporabimo analogijo z rastjo vmesnikov - npr. nabiranjem vodnega kamna - le da tu nebo raste v apnenčasto podlago.
+        Za izhodišče vzamemo stohastično diferencialno Kardar-Parisi-Zhang enačbo (\cite{kardar1986dynamic}):
+
+        \begin{equation}
+          \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t)
+          \label{KPZ}
+        \end{equation}
+
+        $\eta(\mathbf{x},t)$ je bel Gaussov šum, za katerega velja $\eta(\mathbf{x},t)$ 
+
+
         \chapter{Zaključek}
 
         Izkaže se, da je zaznava in segmentacija vrtač na digitalnem modelu reliefu relativno enostavna naloga, izvedljiva na osebnem računalniku. Kodo, ki sem jo za ta postopek spisal, sem dokumentirano objavil na spletu in bo morda še služila za obsežnejšo katalogizacijo vrtač.
