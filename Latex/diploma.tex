@@ -276,62 +276,10 @@
         \label{analiticno-modeliranje}
 
         \begin{comment}
-
-        \section{Model z Darcyevim tokom}
-
-        Vzamemo, da ob deževju voda napolni porozno prst do višine $h$ in da je hitrost toka vode v prsti sorazmerna z gradientom višine - $\nabla h$. Uporabimo Darcyev zakon ($k$ je permeabilnost prsti, $g$ pa gravitacijski pospešek). (Ideja povzeta po \cite{Kodre1994})
-
-        \begin{equation}
-          \mathbf{v} = - k \rho g \nabla h
-          \label{darcyev-zakon}
-        \end{equation}
-
-        Vzamemo približek, da v centru vrtače ponikne ves tok, ki priteče v vanjo:
-
-        \begin{equation}
-          \Phi_v = 2 \pi r h v
-          \label{darcy-tok}
-        \end{equation}
-
-        Enačbi združimo v:
-
-        \begin{equation}
-          h \nabla h = \frac{\Phi_v}{2 \pi r v} \frac{v}{k \rho g}
-          \label{darcy-pretok-1}
-        \end{equation}
-
-        Dobimo rezultat:
-
-        \begin{equation}
-          h(r_0)^2 = h(r_1)^2 - \frac{\Phi_v}{\pi k \rho g} ln(\frac{r_1}{r_0})
-          \label{darcy-gladina}
-        \end{equation}
-
-        Postavimo, da je raztapljanje sorazmerno s pretokom vode:
-
-        \begin{equation}
-          \frac{\partial z}{\partial t} = C \mathbf{v} = - C k \rho g \nabla h
-          \label{darcy-raztapljanje-2}
-        \end{equation}
-
-        Dobimo rezultat za z(r,t):
-
-        \begin{equation}
-          z(r,t) = z_0 - \frac{t}{2 r \sqrt{1-ln\left(\frac{1}{r}\right)}}
-          \label{darcy-z}
-        \end{equation}
-
-        Rezultat seveda ni pravilen, saj neskočnih brezen na krasu ne opazimo, je pa zanimiv, kot premislek, ki pravi, da se bo še tako drobna vrtača poglabljala.
-
-        \newpage
-
-        \end{comment}
-
         \section{Difuzijski model}
 
         Dinamiko vrtače poskusimo opisati z nelinearnimi difuzijsko enačbo (\ref{nelinearna-difuzijska-enacba}). V prejšnjem poglavju smo našli nastavek za stacionano stanje (\ref{ravnovesni-nastavek-vrtace}), ki ga dopolnimo še s časovnim delom (\ref{dinamicni-nastavek-vrtace}), ter predpostavimo difuzijsko konstanto (\ref{difuzijska-konstanta-1}). Privzamemo radialno simetričnost in računamo v cilindričnih koordinatah.
 
-\begin{comment}
         \begin{equation}
           \frac{\partial z}{\partial t} = \nabla (K(z) \nabla z)
           \label{nelinearna-difuzijska-enacba}
@@ -365,7 +313,6 @@
 
 
         Izrišemo časovno dinamiko profila vrtače (\ref{dinamicni-nastavek-vrtace}) in toka (\ref{tok}) - sliki (\ref{fig:vrtaca-dinamicno}) in (\ref{fig:tok-dinamicno}) (vzamemo $A=-6,\sigma=5,\tau = 1$).
-\end{comment}
 
 
         Sedaj se postavimo daleč stran od centra vrtače, kjer po dolgem času velja:
@@ -395,11 +342,9 @@
           \caption{Vrednosti iz literature \cite{Gams1967} \cite{ford2007karst} \cite{fleurant2008modelling} in \ref{realne-vrtace}. poglavja}
           \label{tab:tabela-konstant}
         \end{table}
-
-\newpage
+        \end{comment}
 
         \begin{comment}
-
         \section{Dvofazni difuzijski model}
 
         Za izhodišče privzamemo difuzijski model, kot ga predlaga Heimsath \cite{Heimsath2001}.
@@ -461,15 +406,6 @@
 
         Profil vrtače blizu ravnovesja zmotimo s spremembo vrednosti oblike profila ($z(r)$), vstavimo nastavek za $\frac{\partial z_b}{\partial t}=\frac{1}{|h_0-h|}$ in \dots
 
-
-        \section{Elastomehanični model}
-        \section{Boussinesqov približek}
-
-        \chapter{Numerično modeliranje vrtač} 
-        \section{Model naključnih korozijskih točk}
-        \section{Naključne korozijske točke na realni kamnini}
-        \section{Preizkus modela korozijskih točk na geološki karti}
-
         \end{comment}
 
 
@@ -504,118 +440,136 @@
           \label{beta}
         \end{equation}
 
-Kjer je $\beta$ exponent rasti, ki poda časovno dinamiko hrapavosti.
-Po dolgem času $(t \gg t_x)$ širina vmesnika preide v zasičeni režim, v katerem se eksponentna rast ustavi in doseže zasičeno vrednost $w_{sat}$, ki je odvisna od velikosti sistema $L$ takole:
+        Kjer je $\beta$ exponent rasti, ki poda časovno dinamiko hrapavosti.
+        Po dolgem času $(t \gg t_x)$ širina vmesnika preide v zasičeni režim, v katerem se eksponentna rast ustavi in doseže zasičeno vrednost $w_{sat}$, ki je odvisna od velikosti sistema $L$ takole:
 
         \begin{equation}
           w_{sat}(L) \sim L^\alpha
           \label{alfa}
         \end{equation}
 
-Eksponent $\alpha$ imenujemo eksponent hrapavosti, in nam poda hrapavost nasičenega vmesnika.
+        Eksponent $\alpha$ imenujemo eksponent hrapavosti, in nam poda hrapavost nasičenega vmesnika.
 
-Prehodni čas $t_x$, okoli katerega vmesnik preide iz nezasičenega v zasičen režim, je odvisen od velikosti sistema in je približno:
+        Prehodni čas $t_x$, okoli katerega vmesnik preide iz nezasičenega v zasičen režim, je odvisen od velikosti sistema in je približno:
 
         \begin{equation}
           t_x \sim L^z
           \label{z}
         \end{equation}
 
-Kjer je $z$ dinamični eksponent.
-Eksponenti $\alpha$, $\beta$ in $z$ medseboj niso neodvisni.
-Izkaže se, da če izrišemo $w(L,t)/w_{sat}(L)$ kot funkcije časa, bomo dobili krivulje, ki se zasitijo ob istem času, neglede na velikost sistema $L$.
-In da če izrišemo širino vmesnika, kot funkcijo $t/t_x$, se bodo vse krivulje zasitile v isti točki.
-Zato sklepamo, da je $w(L,t)/w_{sat}(L)$ funkcija $t/t_x$, torej:
+        Kjer je $z$ dinamični eksponent.
+        Eksponenti $\alpha$, $\beta$ in $z$ medseboj niso neodvisni.
+        Izkaže se, da če izrišemo $w(L,t)/w_{sat}(L)$ kot funkcije časa, bomo dobili krivulje, ki se zasitijo ob istem času, neglede na velikost sistema $L$.
+        In da če izrišemo širino vmesnika, kot funkcijo $t/t_x$, se bodo vse krivulje zasitile v isti točki.
+        Zato sklepamo, da je $w(L,t)/w_{sat}(L)$ funkcija $t/t_x$, torej:
 
         \begin{equation}
           \frac{w(L,t)}{w_{sat}(L)} \sim f(\frac{t}{t_x})
         \end{equation}
 
-kjer je $f(u)$ funkcija skaliranja in če nadomestimo $w_{sat}$ in $t_x$, dobimo Family-Vicsek skalirno relacijo:
+        kjer je $f(u)$ funkcija skaliranja in če nadomestimo $w_{sat}$ in $t_x$, dobimo Family-Vicsek skalirno relacijo:
 
         \begin{equation}
           w(L,t) \sim L^\alpha f(\frac{t}{L^z})
           \label{family-vicsek}
         \end{equation}
 
-Če sedaj izrišemo več različnih razvojev površja na en graf (SLIKA 2.6 iz \cite{barabasi1995fractal} ), dobimo jasnejšo predstavo o funkciji skaliranja. Če se točki $(t_x,w(t_x))$ približamo z leve, vidimo, da po (\ref{beta}) velja $w(t_x) \sim t_x^\beta$. Hkrati pa, da če se isti točki približujemo z desne po (\ref{alfa}) velja $w(t_x) \sim L^\alpha$. Torej $t_x^\beta \sim L^\alpha$ in po (\ref{z}) sledi zakon o skaliranju:
-
-        \begin{equation}
-          z = \frac{\alpha}{\beta}
-        \end{equation}
-
-
-\subsection{Merjenje eksponenta hrapavosti}
-
-Zvezo (\ref{alfa}) predelamo  v $ w_{sat}=C \cdot L^\alpha $ in dobimo:
-
-\begin{equation}
-  \alpha = \frac{\partial ( ln w_{sat} ) }{\partial ( ln L )}
-  \label{alpha-numeric}
-\end{equation}
-
-Na Lidar modelu Menišije uporabljenem v (Poglavje \ref{realne-vrtace}), izračunamo $\bar{w}(L,t \to \infty)$ za vmesnike med 5 in 10 km in jih narišemo v odvisnosti od velikosti vmesnika.
-
-Dobimo graf (Slika \ref{fig:menisija-alfa}), s katega odberemo, da je $\alpha =  0.4368  (0.4363, 0.4373)$
-
-
-        \begin{figure}[H]
-          \begin{center}
-            \includegraphics{slike/menisija-alfa.pdf}
-          \end{center}
-          \caption{menisija-alfa}
-          \label{fig:menisija-alfa}
-        \end{figure}
-
-
-        \subsection{Model Kardar-Parisi-Zhang}
-
-        Za modeliranje procesa nastanka vrtač lahko vzamemo, da kamnina razpada stohastično, kot $\eta(\mathbf{x},t)$, ki je bel Gaussov šum, za katerega velja: $ \langle \eta(\mathbf{x},t) \rangle=0 $ in
-        \[ \langle \eta(\mathbf{x},t) \eta(\mathbf{x'},t')\rangle = 2 D \delta^d(\mathbf{x}-\mathbf{x'})(t-t') \]
-
-        Ko se del kamnine raztopi, pomaknemo površino površja v smeri normale (SLIKA), torej se površje v smeri osi h v času $\delta t$ pomakne za $\delta h = \sqrt{ (v \delta t)^2 + (v \delta t \nabla h)^2}$, če je $|\nabla h| \ll 1$ dobimo: 
-        \[ \dot h = v \sqrt{1 + (\nabla h)^2} \simeq v + \frac{v}{2} (\nabla h)^2 + \ldots \] 
-        
-        To nam da člen $\frac{\lambda}{2} (\nabla h)^2$.
-
-        Vzamemo, da zaradi počasnosti procesa prihaja do difuzije površja in dodamo člen $\nu \nabla^2 h$.
-
-        Sestavljeni nam ti členi dajo Kardar-Parisi-Zhang enačbo (\cite{kardar1986dynamic}):
-
-        \begin{equation}
-          \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t)
-          \label{KPZ}
-        \end{equation}
-
-        Vzamemo nastavek: 
-        \[ h(\mathbf{x},t) = \frac{2 \nu}{\lambda} log(Z(\mathbf{x},t)) \]
-        in dobimo stohastično difuzijsko enačbo:
-        \[ \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z \]
-
-        katere rešitev je:
+        Kjer za $f(u)$ velja:
         \[
-        h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h_0(\xi)] \right)
-        \]
+          f(u) \propto \left \{ \begin{array}{lr} u^{\beta} & \ u\ll 1 \\
+            1 & \ u\gg1\end{array} \right. \]
 
-        To nato zapišemo v furierovem prostoru in s prostim propagatorjem, ter pogojem za beli šum perturbativno rešimo (\ref{KPZ}). Od tod \cite{kardar1986dynamic} pokažejo, da za $d=1$ velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$.
+            Če sedaj izrišemo več različnih razvojev površja na en graf (SLIKA 2.6 iz \cite{barabasi1995fractal} ), dobimo jasnejšo predstavo o funkciji skaliranja. Če se točki $(t_x,w(t_x))$ približamo z leve, vidimo, da po (\ref{beta}) velja $w(t_x) \sim t_x^\beta$. Hkrati pa, da če se isti točki približujemo z desne po (\ref{alfa}) velja $w(t_x) \sim L^\alpha$. Torej $t_x^\beta \sim L^\alpha$ in po (\ref{z}) sledi zakon o skaliranju:
 
-        To SE / SE NE ujema z poprej dobljenim numeričnim rezultatom.
-
-
-
-        \chapter{Zaključek}
-
-        Izkaže se, da je zaznava in segmentacija vrtač na digitalnem modelu reliefu relativno enostavna naloga, izvedljiva na osebnem računalniku. Kodo, ki sem jo za ta postopek spisal, sem dokumentirano objavil na spletu in bo morda še služila za obsežnejšo katalogizacijo vrtač.
-        Za nekoliko težjo nalogo se izkaže določanje idealne oblike vrtače, saj le-ta ne obstaja, in bi se moralo pravo vprašanje glasiti, kakšna je idealna oblika vrtače na izotropni podlagi po dolgem času. Vseeno sem se odločil, da za idealno vrtačo vzamem povprečje velike količine vrtač.
-
-        Precej zahtevnejša naloga je bila izbira fizikalnega modela in dinamičnega opisa vrtače. Najbolj primeren model se je zdela nelinearna difuzijska enačba s primerno izbrano difuzijsko konstanto, ki je omogočila rešitev z previdno izbranim dinamičnim nastavkom. Treba je priznati, da je taka rešitev krhka in verjetno vsaj delno napačna, a nam nakaže možnost, da je originalna teza o tem da so vrtače ravnovesne reštive lahko pravilna.
-        Za popolnejši študij in dober model vrtač bi verjetno potrebovali bolj poglobljene informacije o prsti, geoloških in bioloških dejavnikih, ki lahko vplivajo na časovno dinamiko terena. Zanimiva ideja bi bila z geološkim študijem najti vrtače v različnih stopnjah razvoja in s pomočjo te informacije oblikovati dinamičen nastavek, na podlagi katerega bi potem morda bolj osvetlili dinamično enačbo.
-
-        \nocite{*}
-        \newpage
-        \bibliography{bibliography}{}
-        \bibliographystyle{alpha}
+            \begin{equation}
+              z = \frac{\alpha}{\beta}
+            \end{equation}
 
 
-        \end{document}
+            \subsection{Merjenje eksponenta hrapavosti}
+            \label{hrapavost}
+
+            Zvezo (\ref{alfa}) predelamo  v $ w_{sat}=C \cdot L^\alpha $ in dobimo:
+
+            \begin{equation}
+              \alpha = \frac{\partial ( ln (w_{sat}) ) }{\partial ( ln L )}
+              \label{alpha-numeric}
+            \end{equation}
+
+            Na Lidar modelu Menišije uporabljenem v (Poglavje \ref{realne-vrtace}), izračunamo $\bar{w}_{sat}$ za vmesnike,kjer je L med 5 in 10 km in jih narišemo v odvisnosti od velikosti vmesnika.
+
+            Dobimo graf (Slika \ref{fig:menisija-alfa}), s katega odberemo, da je $\alpha =  0.4368 \pm 0.0005$
+
+            \begin{figure}[H]
+              \begin{center}
+                \includegraphics{slike/menisija-alfa.pdf}
+              \end{center}
+              \caption{Prileganje premice $f(ln(L)) = \alpha \cdot x$, k krivulji $ln(w_{sat}(ln(L)))$ nam da eksponent hrapavosti}
+              \label{fig:menisija-alfa}
+            \end{figure}
+
+
+            \subsection{Model Kardar-Parisi-Zhang}
+
+            Za modeliranje procesa nastanka vrtač lahko vzamemo, da kamnina razpada stohastično, kot $\eta(\mathbf{x},t)$, ki je bel Gaussov šum, za katerega velja: $ \langle \eta(\mathbf{x},t) \rangle=0 $ in
+            \[ \langle \eta(\mathbf{x},t) \eta(\mathbf{x'},t')\rangle = 2 D \delta^d(\mathbf{x}-\mathbf{x'})(t-t') \]
+
+            Ko se del kamnine raztopi, pomaknemo površino površja v smeri normale (SLIKA), torej se površje v smeri osi h v času $\delta t$ pomakne za $\delta h = \sqrt{ (v \delta t)^2 + (v \delta t \nabla h)^2}$, če je $|\nabla h| \ll 1$ dobimo: 
+            \[ \dot h = v \sqrt{1 + (\nabla h)^2} \simeq v + \frac{v}{2} (\nabla h)^2 + \ldots \] 
+
+            To nam da člen $\frac{\lambda}{2} (\nabla h)^2$.
+
+            Vzamemo, da zaradi počasnosti procesa prihaja do difuzije površja in dodamo člen $\nu \nabla^2 h$.
+
+            Sestavljeni nam ti členi dajo Kardar-Parisi-Zhang enačbo (\cite{kardar1986dynamic}):
+
+            \begin{equation}
+              \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t)
+              \label{KPZ}
+            \end{equation}
+
+            Vzamemo nastavek: 
+            \[ h(\mathbf{x},t) = \frac{2 \nu}{\lambda} log(Z(\mathbf{x},t)) \]
+            in dobimo stohastično difuzijsko enačbo:
+            \[ \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z \]
+
+            katere rešitev je:
+            \[ h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h_0(\xi)] \right) \]
+
+            To nato zapišemo v furierovem prostoru in s prostim propagatorjem, ter pogojem za beli šum perturbativno rešimo (\ref{KPZ}). Od tod \cite{kardar1986dynamic} pokažejo, da za velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. To se relativno dobro ujema z v (Poglavje \ref{hrapavost}) namerjenim $\alpha=0.4368 \pm 0.0005$.
+
+
+            \subsection{Simulacija stohastične rasti površja}
+
+            Če poskusimo simulirati stohastično rast površja, opazimo, da je končno stanje površja modela precej stabilno, a ne ravnovesno in precej odvisno od začetnih pogojev. Oblike, ki na površju nastanejo so si med seboj podobne po obliki in velikosti. Slika \ref{fig:KPZ-numericno} je primer tako simuliranega površja.
+
+            \begin{figure}[H]
+              \begin{center}
+                \includegraphics[width=14cm]{slike/KPZ-numericno}
+              \end{center}
+              \caption{Numerična simulacija po Kardar-Parisi-Zhang enačbi razvijajočega se površja}
+              \label{fig:KPZ-numericno}
+            \end{figure}
+
+
+            \section{Modeliranje dinamike vrtač}
+
+
+
+
+            \chapter{Zaključek}
+
+            Izkaže se, da je zaznava in segmentacija vrtač na digitalnem modelu reliefu relativno enostavna naloga, izvedljiva na osebnem računalniku. Kodo, ki sem jo za ta postopek spisal, sem dokumentirano objavil na spletu in bo morda še služila za obsežnejšo katalogizacijo vrtač.
+            Za nekoliko težjo nalogo se izkaže določanje idealne oblike vrtače, saj le-ta ne obstaja, in bi se moralo pravo vprašanje glasiti, kakšna je idealna oblika vrtače na izotropni podlagi po dolgem času. Vseeno sem se odločil, da za idealno vrtačo vzamem povprečje velike količine vrtač.
+
+            Precej zahtevnejša naloga je bila izbira fizikalnega modela in dinamičnega opisa vrtače. Najbolj primeren model se je zdela nelinearna difuzijska enačba s primerno izbrano difuzijsko konstanto, ki je omogočila rešitev z previdno izbranim dinamičnim nastavkom. Treba je priznati, da je taka rešitev krhka in verjetno vsaj delno napačna, a nam nakaže možnost, da je originalna teza o tem da so vrtače ravnovesne reštive lahko pravilna.
+            Za popolnejši študij in dober model vrtač bi verjetno potrebovali bolj poglobljene informacije o prsti, geoloških in bioloških dejavnikih, ki lahko vplivajo na časovno dinamiko terena. Zanimiva ideja bi bila z geološkim študijem najti vrtače v različnih stopnjah razvoja in s pomočjo te informacije oblikovati dinamičen nastavek, na podlagi katerega bi potem morda bolj osvetlili dinamično enačbo.
+
+            \nocite{*}
+            \newpage
+            \bibliography{bibliography}{}
+            \bibliographystyle{alpha}
+
+
+            \end{document}
 
