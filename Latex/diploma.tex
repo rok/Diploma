@@ -545,17 +545,74 @@
 
             \begin{figure}[H]
               \begin{center}
-                \includegraphics[width=14cm]{slike/KPZ-numericno}
+                \includegraphics{slike/KPZ-numericno}
               \end{center}
-              \caption{Numerična simulacija po Kardar-Parisi-Zhang enačbi razvijajočega se površja}
+              \caption{Numerična simulacija po Kardar-Parisi-Zhang enačbi razvijajočega se površja po $10^5$ korakih}
               \label{fig:KPZ-numericno}
             \end{figure}
 
 
-            \section{Modeliranje dinamike vrtač}
+            \section{Deterministično modeliranje dinamike vrtač}
 
+            Za modeliranje posamezne vrtače stohastični procesi niso primerni, zato si za opis pogledamo difuzijsko enačbo (\ref{difuzija-splosna}) z različnimi variacijami člena za rast $F(h)$ (\ref{difuzijska-variacije}). Izbor enačb povzet po \cite{kandler2010population}.
 
+            \begin{equation}
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + F(h)
+              \label{difuzija-splosna}
+            \end{equation}
 
+          \begin{equation}
+            F(h) = \left \{ \begin{array}{lr} 
+            a \cdot h \\
+            h \cdot (1 - \frac{h}{K}) \\
+            (K - h) \\
+            h \cdot a_0 e^{-a t}
+            \end{array} \right. 
+            \label{difuzijska-variacije}
+          \end{equation}
+
+          Predpostavimo torej, da se model difuzijsko izravnava, hkrati pa nanj deluje nek proces ki višinsko razliko povečuje. Poiskali bomo rešitve teh enačb in komentirali njihovo časovno dinamiko. 
+          Vzeli bomo sledeče robne pogoje:
+
+         \[ h(0,x) = u_0, x \in D \]
+         \[ h(t,x) = 0, x \in \partial D\]
+         \[ \frac{\partial h(t,x)}{\partial n} = 0, x \in \partial D\]
+
+          \subsection{Eksponentna rast}
+
+          Če izberemo nastavek $F(h) = a \cdot h$ dobimo:
+
+            \begin{equation}
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + a \cdot h(t,x)
+              \label{difuzija-eksponentna-rast}
+            \end{equation}
+
+          \subsection{Logistična rast}
+
+          Če izberemo nastavek $F(h) = h \cdot (1 - \frac{h}{K})$ dobimo:
+
+            \begin{equation}
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) +  h(t.x) \cdot (1 - \frac{h(t.x)}{K})
+              \label{difuzija-logisticna-rast}
+            \end{equation}
+
+          \subsection{Omejena eksponentna rast}
+
+          Če izberemo nastavek $F(h) = (K - h)$ dobimo:
+
+            \begin{equation}
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + (K - h(t,x))
+              \label{difuzija-omejena-eksponentna-rast}
+            \end{equation}
+
+          \subsection{Gompertzova rast}
+
+          Če izberemo nastavek $F(h) = h \cdot a_0 e^{-a t}$ dobimo:
+
+            \begin{equation}
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + h(t,x) \cdot a_0 e^{-a t}
+              \label{difuzija-gompertzova-rast}
+            \end{equation}
 
             \chapter{Zaključek}
 
