@@ -577,9 +577,9 @@
           \begin{equation}
             F(h) = \left \{ \begin{array}{lr} 
             a \cdot h \\
-            h \cdot (1 - \frac{h}{K}) \\
-            (K - h) \\
-            h \cdot a_0 e^{-a t}
+            a \cdot h \cdot (1 - \frac{h}{K}) \\
+            a \cdot (K - h) \\
+            - h \cdot e^{-a t}
             \end{array} \right. 
             \label{difuzijska-variacije}
           \end{equation}
@@ -587,7 +587,7 @@
           Predpostavimo torej, da se model difuzijsko izravnava, hkrati pa nanj deluje nek proces, ki višinsko razliko povečuje. Poiskali bomo rešitve teh enačb in komentirali njihovo časovno dinamiko. 
           Vzeli bomo sledeče robne pogoje:
 
-         \[ h(0,x) = u_0, x \in D \]
+         \[ h(0,x) =  - e^{-x^2}, x \in D \]
          \[ h(t,x) = 0, x \in \partial D\]
          \[ \frac{\partial h(t,x)}{\partial n} = 0, x \in \partial D\]
 
@@ -602,33 +602,33 @@
               \label{difuzija-eksponentna-rast}
             \end{equation}
 
-            Tak sistem nam da eksponentno rast, kot prikazano na (Slika \ref{difuzija-eksponentna-rast}).
+            Tak sistem nam da eksponentno rast, kot prikazano na (Slika \ref{fig:difuzija-eksponentna-rast}).
 
             \begin{figure}[H]
               \begin{center}
-                \includegraphics[width=14cm]{slike/difuzija-eksponentna-rast}
+                \includegraphics[width=14cm]{slike/difuzija-eksponentna-rast2}
               \end{center}
-              \caption{Vzeli smo $D=10$, $a=1$ in majno začetno porazdelitev, ki povzroči začetek rasti - slika a) \cite{kandler2010population}}
+              \caption{Vzeli smo $D=1$, $a=1$}
               \label{fig:difuzija-eksponentna-rast}
             \end{figure}
 
-            Eksponentna rast za vrtače ni primeren model, saj je v naravi ne opazimo.
+            Eksponentna rast za vrtače ni primeren model, v naravi je ne opazimo.
 \newpage
 
           \subsection{Logistična rast}
 
-          Če izberemo $F(h) = h \cdot (1 - \frac{h}{K})$, dobimo:
+          Če izberemo $F(h) = a \cdot h \cdot (1 - \frac{h}{K})$, dobimo:
 
             \begin{equation}
-              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) +  h(t.x) \cdot (1 - \frac{h(t.x)}{K})
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + a \cdot h(t.x) \cdot (1 - \frac{h(t.x)}{K})
               \label{difuzija-logisticna-rast}
             \end{equation}
 
             \begin{figure}[H]
               \begin{center}
-                \includegraphics[width=14cm]{slike/difuzija-logisticna-rast}
+                \includegraphics[width=14cm]{slike/difuzija-logisticna-rast2}
               \end{center}
-              \caption{Vzeli smo $D=10$, $a=1$, $K=100$ in majno začetno porazdelitev, ki povzroči začetek rasti - slika a) \cite{kandler2010population}}
+              \caption{Vzeli smo $D=1$, $a=\frac{1}{50}$, $K=-10$}
               \label{fig:difuzija-logisticna-rast}
             \end{figure}
 
@@ -642,18 +642,18 @@
 
           \subsection{Omejena eksponentna rast}
 
-          Če izberemo $F(h) = (K - h)$, dobimo:
+          Če izberemo $F(h) = a \cdot (K - h)$, dobimo:
 
             \begin{equation}
-              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + (K - h(t,x))
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + a \cdot (K - h(t,x))
               \label{difuzija-omejena-eksponentna-rast}
             \end{equation}
 
             \begin{figure}[H]
               \begin{center}
-                \includegraphics[width=14cm]{slike/difuzija-omejena-eksponentna-rast}
+                \includegraphics[width=14cm]{slike/difuzija-omejena-eksponentna-rast2}
               \end{center}
-              \caption{Vzeli smo $D=10$, $a=1$, $K=100$ in majno začetno porazdelitev, ki povzroči začetek rasti - slika a) \cite{kandler2010population}}
+              \caption{Vzeli smo $D=1$, $a=\frac{1}{50}$, $K=-10$}
               \label{fig:difuzija-omejena-eksponentna-rast}
             \end{figure}
 
@@ -663,18 +663,18 @@
 
           \subsection{Gompertzova rast}
 
-          Če izberemo $F(h) = h \cdot a_0 e^{-a t}$, dobimo:
+          Če izberemo $F(h) = - h \cdot e^{-a t}$, dobimo:
 
             \begin{equation}
-              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + h(t,x) \cdot a_0 e^{-a t}
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) - h(t,x) \cdot e^{-a t}
               \label{difuzija-gompertzova-rast}
             \end{equation}
 
             \begin{figure}[H]
               \begin{center}
-                \includegraphics[width=14cm]{slike/difuzija-gompertzova-rast}
+                \includegraphics[width=14cm]{slike/difuzija-gompertzova-rast2}
               \end{center}
-              \caption{Vzeli smo $D=10$, $a=1$ in majno začetno porazdelitev, ki povzroči začetek rasti - slika a) \cite{kandler2010population}}
+              \caption{Vzeli smo $D=1$, $a=\frac{1}{10}$}
               \label{fig:difuzija-gompertzova-rast}
             \end{figure}
 
