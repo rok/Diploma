@@ -465,7 +465,7 @@
           \frac{w(L,t)}{w_{sat}(L)} \sim f(\frac{t}{t_x})
         \end{equation}
 
-        kjer je $f(u)$ funkcija skaliranja in če nadomestimo $w_{sat}$ in $t_x$, dobimo Family-Vicsek skalirno relacijo:
+        kjer je $f(u)$ funkcija lestvičenja in če nadomestimo $w_{sat}$ in $t_x$, dobimo Family-Vicsek relacijo lestvičenja:
 
         \begin{equation}
           w(L,t) \sim L^\alpha f(\frac{t}{L^z})
@@ -473,11 +473,12 @@
         \end{equation}
 
         Za $f(u)$ velja:
-        \[
+        \begin{equation}
           f(u) \propto \left \{ \begin{array}{lr} u^{\beta} & \ u\ll 1 \\
-            1 & \ u\gg1\end{array} \right. \]
+            1 & \ u\gg1\end{array} \right. 
+        \end{equation}
 
-            Če sedaj izrišemo več različnih razvojev površja na en graf ((Slika \ref{fig:barabasi}) iz \cite{barabasi1995fractal}), dobimo jasnejšo predstavo o funkciji skaliranja. Če se točki $(t_x,w(t_x))$ približamo z leve, vidimo, da po (\ref{beta}) velja $w(t_x) \sim t_x^\beta$. Hkrati pa, da če se isti točki približujemo z desne po (\ref{alfa}) velja $w(t_x) \sim L^\alpha$. Torej $t_x^\beta \sim L^\alpha$ in po (\ref{z}) sledi zakon o skaliranju:
+            Če sedaj izrišemo več različnih razvojev površja na en graf ((Slika \ref{fig:barabasi}) iz \cite{barabasi1995fractal}), dobimo jasnejšo predstavo o funkciji lestvičenja. Če se točki $(t_x,w(t_x))$ približamo z leve, vidimo, da po (\ref{beta}) velja $w(t_x) \sim t_x^\beta$. Hkrati pa, da če se isti točki približujemo z desne po (\ref{alfa}) velja $w(t_x) \sim L^\alpha$. Torej $t_x^\beta \sim L^\alpha$ in po (\ref{z}) sledi zakon o lestvičenju:
 
             \begin{equation}
               z = \frac{\alpha}{\beta}
@@ -519,10 +520,19 @@
             \section{Model Kardar-Parisi-Zhang}
 
             Za modeliranje procesa nastanka vrtač lahko vzamemo, da kamnina razpada stohastično kot $\eta(\mathbf{x},t)$, ki je bel Gaussov šum, za katerega velja: $ \langle \eta(\mathbf{x},t) \rangle=0 $ in
-            \[ \langle \eta(\mathbf{x},t) \eta(\mathbf{x'},t')\rangle = 2 D \delta^d(\mathbf{x}-\mathbf{x'})(t-t') \]
+        \begin{equation}
+            \langle \eta(\mathbf{x},t) \eta(\mathbf{x'},t')\rangle = 2 D \delta^d(\mathbf{x}-\mathbf{x'})(t-t')
+        \end{equation}
 
-            Ko se del kamnine raztopi, pomaknemo površino površja v smeri normale (Slika \ref{fig:kpz}), torej se površje v smeri osi h v času $\delta t$ pomakne za $\delta h = \sqrt{ (v \delta t)^2 + (v \delta t \nabla h)^2}$. Če je $|\nabla h| \ll 1$, dobimo: 
-            \[ \dot h = v \sqrt{1 + (\nabla h)^2} \simeq v + \frac{v}{2} (\nabla h)^2 + \ldots \] 
+            Ko se del kamnine raztopi, pomaknemo površino površja v smeri normale (Slika \ref{fig:kpz}), torej se površje v smeri osi h v času $\delta t$ pomakne za 
+        \begin{equation}
+          \delta h = \sqrt{ (v \delta t)^2 + (v \delta t \nabla h)^2}
+        \end{equation}
+
+        Če je $|\nabla h| \ll 1$, dobimo: 
+        \begin{equation}
+            \dot h = v \sqrt{1 + (\nabla h)^2} \simeq v + \frac{v}{2} (\nabla h)^2 + \ldots
+        \end{equation}
 
             \begin{figure}[H]
               \begin{center}
@@ -543,13 +553,20 @@
               \label{KPZ}
             \end{equation}
 
-            Vzamemo nastavek: 
-            \[ h(\mathbf{x},t) = \frac{2 \nu}{\lambda} log(Z(\mathbf{x},t)) \]
+            Vzamemo nastavek:
+        \begin{equation}
+            h(\mathbf{x},t) = \frac{2 \nu}{\lambda} log(Z(\mathbf{x},t))
+        \end{equation}
             in dobimo stohastično difuzijsko enačbo:
-            \[ \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z \]
 
-            katere rešitev je:
-            \[ h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h_0(\xi)] \right) \]
+        \begin{equation}
+            \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z
+        \end{equation}
+
+        katere rešitev je:
+        \begin{equation}
+            h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h(\xi,0) \right] \right)
+        \end{equation}
 
             \cite{kardar1986dynamic} nato v fourierovem prostoru s prostim propagatorjem in pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. To se relativno dobro ujema z $\alpha=0.4368 \pm 0.0005$ namerjenim v (Poglavje \ref{hrapavost}).
 
@@ -565,7 +582,112 @@
             \end{figure}
 
 
-            \section{Deterministično modeliranje dinamike vrtač}
+            \section{Modeliranje dinamike vrtač}
+
+            Za modeliranje dinamike posamezne vrtače stohastični procesi niso primerni, zato si za opis pogledamo dinamično enačbo (\ref{dinamicna-splosna}) z različnimi variacijami člena rasti $F(h)$ (\ref{dinamicna-variacije}). Izbor enačb je povzet po \cite{kandler2010population}.
+
+            \begin{equation}
+              \frac{ \partial h(t,x) }{ \partial t} = F(h)
+              \label{dinamicna-splosna}
+            \end{equation}
+
+          \begin{equation}
+            F(h) = \left \{ \begin{array}{lr} 
+            a \cdot h \\
+            a \cdot h \cdot (1 - \frac{h}{K}) \\
+            a \cdot (K - h) \\
+            - h \cdot e^{-a t}
+            \end{array} \right. 
+            \label{dinamicna-variacije}
+          \end{equation}
+
+          \subsection{Eksponentna rast}
+
+          V modelu eksponentne rasti predpostavimo, da je rast profila sorazmerna z njegovo globino, torej:
+
+          \begin{equation}
+            \frac{\partial h(t)}{\partial t} = a \cdot h(t)
+          \end{equation}
+
+          Rešitev pa je
+          \begin{equation}
+            h(t) = h_0 e^{a t}
+          \end{equation}
+
+            \begin{figure}[H]
+              \begin{center}
+                \includegraphics[width=10cm]{slike/eksponentna-rast}
+              \end{center}
+              \caption{Vzeli smo }
+              \label{fig:eksponentna-rast}
+            \end{figure}
+
+          \subsection{Logistična rast}
+
+          \begin{equation}
+            \frac{\partial h(t)}{\partial t} = a \cdot \left( 1 - \frac{h(t)}{K} \right) h(t)
+          \end{equation}
+
+          Rešitev pa je
+          \begin{equation}
+            h(t) = \frac{h_0 K e^{a t}}{K + h_0 (e^{a t}-1)}
+          \end{equation}
+
+            \begin{figure}[H]
+              \begin{center}
+                \includegraphics[width=14cm]{slike/logisticna-rast}
+              \end{center}
+              \caption{Vzeli smo }
+              \label{fig:logisticna-rast}
+            \end{figure}
+
+          \subsection{Omejena eksponentna rast}
+
+          \begin{equation}
+            \frac{\partial h(t)}{\partial t} = a \cdot ( K - h(t) ) = a K - a h(t)
+          \end{equation}
+
+          Rešitev pa je
+          \begin{equation}
+            h(t) = K - (K - h_0) e^{-a t}
+          \end{equation}
+
+            \begin{figure}[H]
+              \begin{center}
+                \includegraphics[width=14cm]{slike/omejena-eksponentna-rast}
+              \end{center}
+              \caption{Vzeli smo }
+              \label{fig:omejena-eksponentna-rast}
+            \end{figure}
+
+          \subsection{Gompertzova rast}
+
+          \begin{equation}
+            a(t) = a_0 \cdot e^{- k t}
+          \end{equation}
+
+          \begin{equation}
+            \frac{\partial h(t)}{\partial t} = a(t) \cdot h(t) = a_0 e^{ -k t} h(t)
+          \end{equation}
+
+          Rešitev pa je
+          \begin{equation}
+            h(t) = h_0 \cdot e^{\frac{a_0}{k}(1-e^{-kt})}
+          \end{equation}
+
+          \begin{equation}
+            h(t) = h_0 \cdot e^{\frac{a_0}{k}} \quad \text{pri} \quad t \rightarrow \infty
+          \end{equation}
+
+            \begin{figure}[H]
+              \begin{center}
+                \includegraphics[width=10cm]{slike/gompertzova-rast}
+              \end{center}
+              \caption{Vzeli smo }
+              \label{fig:gompertzova-rast}
+            \end{figure}
+
+            \section{Difuzijsko modeliranje dinamike vrtač}
 
             Za modeliranje posamezne vrtače stohastični procesi niso primerni, zato si za opis pogledamo difuzijsko enačbo (\ref{difuzija-splosna}) z različnimi variacijami člena za rast $F(h)$ (\ref{difuzijska-variacije}). Izbor enačb je povzet po \cite{kandler2010population}.
 
@@ -587,11 +709,14 @@
           Predpostavimo torej, da se model difuzijsko izravnava, hkrati pa nanj deluje nek proces, ki višinsko razliko povečuje. Poiskali bomo rešitve teh enačb in komentirali njihovo časovno dinamiko. 
           Vzeli bomo sledeče robne pogoje:
 
-         \[ h(0,x) =  - e^{-x^2}, x \in D \]
-         \[ h(t,x) = 0, x \in \partial D\]
-         \[ \frac{\partial h(t,x)}{\partial n} = 0, x \in \partial D\]
+        \begin{equation}
+          \begin{aligned}
+            h(0,x) =  - e^{-x^2}, x \in D \\
+            h(t,x) = 0, x \in \partial D \\
+            \frac{\partial h(t,x)}{\partial n} = 0, x \in \partial D \\
+          \end{aligned}
+        \end{equation}
 
-\newpage
 
           \subsection{Eksponentna rast}
 
@@ -613,7 +738,7 @@
             \end{figure}
 
             Eksponentna rast za vrtače ni primeren model, v naravi je ne opazimo.
-\newpage
+
 
           \subsection{Logistična rast}
 
@@ -659,7 +784,7 @@
 
           Tako dobljena rast eksponentno raste do praga K, kjer se zasiti. Rast v poljubni točki je neodvisna od stanja v sosednjih. Ta model se ne zdi najbolj primeren kandidat za dinamiko vrtač.
 
-\newpage
+
 
           \subsection{Gompertzova rast}
 
