@@ -623,7 +623,7 @@
             \label{fig:eksponentna-rast}
           \end{figure}
 
-          Če je parameter $a > 0$, bomo vedno dobili neomejeno rast, kar zmanjšuje splošnost tega modela. Vseeno pa je v omejenih intervalih uporaben za npr. opis rasti populacij držav, širjenje virusov, jedrskih verižnih reakcij, itn. Uporabnost modela se konča, ko se sistem zasiti - to je ko zmanjka virov, ki rast poganjajo (če gledamo dane primere - ko zmanjka hrane, celic, jeder).
+          Če je parameter $a > 0$, bomo vedno dobili neomejeno rast, kar zmanjšuje splošnost tega modela. Vseeno pa je v omejenih intervalih uporaben za npr. opis rasti populacij držav, širjenje virusov, jedrskih verižnih reakcij, itn. Uporabnost modela se konča, ko se sistem zasiti - to je, ko zmanjka virov, ki rast poganjajo (če gledamo dane primere - ko zmanjka hrane, celic, jeder).
           Pri vrtačah je možno, da imamo eksponento rast v začetku, a tega ne moremo ne dokazati ne ovreči. Vsekakor pa je ni v ravnovesni fazi, saj zelo globokih vrtač ne opazimo.
 
 
@@ -649,8 +649,8 @@
               \label{fig:logisticna-rast}
             \end{figure}
 
-          Vidimo, da neglede na izbiro začetne točke $h_0$, vrednost h(t) konvergira proti vrednosti $K$. Torej je rast omejena z kapaciteto sistema K.
-          Če funkcijo (\ref{dinamicna-logisticna-resitev}) Taylorjevo razvijemo, vidimo, da je rast, kjer $h(t) \ll K$ približno $a h(t)$. V območju, kjer je $h(t)$ bližji $K$, pa postane drugi člen v razvoju $-a h(t)^2 / K$ pomembnejši in rast se po dolgem času ustavi.
+          Vidimo, da neglede na izbiro začetne točke $h_0$, vrednost h(t) konvergira proti vrednosti $K$. Torej je rast omejena s kapaciteto sistema K.
+          Če funkcijo (\ref{dinamicna-logisticna-resitev}) Taylorjevo razvijemo, vidimo, da je rast, kjer $h(t) \ll K$, približno $a h(t)$. V območju, kjer je $h(t)$ bližji $K$, pa postane drugi člen v razvoju $-a h(t)^2 / K$ pomembnejši in rast se po dolgem času ustavi.
           Model logistične rasti se uporablja za modeliranje človeških in živalskih populacij, rasti tumorjev, širjenje inovacij v družbi in sprememb v jeziku. Zaradi omejene rasti pa se zdi tudi zanimiv kandidat za modeliranje dinamike vrtač.
 
 
@@ -669,7 +669,7 @@
             \label{dinamicna-omejena-eksponentna-resitev}
           \end{equation}
 
-            Medtem ko je omejena eksponentna rast podobna logistični, pa ima logistična v začetku položnejšo rast. Omejena eksponentna rast se uporablja za modeliranje sistemov v katerih dinamiko poganjajo zunanji dejavniki in znotraj katerih ni interakcij. Naprimer pri širjenju inovacij v družbi.
+            Medtem ko je omejena eksponentna rast podobna logistični, pa ima logistična v začetku položnejšo rast. Omejena eksponentna rast se uporablja za modeliranje sistemov, v katerih dinamiko poganjajo zunanji dejavniki in znotraj katerih ni interakcij. Naprimer pri širjenju inovacij v družbi.
 
             \begin{figure}[H]
               \begin{center}
@@ -683,7 +683,7 @@
 
           \subsection{Gompertzova rast}
 
-          Pri modelu Gompertzove rasti vzamemo, da se faktor rasti s časom spreminja po enačbi (\ref{dinamicna-gompertzova-faktor}), kar nam da enačbo (\ref{dinamicna-gompertzova}) in rešitev (\ref{dinamicna-gompertzova-resitev}), iz katere lahko dobimo še asimptotsko rešitev (\ref{dinamicna-gompertzova-faktor}), ki je podobna zasičenosti modela pri prejšnih dveh primerih, a nastopi ker faktor rasti postopoma izgine, in ne zaradi povratne zanke.
+          Pri modelu Gompertzove rasti vzamemo, da se faktor rasti s časom spreminja po enačbi (\ref{dinamicna-gompertzova-faktor}), kar nam da enačbo (\ref{dinamicna-gompertzova}) in rešitev (\ref{dinamicna-gompertzova-resitev}), iz katere lahko dobimo še asimptotsko rešitev (\ref{dinamicna-gompertzova-faktor}), ki je podobna zasičenosti modela pri prejšnih dveh primerih, a nastopi zaradi postopnega prenehanja rasti, in ne zaradi povratne zanke (kot v primeru logistične in omejene eksponentne rasti).
 
           \begin{equation}
             a(t) = a_0 \cdot e^{- k t}
@@ -715,7 +715,7 @@
 
             \section{Difuzijsko modeliranje dinamike vrtač}
 
-            Zaradi počasnosti procesa, ki oblikuje vrtače, domnevamo da difuzija ni nepomembna in dodamo dinamičnim modelom iz prejšnega podpoglavja  (\ref{difuzijska-variacije}) še difuzijski člen (\ref{difuzija-splosna}).
+            Zaradi počasnosti procesa, ki oblikuje vrtače, domnevamo, da difuzija ni nepomembna, in dodamo dinamičnim modelom iz prejšnega podpoglavja  (\ref{difuzijska-variacije}) še difuzijski člen (\ref{difuzija-splosna}).
 
             \begin{equation}
               \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + F(h)
@@ -750,7 +750,7 @@
               \label{difuzija-eksponentna-rast}
             \end{equation}
 
-            Sistem nam da eksponentno rast, kot prikazano na (Slika \ref{fig:difuzija-eksponentna-rast}).
+            Sistem nam da eksponentno rast, kot je prikazano na (Slika \ref{fig:difuzija-eksponentna-rast}).
 
             \begin{figure}[H]
               \begin{center}
@@ -765,7 +765,7 @@
 
           \subsection{Logistična rast}
 
-            Dobimo takoimenovano Fisher-Kolmogorovo enačbo:
+            Dobimo t.i. Fisher-Kolmogorovo enačbo:
 
             \begin{equation}
               \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + a \cdot h(t.x) \cdot (1 - \frac{h(t.x)}{K})
@@ -780,7 +780,7 @@
               \label{fig:difuzija-logisticna-rast}
             \end{figure}
 
-            Vidimo, da ko se pobočje vrtače enkrat oblikuje, ne spreminja več oblike, ampak potuje kot valovna fronta navzven. Pokažemo lahko, da je je dolžina vala odvisna od difuzijske konstante $D$ in faktorja rasti $a$, ter da velja: 
+            Vidimo, da ko se pobočje enkrat oblikuje, ne spreminja več oblike, ampak potuje kot valovna fronta navzven. Pokažemo lahko, da je dolžina vala odvisna od difuzijske konstante $D$ in faktorja rasti $a$, ter da velja: 
 
            \[ \lambda \sim \sqrt{D/a} \]
 
