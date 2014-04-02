@@ -2,8 +2,11 @@
 \select@language {english}
 \beamer@sectionintoc {1}{Preu\IeC {\v c}evanje realnih vrta\IeC {\v c}}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{Realne vrta\IeC {\v c}e}{3}{0}{1}
-\beamer@subsectionintoc {1}{2}{LiDAR}{6}{0}{1}
-\beamer@sectionintoc {2}{Modeliranje}{9}{0}{2}
-\beamer@subsectionintoc {2}{1}{Kardar-Parisi-Zhang}{9}{0}{2}
-\beamer@subsectionintoc {2}{2}{Dinami\IeC {\v c}ne ena\IeC {\v c}be}{11}{0}{2}
-\beamer@subsectionintoc {2}{3}{Difuzijsko dinami\IeC {\v c}ne ena\IeC {\v c}be}{12}{0}{2}
+\beamer@subsectionintoc {1}{2}{LiDAR}{7}{0}{1}
+\beamer@sectionintoc {2}{Rast vmesnikov}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{Definicije}{10}{0}{2}
+\beamer@subsectionintoc {2}{2}{Rezultati}{12}{0}{2}
+\beamer@sectionintoc {3}{Modeliranje}{13}{0}{3}
+\beamer@subsectionintoc {3}{1}{Kardar-Parisi-Zhang}{13}{0}{3}
+\beamer@subsectionintoc {3}{2}{Dinami\IeC {\v c}ne ena\IeC {\v c}be}{15}{0}{3}
+\beamer@subsectionintoc {3}{3}{Difuzijsko dinami\IeC {\v c}ne ena\IeC {\v c}be}{17}{0}{3}

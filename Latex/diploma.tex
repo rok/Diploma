@@ -718,7 +718,7 @@
             Zaradi počasnosti procesa, ki oblikuje vrtače, domnevamo, da difuzija ni nepomembna, in dodamo dinamičnim modelom iz prejšnega podpoglavja  (\ref{difuzijska-variacije}) še difuzijski člen (\ref{difuzija-splosna}).
 
             \begin{equation}
-              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + F(h)
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + F(h)
               \label{difuzija-splosna}
             \end{equation}
 
@@ -746,7 +746,7 @@
           \subsection{Eksponentna rast}
 
             \begin{equation}
-              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + a \cdot h(t,x)
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot h(t,x)
               \label{difuzija-eksponentna-rast}
             \end{equation}
 
@@ -768,7 +768,7 @@
             Dobimo t.i. Fisher-Kolmogorovo enačbo:
 
             \begin{equation}
-              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + a \cdot h(t.x) \cdot (1 - \frac{h(t.x)}{K})
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot h(t,x) \cdot (1 - \frac{h(t,x)}{K})
               \label{difuzija-logisticna-rast}
             \end{equation}
 
@@ -795,7 +795,7 @@
           Če izberemo $F(h) = a \cdot (K - h)$, dobimo:
 
             \begin{equation}
-              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) + a \cdot (K - h(t,x))
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot (K - h(t,x))
               \label{difuzija-omejena-eksponentna-rast}
             \end{equation}
 
@@ -816,7 +816,7 @@
           Če izberemo $F(h) = - h \cdot e^{-a t}$, dobimo:
 
             \begin{equation}
-              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t.x) - h(t,x) \cdot e^{-a t}
+              \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) - h(t,x) \cdot e^{-a t}
               \label{difuzija-gompertzova-rast}
             \end{equation}
 
