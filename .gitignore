@@ -7,6 +7,7 @@ podatki/
 sagascript/
 sagascript2/
 surferscript/
+rinfuza/
 
 numerika/octave-core
 Latex/diploma.aux
@@ -15,6 +16,13 @@ Latex/diploma.toc
 Latex/diploma.synctex.gz
 Latex/diploma.bbl
 Latex/diploma.blg
+
+prezentacija/main.aux
+prezentacija/main.log
+prezentacija/main.toc
+prezentacija/main.synctex.gz
+prezentacija/main.bbl
+prezentacija/main.blg
 
 *-converted-to.pdf
 *.asv
