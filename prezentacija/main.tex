@@ -208,6 +208,52 @@
 
 \subsection{Dinamične enačbe}
 
+\begin{frame}{Dinamične enačbe}{Prehod na determinističen opis}
+\begin{block}{Stohastične enačbe}
+  \begin{itemize}
+  \item
+    Kardar-Parisi-Zhang-ova rast površja nam ne da determinističnega modela rasti posamezne vrtače
+  \item
+    Možen je le izračun verjetnosti, da bomo pri izbrani začetni površini dobili določeno končno
+  \end{itemize}
+\end{block}
+\begin{block}{Dinamične enačbe}
+  \begin{itemize}
+  \item
+    Opišemo nekaj modelov rasti, ki ustvarijo vrtačam podobne oblike
+  \end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Dinamične enačbe}{Primer: Omejena eksponentna rast}
+\begin{block}{Model}
+  Rast v času je odvisna od višine in razdalje do nosilne kapacitete. Odziv je bolj skokovit kot pri logistični rasti.
+  \begin{equation} \frac{\partial h(t)}{\partial t} = a \cdot ( K - h(t) ) = a K - a h(t) \end{equation}
+\end{block}
+\begin{block}{Rešitev}
+  \begin{equation} h(t) = K - (K - h_0) e^{-a t} \end{equation}
+\end{block}
+\end{frame}
+
+\begin{frame}{Dinamične enačbe}{Primer: Omejena eksponentna rast}
+\begin{center}
+  \hspace*{-0.09\textwidth}\includegraphics[width=1.2\textwidth]{slike/omejena-eksponentna-rast}
+  \footnotesize
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+  \[ K = -10 \]
+  \[ a = 0.1 \]
+  \end{column}
+  \begin{column}{0.5\textwidth}
+  \[ K = -10 \]
+  \[ h_0 =-1 \]
+  \end{column}
+\end{columns}
+\end{center}
+\end{frame}
+
+
 \begin{frame}{Dinamične enačbe}{Primer: Logistična rast}
 \begin{block}{Model}
   Rast v času je odvisna od višine in razdalje do nosilne kapacitete
@@ -235,7 +281,62 @@
 \end{center}
 \end{frame}
 
+
 \subsection{Difuzijsko dinamične enačbe}
+
+\begin{frame}{Difuzijsko dinamične enačbe}{Dodamo difuzijski člen}
+
+\begin{block}{Dinamične enačbe}
+  \begin{itemize}
+  \item
+    Nam dajo modele rasti
+  \item
+    Iz modela rasti bi lahko sklepali proti procesom, ki oblikujejo vrtače
+  \item
+    So oblike \begin{equation} \frac{\partial h(t)}{\partial t} = F( h(t) ) \end{equation}
+  \end{itemize}
+\end{block}
+\begin{block}{Difuzijske dinamične enačbe}
+  \begin{itemize}
+  \item
+    Modele rasti dopolnimo z difuzijo, ki jo pričakujemo zaradi časovnega okvira procesa nastanka vrtač
+  \item
+    So oblike \begin{equation}  \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + F( h(t) ) \end{equation}
+  \end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Difuzijsko dinamične enačbe}{Primer: Omejena eksponentna rast}
+\begin{block}{Model}
+  Rešitev iščemo numerično
+  \begin{equation} \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot (K - h(t,x)) \end{equation} 
+\end{block}
+\begin{block}{Robni pogoji}
+        \begin{equation}
+          \begin{aligned}
+            h(0,x) =  - e^{-x^2}, x \in D \\
+            h(t,x) = 0, x \in \partial D \\
+            \frac{\partial h(t,x)}{\partial n} = 0, x \in \partial D \\
+          \end{aligned}
+        \end{equation}
+\end{block}
+\end{frame}
+
+\begin{frame}{Difuzijsko dinamične enačbe}{Primer:  Omejena eksponentna rast}
+\begin{columns}
+  \begin{column}{0.8\textwidth}
+    \includegraphics[width=1.05\textwidth]{slike/difuzija-omejena-eksponentna-rast2.png}
+  \end{column}
+  \begin{column}{0.3\textwidth}
+    \footnotesize
+    \[ D = 1 \]
+    \[ a = \frac{1}{50} \]
+    \[ K = -10 \]
+  \end{column}
+\end{columns}
+\end{frame}
+
 
 \begin{frame}{Difuzijsko dinamične enačbe}{Primer: Difuzijska logistična rast}
 \begin{block}{Model}
