@@ -413,9 +413,9 @@
         \section{Stohastična rast površin}
         \label{definicije}
 
-        Za opis področja vrtač uporabimo analogijo z rastjo vmesnikov - npr. nabiranjem vodnega kamna - le da tu nebo raste v apnenčasto podlago.
+        Za opis področja vrtač uporabimo analogijo z rastjo površin - npr. nabiranjem vodnega kamna - le da tu nebo raste v apnenčasto podlago.
         Po \cite{barabasi1995fractal} v poglavju (\ref{definicije}) povzamemo definicije potrebne za opis takega procesa.
-        Povprečna višina površja je definirana kot \ref{povprecna-visina}, kjer je $h(i,t)$ višina stolpca $i$ ob času $t$.
+        Povprečna višina površja je definirana kot (\ref{povprecna-visina}), kjer je $h(i,t)$ višina stolpca $i$ ob času $t$.
 
         \begin{equation}
           \bar{h} = \frac{1}{L} \sum_{i=1}^L h(i,t)
@@ -424,14 +424,14 @@
 
         Če je hitrost usedanja delcev konstantna, se povprečna višina povečuje linearno s časom $\bar{h}(t) \sim t$.
 
-        Širino vmesnika, ki poda hrapavost vmesnika, definiramo s standardnim odklonom višine vmesnika od povprečne višine:
+        Širino površine, ki poda hrapavost površine, definiramo s standardnim odklonom višine površine od povprečne višine:
 
         \begin{equation}
           w(L,t) = \sqrt{\frac{1}{L} \sum_{i=1}^L (h(i,t)-\bar{h}(t))^2}
-          \label{sirina-vmesnika}
+          \label{sirina-povrsine}
         \end{equation}
 
-        (\ref{sirina-vmesnika}) spremljamo v času, da lahko kvantitativno podamo hrapavost površine. Po definiciji začnemo z ravnim vmesnikom in širino 0. V začetku $(t \ll t_x)$ se nam širina povečuje eksponentno s časom:
+        (\ref{sirina-povrsine}) spremljamo v času, da lahko kvantitativno podamo hrapavost površine. Po definiciji začnemo z ravno površino širine 0. V začetku $(t \ll t_x)$ se nam širina povečuje eksponentno s časom:
 
         \begin{equation}
           w(L,t) \sim t^\beta
@@ -439,16 +439,16 @@
         \end{equation}
 
         kjer je $\beta$ exponent rasti, ki poda časovno dinamiko hrapavosti.
-        Po dolgem času $(t \gg t_x)$ širina vmesnika preide v zasičeni režim, v katerem se eksponentna rast ustavi in doseže zasičeno vrednost $w_{sat}$, ki je odvisna od velikosti sistema $L$ takole:
+        Po dolgem času $(t \gg t_x)$ širina površine preide v zasičeni režim, v katerem se eksponentna rast ustavi in doseže zasičeno vrednost $w_{sat}$, ki je odvisna od velikosti sistema $L$ takole:
 
         \begin{equation}
           w_{sat}(L) \sim L^\alpha
           \label{alfa}
         \end{equation}
 
-        Eksponent $\alpha$ imenujemo eksponent hrapavosti, in nam poda hrapavost nasičenega vmesnika.
+        Eksponent $\alpha$ imenujemo eksponent hrapavosti, in nam poda hrapavost nasičene površine.
 
-        Prehodni čas $t_x$, okoli katerega vmesnik preide iz nezasičenega v zasičen režim, je odvisen od velikosti sistema in je približno:
+        Prehodni čas $t_x$, ob katerem površina preide iz nezasičenega v zasičen režim, je odvisen od velikosti sistema in je približno:
 
         \begin{equation}
           t_x \sim L^z
@@ -458,7 +458,7 @@
         kjer je $z$ dinamični eksponent.
         Eksponenti $\alpha$, $\beta$ in $z$ med seboj niso neodvisni.
         Izkaže se, da z izrisom $w(L,t)/w_{sat}(L)$ kot funkcije časa, dobimo krivulje, ki se zasitijo ob istem času, ne glede na velikost sistema $L$.
-        Če izrišemo širino vmesnika kot funkcijo $t/t_x$, se bodo vse krivulje zasitile v isti točki.
+        Če izrišemo širino površine kot funkcijo $t/t_x$, se bodo vse krivulje zasitile v isti točki.
         Zato sklepamo, da je $w(L,t)/w_{sat}(L)$ funkcija $t/t_x$, torej:
 
         \begin{equation}
@@ -478,7 +478,7 @@
             1 & \ u\gg1\end{array} \right. 
         \end{equation}
 
-            Če sedaj izrišemo več različnih razvojev površja na en graf ((Slika \ref{fig:barabasi}) iz \cite{barabasi1995fractal}), dobimo jasnejšo predstavo o funkciji lestvičenja. Če se točki $(t_x,w(t_x))$ približamo z leve, vidimo, da po (\ref{beta}) velja $w(t_x) \sim t_x^\beta$. Hkrati pa, da če se isti točki približujemo z desne po (\ref{alfa}) velja $w(t_x) \sim L^\alpha$. Torej $t_x^\beta \sim L^\alpha$ in po (\ref{z}) sledi zakon o lestvičenju:
+            Če sedaj izrišemo več različnih razvojev površine na en graf ((Slika \ref{fig:barabasi}) iz \cite{barabasi1995fractal}), dobimo jasnejšo predstavo o funkciji lestvičenja. Če se točki $(t_x,w(t_x))$ približamo z leve, vidimo, da po (\ref{beta}) velja $w(t_x) \sim t_x^\beta$. Hkrati pa, da če se isti točki približujemo z desne po (\ref{alfa}) velja $w(t_x) \sim L^\alpha$. Torej $t_x^\beta \sim L^\alpha$ in po (\ref{z}) sledi zakon o lestvičenju:
 
             \begin{equation}
               z = \frac{\alpha}{\beta}
@@ -488,7 +488,7 @@
               \begin{center}
                 \includegraphics[width=13cm]{slike/barabasi}
               \end{center}
-              \caption{Simulirane vrednosti širine vmesnika pri naključnem usedanju, za različne velikosti vmesnika \cite{barabasi1995fractal}}
+              \caption{Simulirane vrednosti širine površine pri naključnem usedanju, za različne velikosti sistema L \cite{barabasi1995fractal}}
               \label{fig:barabasi}
             \end{figure}
 
@@ -504,7 +504,7 @@
               \label{alpha-numeric}
             \end{equation}
 
-            Na Lidar modelu Menišije uporabljenem v (Poglavje \ref{realne-vrtace}) izračunamo $\bar{w}_{sat}$ za vmesnike, kjer je L med 5 in 10 km. Širine vmesnikov $w$ nato narišemo v odvisnosti od velikosti vmesnika L.
+            Na Lidar modelu Menišije uporabljenem v (Poglavje \ref{realne-vrtace}) izračunamo $\bar{w}_{sat}$ za površine, kjer je L med 5 in 10 km. Širine površin $w$ nato narišemo v odvisnosti od velikosti sistema L.
 
             Dobimo graf (Slika \ref{fig:menisija-alfa}) s katega odberemo, da je $\alpha =  0.4368 \pm 0.0005$.
 
@@ -838,7 +838,7 @@
 Za nekoliko težjo nalogo se izkaže določanje idealne oblike vrtače, saj le-ta ne obstaja. Pravo vprašanje bi se moralo glasiti, kakšna je idealna oblika vrtače na izotropni podlagi po dolgem času. Vseeno sem se odločil, da za idealno vrtačo vzamem povprečje velike količine vrtač.
 Precej zahtevnejša naloga je bila izbira fizikalnega modela in dinamičnega opisa vrtače zaradi omejene količine podatkov o časovni dinamiki (domnevali smo, da so vse vrtače že v ravnovesnem stanju) in nepoznavanja dejanskega procesa, ki znižuje površje.
 
-Kardar-Parisi-Zhangova rast vmesnika nam da rezultat presenetljivo podoben kraškemu površju z vrtačami. Teoretično napovedan eksponent hrapavosti pa se relativno dobro ujema z izmerjenim na področju Menišije. Teh rezultatov ne moremo obravnavati kot dokaz, morda le vzpodbudo za nadaljni študij. V kolikor pa se model izkaže za pravilnega, pomeni spremembo v geomorfološkem kanonu, ki pravi, da se večina raztapljanja zgodi dlje od površja.
+Kardar-Parisi-Zhangova rast površin nam da rezultat presenetljivo podoben kraškemu površju z vrtačami. Teoretično napovedan eksponent hrapavosti pa se relativno dobro ujema z izmerjenim na področju Menišije. Teh rezultatov ne moremo obravnavati kot dokaz, morda le vzpodbudo za nadaljni študij. V kolikor pa se model izkaže za pravilnega, pomeni spremembo v geomorfološkem kanonu, ki pravi, da se večina raztapljanja zgodi dlje od površja.
 
 Za nepopolen model dinamike rasti vrtač predlagajmo model difuzijsko logistične rasti (\ref{fig:difuzija-logisticna-rast}), a le zato, ker se zdi najmanj napačen.
 
