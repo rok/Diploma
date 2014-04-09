@@ -24,18 +24,18 @@
 \renewcommand{\baselinestretch}{1.3} % ustrezen razmik med vrsticami
 
 %oznake strani
-
 \renewcommand{\chaptermark}[1]%
-{\markboth{\MakeUppercase{\thechapter.\ #1}}{}} \renewcommand{\sectionmark}[1]
-{\markright{\MakeUppercase{\thesection.\ #1}}} \renewcommand{\headrulewidth}{0.5pt} \renewcommand{\footrulewidth}{0pt} 
+{\markboth{\MakeUppercase{\thechapter.\ #1}}{}} \renewcommand{\sectionmark}[1]%
+{\markright{\MakeUppercase{\thesection.\ #1}}} \renewcommand{\headrulewidth}{0.5pt} \renewcommand{\footrulewidth}{0pt}
 \fancyhf{}
 \fancyhead[LE,RO]{\sl \thepage} \fancyhead[LO]{\sl \rightmark} \fancyhead[RE]{\sl \leftmark}
 
 \newcommand{\BibTeX}{{\sc Bib}\TeX}
 
-\newcommand{\autfont}{\Large} \newcommand{\titfont}{\LARGE\bf}
+\newcommand{\autfont}{\Large}
+\newcommand{\titfont}{\LARGE\bf}
 \newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
-\setcounter{tocdepth}{1}	      % globina kazala
+\setcounter{tocdepth}{1} % globina kazala
 
 % konstrukti
 \newtheorem{izrek}{Izrek}[chapter] \newtheorem{trditev}{Trditev}[izrek]
@@ -64,30 +64,8 @@
   {\vskip 2em \large Ljubljana, 2014 \par}
 \end{center}
 
-\clearemptydoublepage \clearemptydoublepage
 
-\vspace*{1cm}
-\begin{center} {\Large \textbf{\sc Izjava o avtorstvu diplomskega dela}} \end{center}
-
-  \vspace{1cm} \noindent Spodaj podpisani Rok Mihevc, z vpisno številko
-  \textbf{28030017}, sem avtor  diplomskega dela z naslovom:
-
-  \vspace{0.5cm} \emph{Kraške vrtače Dinarskega krasa}
-
-  \vspace{1.5cm} \noindent S svojim podpisom zagotavljam, da: \begin{itemize}
-    \item sem diplomsko delo izdelal samostojno pod mentorstvom prof.\ dr.\
-      \mbox{Rudolfa} \mbox{Podgornika}, %in somentorstvom izr.\ prof.\ dr.\,
-
-    \item	so elektronska oblika diplomskega dela, naslov (slov., angl.), povzetek
-      (slov., angl.) ter ključne besede (slov., angl.) identični s tiskano obliko
-      diplomskega dela \end{itemize}
-
-      \vspace{1cm} \noindent V Ljubljani, dne . februarja 2014 \hfill Podpis avtorja:
-
-    % prazna stran
-      \clearemptydoublepage
-
-      \begin{comment}
+    \begin{comment}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % zahvala
       \thispagestyle{empty}\mbox{}\vfill\null\it% Staršema za podporo. \rm\normalfont
@@ -99,47 +77,70 @@
     % posvetilo
       \thispagestyle{empty}\mbox{}{\vskip0.20\textheight}\mbox{}\hfill\begin{minipage}{0.55\textwidth}%
         Svoji dragi Alenčici. \normalfont\end{minipage}
-
-    % prazna stran
-        \clearemptydoublepage
-
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % ODREZANA NASLOVNICA ITD. DO KAZALA
         \end{comment}
+
+
+
+\newpage
+\ \thispagestyle{empty}
+
 
   % kazalo
         \def\thepage{}% preprecimo tezave s stevilkami strani v kazalu
         \tableofcontents{}
 
-  % prazna stran
-        \clearemptydoublepage
+\newpage
+\ \thispagestyle{empty}
+
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % povzetek 
         \addcontentsline{toc}{chapter}{Povzetek} 
         \chapter*{Povzetek}
 
-        Z numeričnimi metodami obdelamo $60 km^2$ velik digitalni model reliefa Menišije ločljivosti $1m^2$ in identificiramo veliko število kraških vrtač. Iz oblik velikega števila vrtač izračunamo povprečno obliko vrtače in jo analitično opišemo z gaussovo funkcijo. Odkrite realne vrtače nato prilegamo na gaussovo funkcijo ter pogledamo porazdelitev parametrov le-te na našem vzorcu.
+        Z numeričnimi metodami obdelamo $60 km^2$ velik digitalni model reliefa Menišije ločljivosti $1m^2$ in identificiramo veliko število kraških vrtač. Iz oblik velikega števila vrtač izračunamo povprečno obliko vrtače in jo analitično opišemo z Gaussovo funkcijo. Odkrite realne vrtače nato prilegamo na Gaussovo funkcijo ter pogledamo porazdelitev parametrov le-te na našem vzorcu.
 
         Zaradi geološke zgodovine področja Menišije in medsebojne podobnosti vrtač na tem območju postavimo tezo, da jih je oblikoval isti geomorfološki proces, ki vodi do vsem skupne stabilne oblike, ki so jo vrtače na tem območju že dosegle.
         S pomočjo podatkov pridobljenih v prvem delu naloge predlagamo časovno statičen nastavek, ki analitično opiše najdene vrtače. Postavimo tezo, da vrtače oblikuje stohastično priraščanje površja, ter primerjamo teoretično pričakovan eksponent hrapavosti z izmerjenim. Pogledamo še nekaj determinističnih difuzijsko-reakcijskih sistemov, ki bi lahko služili kot dinamični model nastanka vrtač.
 
+\vspace*{1cm}
 
-        \clearemptydoublepage
+\noindent \textbf{Ključne besede:} Digitalni model reliefa, obdelava slik, vrtača, kras, razvoj reliefa, stohastične diferencialne enačbe, dinamične enačbe
+\smallskip
+
+\noindent \textbf{PACS:} 95.75.Mn, 02.50.Ey 02.60.Cb, 02.60.Ed, 68.35.Ct, 68.35.Fx
+
+\newpage
+\ \thispagestyle{empty}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % abstract
         \selectlanguage{english} \addcontentsline{toc}{chapter}{Abstract}
         \chapter*{Abstract}
-        Abstract
+
+        Using numerical methods we analysed $60 km^2$ of $1m^2$ resolution digital terrain model of Menišija and identified a large number of karst Dolines. We calculated average shape of a large number of Dolines and analytically described it by a Gaussian function. We then fitted the real sinkholes to a Gaussian function and studied the distribution of parameters in our sample from Menišija.
+
+        Due to the geological history of Menišija and similarity of Dolines in the area we propose that they were shaped by the same geomorphological process, that ultimately leads to a common stable form, that was already reached by the sinkholes in this area.
+        Using the data acquired in the second chapter we propose a static Ansatz that describes found Dolines. We propose a thesis that Dolines are formed by stochastic surface growth, and compare the theoretically derived roughness exponent with the one measured on relief data from Menišija. Then we study several diffusion-reaction systems, which could serve as dynamic models of Dolines.
+
+\vspace*{1cm}
+
+\noindent \textbf{Keywords:} Digital relief model, image processing, dolines, karst relief evolution, stochastic differential equations, dynamic equations
+\smallskip
+
+\noindent \textbf{PACS:} 95.75.Mn, 02.50.Ey 02.60.Cb, 02.60.Ed, 68.35.Ct, 68.35.Fx
 
         \selectlanguage{slovene}
-    % prazna stran
-        \clearemptydoublepage
+
+\newpage
+\ \thispagestyle{empty}
 
         \mainmatter
         \setcounter{page}{1}
         \pagestyle{fancy}
+        \rhead{}
+        \cfoot{\thepage}
+
 
         \chapter{Uvod}
         \label{uvod}
@@ -850,5 +851,27 @@ Za popolnejši študij in dober model vrtač bi verjetno potrebovali bolj poglob
             \bibliographystyle{alpha}
 
 
-            \end{document}
+\newpage
+\ \thispagestyle{empty}
+\newpage
+
+
+\vspace*{1cm}
+\begin{center} {\Large \textbf{\sc Izjava o avtorstvu in objavi elektronske oblike zaključnega dela: }} \end{center}
+
+  \vspace{1cm} \noindent Podpisani Rok Mihevc izjavljam:
+  \noindent 
+
+  \begin{itemize}
+    \item 
+      da sem diplomsko delo z naslovom \emph{Kraške vrtače Dinarskega krasa} izdelal samostojno pod mentorstvom prof.\ dr.\ \mbox{Rudolfa} \mbox{Podgornika} in
+    \item
+da Fakulteti za matematiko in fiziko Univerze v Ljubljani dovoljujem objavo elektronske 
+oblike svojega dela na spletnih straneh.
+  \end{itemize}
+
+      \vspace{1cm} \noindent Ljubljana, XX. april 2014 \hfill Podpis avtorja:
+
+
+\end{document}
 
