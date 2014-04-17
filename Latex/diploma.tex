@@ -99,7 +99,7 @@
   Z numeričnimi metodami obdelamo $60 km^2$ velik digitalni model reliefa Menišije ločljivosti $1m^2$ in identificiramo veliko število kraških vrtač. Iz oblik velikega števila vrtač izračunamo povprečno obliko vrtače in jo analitično opišemo z Gaussovo funkcijo. Odkrite realne vrtače nato prilegamo na Gaussovo funkcijo ter pogledamo porazdelitev parametrov le-te na našem vzorcu.
 
   Zaradi geološke zgodovine področja Menišije in medsebojne podobnosti vrtač na tem območju postavimo tezo, da jih je oblikoval isti geomorfološki proces, ki vodi do vsem skupne stabilne oblike, ki so jo vrtače na tem območju že dosegle.
-  S pomočjo podatkov pridobljenih v prvem delu naloge predlagamo časovno statičen nastavek, ki analitično opiše najdene vrtače. Postavimo tezo, da vrtače oblikuje stohastično priraščanje površja, ter primerjamo teoretično pričakovan eksponent hrapavosti z izmerjenim. Pogledamo še nekaj determinističnih difuzijsko-reakcijskih sistemov, ki bi lahko služili kot dinamični model nastanka vrtač.
+  S pomočjo podatkov, pridobljenih v prvem delu naloge, predlagamo časovno statičen nastavek, ki analitično opiše najdene vrtače. Postavimo tezo, da vrtače oblikuje stohastično priraščanje površja, ter primerjamo teoretično pričakovan eksponent hrapavosti z izmerjenim. Pogledamo še nekaj determinističnih difuzijsko-reakcijskih sistemov, ki bi lahko služili kot dinamični model nastanka vrtač.
 
   \vspace*{1cm}
 
@@ -116,9 +116,9 @@
   \selectlanguage{english} \addcontentsline{toc}{chapter}{Abstract}
   \chapter*{Abstract}
 
-  Using numerical methods we analysed $60 km^2$ of $1m^2$ resolution digital terrain model of Menišija and identified a large number of karst Dolines. We calculated average shape of a large number of Dolines and analytically described it by a Gaussian function. We then fitted the real sinkholes to a Gaussian function and studied the distribution of parameters in our sample from Menišija.
+  Using numerical methods we analyzed $60 km^2$ of $1m^2$ resolution digital terrain model of Menišija and identified a large number of karst Dolines. We calculated average shape of a large number of Dolines and analytically described it by a Gaussian function. We then fitted the real sinkholes to a Gaussian function and studied the distribution of parameters in our sample from Menišija.
 
-  Due to the geological history of Menišija and similarity of Dolines in the area we propose that they were shaped by the same geomorphological process, that ultimately leads to a common stable form, that was already reached by the sinkholes in this area.
+  Due to the geological history of Menišija and similarity of Dolines in the area we propose that they were shaped by the same geomorphological process, that ultimately leads to a common stable form that was already reached by the sinkholes in this area.
   Using the data acquired in the second chapter we propose a static Ansatz that describes found Dolines. We propose a thesis that Dolines are formed by stochastic surface growth, and compare the theoretically derived roughness exponent with the one measured on relief data from Menišija. Then we study several diffusion-reaction systems, which could serve as dynamic models of Dolines.
 
   \vspace*{1cm}
@@ -150,7 +150,7 @@
     \label{fig:vrtaca-ford-williams}
   \end{figure}
 
-  Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statistično preučiti velik vzorec realnih kraških vrtač na slovenskem Dinarskem krasu, predlagati analitično funkcijo, ki bi opisala idealno vrtačo, ter na podlagi le-te poiskusiti modelirati naravne procese, ki povzročajo nastanek in obliko vrtač.
+  Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statistično preučiti velik vzorec realnih kraških vrtač na slovenskem Dinarskem krasu, predlagati analitično funkcijo, ki bi opisala idealno vrtačo, ter na podlagi le-te poskusiti modelirati naravne procese, ki povzročajo nastanek in obliko vrtač.
 
   Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Obstaja več geomorfoloških modelov njihovega nastanka.
 
@@ -164,13 +164,13 @@
     \label{fig:menisija-karta}
   \end{figure}
 
-  Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 miljonov let), ki so na površje prišli zaradi dogodkov povezanih s podrivanjem Adriatske plošče (17-7 miljonov let). Menišija je bila uravnano kraško polje do 3.5 miljona let pred sedanjostjo, ko se je zaradi tektonske aktivnosti dvignila nad okolico in vzpostavljeni so bili hidrološki pogoji za nastanek vrtač. Hitrost zniževanja (denudacije) kraškega površja se ocenjuje na 20-50 m / miljon let, torej se je površje Menišije v času od nastanka znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. \cite{Vrabec2006} \cite{Placer2010}
+  Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 milijonov let), ki so na površje prišli zaradi dogodkov, povezanih s podrivanjem Adriatske plošče (17-7 milijonov let). Menišija je bila uravnano kraško polje do 3.5 milijona let pred sedanjostjo, ko se je zaradi tektonske aktivnosti dvignila nad okolico in vzpostavljeni so bili hidrološki pogoji za nastanek vrtač. Hitrost zniževanja (denudacije) kraškega površja se ocenjuje na 20-50 m / milijon let, torej se je površje Menišije v času od nastanka znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. \cite{Vrabec2006} \cite{Placer2010}
 
   \begin{figure}[h]
     \begin{center}
       \includegraphics[width=9cm]{slike/menisija-relief}
     \end{center}
-    \caption{Senčen 3D relief dela Menišije uporabljen v tej nalogi. Vir: Geodetski inštitur Slovenije \cite{LAK} po metodi \cite{Kobler20079}.}
+    \caption{Senčen 3D relief dela Menišije uporabljen v tej nalogi. Vir: Geodetski inštitut Slovenije \cite{LAK} po metodi \cite{Kobler20079}.}
     \label{fig:menisija-relief}
   \end{figure}
 
@@ -185,7 +185,7 @@
     \label{fig:menisija-vrtace}
   \end{figure}
 
-  Identifikacijo velike količine objektov se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}. Točke, ki so nižje od svoje okolice, imajo nižji indeks konkavnosti, točke višje od svoje okolice pa višjega. Pri tem je pomembna tudi pametna izbiro okolice - od nje je odvisno kako velike konkavnosti bomo zaznali. Končno zavržemo konveksne dele površja in konkavne odberemo kot vrtače. Rezultat vidimo na (Slika \ref{fig:menisija-vrtace}). Opaziti velja, da izbrana metoda segmetacije del robov konkavnih objektov klasificira kot konveksne in zato podceni radij. Za naše namene to ni pretirano moteče, saj to podcenitev zlahka kompenziramo kasneje.
+  Identifikacijo velike količine objektov se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}. Točke, ki so nižje od svoje okolice, imajo nižji indeks konkavnosti, točke višje od svoje okolice pa višjega. Pri tem je pomembna tudi pametna izbiro okolice - od nje je odvisno, kako velike konkavnosti bomo zaznali. Končno zavržemo konveksne dele površja in konkavne odberemo kot vrtače. Rezultat vidimo na (Slika \ref{fig:menisija-vrtace}). Opaziti velja, da izbrana metoda segmentacije del robov konkavnih objektov klasificira kot konveksne in zato podceni radij. Za naše namene to ni pretirano moteče, saj to podcenitev zlahka kompenziramo kasneje.
 
   Najdeni konkavni objekti imajo porazdelitev efektivnih polmerov \newline (\mbox{$r_{eff}=\sqrt{\frac{A_{eff}}{\pi}}$}), kot vidno na (Slika \ref{fig:menisija-polmeri-hist}).
 
@@ -198,7 +198,7 @@
   \end{figure}
 
   To daje slutiti, da bodisi obstaja ravnovesna velikost vrtače, h kateri konvergirajo vse konkavne oblike v območju ne glede na njihov nastanek, bodisi da so vsi konkavni objekti v tem območju nastali v kratkem časovnem obdobju in se razvijali z enako hitrostjo. Odločimo se za raziskovanje prve možnosti.
-  Predvidevamo torej, da obstaja ravnovesna oblika vrtače, ki bi se pojavila na idelani podlagi, če bi preteklo dovolj časa.
+  Predvidevamo torej, da obstaja ravnovesna oblika vrtače, ki bi se pojavila na idealni podlagi, če bi preteklo dovolj časa.
 
   \begin{figure}[h]
     \begin{center}
@@ -210,20 +210,20 @@
 
   Posamezne realne vrtače zaradi lokalnih pogojev in zgodovine razvoja reliefa niso simetrične, a zdi se, da so si med seboj podobne. Da bi ugotovili idealno obliko vrtače, izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo in povprečimo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh. 
 
-  Na prvi pogled se zdijo dobljeni profili gaussove oblike (\ref{fit-vrtace}), kar ne zbuja nujno zaupanja v metodo. Zdi pa se, da so oblike simetrične po kotu, torej lahko problem reduciramo na študij njihovih profilov. 
+  Na prvi pogled se zdijo dobljeni profili Gaussove oblike (\ref{fit-vrtace}), kar ne vzbuja nujno zaupanja v metodo. Zdi pa se, da so oblike simetrične po kotu, torej lahko problem reduciramo na študij njihovih profilov. 
 
   \begin{equation}
     f(x,y) = A \cdot e^{-\frac{(x-x_0)^2}{\sigma_x^2}-\frac{(y-y_0)^2}{\sigma_y^2}} + B \cdot x + C \cdot y + D  
     \label{fit-vrtace}
   \end{equation}
 
-  Rezultat uporabimo tako, da gaussovo funkcijo nalegamo na realne vrtače in tako dobimo dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izračunamo povprečne profile vrtač ($z(r)$), ki imajo enake efektivne polmere, npr. (Slika \ref{fig:menisija-profil-21-fit}).
+  Rezultat uporabimo tako, da Gaussovo funkcijo nalegamo na realne vrtače in tako dobimo dobre lokacije njihovih najnižjih točk, ter njihove $\sigma_x$ in $\sigma_y$. Z lokacijami najnižjih točk lahko izračunamo povprečne profile vrtač ($z(r)$), ki imajo enake efektivne polmere, npr. (Slika \ref{fig:menisija-profil-21-fit}).
 
   \begin{figure}[h!]
     \begin{center}
       \includegraphics[width=12cm]{slike/menisija-profil-21-fit}
     \end{center}
-    \caption{Povprečje profilov vrtač z efektivnimi polmeri med 23,5m in 24,5m. Prilegamo gaussovko (\ref{fit-profila}). Graf prikazuje razliko med povprečnim profilom in prilegano gausovko.}
+    \caption{Povprečje profilov vrtač z efektivnimi polmeri med 23,5m in 24,5m. Prilegamo Gaussovko (\ref{fit-profila}). Graf prikazuje razliko med povprečnim profilom in prilegano Gaussovko.}
     \label{fig:menisija-profil-21-fit}
   \end{figure}
 
@@ -231,17 +231,17 @@
     \begin{center}
       \includegraphics[width=12cm]{slike/menisija-globine-hist}
     \end{center}
-    \caption{Porazdelitev uteži A za gaussovo funkcijo prilegano na vrtače v Menišiji}
+    \caption{Porazdelitev uteži A za Gaussovo funkcijo prilegano na vrtače v Menišiji}
     \label{fig:menisija-globine-hist}
   \end{figure}
 
-  Pri tem pa je porazdelitev uteži gaussove funkcije (Slika \ref{fig:menisija-globine-hist}), porazdelitev $\sigma$ pa (Slika \ref{fig:menisija-sigme-hist}).
+  Pri tem pa je porazdelitev uteži Gaussove funkcije (Slika \ref{fig:menisija-globine-hist}), porazdelitev $\sigma$ pa (Slika \ref{fig:menisija-sigme-hist}).
 
   \begin{figure}[h]
     \begin{center}
       \includegraphics[width=12cm]{slike/menisija-sigme-hist}
     \end{center}
-    \caption{Porazdelitev uteži $\sigma$ za gaussovo funkcijo prilegano na vrtače v Menišiji}
+    \caption{Porazdelitev uteži $\sigma$ za Gaussovo funkcijo prilegano na vrtače v Menišiji}
     \label{fig:menisija-sigme-hist}
   \end{figure}
 
@@ -282,7 +282,7 @@
   \label{definicije}
 
   Za opis področja vrtač uporabimo analogijo z rastjo površin - npr. nabiranjem vodnega kamna - le da tu nebo raste v apnenčasto podlago.
-  Po \cite{barabasi1995fractal} v poglavju (\ref{definicije}) povzamemo definicije potrebne za opis takega procesa.
+  Po \cite{barabasi1995fractal} v poglavju (\ref{definicije}) povzamemo definicije, potrebne za opis takega procesa.
   Povprečna višina površja je definirana kot (\ref{povprecna-visina}), kjer je $h(i,t)$ višina stolpca $i$ ob času $t$.
 
   \begin{equation}
@@ -306,7 +306,7 @@
     \label{beta}
   \end{equation}
 
-  kjer je $\beta$ exponent rasti, ki poda časovno dinamiko hrapavosti.
+  kjer je $\beta$ eksponent rasti, ki poda časovno dinamiko hrapavosti.
   Po dolgem času $(t \gg t_x)$ širina površine preide v zasičeni režim, v katerem se eksponentna rast ustavi in doseže zasičeno vrednost $w_{sat}$, ki je odvisna od velikosti sistema $L$ takole:
 
   \begin{equation}
@@ -316,7 +316,7 @@
 
   Eksponent $\alpha$ imenujemo eksponent hrapavosti, in nam poda hrapavost nasičene površine.
 
-  Prehodni čas $t_x$, ob katerem površina preide iz nezasičenega v zasičen režim, je odvisen od velikosti sistema in je približno:
+  Prehodni čas $t_x$, ob katerem površina preide iz nenasičenega v zasičen režim, je odvisen od velikosti sistema in je približno:
 
   \begin{equation}
     t_x \sim L^z
@@ -374,7 +374,7 @@
 
     Na Lidar modelu Menišije uporabljenem v (Poglavje \ref{realne-vrtace}) izračunamo $\bar{w}_{sat}$ za površine, kjer je L med 5 in 10 km. Širine površin $w$ nato narišemo v odvisnosti od velikosti sistema L.
 
-    Dobimo graf (Slika \ref{fig:menisija-alfa}) s katega odberemo, da je $\alpha =  0.4368 \pm 0.0005$.
+    Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha =  0.4368 \pm 0.0005$.
 
     \begin{figure}[h]
       \begin{center}
@@ -436,7 +436,7 @@
       h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h(\xi,0) \right] \right)
     \end{equation}
 
-    \cite{kardar1986dynamic} nato v fourierovem prostoru s prostim propagatorjem in pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. To se relativno dobro ujema z $\alpha=0.4368 \pm 0.0005$ namerjenim v (Poglavje \ref{hrapavost}).
+    \cite{kardar1986dynamic} nato v Fourierovem prostoru s prostim propagatorjem in pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. To se relativno dobro ujema z $\alpha=0.4368 \pm 0.0005$ namerjenim v (Poglavje \ref{hrapavost}).
 
 
     Če simuliramo stohastično rast površja, opazimo, da je končno stanje površja modela precej stabilno, a ne ravnovesno in precej odvisno od začetnih pogojev. Oblike, ki na površju nastanejo, so si med seboj podobne po obliki in velikosti. (Slika \ref{fig:KPZ-numericno}) je primer tako simuliranega površja.
@@ -471,7 +471,7 @@
 
     \subsection{Eksponentna rast}
 
-    V modelu eksponentne rasti predpostavimo, da je rast sorazmerna z vrednosjo ($h(t)$) v izbrani točki. Dobimo enačbo (\ref{dinamicna-eksponentna}), ki jo reši funkcija (\ref{dinamicna-eksponentna-resitev}), in jo pri variaciji parametra $a$ narišemo (Slika \ref{fig:eksponentna-rast}).
+    V modelu eksponentne rasti predpostavimo, da je rast sorazmerna z vrednostjo ($h(t)$) v izbrani točki. Dobimo enačbo (\ref{dinamicna-eksponentna}), ki jo reši funkcija (\ref{dinamicna-eksponentna-resitev}), in jo pri variaciji parametra $a$ narišemo (Slika \ref{fig:eksponentna-rast}).
 
     \begin{equation}
       \frac{\partial h(t)}{\partial t} = a \cdot h(t)
@@ -492,12 +492,12 @@
     \end{figure}
 
     Če je parameter $a > 0$, bomo vedno dobili neomejeno rast, kar zmanjšuje splošnost tega modela. Vseeno pa je v omejenih intervalih uporaben za npr. opis rasti populacij držav, širjenje virusov, jedrskih verižnih reakcij, itn. Uporabnost modela se konča, ko se sistem zasiti - to je, ko zmanjka virov, ki rast poganjajo (če gledamo dane primere - ko zmanjka hrane, celic, jeder).
-    Pri vrtačah je možno, da imamo eksponento rast v začetku, a tega ne moremo ne dokazati ne ovreči. Vsekakor pa je ni v ravnovesni fazi, saj zelo globokih vrtač ne opazimo.
+    Pri vrtačah je možno, da imamo eksponentno rast v začetku, a tega ne moremo ne dokazati ne ovreči. Vsekakor pa je ni v ravnovesni fazi, saj zelo globokih vrtač ne opazimo.
 
 
     \subsection{Logistična rast}
 
-    V model logistične rasti predpostavimo, da je rast sorazmerna z višino v izbrani točki, ter da se zmanjšuje, ko se približujemo fizikalnim omejitvam sistema (npr. pomanjkanju hrane, življenskega prostora, itn). To zapšemo v enačbo (\ref{dinamicna-logisticna}), ki jo reši funkcija (\ref{dinamicna-logisticna-resitev}).
+    V model logistične rasti predpostavimo, da je rast sorazmerna z višino v izbrani točki, ter da se zmanjšuje, ko se približujemo fizikalnim omejitvam sistema (npr. pomanjkanju hrane, življenjskega prostora, itn). To zapišemo v enačbo (\ref{dinamicna-logisticna}), ki jo reši funkcija (\ref{dinamicna-logisticna-resitev}).
 
     \begin{equation}
       \frac{\partial h(t)}{\partial t} = a \cdot \left( 1 - \frac{h(t)}{K} \right) h(t)
@@ -517,7 +517,7 @@
       \label{fig:logisticna-rast}
     \end{figure}
 
-    Vidimo, da neglede na izbiro začetne točke $h_0$, vrednost h(t) konvergira proti vrednosti $K$. Torej je rast omejena s kapaciteto sistema K.
+    Vidimo, da ne glede na izbiro začetne točke $h_0$, vrednost h(t) konvergira proti vrednosti $K$. Torej je rast omejena s kapaciteto sistema K.
     Če funkcijo (\ref{dinamicna-logisticna-resitev}) Taylorjevo razvijemo, vidimo, da je rast, kjer $h(t) \ll K$, približno $a h(t)$. V območju, kjer je $h(t)$ bližji $K$, pa postane drugi člen v razvoju $-a h(t)^2 / K$ pomembnejši in rast se po dolgem času ustavi.
     Model logistične rasti se uporablja za modeliranje človeških in živalskih populacij, rasti tumorjev, širjenje inovacij v družbi in sprememb v jeziku. Zaradi omejene rasti pa se zdi tudi zanimiv kandidat za modeliranje dinamike vrtač.
 
@@ -551,7 +551,7 @@
 
     \subsection{Gompertzova rast}
 
-    Pri modelu Gompertzove rasti vzamemo, da se faktor rasti s časom spreminja po enačbi (\ref{dinamicna-gompertzova-faktor}), kar nam da enačbo (\ref{dinamicna-gompertzova}) in rešitev (\ref{dinamicna-gompertzova-resitev}), iz katere lahko dobimo še asimptotsko rešitev (\ref{dinamicna-gompertzova-faktor}), ki je podobna zasičenosti modela pri prejšnih dveh primerih, a nastopi zaradi postopnega prenehanja rasti, in ne zaradi povratne zanke (kot v primeru logistične in omejene eksponentne rasti).
+    Pri modelu Gompertzove rasti vzamemo, da se faktor rasti s časom spreminja po enačbi (\ref{dinamicna-gompertzova-faktor}), kar nam da enačbo (\ref{dinamicna-gompertzova}) in rešitev (\ref{dinamicna-gompertzova-resitev}), iz katere lahko dobimo še asimptotsko rešitev (\ref{dinamicna-gompertzova-faktor}), ki je podobna zasičenosti modela pri prejšnjih dveh primerih, a nastopi zaradi postopnega prenehanja rasti, in ne zaradi povratne zanke (kot v primeru logistične in omejene eksponentne rasti).
 
     \begin{equation}
       a(t) = a_0 \cdot e^{- k t}
@@ -580,7 +580,7 @@
 
     \section{Difuzijsko modeliranje dinamike vrtač}
 
-    Zaradi počasnosti procesa, ki oblikuje vrtače, domnevamo, da difuzija ni nepomembna, in dodamo dinamičnim modelom iz prejšnega podpoglavja  (\ref{difuzijska-variacije}) še difuzijski člen (\ref{difuzija-splosna}).
+    Zaradi počasnosti procesa, ki oblikuje vrtače, domnevamo, da difuzija ni nepomembna, in dodamo dinamičnim modelom iz prejšnjega podpoglavja  (\ref{difuzijska-variacije}) še difuzijski člen (\ref{difuzija-splosna}).
 
     \begin{equation}
       \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + F(h)
@@ -597,7 +597,7 @@
       \label{difuzijska-variacije}
     \end{equation}
 
-    Rešitve teh enačb bomo iskali numerično in komentirali njihovo časovno dinamiko. Vzeli bomo sledeče robne pogoje:
+    Rešitve teh enačb bomo iskali numerično in komentirali njihovo časovno dinamiko. Vzeli bomo naslednje robne pogoje:
 
     \begin{equation}
       \begin{aligned}
@@ -648,7 +648,7 @@
 
     Iz te zveze lahko pokažemo tudi, da je hitrost takega vala $v = 2 \sqrt{D a}$.
 
-    Enačba (\ref{difuzija-logisticna-rast}) se uporablja za opis zaželjenih genov v populaciji, širjenje populacije v neposeljenem teritoriju, itn.
+    Enačba (\ref{difuzija-logisticna-rast}) se uporablja za opis zaželenih genov v populaciji, širjenje populacije v neposeljenem teritoriju, itn.
     Difuzivna logistična rast se zdi pri primerno izbranem faktorju $K$ zanimiv model za dinamiko vrtač.
 
     \subsection{Omejena eksponentna rast}
@@ -695,9 +695,9 @@
     Za nekoliko težjo nalogo se izkaže določanje idealne oblike vrtače, saj le-ta ne obstaja. Pravo vprašanje bi se moralo glasiti, kakšna je idealna oblika vrtače na izotropni podlagi po dolgem času. Vseeno sem se odločil, da za idealno vrtačo vzamem povprečje velike količine vrtač.
     Precej zahtevnejša naloga je bila izbira fizikalnega modela in dinamičnega opisa vrtače zaradi omejene količine podatkov o časovni dinamiki (domnevali smo, da so vse vrtače že v ravnovesnem stanju) in nepoznavanja dejanskega procesa, ki znižuje površje.
 
-    Kardar-Parisi-Zhangova rast površin nam da rezultat presenetljivo podoben kraškemu površju z vrtačami. Teoretično napovedan eksponent hrapavosti pa se relativno dobro ujema z izmerjenim na področju Menišije. Teh rezultatov ne moremo obravnavati kot dokaz, morda le vzpodbudo za nadaljni študij. V kolikor se model izkaže za pravilnega, pomeni spremembo v geomorfološkem kanonu. Ta pravi, da se večina raztapljanja zgodi ob razpokah v prvih dveh metrih pod površjem, medtem ko model difuzijske rasti površin postavi večino raztapljanja na površje kamnine.
+    Kardar-Parisi-Zhangova rast površin nam da rezultat presenetljivo podoben kraškemu površju z vrtačami. Teoretično napovedan eksponent hrapavosti pa se relativno dobro ujema z izmerjenim na področju Menišije. Teh rezultatov ne moremo obravnavati kot dokaz, morda le spodbudo za nadaljnji študij.
 
-    Za nepopolen model dinamike rasti vrtač predlagajmo model difuzijsko logistične rasti (\ref{fig:difuzija-logisticna-rast}), a le zato, ker se zdi najmanj napačen.
+    Za nepopoln model dinamike rasti vrtač predlagajmo model difuzijsko logistične rasti (\ref{fig:difuzija-logisticna-rast}), a le zato, ker se zdi najmanj napačen.
 
     Za popolnejši študij in dober model vrtač bi verjetno potrebovali bolj poglobljene informacije o prsti, geoloških in bioloških dejavnikih, ki lahko vplivajo na časovno dinamiko terena. Zanimiva ideja bi bila z geološkim študijem najti in datirati vrtače v različnih stopnjah razvoja ter s pomočjo te informacije oblikovati dinamičen nastavek, na podlagi katerega bi potem morda bolj osvetlili dinamično enačbo.
 
