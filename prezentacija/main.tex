@@ -5,7 +5,7 @@
 
 \usetheme{default}
 
-\title{Vrtače dinarskega krasa}
+\title{Vrtače Dinarskega krasa}
 
 % A subtitle is optional and this may be deleted
 % \subtitle{Optional Subtitle}
@@ -48,23 +48,24 @@
 
 \subsection{Realne vrtače}
 
-\begin{frame}{Kraške vrtače}{So zaprte koncentrične depresije}
+\begin{frame}{Kraške vrtače}{So koncentrične depresije}
 \begin{center} 
   \hspace*{-0.075\textwidth}\includegraphics[width=1.15\textwidth]{slike/vrtaca} \\
-  Jurišče, Slovenija
+  Jurišče, Slovenija \small{(vir: A.M.)}
 \end{center} 
 \end{frame}
 
 \begin{frame}{Kraške vrtače}{Najdemo jih na starih kraških poljih in planotah}
   \begin{center}
     \hspace*{-0.075\textwidth}\includegraphics[width=1.15\textwidth]{slike/bpetrovac} \\
-    Kapljuh, BiH
+    Kapljuh, BiH \small{(vir: A.M.)}
   \end{center}
 \end{frame}
 
 \begin{frame}{Kraške vrtače}{Več predlaganih modelov nastanka}
   \begin{center}
-    \hspace*{-0.075\textwidth}\includegraphics[width=1.15\textwidth]{slike/nastanek}
+    \hspace*{-0.075\textwidth}\includegraphics[width=1.10\textwidth]{slike/nastanek}
+  \tiny{\\Vir: Ford, Williams, Karst Hydrogeology and Geomorphology}
   \end{center}
 \end{frame}
 
@@ -81,10 +82,12 @@
 \begin{columns}
   \begin{column}{0.6\textwidth}
     \includegraphics[width=\textwidth]{slike/vrtaca-ford-williams.png}
+    \tiny{\\Vir: Ford, Williams, Karst Hydrogeology and Geomorphology}
   \end{column}
 
   \begin{column}{0.5\textwidth}
     \includegraphics[width=\textwidth]{slike/verd}
+    \tiny{\\Vir: A.M}
   \end{column}
 \end{columns}
 \end{frame}
@@ -95,9 +98,10 @@
 % You can reveal the parts of a slide one at a time
 % with the \pause command or \item<3-> 
 
-\begin{frame}{LiDAR}{Posnetek območja Menišije, ločljivost $1m^2$}
+\begin{frame}{LiDAR}{Posnetek območja Menišije, ločljivost $1m^2$ \\ Površina $\approx 7 km$ x $14 km$ \\ Število vrtač $\approx 8700$}
 \begin{center}
-  \hspace*{-0.95cm}\includegraphics[width=0.7\textwidth,angle=90]{slike/menisija-relief}
+  \hspace*{-0.79cm}\includegraphics[width=0.63\textwidth,angle=90]{slike/menisija-relief}
+  \tiny{\\Vir podatkov: Gozdarski inštitut Slovenije}
 \end{center}
 \end{frame}
 
@@ -142,6 +146,11 @@
 \begin{columns}
   \begin{column}{0.45\textwidth}
      \hspace*{-0.05\textwidth}\includegraphics[width=1.1\textwidth]{slike/bdep}
+     \newline
+     \newline
+     \tiny{Vir: A. Schwettmann, Ballistic deposition: Global scaling and local time series}
+     \newline \newline
+     \tiny{(V primeru vrtač material odvzemamo. Problem je matematično enak.)}
   \end{column}
 
   \begin{column}{0.55\textwidth}
@@ -159,7 +168,9 @@
 \begin{frame}{Rast površin}{Povprečna širina površine v času, eksponent hrapavosti}
 \begin{center}
   \footnotesize
-  \includegraphics[width=0.8\textwidth]{slike/sirine-vmesnika}
+  \includegraphics[width=0.8\textwidth]{slike/bdep2}
+  \\ \tiny{Vir: A. Schwettmann, Ballistic deposition: Global scaling and local time series}
+  \newline
 
 \begin{columns}
   \begin{column}{0.6\textwidth}
@@ -189,24 +200,76 @@
 \subsection{Kardar-Parisi-Zhang}
 
 \begin{frame}{Kardar-Parisi-Zhang}{Stohastična difuzijska enačba, teoretično napovedana hrapavost}
-\begin{center}
-  \footnotesize
-  \includegraphics[width=0.7\textwidth]{slike/kpz}
-  \begin{equation} \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t) \end{equation}
-  \begin{equation} \langle \eta(\mathbf{x},t) \eta(\mathbf{x'},t')\rangle = \delta(\mathbf{x}-\mathbf{x'})(t-t') \end{equation}
-  Napove: $\alpha = \frac{1}{2}$
-\end{center}
+\footnotesize
+\begin{columns}
+  \begin{column}{0.45\textwidth}
+    \includegraphics[width=1\textwidth]{slike/kpz}
+    \tiny{\\ Vir: Kardar-Parisi-Zhang, Dynamic Scaling of Growing Interfaces}
+    \newline
+    \newline
+    Površje prirašča v smeri normale:
+    \begin{equation} \delta h = \sqrt{ (v \delta t)^2 + (v \delta t \nabla h)^2} \end{equation}   
+    Če $|\nabla h| \ll 1$ dobimo: 
+    \begin{equation} \dot h = v \sqrt{1 + (\nabla h)^2} \simeq v + \frac{v}{2} (\nabla h)^2 + \ldots \end{equation}
+    Postavimo se v potujoč sistem $\dot h \rightarrow \dot h - v$
+    
+  \end{column}
+  \begin{column}{0.55\textwidth}
+    Predpostavimo, da je poces dovolj počasen, da je difuzija pomembna in še dodamo difuzijski člen:
+    \begin{equation} \nu \nabla^2 h \end{equation}
+    \newline
+
+    Rezultat je Kardar-Parisi-Zhangova enačba
+    \begin{equation} \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t) \end{equation}
+    \newline
+    Kardar-Parisi-Zhang pokažejo, da ob pogoju da je $\eta(x,t)$ beli šum velja:
+    \begin{equation} \alpha = \frac{1}{2} \end{equation}
+  \end{column}
+\end{columns}
+
 \end{frame}
 
-
 \begin{frame}{Kardar-Parisi-Zhang}{Simulacija}
-\begin{center}
-  \includegraphics[width=.95\textwidth]{slike/KPZ-numericno}
-\end{center}
+\begin{columns}
+  \begin{column}{0.70\textwidth}
+    \hspace*{-0.12\textwidth}\includegraphics[width=1.25\textwidth]{slike/KPZ-numericno}
+  \end{column}
+  \tiny{}
+  \begin{column}{0.4\textwidth}
+    \begin{equation} h_{i+1} = h_i + dt (\nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t)) \end{equation}
+    \newline
+    \begin{itemize}
+      \item
+        Časovni korak $dt = 10^{-3}$
+      \item
+        Ponovimo $10^6$ krat
+      \item
+        Površina ni v ravnovesju.
+      \item
+       Širina površine se ne spreminja več
+    \end{itemize}
+
+  \end{column}
+\end{columns}
 \end{frame}
 
 
 \subsection{Dinamične enačbe}
+
+\begin{frame}{Dinamične enačbe}{Priraščanje povpršin ni primeren model za opis dinamike posameznih vrtač}
+\begin{columns}
+  \begin{column}{0.7\textwidth}
+    \hspace*{-0.09\textwidth}\includegraphics[width=\textwidth]{slike/menisija-vrtaca}
+  \end{column}
+  \begin{column}{0.3\textwidth}
+    \hspace*{-0.3\textwidth}\includegraphics[width=1.4\textwidth]{slike/vrtaca}
+    \tiny{\\ Vir: A.M.} \newline \newline
+    \hspace*{-0.3\textwidth}\includegraphics[width=1.4\textwidth]{slike/verd}
+    \tiny{\\ Vir: A.M}
+  \end{column}
+\end{columns}
+
+\end{frame}
 
 \begin{frame}{Dinamične enačbe}{Prehod na determinističen opis}
 \begin{block}{Stohastične enačbe}
@@ -228,7 +291,7 @@
 
 \begin{frame}{Dinamične enačbe}{Primer: Omejena eksponentna rast}
 \begin{block}{Model}
-  Rast v času je odvisna od višine in razdalje do nosilne kapacitete. Odziv je bolj skokovit kot pri logistični rasti.
+  Rast v času je odvisna od višine in razdalje do nosilne kapacitete. Odziv je odvisen od razdalje do nosilne kapacitete.
   \begin{equation} \frac{\partial h(t)}{\partial t} = a \cdot ( K - h(t) ) = a K - a h(t) \end{equation}
 \end{block}
 \begin{block}{Rešitev}
@@ -256,7 +319,8 @@
 
 \begin{frame}{Dinamične enačbe}{Primer: Logistična rast}
 \begin{block}{Model}
-  Rast v času je odvisna od višine in razdalje do nosilne kapacitete
+  Rast v času je odvisna od višine in razdalje do nosilne kapacitete. \\
+  Odziv je manj skokovit kot pri omejeni eksponentni rasti.
   \begin{equation} \frac{\partial h(t)}{\partial t} = a \cdot \left( 1 - \frac{h(t)}{K} \right) h(t) \end{equation}
 \end{block}
 \begin{block}{Rešitev}
@@ -301,7 +365,7 @@
   \item
     Modele rasti dopolnimo z difuzijo, ki jo pričakujemo zaradi časovnega okvira procesa nastanka vrtač
   \item
-    So oblike \begin{equation}  \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + F( h(t) ) \end{equation}
+    So oblike \begin{equation}  \frac{ \partial h(t,x) }{ \partial t} = - \nabla j(t,x) + F( h(t) )= D \Delta h(t,x) + F( h(t) ) \end{equation}
   \end{itemize}
 \end{block}
 \end{frame}
@@ -385,9 +449,11 @@
     Izbira fizikalnega modela je zaradi pomanjkanja informacij o dinamiki težka
     \begin{itemize}
       \item<5->
+        Vsi predlagani modeli dajo konkavne ravnovesne oblike
+      \item<6->
         Najmanj napačen se zdi model logistične difuzijske rasti
     \end{itemize}
-    \item<6->
+    \item<7->
       Natančnejši geološki študij dinamike reliefa bi bil v pomoč
   \end{itemize}
 \end{frame}
