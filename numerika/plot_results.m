@@ -10,9 +10,9 @@ if 1
     figure(gcf);
     hist(profile_sizes(profile_sizes~=0),max(profile_sizes))
     title('Porazdelitev konkavnih objektov po efektivnem polmeru')
-    xlabel('Efektivni polmer [m]')
+    xlabel('Efektivni polmer r_{eff} [m]')
     ylabel('N [ ]')
-    printpdf(gcf,'../Latex/slike/menisija-polmeri-hist',14.5,8); %'-S750,420'
+    printpdf(gcf,'../Latex/slike/menisija-polmeri-hist',18,5); %'-S750,420'
 end
 
 %%
@@ -25,8 +25,8 @@ if 1
 
     figure(gcf);
     hist(A,40)
-    title('Porazdelitev utezi prislonjenih funkcij')
-    xlabel('Utez gaussove funkcije - A [m]')
+    title('Porazdelitev utezi prislonjenih Gaussovk')
+    xlabel('A [m]')
     ylabel('N(A) [ ]')
     printpdf(gcf,'../Latex/slike/menisija-globine-hist',14.5,6); %'-S750,420'
 end
@@ -40,9 +40,35 @@ if 1
     figure(gcf);
     hist(sigmas(sigmas<60),60)
     title('Porazdelitev \sigma prislonjenih funkcij')
-    xlabel('\sigma = (\sigma_x^2 + \sigma_y^2)^{1/2} [m]')
+    xlabel('\sigma [m]')
     ylabel('N(\sigma) [ ]')
     printpdf(gcf,'../Latex/slike/menisija-sigme-hist',14.5,8); %'-S750,420'
+end
+
+%%
+% Plot histogram of fitted As and sigmas
+if 1 
+    all_fits = [s.fit];
+    sigmas=sqrt([all_fits.sx].^2 + [all_fits.sx].^2);
+    
+    A=[all_fits.A];
+    A=A(abs(A)<30);
+    A=A(A<10);
+
+    figure(gcf);
+    subplot(1,2,1);
+    hist(A,40)
+    title('Porazdelitev utezi prislonjenih Gaussovk')
+    xlabel('A [m]')
+    ylabel('N(A) [ ]')
+
+    subplot(1,2,2);
+    figure(gcf);
+    hist(sigmas(sigmas<60),60)
+    title('Porazdelitev \sigma prislonjenih funkcij')
+    xlabel('\sigma [m]')
+    ylabel('N(\sigma) [ ]')
+    printpdf(gcf,'../Latex/slike/menisija-visine-in-sigme-hist',20,10); %'-S750,420'
 end
 
 %%
@@ -67,10 +93,10 @@ if 1
     figure(gcf);
     plot(profiles(j,1:j)'-profile_fits{j}(1:j),'-b+','Color','blue','LineWidth',2);
     ylim ([-0.065,0.05]);
-    title(sprintf('Naleganje gaussovke na povprecje profilov vrtac velikosti (r_{eff} = %d m)',j))
-    xlabel('Polmer [m]')
+    title(sprintf('Odstopanje Gaussovke od povprecja profilov vrtac velikosti (r_{eff} = %d m)',j))
+    xlabel('Polmer r [m]')
     ylabel('Odstopanje modela f(r) [m]')
-    legend('f(r) = z_{izmerjen}(r) - A e^{-((r-r_0)/\sigma)^2}','location','southeast')
+    legend('f(r) = H(r) - A e^{-((r-r_0)/\sigma)^2 + C}','location','southeast')
     printpdf(gcf,'../Latex/slike/menisija-profil-21-fit',14.5,8); %'-S900,400'
 end
 
@@ -112,8 +138,8 @@ if 1
     plot(sigma_fit);
     title('Odvisnost \sigma(r_{eff})');
     ylabel('\sigma [m]');
-    xlabel('Velikost vrtac r_{eff} [m]');
-    legend('Izmerjena \sigma',sprintf('Sigma(r_{eff}) = %f * r_{eff} + %f',sigma_fit.k,sigma_fit.const),'location','southeast');
+    xlabel('r_{eff} [m]');
+    legend('Izmerjena \sigma',strcat('\sigma', sprintf('(r_{eff}) = %f * r_{eff} %f',sigma_fit.k,sigma_fit.const)),'location','southeast');
     hold off;
     printpdf(gcf,'../Latex/slike/menisija-sigme',14.5,8);
 end
