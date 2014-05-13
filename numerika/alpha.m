@@ -15,8 +15,8 @@ w = [nanstd(grid) nanstd(grid')];
 L = [sum(~isnan(grid)) sum(~isnan(grid'))];
 logw = log(w);
 logL = log(L);
-logw = logw(logL > 8.5);
-logL = logL(logL > 8.5);
+%logw = logw(logL > 8.5);
+%logL = logL(logL > 8.5);
 
 %% Fit
 
@@ -38,6 +38,6 @@ xlim([min(logL)-dx, max(logL)+dx]);
 title('Merjenje eksponenta hrapavosti \alpha')
 xlabel('ln(L)')
 ylabel('ln(w_{sat})')
-legend(h_,'f(ln L) = \alpha * ln L','95%','location','SouthEast');
+legend(h_,'f(ln L) = \alpha * ln L','95% tock','location','SouthEast');
 hold off;
 printpdf(gcf,'../Latex/slike/menisija-alfa',15,8);

@@ -139,7 +139,7 @@ if 1
     title('Odvisnost \sigma(r_{eff})');
     ylabel('\sigma [m]');
     xlabel('r_{eff} [m]');
-    legend('Izmerjena \sigma',strcat('\sigma', sprintf('(r_{eff}) = %f * r_{eff} %f',sigma_fit.k,sigma_fit.const)),'location','southeast');
+    legend('Izmerjena \sigma',strcat('\sigma', sprintf('(r_{eff}) = %1.2g * r_{eff} %1.2g',sigma_fit.k,sigma_fit.const)),'location','southeast');
     hold off;
     printpdf(gcf,'../Latex/slike/menisija-sigme',14.5,8);
 end

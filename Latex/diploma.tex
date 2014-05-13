@@ -107,7 +107,7 @@
 
   Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statistično preučiti velik vzorec kraških vrtač na slovenskem Dinarskem krasu, predlagati analitično funkcijo, ki bi opisala idealno vrtačo, ter na podlagi le-te poskusiti modelirati dejavnike, ki povzročajo nastanek in obliko vrtač.
 
-Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Najdemo jih na starih kraških poljih in planotah po celotnem Dinarskem krasu, npr.: (Slika \ref{fig:vrtace-bpetrovac}). 
+Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Najdemo jih na starih kraških poljih in planotah po celotnem Dinarskem krasu. Primer starega polja z razvitimi vrtačami: (Slika \ref{fig:vrtace-bpetrovac}). 
 
   \begin{figure}[h]
     \begin{center}
@@ -117,21 +117,15 @@ Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj de
     \label{fig:vrtace-bpetrovac}
   \end{figure}
 
-Obstaja več geomorfoloških modelov njihovega nastanka, najbolj sprejetega v geomorfološki literaturi pa \cite{ford2007karst} poda s takšno skico: (Slika \ref{fig:vrtaca-ford-williams}).
+Obstaja več geomorfoloških modelov njihovega nastanka, najbolj sprejetega v geomorfološki literaturi pa \cite{ford2007karst} poda s skico: (Slika \ref{fig:vrtaca-ford-williams}). K tej se bomo vrnili, ko bomo poskusili modelirati dinamiko vrtač.
 
   \begin{figure}[h]
     \begin{center}
-      \includegraphics[width=6cm]{slike/vrtaca-ford-williams}
+      \includegraphics[width=8cm]{slike/vrtaca-ford-williams}
     \end{center}
-    \caption{Priljubljena geomorfološka shema za razlago vrtač. Vir: \cite{ford2007karst}.}
+    \caption{Geomorfološka shema nastanka vrtač. Na sprva ravnem površju neka začetna točka malenkost bolje odvaja vodo. Zaradi večjega pretoka vode se tam na stiku prsti in kamnine poveča raztapljanje apnenca. Raztapljanje in odnašanje apnenca v podtalnico poglobi površje in s tem zaradi spremenjenega naklona poveča odvajanje vode v začetno točko. Dobimo pozitivno povratno zanko in oblikujejo se vrtače. Vir: \cite{ford2007karst}.}
     \label{fig:vrtaca-ford-williams}
   \end{figure}
-
-\begin{comment}
-\newline
-[TODO](kaksni modeli?)
-\newline
-\end{comment}
 
   Za študij realnih vrtač uporabimo digitalni model reliefa Menišije (Slika \ref{fig:menisija-karta}) ločljivosti 1m, ki nam da natančno višinsko karto velike količine vrtač, ter omogoči zanesljivo identifikacijo in študij tega pojava (Slika \ref{fig:menisija-relief}).
 
@@ -166,7 +160,7 @@ Primer računa indeksa konkavnosti na (Slika \ref{fig:concavity-ring}).
     \begin{center}
       \includegraphics[width=5cm]{slike/concavity-ring-visualisation-2}
     \end{center}
-    \caption{V prikazanem primeru je indeks konkavnosti, $I_k = 614,8 - 19676,2/32 = - 8,125 \cdot 10^{-2}$}
+    \caption{V prikazanem primeru je indeks konkavnosti, $I_k = 614,8 - 19676,2/32 = - 8,125 \cdot 10^{-2}$.}
     \label{fig:concavity-ring}
   \end{figure}
 
@@ -189,7 +183,7 @@ Rezultat vidimo na (Slika \ref{fig:menisija-vrtace}). Vrtače, ki smo jih zaznal
     \begin{center}
       \includegraphics[width=9cm]{slike/menisija-vrtace}
     \end{center}
-    \caption{Del od 8687 zaznanih konkavnih objektov na območju Menišije. Poleg vrtač so na sliki vidne tudi dve udornice.}
+    \caption{Del od 8687 zaznanih konkavnih objektov na območju Menišije. Poleg vrtač so na sliki vidni tudi dve udornici.}
     \label{fig:menisija-vrtace}
   \end{figure}
 
@@ -249,13 +243,13 @@ Po (Slika \ref{fig:menisija-polmeri-hist}) vemo, da obstaja velika skupina vrta�
   \label{povprecenje-profilov}
 \end{equation}
 
-Na (Slika \ref{fig:menisija-profil-21-fit}) prikažemo ujemanje $\bar H(r)$ s predlagano Gaussovo  funkcijo (\ref{fit-vrtace}). Ujemanje ocenimo za dovolj dobro in nadaljujemo.
+Na (Slika \ref{fig:menisija-profil-21-fit}) prikažemo ujemanje $\bar H(r)$ za profile z $r_{eff}=24m$, s predlagano Gaussovo  funkcijo (\ref{fit-vrtace}). Ujemanje ocenimo za dovolj dobro in nadaljujemo.
 
   \begin{figure}[h!]
     \begin{center}
       \includegraphics[width=10cm]{slike/menisija-profil-21-fit}
     \end{center}
-    \caption{Povprečimo profile vrtač z efektivnimi polmeri med 23,5m in 24,5m po (\ref{povprecenje-profilov}), jim prilegamo Gaussovko (\ref{fit-vrtace}) in končno izračunamo razliko med krivuljama ter izrišemo rezultat.}
+    \caption{Povprečimo profile vrtač z $r_{eff}=24m$ po (\ref{povprecenje-profilov}), jim prilegamo Gaussovko (\ref{fit-vrtace}) in izrišemo ujemanje prileganja.}
     \label{fig:menisija-profil-21-fit}
   \end{figure}
 
@@ -270,12 +264,13 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     \label{fig:menisija-globine-sigme-hist}
   \end{figure}
 
-Če izrišemo odvisnost $\sigma (r_{eff})$, dobimo (Slika \ref{fig:menisija-sigma}). Krivulji prilegamo linearno funkcijo (\ref{sigma-od-reff}) in za tipične dimenzije vrtač ($10m < r_{eff} < 100m$) dobimo dobro ujemanje.
+Če izrišemo odvisnost $\sigma (r_{eff})$, dobimo (Slika \ref{fig:menisija-sigma}). Krivulji prilegamo linearno funkcijo (\ref{sigma-od-reff}) in za tipične dimenzije vrtač ($10m < r_{eff} < 100m$) dobimo dobro ujemanje:
 
   \begin{equation}
-    \sigma (r_{eff}) = k \cdot r_{eff} + C
+    \sigma (r_{eff}) = k \cdot r_{eff} + C = r_{eff} - 4,7m.
     \label{sigma-od-reff}
   \end{equation}
+
   \begin{figure}[h!]
     \begin{center}
       \includegraphics[width=12cm]{slike/menisija-sigme}
@@ -298,109 +293,130 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
   \chapter{Analitično modeliranje vrtač}
   \label{analiticno-modeliranje}
 
-  \section{Stohastična rast površin}
+  \section{Rast površin}
   \label{definicije}
 
-  Za opis področja vrtač uporabimo analogijo z rastjo površin - npr. nabiranjem vodnega kamna - le da tu nebo raste v apnenčasto podlago.
-  Po \cite{barabasi1995fractal} v poglavju (\ref{definicije}) povzamemo definicije, potrebne za opis takega procesa.
-  Povprečna višina površja je definirana kot (\ref{povprecna-visina}), kjer je $h(i,t)$ višina stolpca $i$ ob času $t$.
+  V prvem poskusu opisa dinamike vrtač uporabimo definicije s področja rasti površin. Na primeru balističnega usedanja uvedemo potrebne definicije. Delno povzeto po \cite{barabasi1995fractal}.
+
+Balistično usedanje preučuje model, kjer začnemo z ravnim površjem velikosti $L$. Na površje z razdalje večje od najvišje točke na površju in z naključne horizonalne pozicije $x$, padajo kvadratni delčki. Ti navpično padejo na povšje, ter se tam prilepijo. Tak proces pikazuje (Slika \ref{fig:bdep}).
+Površje je meja med praznino in naloženimi delčki ter originalnim površjem.
+
+    \begin{figure}[h]
+      \begin{center}
+        \includegraphics[width=7cm]{slike/bdep}
+      \end{center}
+      \caption{Skica balističnega nalaganja v eni dimenziji. Delčki A, B in C ob različnih časih $t$ padejo poti površju in se prilepijo na lokacije A’, B’ in C’.}
+      \label{fig:bdep}
+    \end{figure}
+
+Povprečno višino površja definiramo kot:
 
   \begin{equation}
-    \bar{h} = \frac{1}{L} \sum_{i=1}^L h(i,t)
+    \bar{h} = \frac{1}{L} \sum_{i=1}^L h(i,t),
     \label{povprecna-visina}
   \end{equation}
+kjer je $h(i,t)$ višina stolpca $i$ ob času $t$.
 
-  Če je hitrost usedanja delcev konstantna, se povprečna višina povečuje linearno s časom $\bar{h}(t) \sim t$.
+Če je usedanje delcev enakomerno porazdeljeno po $x$ in konstantno, se povprečna višina povečuje linearno s časom:
 
-  Širino površine, ki poda hrapavost površine, definiramo s standardnim odklonom višine površine od povprečne višine:
+\begin{equation}
+  \bar{h}(t) \sim t.
+\end{equation}
+
+Širino površja, definiramo s standardnim odklonom višine površja od povprečne višine:
 
   \begin{equation}
-    w(L,t) = \sqrt{\frac{1}{L} \sum_{i=1}^L (h(i,t)-\bar{h}(t))^2}
+    w(L,t) = \sqrt{\frac{1}{L} \sum_{i=1}^L (h(i,t)-\bar{h}(t))^2}.
     \label{sirina-povrsine}
   \end{equation}
 
-  (\ref{sirina-povrsine}) spremljamo v času, da lahko kvantitativno podamo hrapavost površine. Po definiciji začnemo z ravno površino širine 0. V začetku $(t \ll t_x)$ se nam širina povečuje eksponentno s časom:
+Po definiciji začnemo z ravno površino širine $w(L,t=0)=0$. Kratko prehodno obdobje, ko se delčki lepijo še na ravno podlago imenujemo obdobje Poissonove rasti. V tem obdobju velja: 
 
+\begin{equation}
+  w(L,t) \sim t^{1/2}.
+\end{equation}
+
+Za tem nastopi obdobje rasti, v katerem velja:
   \begin{equation}
-    w(L,t) \sim t^\beta
+    \begin{array}{lr} w(L,t) \sim t^\beta  & \ t \ll t_s, \end{array}
     \label{beta}
   \end{equation}
+kjer je $\beta$ eksponent rasti, ki poda časovno dinamiko hrapavosti površja, $t_s$ pa čas zasičenja.
 
-  kjer je $\beta$ eksponent rasti, ki poda časovno dinamiko hrapavosti.
-  Po dolgem času $(t \gg t_x)$ širina površine preide v zasičeni režim, v katerem se eksponentna rast ustavi in doseže zasičeno vrednost $w_{sat}$, ki je odvisna od velikosti sistema $L$ takole:
+Po dolgem času rast površja preide v zasičeni režim, v katerem se eksponentna rast širine ustavi in doseže zasičeno vrednost $w_{sat}(L)$, ki je od velikosti sistema $L$ odvisna takole:
 
   \begin{equation}
-    w_{sat}(L) \sim L^\alpha
+    \begin{array}{lr} w(L,t_s) = w_{sat}(L) \sim L^\alpha & (t \gg t_s). \end{array}
     \label{alfa}
   \end{equation}
+Eksponent hrapavosti $\alpha$ nam pove kako je hrapavosti zasičenega površja odvisna od njegove velikosti.
 
-  Eksponent $\alpha$ imenujemo eksponent hrapavosti, in nam poda hrapavost nasičene površine.
-
-  Prehodni čas $t_x$, ob katerem površina preide iz nenasičenega v zasičen režim, je odvisen od velikosti sistema in je približno:
+Čas zasičenja $t_s$, ob katerem rast površja preide iz nenasičenega v nasičen režim, je odvisen od velikosti površja in je:
 
   \begin{equation}
-    t_x \sim L^z
+    t_s \sim L^z,
     \label{z}
   \end{equation}
+kjer je $z$ dinamični eksponent, ki je povezan z dinamiko širjenja površja.
 
-  kjer je $z$ dinamični eksponent.
-  Eksponenti $\alpha$, $\beta$ in $z$ med seboj niso neodvisni.
-  Izkaže se, da z izrisom $w(L,t)/w_{sat}(L)$ kot funkcije časa, dobimo krivulje, ki se zasitijo ob istem času, ne glede na velikost sistema $L$.
-  Če izrišemo širino površine kot funkcijo $t/t_x$, se bodo vse krivulje zasitile v isti točki.
-  Zato sklepamo, da je $w(L,t)/w_{sat}(L)$ funkcija $t/t_x$, torej:
+Celotna dinamika širine pri balističnem naleganju je za različne velikosti površja prikazana na (Slika \ref{fig:barabasi}).
+
+    \begin{figure}[h]
+      \begin{center}
+        \includegraphics[width=12cm]{slike/bdep2}
+      \end{center}
+      \caption{Idealni potek širine površja pri balističnem naleganju, za različne velikosti sistema L \cite{schwettmann2003}.}
+      \label{fig:barabasi}
+    \end{figure}
+
+Eksponenti $\alpha$, $\beta$ in $z$ med seboj niso neodvisni.
+
+Iz (Slika \ref{fig:barabasi}) in zveze (\ref{alfa}) vidimo, da se krivulje $w(L,t)/w_{sat}(L)$ zasičijo pri isti konstantni vrednosti, ne glede na velikost sistema $L$.\\
+Iz zveze (\ref{z}) pa vidimo, da se bodo širine površij zasitile o istem karakterističnem času $t/t_s$. \\
+Sklepamo, da je $w(L,t)/w_{sat}(L)$ funkcija $t/t_s$, torej:
 
   \begin{equation}
-    \frac{w(L,t)}{w_{sat}(L)} \sim f(\frac{t}{t_x})
+    \frac{w(L,t)}{w_{sat}(L)} \sim f(\frac{t}{t_x}),
   \end{equation}
-
-  kjer je $f(u)$ funkcija lestvičenja in če nadomestimo $w_{sat}$ in $t_x$, dobimo Family-Vicsek relacijo lestvičenja:
+kjer je $f(t/t_s)$ funkcija lestvičenja. Vstavimo $w_{sat}$ in $t_s$, po zvezah (\ref{alfa}), (\ref{z}) in dobimo Family-Vicsek relacijo lestvičenja:
 
   \begin{equation}
-    w(L,t) \sim L^\alpha f(\frac{t}{L^z})
+    w(L,t) \sim L^\alpha f(\frac{t}{L^z}).
     \label{family-vicsek}
   \end{equation}
 
   Za $f(u)$ velja:
   \begin{equation}
     f(u) \propto \left \{ \begin{array}{lr} u^{\beta} & \ u\ll 1 \\
-      1 & \ u\gg1\end{array} \right. 
+      1 & \ u\gg1\end{array}. \right.
     \end{equation}
 
-    Če sedaj izrišemo več različnih razvojev površine na en graf ((Slika \ref{fig:barabasi}) iz \cite{barabasi1995fractal}), dobimo jasnejšo predstavo o funkciji lestvičenja. Če se točki $(t_x,w(t_x))$ približamo z leve, vidimo, da po (\ref{beta}) velja $w(t_x) \sim t_x^\beta$. Hkrati pa, da če se isti točki približujemo z desne po (\ref{alfa}) velja $w(t_x) \sim L^\alpha$. Torej $t_x^\beta \sim L^\alpha$ in po (\ref{z}) sledi zakon o lestvičenju:
+Sedaj si ogledamo (Slika \ref{fig:barabasi}). Če se točki zasičenja $(t_s,w(t_s))$ približamo z leve, vidimo, da po (\ref{beta}) velja $w(t_s) \sim t_s^\beta$. Hkrati pa, da če se isti točki približamo z desne po (\ref{alfa}) velja $w(t_s) \sim L^\alpha$. Torej $t_s^\beta \sim L^\alpha$ in po (\ref{z}) sledi zakon o lestvičenju:
 
     \begin{equation}
-      z = \frac{\alpha}{\beta}
+      z = \frac{\alpha}{\beta}.
     \end{equation}
 
-    \begin{figure}[h]
-      \begin{center}
-        \includegraphics[width=12cm]{slike/bdep2}
-      \end{center}
-      \caption{Simulirane vrednosti širine površine pri naključnem usedanju, za različne velikosti sistema L \cite{schwettmann2003}.}
-      \label{fig:barabasi}
-    \end{figure}
 
 
-
-    \section{Merjenje eksponenta hrapavosti}
+    \section{Merjenje hrapavosti Menišije}
     \label{hrapavost}
 
-    Zvezo (\ref{alfa}) predelamo  v $ w_{sat}=C \cdot L^\alpha $ in dobimo:
+V uvodu smo postavili tezo, da so vse vrtače stare, stabilne oblike. Ko jih opišemo z definicijami rasti površin, domnevamo da so starejše od časa zasičenja in lahko zvezo (\ref{alfa}) predelamo v $ w_{sat}=C \cdot L^\alpha $ in dobimo:
 
     \begin{equation}
-      \alpha = \frac{\partial ( ln (w_{sat}) ) }{\partial ( ln L )}
+      \alpha = \frac{\partial ( ln (w_{sat}) ) }{\partial ( ln L )}.
       \label{alpha-numeric}
     \end{equation}
 
-    Na Lidar modelu Menišije uporabljenem v (Poglavje \ref{realne-vrtace}) izračunamo $\bar{w}_{sat}$ za površine, kjer je L med 5 in 10 km. Širine površin $w$ nato narišemo v odvisnosti od velikosti sistema L.
-
-    Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha =  0.4368 \pm 0.0005$.
+    Na LiDARskem modelu Menišije izračunamo ${w}_{sat}$ za vse mogoče za prereze v smereh sever-jug in vzhod-zahod. Širine površij prerezov $w_{sat}$ nato narišemo v odvisnosti od velikosti prerezov površij $L$.\\
+Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha =  0.409 \pm 0.02$.
 
     \begin{figure}[h]
       \begin{center}
         \includegraphics{slike/menisija-alfa.pdf}
       \end{center}
-      \caption{Prileganje premice $f(ln(L)) = \alpha \cdot x$ h krivulji $ln(w_{sat}(ln(L)))$ nam poda eksponent hrapavosti.}
+      \caption{Prileganje premice $f(ln(L)) = \alpha \cdot x$ h krivulji $ln(w_{sat}(ln(L)))$ nam poda eksponent hrapavosti $\alpha$.}
       \label{fig:menisija-alfa}
     \end{figure}
 
@@ -409,17 +425,17 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
 
     Za modeliranje procesa nastanka vrtač lahko vzamemo, da kamnina razpada stohastično kot $\eta(\mathbf{x},t)$, ki je bel Gaussov šum, za katerega velja: $ \langle \eta(\mathbf{x},t) \rangle=0 $ in
     \begin{equation}
-      \langle \eta(\mathbf{x},t) \eta(\mathbf{x'},t')\rangle = 2 D \delta^d(\mathbf{x}-\mathbf{x'})(t-t')
+      \langle \eta(\mathbf{x},t) \eta(\mathbf{x'},t')\rangle = 2 D \delta^d(\mathbf{x}-\mathbf{x'})(t-t').
     \end{equation}
 
     Ko se del kamnine raztopi, pomaknemo površino površja v smeri normale (Slika \ref{fig:kpz}), torej se površje v smeri osi h v času $\delta t$ pomakne za 
     \begin{equation}
-      \delta h = \sqrt{ (v \delta t)^2 + (v \delta t \nabla h)^2}
+      \delta h = \sqrt{ (v \delta t)^2 + (v \delta t \nabla h)^2}.
     \end{equation}
 
     Če je $|\nabla h| \ll 1$, dobimo: 
     \begin{equation}
-      \dot h = v \sqrt{1 + (\nabla h)^2} \simeq v + \frac{v}{2} (\nabla h)^2 + \ldots
+      \dot h = v \sqrt{1 + (\nabla h)^2} \simeq v + \frac{v}{2} (\nabla h)^2 + \ldots.
     \end{equation}
 
     \begin{figure}[h]
@@ -437,7 +453,7 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     Sestavljeni nam ti členi dajo Kardar-Parisi-Zhang enačbo (\cite{kardar1986dynamic}):
 
     \begin{equation}
-      \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t)
+      \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t).
       \label{KPZ}
     \end{equation}
 
@@ -448,15 +464,15 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     in dobimo stohastično difuzijsko enačbo:
 
     \begin{equation}
-      \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z
+      \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z,
     \end{equation}
 
     katere rešitev je:
     \begin{equation}
-      h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h(\xi,0) \right] \right)
+      h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h(\xi,0) \right] \right).
     \end{equation}
 
-    \cite{kardar1986dynamic} nato v Fourierovem prostoru s prostim propagatorjem in pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. To se relativno dobro ujema z $\alpha=0.4368 \pm 0.0005$ namerjenim v (Poglavje \ref{hrapavost}).
+    Avtorji \cite{kardar1986dynamic} nato v Fourierovem prostoru s prostim propagatorjem in pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. To se relativno dobro ujema z $\alpha =  0.409 \pm 0.02$ namerjenim v (Poglavje \ref{hrapavost}).
 
 
     Če simuliramo stohastično rast površja, opazimo, da je končno stanje površja modela precej stabilno, a ne ravnovesno in precej odvisno od začetnih pogojev. Oblike, ki na površju nastanejo, so si med seboj podobne po obliki in velikosti. (Slika \ref{fig:KPZ-numericno}) je primer tako simuliranega površja.
@@ -475,7 +491,7 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     Za modeliranje dinamike posamezne vrtače stohastični procesi niso primerni, zato si za opis pogledamo dinamično enačbo (\ref{dinamicna-splosna}) z različnimi variacijami člena rasti $F(h)$ (\ref{dinamicna-variacije}). Izbor enačb je povzet po \cite{kandler2010population}.
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = F(h)
+      \frac{ \partial h(t,x) }{ \partial t} = F(h).
       \label{dinamicna-splosna}
     \end{equation}
 
@@ -485,7 +501,7 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
         a \cdot h \cdot (1 - \frac{h}{K}) \\
         a \cdot (K - h) \\
         - h \cdot e^{-a t}
-      \end{array} \right. 
+      \end{array}. \right. 
       \label{dinamicna-variacije}
     \end{equation}
 
@@ -494,12 +510,12 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     V modelu eksponentne rasti predpostavimo, da je rast sorazmerna z vrednostjo ($h(t)$) v izbrani točki. Dobimo enačbo (\ref{dinamicna-eksponentna}), ki jo reši funkcija (\ref{dinamicna-eksponentna-resitev}), in jo pri variaciji parametra $a$ narišemo (Slika \ref{fig:eksponentna-rast}).
 
     \begin{equation}
-      \frac{\partial h(t)}{\partial t} = a \cdot h(t)
+      \frac{\partial h(t)}{\partial t} = a \cdot h(t).
       \label{dinamicna-eksponentna}
     \end{equation}
 
     \begin{equation}
-      h(t) = h_0 e^{a t}
+      h(t) = h_0 e^{a t}.
       \label{dinamicna-eksponentna-resitev}
     \end{equation}
 
@@ -520,12 +536,12 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     V model logistične rasti predpostavimo, da je rast sorazmerna z višino v izbrani točki, ter da se zmanjšuje, ko se približujemo fizikalnim omejitvam sistema (npr. pomanjkanju hrane, življenjskega prostora, itn). To zapišemo v enačbo (\ref{dinamicna-logisticna}), ki jo reši funkcija (\ref{dinamicna-logisticna-resitev}).
 
     \begin{equation}
-      \frac{\partial h(t)}{\partial t} = a \cdot \left( 1 - \frac{h(t)}{K} \right) h(t)
+      \frac{\partial h(t)}{\partial t} = a \cdot \left( 1 - \frac{h(t)}{K} \right) h(t).
       \label{dinamicna-logisticna}
     \end{equation}
 
     \begin{equation}
-      h(t) = \frac{h_0 K e^{a t}}{K + h_0 (e^{a t}-1)}
+      h(t) = \frac{h_0 K e^{a t}}{K + h_0 (e^{a t}-1)}.
       \label{dinamicna-logisticna-resitev}
     \end{equation}
 
@@ -547,13 +563,13 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     Model omejene eksponentne rasti pravi, da je rast tem večja, čim dlje smo od omejitve sistema $K$ in vedno v smeri proti vrednosti $K$. To zapišemo v enačbo (\ref{dinamicna-omejena-eksponentna}) in rešimo z (\ref{dinamicna-omejena-eksponentna-resitev}).
 
     \begin{equation}
-      \frac{\partial h(t)}{\partial t} = a \cdot ( K - h(t) ) = a K - a h(t)
+      \frac{\partial h(t)}{\partial t} = a \cdot ( K - h(t) ) = a K - a h(t).
       \label{dinamicna-omejena-eksponentna}
     \end{equation}
 
     Rešitev pa je
     \begin{equation}
-      h(t) = K - (K - h_0) e^{-a t}
+      h(t) = K - (K - h_0) e^{-a t}.
       \label{dinamicna-omejena-eksponentna-resitev}
     \end{equation}
 
@@ -574,19 +590,19 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     Pri modelu Gompertzove rasti vzamemo, da se faktor rasti s časom spreminja po enačbi (\ref{dinamicna-gompertzova-faktor}), kar nam da enačbo (\ref{dinamicna-gompertzova}) in rešitev (\ref{dinamicna-gompertzova-resitev}), iz katere lahko dobimo še asimptotsko rešitev (\ref{dinamicna-gompertzova-faktor}), ki je podobna zasičenosti modela pri prejšnjih dveh primerih, a nastopi zaradi postopnega prenehanja rasti, in ne zaradi povratne zanke (kot v primeru logistične in omejene eksponentne rasti).
 
     \begin{equation}
-      a(t) = a_0 \cdot e^{- k t}
+      a(t) = a_0 \cdot e^{- k t}.
       \label{dinamicna-gompertzova-faktor}
     \end{equation}
     \begin{equation}
-      \frac{\partial h(t)}{\partial t} = a(t) \cdot h(t) = a_0 e^{ -k t} h(t)
+      \frac{\partial h(t)}{\partial t} = a(t) \cdot h(t) = a_0 e^{ -k t} h(t).
       \label{dinamicna-gompertzova}
     \end{equation}
     \begin{equation}
-      h(t) = h_0 \cdot e^{\frac{a_0}{k}(1-e^{-kt})}
+      h(t) = h_0 \cdot e^{\frac{a_0}{k}(1-e^{-kt})}.
       \label{dinamicna-gompertzova-resitev}
     \end{equation}
     \begin{equation}
-      h(t) = h_0 \cdot e^{\frac{a_0}{k}} \quad \text{pri} \quad t \rightarrow \infty
+      h(t) = h_0 \cdot e^{\frac{a_0}{k}} \quad \text{pri} \quad t \rightarrow \infty.
       \label{dinamicna-gompertzova-limita}
     \end{equation}
 
@@ -603,7 +619,7 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     Zaradi počasnosti procesa, ki oblikuje vrtače, domnevamo, da difuzija ni nepomembna, in dodamo dinamičnim modelom iz prejšnjega podpoglavja  (\ref{difuzijska-variacije}) še difuzijski člen (\ref{difuzija-splosna}).
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + F(h)
+      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + F(h).
       \label{difuzija-splosna}
     \end{equation}
 
@@ -613,7 +629,7 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
         a \cdot h \cdot (1 - \frac{h}{K}) \\
         a \cdot (K - h) \\
         - h \cdot e^{-a t}
-      \end{array} \right. 
+      \end{array} .\right. 
       \label{difuzijska-variacije}
     \end{equation}
 
@@ -623,14 +639,14 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
       \begin{aligned}
         h(0,x) =  - e^{-x^2}, x \in D \\
         h(t,x) = 0, x \in \partial D \\
-        \frac{\partial h(t,x)}{\partial n} = 0, x \in \partial D \\
+        \frac{\partial h(t,x)}{\partial n} = 0, x \in \partial D. 
       \end{aligned}
     \end{equation}
 
     \subsection{Eksponentna rast}
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot h(t,x)
+      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot h(t,x).
       \label{difuzija-eksponentna-rast}
     \end{equation}
 
@@ -651,7 +667,7 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     Dobimo t.i. Fisher-Kolmogorovo enačbo:
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot h(t,x) \cdot (1 - \frac{h(t,x)}{K})
+      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot h(t,x) \cdot (1 - \frac{h(t,x)}{K}).
       \label{difuzija-logisticna-rast}
     \end{equation}
     \begin{figure}[h!]
@@ -664,7 +680,7 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
 
     Vidimo, da ko se pobočje enkrat oblikuje, ne spreminja več oblike, ampak potuje kot valovna fronta navzven (Slika \ref{fig:difuzija-logisticna-rast}). Pokažemo lahko, da je dolžina vala odvisna od difuzijske konstante $D$ in faktorja rasti $a$, ter da velja: 
 
-    \[ \lambda \sim \sqrt{D/a} \]
+    \[ \lambda \sim \sqrt{D/a}. \]
 
     Iz te zveze lahko pokažemo tudi, da je hitrost takega vala $v = 2 \sqrt{D a}$.
 
@@ -676,7 +692,7 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     Če izberemo $F(h) = a \cdot (K - h)$, dobimo:
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot (K - h(t,x))
+      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot (K - h(t,x)).
       \label{difuzija-omejena-eksponentna-rast}
     \end{equation}
     \begin{figure}[h]
@@ -694,7 +710,7 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     Če izberemo $F(h) = - h \cdot e^{-a t}$, dobimo:
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) - h(t,x) \cdot e^{-a t}
+      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) - h(t,x) \cdot e^{-a t}.
       \label{difuzija-gompertzova-rast}
     \end{equation}
     \begin{figure}[h]
@@ -715,9 +731,9 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
     Za nekoliko težjo nalogo se izkaže določanje idealne oblike vrtače, saj le-ta ne obstaja. Pravo vprašanje bi se moralo glasiti, kakšna je idealna oblika vrtače na izotropni podlagi po dolgem času. Vseeno sem se odločil, da za idealno vrtačo vzamem povprečje velike količine vrtač.
     Precej zahtevnejša naloga je bila izbira fizikalnega modela in dinamičnega opisa vrtače zaradi omejene količine podatkov o časovni dinamiki (domnevali smo, da so vse vrtače že v ravnovesnem stanju) in nepoznavanja dejanskega procesa, ki znižuje površje.
 
-    Kardar-Parisi-Zhangova rast površin nam da rezultat presenetljivo podoben kraškemu površju z vrtačami. Teoretično napovedan eksponent hrapavosti pa se relativno dobro ujema z izmerjenim na področju Menišije. Teh rezultatov ne moremo obravnavati kot dokaz, morda le spodbudo za nadaljnji študij.
+    Kardar-Parisi-Zhangova rast površin nam da rezultat podoben kraškemu površju z vrtačami. Teoretično napovedan eksponent hrapavosti pa se relativno dobro ujema z izmerjenim na področju Menišije. Teh rezultatov ne moremo obravnavati kot dokaz, morda le spodbudo za nadaljnji študij.
 
-    Za nepopoln model dinamike rasti vrtač predlagajmo model difuzijsko logistične rasti (\ref{fig:difuzija-logisticna-rast}), a le zato, ker se zdi najmanj napačen.
+    Za nepopoln model dinamike rasti vrtač predlagajmo model difuzijsko logistične rasti (\ref{fig:difuzija-logisticna-rast}), ki se zdi fizikalno najbolj smiseln.
 
     Za popolnejši študij in dober model vrtač bi verjetno potrebovali bolj poglobljene informacije o prsti, geoloških in bioloških dejavnikih, ki lahko vplivajo na časovno dinamiko terena. Zanimiva ideja bi bila z geološkim študijem najti in datirati vrtače v različnih stopnjah razvoja ter s pomočjo te informacije oblikovati dinamičen nastavek, na podlagi katerega bi potem morda bolj osvetlili dinamično enačbo.
 
@@ -725,7 +741,7 @@ Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
 
  \begin{figure}[H]
     \begin{center}
-      \includegraphics[width=9cm]{slike/menisija-relief}
+      \includegraphics[width=10cm]{slike/menisija-relief}
     \end{center}
     \caption{Senčen digitalni model reliefa dela Menišije uporabljen v tej nalogi. Vir: Geodetski inštitut Slovenije \cite{LAK} po metodi \cite{Kobler20079}.}
     \label{fig:menisija-relief}
