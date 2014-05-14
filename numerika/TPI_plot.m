@@ -26,16 +26,24 @@ end
 figure(gcf);
 colormap bone;
 subplot(2,2,1);
-imagesc(grid2);
+imagesc(grid);
 title('Originalen relief')
+xlabel('x [m]')
+ylabel('y [m]')
 subplot(2,2,2);
 imagesc(TPI{1});
 title('Kolobar dimenzij r_1=10, r_2=15')
+xlabel('x [m]')
+ylabel('y [m]')
 subplot(2,2,3);
 imagesc(TPI{2});
 title('Kolobar dimenzij r_1=15, r_2=25')
+xlabel('x [m]')
+ylabel('y [m]')
 subplot(2,2,4);
 imagesc(TPI{3});
 title('Kolobar dimenzij r_1=60, r_2=100')
+xlabel('x [m]')
+ylabel('y [m]')
 
 printpdf(gcf,'../Latex/slike/concavity-samples',20,16); %'-S750,420'

@@ -47,7 +47,7 @@ end
 
 %%
 % Fit 2D gaussian function to profiles
-for j=5:60
+for j=1:length(profiles)
     profiles(isnan(profiles))=0;
     f = fittype('A * exp(-((x-x0)/sigma).^2) + const', 'indep', 'x');
     init = [min(-profiles(j,:)); 1; j/4;-0.1];

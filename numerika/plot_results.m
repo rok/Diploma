@@ -8,10 +8,11 @@ if 1
     profile_sizes = [s.profilesize];
     
     figure(gcf);
-    hist(profile_sizes(profile_sizes~=0),max(profile_sizes))
+    profile_sizes = profile_sizes(profile_sizes < 120);
+    hist(profile_sizes(profile_sizes~=0),max(profile_sizes)-3)
     title('Porazdelitev konkavnih objektov po efektivnem polmeru')
     xlabel('Efektivni polmer r_{eff} [m]')
-    ylabel('N [ ]')
+    ylabel('N')
     printpdf(gcf,'../Latex/slike/menisija-polmeri-hist',18,5); %'-S750,420'
 end
 
@@ -50,8 +51,12 @@ end
 if 1 
     all_fits = [s.fit];
     sigmas=sqrt([all_fits.sx].^2 + [all_fits.sx].^2);
-    
     A=[all_fits.A];
+    A = A(A<0);
+    sigmas = sigmas(A<0);
+    A = A(sigmas>5);
+    sigmas = sigmas(sigmas>1);
+
     A=A(abs(A)<30);
     A=A(A<10);
 
@@ -119,7 +124,7 @@ if 1
 end
 
 %%
-% Plot sigma depending on r and a fit of a linear function
+% Plot sigma depending on r and fit a linear function
 if 1
 	sigmas = [];
     for i = 1:size(profile_fits,2)
@@ -144,6 +149,45 @@ if 1
     printpdf(gcf,'../Latex/slike/menisija-sigme',14.5,8);
 end
 
+%%
+% Plot sigma and A depending on r and fit a linear function
+if 1
+	sigmas = [];
+    As = [];
+    for i = 1:size(profile_fits,2)
+        try
+        sigmas(i) = profile_fits{i}.sigma;
+        As(i) = profile_fits{i}.A;
+        end
+    end
+    
+    sf = fittype('k*sigma + const', 'indep', 'sigma');
+    af = fittype('k*A + const', 'indep', 'A');
+	sinit = [min(sigmas); range(sigmas)/length(sigmas)];
+    ainit = [min(As); range(As)/length(As)];
+    sigma_fit = fit( (1:size(profile_fits,2))', sigmas', sf, 'StartPoint', sinit)
+    As_fit = fit( (1:size(profile_fits,2))', As', af, 'StartPoint', ainit)
+    
+    figure(gcf);
+    subplot(1,2,1)
+    plot(sigmas);
+    hold on;
+    plot(sigma_fit);
+    title('Odvisnost \sigma(r_{eff})');
+    ylabel('\sigma [m]');
+    xlabel('r_{eff} [m]');
+    legend('Izmerjena \sigma',strcat('\sigma', sprintf('(r_{eff}) = %1.2g * r_{eff} %1.2g',sigma_fit.k,sigma_fit.const)),'location','southeast');
+    subplot(1,2,2)
+    plot(As);
+    hold on;
+    plot(As_fit);
+    title('Odvisnost A(\sigma)');
+    ylabel('A [m]');
+    xlabel('\sigma [m]');
+    legend('Izmerjena globina A',strcat('\sigma', sprintf('(\sigma) = %1.2g * A %1.2g',As_fit.k,As_fit.const)),'location','southeast');
+    hold off;
+    %printpdf(gcf,'../Latex/slike/menisija-A-od-sigme',14.5,8);
+end
 
 %%
 % Plot of average profiles side by side, from smallest to biggest ones

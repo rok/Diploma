@@ -64,7 +64,7 @@
   Z numeričnimi metodami obdelamo $60 km^2$ velik digitalni model reliefa Menišije ločljivosti $1m^2$ in identificiramo veliko število kraških vrtač. Iz oblik velikega števila vrtač izračunamo povprečno obliko vrtače in jo analitično opišemo z Gaussovo funkcijo. Odkrite realne vrtače nato prilegamo na Gaussovo funkcijo ter pogledamo porazdelitev parametrov le-te na našem vzorcu.
 
   Zaradi geološke zgodovine področja Menišije in medsebojne podobnosti vrtač na tem območju postavimo tezo, da jih je oblikoval isti geomorfološki proces, ki vodi do vsem skupne stabilne oblike, ki so jo vrtače na tem območju že dosegle.
-  S pomočjo podatkov, pridobljenih v prvem delu naloge, predlagamo statičen nastavek, ki analitično opiše najdene vrtače. Postavimo tezo, da vrtače oblikuje stohastično priraščanje površja, ter primerjamo teoretično pričakovan eksponent hrapavosti z izmerjenim. Pogledamo še nekaj determinističnih difuzijsko-reakcijskih sistemov, ki bi lahko služili kot dinamični model nastanka vrtač.
+  S pomočjo podatkov, pridobljenih v prvem delu naloge, predlagamo statičen nastavek, ki analitično opiše najdene vrtače. Postavimo tezo, da vrtače oblikuje stohastična denudacija površja, ter primerjamo teoretično pričakovan eksponent hrapavosti z izmerjenim. Pogledamo še nekaj determinističnih difuzijsko-reakcijskih sistemov, ki bi lahko služili kot dinamični model nastanka vrtač.
 
 \vspace*{1cm}
 
@@ -78,10 +78,10 @@
 \selectlanguage{english} \addcontentsline{toc}{chapter}{Abstract}
 \chapter*{Abstract}
 
-  Using numerical methods we analyzed $60 km^2$ of $1m^2$ resolution digital terrain model of Menišija and identified a large number of karst Dolines. We calculated average shape of a large number of Dolines and analytically described it by a Gaussian function. We then fitted the real sinkholes to a Gaussian function and studied the distribution of parameters in our sample from Menišija.
+  Using numerical methods we analyzed $60 km^2$ of $1m^2$ resolution digital terrain model of Menišija and identified a large number of karst Dolines. We calculated average shape of a large number of Dolines and analytically described it by a Gaussian function. We then fitted the real Dolines to a Gaussian function and studied the distribution of parameters in our sample from Menišija.
 
   Due to the geological history of Menišija and similarity of Dolines in the area we propose that they were shaped by the same geomorphological process, that ultimately leads to a common stable form that was already reached by the sinkholes in this area.
-  Using the data acquired in the second chapter we propose a static Ansatz that describes found Dolines. We propose a thesis that Dolines are formed by stochastic surface growth, and compare the theoretically derived roughness exponent with the one measured on relief data from Menišija. Then we study several diffusion-reaction systems, which could serve as dynamic models of Dolines.
+  Using the data acquired in the second chapter we propose a static Ansatz that describes found Dolines. We propose a thesis that Dolines are formed by stochastic surface denudation, and compare the theoretically derived roughness exponent with the one measured on relief data from Menišija. Then we study several diffusion-reaction systems, which could serve as dynamic models of Dolines.
 
 \vspace*{1cm}
 
@@ -113,17 +113,17 @@ Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj de
     \begin{center}
       \includegraphics[width=10cm]{slike/bpetrovac}
     \end{center}
-    \caption{Skupina vrtač v bližini Bosanskega Petrovca, BiH \cite{bpetrovac}.}
+    \caption{Skupina vrtač vrezanih v staro kraško polje v bližini Bosanskega Petrovca, BiH \cite{bpetrovac}.}
     \label{fig:vrtace-bpetrovac}
   \end{figure}
 
-Obstaja več geomorfoloških modelov njihovega nastanka, najbolj sprejetega v geomorfološki literaturi pa \cite{ford2007karst} poda s skico: (Slika \ref{fig:vrtaca-ford-williams}). K tej se bomo vrnili, ko bomo poskusili modelirati dinamiko vrtač.
+Najširše sprejet model nastanka vrtač v geomorfološki literaturi podata Ford in Williams \cite{ford2007karst}: (Slika \ref{fig:vrtaca-ford-williams}). Na ta model se bomo oprli, ko bomo poskusili modelirati dinamiko vrtač.
 
   \begin{figure}[h]
     \begin{center}
-      \includegraphics[width=8cm]{slike/vrtaca-ford-williams}
+      \includegraphics[width=7cm]{slike/vrtaca-ford-williams}
     \end{center}
-    \caption{Geomorfološka shema nastanka vrtač. Na sprva ravnem površju neka začetna točka malenkost bolje odvaja vodo. Zaradi večjega pretoka vode se tam na stiku prsti in kamnine poveča raztapljanje apnenca. Raztapljanje in odnašanje apnenca v podtalnico poglobi površje in s tem zaradi spremenjenega naklona poveča odvajanje vode v začetno točko. Dobimo pozitivno povratno zanko in oblikujejo se vrtače. Vir: \cite{ford2007karst}.}
+    \caption{Geomorfološka skica nastanka vrtač. Na sprva ravnem površju neka začetna točka malenkost bolje odvaja vodo v podzemlje. Zaradi večjega pretoka vode se tam na stiku prsti in kamnine poveča raztapljanje apnenca. Raztapljanje in odnašanje apnenca v podtalnico poglobi površje in s tem poveča lokalno povodje in s tem količino vode odvajane v začetno točko. Dobimo pozitivno povratno zanko in oblikujejo se vrtače. Vir: \cite{ford2007karst}.}
     \label{fig:vrtaca-ford-williams}
   \end{figure}
 
@@ -131,7 +131,7 @@ Obstaja več geomorfoloških modelov njihovega nastanka, najbolj sprejetega v ge
 
   \begin{figure}[h]
     \begin{center}
-      \includegraphics[width=8cm]{slike/menisija-karta}
+      \includegraphics[width=6cm]{slike/menisija-karta}
     \end{center}
     \caption{Menišija, $60 km^2$ veliko območje med Cerknico in Logatcem, vsebuje nekaj tisoč vrtač ter nekaj udornic in predstavlja približno odstotek slovenskega krasa. Osenčen del zemljevida označuje področje digitalnega modela reliefa uporabljenega v tej nalogi (Slika \ref{fig:menisija-relief}). Vira: Geopedia, Geodetski inštitut Slovenije.}
     \label{fig:menisija-karta}
@@ -140,50 +140,62 @@ Obstaja več geomorfoloških modelov njihovega nastanka, najbolj sprejetega v ge
   Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 milijonov let), ki so bili zaradi dogodkov, povezanih s podrivanjem Adriatske plošče v Miocenu (17-7 milijonov let) prišli na površje. Območje Menišije je bilo do 3.5 milijona let pred sedanjostjo s poplavami uravnavano kraško polje, nato pa se je zaradi tektonske aktivnosti dvignilo nad okolico. S tem se je uravnavanje prenehalo in vzpostavljeni so bili geomorfološki pogoji za nastanek vrtač.
 Hitrost zniževanja (denudacije) kraškega površja zaradi kemičnega preperevanja apnenca, se ocenjuje na 20-50 m / milijon let, torej se je površje Menišije v času od prenehanja uravnavanja znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. \cite{Vrabec2006} \cite{Placer2010}
 
-Iz geologije torej izvemo, da se je sprva uravnano kraško površje, v obdobju 3.5 milijonih let zaradi raztapljanja kamnine stalno zniževalo, hkrati pa se je na njem pojavilo veliko število vrtač. Vrtače take velikosti in oblike najdemo tudi v drugih delih Dinarskega krasa, na področjih kjer so bili pogoji za nastanek vrtač vzpostavljeni prej ali kasneje kot v Menišiji.
+Denudacijo kraškega površja povzroča kemična erozija apnenca. Apnenec raztaplja šibka ogljikova kislina, ki nastane z raztapljanjem ogljikovega dioksida v vodi. Na mestih, kjer se voda ne more zadrževati, na primer na goli skali, je denudacija počasnejša, oblikujejo se škraplje in žlebiči velikosti od nekaj milimetrov do nekaj metrov. Kraška polja, velikosti od deset do sto km, ki so pogosto poplavljena, pa denudacija uravna.
+
+Iz geologije torej izvemo, da se je uravnano površje Menišije v obdobju 3.5 milijonih let zaradi raztapljanja kamnine stalno zniževalo, hkrati pa se je na njem pojavilo veliko število vrtač. Vrtače take velikosti in oblike najdemo tudi v drugih delih Dinarskega krasa, na področjih kjer so bili pogoji za nastanek vrtač vzpostavljeni prej ali kasneje kot v Menišiji.
 
 Iz tega sklepamo, da se bodo pri določenih pogojih na ravnem kraškem površju sčasoma oblikovale vrtače. Če so vrtače, po dolgem času, podobnih si dimenzij, sklepamo da konvergirajo proti stabilni obliki, ki je po dolgem času odvisna le od lokalnih pogojev.
 
+Da dinamiko vrtač bolje osvetlimo, bomo v (Poglavje \ref{realne-vrtace}) pregledali velik vzorec vrtač, ki nam ga nudi LiDARski posnetek Menišije in poročali kakšne vrtače tam najdemo. Nato bomo v (Poglavje \ref{analiticno-modeliranje}) dobljeni povprečni vrtači poskusili z različnimi prijemi pripisati časovno dinamiko.
  
 
   \chapter{Realne vrtače}
   \label{realne-vrtace}
 
-  \section{Segmentacija}
+V tem poglavju bomo iz celotnega LiDARskega posnetka Menišije (Slika \ref{fig:menisija-relief}) izbrali kraške vrtače in predlagali funkcijo, ki jih v povprečju opiše. Nato bomo to funkcijo prilegali na posamezne vrtače in komentirali porazdelitev parametrov funkcije.
 
-  Identifikacijo velike količine objektov se lotimo s segmentacijo po konkavnosti, kot predlaga \cite{doctor13}.
-Za ta namen uvedemo indeks konkavnosti, ki ga izračunamo tako, da od izbrane točke v matriki višinskih točk odštejemo povprečno vrednost vseh točk, iz koncentričnega kolobarja:
-\begin{equation}  I_k(r_0,r_1,r_2) = h(r_0)- \frac{1}{N}\sum\limits_{r_1<r<r_2} h(r). \end{equation}
-Center kolobarja postavimo v točko katere indeks konkavnosti računamo, $r_1$ in $r_2$ pa sta notranji ter zunanji radij kolobarja.
-Primer računa indeksa konkavnosti na (Slika \ref{fig:concavity-ring}).
+  \section{Segmentacija vrtač}
+
+Identifikacijo velike količine objektov se lotimo s segmentacijo po indeksu konkavnosti, kot predlaga \cite{doctor13} - uvedemo lokalni indeks konkavnosti $I_k$ (\ref{ik}), ki ga izračunamo tako, da od izbrane točke v matriki višinskih točk odštejemo povprečno vrednost točk, izbrani točki koncentričnega kolobarja:
+\begin{equation}  I_k(r_0,r_1,r_2) = h(r_0)- \frac{1}{N}\sum\limits_{r_1<r<r_2} h(r). \label{ik} \end{equation}
+
   \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=5cm]{slike/concavity-ring-visualisation-2}
+      \includegraphics[width=4cm]{slike/concavity-ring-visualisation-2}
     \end{center}
     \caption{V prikazanem primeru je indeks konkavnosti, $I_k = 614,8 - 19676,2/32 = - 8,125 \cdot 10^{-2}$.}
     \label{fig:concavity-ring}
   \end{figure}
 
+Center kolobarja postavimo v točko katere indeks konkavnosti računamo, $r_1$ in $r_2$ pa sta notranji ter zunanji radij kolobarja.
+Primer kolobarja vidimo na (Slika \ref{fig:concavity-ring}). Indeks konkavnosti izračunan na konkavni ploskvi bo negativen, na konveksni pa pozitiven. Če ima ploskev konkavna in konveksna področja, bo rezultat odvisen tudi od izbire okolice.
+
 Postopek ponovimo po celotni matriki višinskih točk. Rezultat je matrika indeksa konkavnosti.
 
-Od dimenzij, ki jih izberemo za kolobar je odvisno, ali bodo določene točke v reliefu imele pozitven ali negativen indeks konkavnosti. Empirično se odločimo za tri različne kolobarje, za katere ocenimo da z njimi najdemo največ vrtač. Z njimi izračunamo indeks konkavnosti, dobimo (Slika \ref{fig:concavity-samples}).
+Od dimenzij, ki jih izberemo za kolobar je odvisno, ali bodo določene točke v reliefu imele pozitven ali negativen indeks konkavnosti. Empirično se odločimo za tri kolobarje različnih velikosti $(r_1=10,r_2=15;r_1=15,r_2=25;r_1=60,r_2=100)$, za katere ocenimo da z njimi najdemo največ vrtač. Z njimi izračunamo indeks konkavnosti, ki je prikazan na (Slika \ref{fig:concavity-samples}).
 
   \begin{figure}[h!]
     \begin{center}
       \includegraphics[width=12cm]{slike/concavity-samples}
     \end{center}
-    \caption{Indeks konkavnosti reliefa, pri različno izbranih dimenzijah kolobarja $(r_1=10,r_2=15;r_1=15,r_2=25;r_1=60,r_2=100)$.}
+    \caption{Indeks konkavnosti reliefa $I_k$ definiranega v (\ref{ik}), pri različno izbranih dimenzijah kolobarja $(r_1=10,r_2=15;r_1=15,r_2=25;r_1=60,r_2=100)$.}
     \label{fig:concavity-samples}
   \end{figure}
 
-Nato konveksne dele površja (svetlejši odtenki) zavržemo in konkavne (temnejši odtenki) odberemo kot vrtače. Vidimo, da pri izbiri manjšega kolobarja najdemo več vrtač, a podcenimo njihovo velikost. Pri izbiri večjega kolobarja pa se zgodi, da več manjših vrtač določimo za eno veliko. Zato vse tri rezultate primerjamo in v primeru, da večja vrtača prekriva eno manjšo izberemo večjo vrtačo. V primeru da velika vrtača prekrije več manjših izberemo manjše.
-Rezultat vidimo na (Slika \ref{fig:menisija-vrtace}). Vrtače, ki smo jih zaznali pri izbiri manjšega kolobarja so obkrožene z modro barvo, vrtače srednjega kolobarja z črno in vrtače velikega z rdečo. Opazimo, da kljub trudu nekoliko podcenimo velikost vrtač. Za statistično analizo to ni moteče, saj podcenitev napravimo na vseh vrtačah in na enak način.
-
+Izračunamo standardni odklon indeksa konkavnosti $\sigma_{I_k}$. Arbitrarno odločimo, da so konveksni tisti deli površja (svetlejši odtenki), kjer je $I_k > -\frac{\sigma_{I_k}}{2}$. Zavržemo jih in konkavne (temnejši odtenki) dele površja odberemo kot vrtače. Vidimo, da pri izbiri manjšega kolobarja najdemo več vrtač, a podcenimo njihovo velikost. Pri izbiri večjega kolobarja pa se zgodi, da več manjših vrtač prepoznamo kot eno veliko. Zato vse tri rezultate primerjamo in v primeru, da večja vrtača prekriva eno manjšo, izberemo večjo vrtačo in zavržemo manjšo. V primeru da velika vrtača prekrije več manjših izberemo manjše. Rezultat je segmentacija vrtač na (Slika \ref{fig:concavity-segmentation-samples}).
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[width=12cm]{slike/concavity-segmentation-samples.pdf}
+    \end{center}
+    \caption{Indeks konkavnosti reliefa $I_k$ definiranega v (\ref{ik}), pri različno izbranih dimenzijah kolobarja $(r_1=10,r_2=15;r_1=15,r_2=25;r_1=60,r_2=100)$.}
+    \label{fig:concavity-segmentation-samples}
+  \end{figure}
+Sedaj vrtače zarišemo preko večjega senčenega reliefa: (Slika \ref{fig:menisija-vrtace}). Opazimo, da kljub trudu nekoliko podcenimo velikost vrtač. Za statistično analizo to ni moteče, saj podcenitev napravimo na vseh vrtačah in na enak način.
   \begin{figure}[h]
     \begin{center}
       \includegraphics[width=9cm]{slike/menisija-vrtace}
     \end{center}
-    \caption{Del od 8687 zaznanih konkavnih objektov na območju Menišije. Poleg vrtač so na sliki vidni tudi dve udornici.}
+    \caption{Del od 8687 zaznanih vrtač na območju Menišije. Poleg vrtač so na sliki vidni tudi dve udornici. Vrtače, ki smo jih zaznali pri izbiri manjšega kolobarja so obkrožene z modro barvo, vrtače srednjega kolobarja z črno in vrtače velikega z rdečo. Pri udornicah je posebno opazna podcenitev velikosti.}
     \label{fig:menisija-vrtace}
   \end{figure}
 
@@ -194,27 +206,26 @@ Rezultat vidimo na (Slika \ref{fig:menisija-vrtace}). Vrtače, ki smo jih zaznal
       A = \sum pikslov.
     \end{equation}
 
-S to količino nato definiramo efektivni polmer objektov:
+S to količino nato predpostavimo efektivni polmer objektov:
 
     \begin{equation} 
       r_{eff} = \sqrt{\frac{A}{\pi}}. 
     \end{equation}
 
 Porazdelitev efektivnih polmerov pokažemo na histogramu (Slika \ref{fig:menisija-polmeri-hist}).
-
-  \begin{figure}[h]
+  \begin{figure}[h!]
     \begin{center}
       \includegraphics[width=14cm]{slike/menisija-polmeri-hist}
     \end{center}
-    \caption{Polmeri konkavnih objektov v Menišiji, vrh pade v razred od 24m do 25m.}
+    \caption{Polmeri konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, standardna deviacija efektivnega polmera pa je $\sigma_{r_{eff}}=24m$.}
     \label{fig:menisija-polmeri-hist}
   \end{figure}
+Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, standardna deviacija efektivnega polmera pa $\sigma_{r_{eff}}=24m$. Za $71\%$ objektov še velja: $2m < r_{eff} < 50m$.
+S smiselno velikostjo objektov in pregledom vizualizirane segmentacije (Slika \ref{fig:menisija-vrtace}) preverimo, da so najdeni objekti res vrtače.
 
-Vidimo, da največ vrtač pade v razred z efektivnim polmerom 24-25m. Večina preostalih pa ima nekaj metrov večji ali manjši polmer. Po velikosti objektov in vizualizaciji segmentacije (Slika \ref{fig:menisija-vrtace}) sklepamo, da so najdeni objekti res vrtače.
+  Posamezne realne vrtače zaradi lokalnih pogojev in zgodovine razvoja reliefa niso simetrične, a zdi se, da so si med seboj podobne. Da bi ugotovili statistično najverjetnejšo obliko vrtače, izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo na isto velikost in povprečimo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh.
 
-  Posamezne realne vrtače zaradi lokalnih pogojev in zgodovine razvoja reliefa niso simetrične, a zdi se, da so si med seboj podobne. Da bi ugotovili idealno obliko vrtače, izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo na isto velikost in povprečimo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh.
-
-  \begin{figure}[h]
+  \begin{figure}[h!]
     \begin{center}
       \includegraphics[width=6.5cm]{slike/menisija-vrtaca}
     \end{center}
@@ -222,28 +233,29 @@ Vidimo, da največ vrtač pade v razred z efektivnim polmerom 24-25m. Večina pr
     \label{fig:menisija-vrtaca}
   \end{figure}
 
-  Na prvi pogled se zdijo dobljeni profili cilindično simetrični in Gaussove oblike:
-  \begin{equation}
-    h(r,\phi) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C.
-    \label{fit-vrtace}
-  \end{equation}
+Na prvi pogled se zdijo dobljeni profili cilindrično simetrični in Gaussove oblike,
+\begin{equation}
+  h(r,\phi) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C,
+  \label{fit-vrtace}
+\end{equation}
+kjer smo koordinatno izhodišče cilindričnih koordinat postavili v dno vrtače. $\sigma$ nam poda širino, $A$ globino vrtače, $C$ pa jo po $z$ osi umesti na pravo nadmorsko višino. Zaradi cilindrične simetrije funkcija (\ref{fit-vrtace}) ni odvisna od kota $\phi$.
 
-Zato preidemo v cilindrične koordinate in povprečimo $h(r,\phi)$ po $\phi$:
+Preidemo v cilindrične koordinate in povprečimo $h(r,\phi)$ po $\phi$:
 
 \begin{equation} 
   \bar h(r) = \frac{1}{2 \pi} \int_0^{2\pi} h(r,\phi) \mathrm{d}\phi.
   \label{povprecenje-phi}
 \end{equation}
 
-Tako problem reduciramo na študij profilov. 
-Po (Slika \ref{fig:menisija-polmeri-hist}) vemo, da obstaja velika skupina vrtač z $r_{eff}=24m$. Povprečimo jih po kotu z (\ref{povprecenje-phi}) in nato izračunamo še povprečje njihovih profilov:
+Tako problem reduciramo na študij profilov vrtač.
+Po histogramu (Slika \ref{fig:menisija-polmeri-hist}) vemo, da obstaja velik razred vrtač $23,5m < r_{eff} < 24,5m$. Povprečimo jih po kotu z (\ref{povprecenje-phi}) in nato izračunamo še povprečje njihovih profilov:
 
 \begin{equation} 
-  \bar H(r) = \frac{1}{N} \sum_{i=1}^{N} \bar h(r).
+  \bar H(r) = \frac{1}{N} \sum_{i} \bar h_i(r).
   \label{povprecenje-profilov}
 \end{equation}
 
-Na (Slika \ref{fig:menisija-profil-21-fit}) prikažemo ujemanje $\bar H(r)$ za profile z $r_{eff}=24m$, s predlagano Gaussovo  funkcijo (\ref{fit-vrtace}). Ujemanje ocenimo za dovolj dobro in nadaljujemo.
+Na (Slika \ref{fig:menisija-profil-21-fit}) prikažemo ujemanje $\bar H(r)$ za profile v razredu $23,5m<r_{eff}<24,5m$, s predlagano Gaussovo  funkcijo (\ref{fit-vrtace}). Ujemanje ocenimo za dovolj dobro in nadaljujemo.
 
   \begin{figure}[h!]
     \begin{center}
@@ -253,14 +265,14 @@ Na (Slika \ref{fig:menisija-profil-21-fit}) prikažemo ujemanje $\bar H(r)$ za p
     \label{fig:menisija-profil-21-fit}
   \end{figure}
 
-Ker nam povprečna vrtača (Slika \ref{fig:menisija-vrtaca}) ne pove veliko, nadaljujemo tako, da Gaussovo funkcijo (\ref{fit-vrtace}) nalegamo na prej po (\ref{povprecenje-phi}) izračunanih profilih realnih vrtač in tako izluščimo parametre $\sigma$ in $A$ realnih vrtač.
+Ker nam povprečna vrtača (Slika \ref{fig:menisija-vrtaca}) ne pove veliko, nadaljujemo tako, da Gaussovo funkcijo (\ref{fit-vrtace}) nalegamo na prej po enačbi (\ref{povprecenje-phi}) izračunanih profilih realnih vrtač in tako izluščimo parametre $\sigma$ in $A$ realnih vrtač.
 Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
 
   \begin{figure}[h!]
     \begin{center}
       \includegraphics[width=14cm]{slike/menisija-visine-in-sigme-hist}
     \end{center}
-    \caption{Porazdelitev A in $\sigma$ za Gaussovo funkcijo prilegano na vrtače v Menišiji.}
+    \caption{Porazdelitev A in $\sigma$ za Gaussovo funkcijo prilegano na vrtače v Menišiji. }
     \label{fig:menisija-globine-sigme-hist}
   \end{figure}
 
