@@ -47,11 +47,13 @@ end
 
 %%
 % Fit 2D gaussian function to profiles
-for j=1:length(profiles)
-    profiles(isnan(profiles))=0;
-    f = fittype('A * exp(-((x-x0)/sigma).^2) + const', 'indep', 'x');
-    init = [min(-profiles(j,:)); 1; j/4;-0.1];
-    profile_fits{j} = fit( (1:j)', profiles(j,1:j)', f, 'StartPoint', init);
+profiles(isnan(profiles))=0;
+for j=5:60
+    if(length(profiles(j,:))>=2)
+        f = fittype('A * exp(-((x-x0)/sigma).^2) + const', 'indep', 'x');
+        init = [min(-profiles(j,:)); 1; j/4;-0.1];
+        profile_fits{j} = fit( (1:j)', profiles(j,1:j)', f, 'StartPoint', init);
+    end
 end
 
 save(strrep(data,'.grd','-profiles.mat'),'s','profiles','minprofile','maxprofile','profile_fits')

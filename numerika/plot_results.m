@@ -63,17 +63,17 @@ if 1
     figure(gcf);
     subplot(1,2,1);
     hist(A,40)
-    title('Porazdelitev utezi prislonjenih Gaussovk')
+    title('Porazdelitev globin A prislonjenih Gaussovk')
     xlabel('A [m]')
-    ylabel('N(A) [ ]')
+    ylabel('N(A)')
 
     subplot(1,2,2);
     figure(gcf);
     hist(sigmas(sigmas<60),60)
     title('Porazdelitev \sigma prislonjenih funkcij')
     xlabel('\sigma [m]')
-    ylabel('N(\sigma) [ ]')
-    printpdf(gcf,'../Latex/slike/menisija-visine-in-sigme-hist',20,10); %'-S750,420'
+    ylabel('N(\sigma)')
+    printpdf(gcf,'../Latex/slike/menisija-visine-in-sigme-hist',20,7); %'-S750,420'
 end
 
 %%
@@ -150,23 +150,90 @@ if 1
 end
 
 %%
-% Plot sigma and A depending on r and fit a linear function
+% Plot sigma and A depending on r_eff and fit a linear function
 if 1
-	sigmas = [];
-    As = [];
-    for i = 1:size(profile_fits,2)
-        try
-        sigmas(i) = profile_fits{i}.sigma;
-        As(i) = profile_fits{i}.A;
-        end
-    end
+    data = 'menisija.grd';
+    load(strrep(data,'.grd','-profiles.mat'))
+    all_fits = [s.fit];
+    sigmas=sqrt([all_fits.sx].^2 + [all_fits.sx].^2);
+    As=[all_fits.A];
+    reffs = [s.profilesize];
+
+    %Remove positive As and too small reffs
+    sigmas = sigmas(As<0);
+    reffs = reffs(As<0);
+    As = As(As<0);
+    sigmas = sigmas(reffs>5);
+    As = As(reffs>5);
+    reffs = reffs(reffs>5);
+    As = As(sigmas>1);
+    reffs = reffs(sigmas>1);
+    sigmas = sigmas(sigmas>1);
+
+    % Cut fits with sigmas more than cutoff value
+    cutoff = 60;
+    As = As(sigmas<cutoff);
+    reffs = reffs(sigmas<cutoff);
+    sigmas = sigmas(sigmas<cutoff);
     
+    % Fit for A(sigma)
+    asfit = fittype('k*as', 'indep', 'as');
+    asinit = [-0.5];
+    as_fit = fit( sigmas', As', asfit, 'StartPoint', asinit);
+    % Fit for sigma(reff)
+    srfit = fittype('k*sigmas', 'indep', 'sigmas');
+    srinit = [1];
+    sr_fit = fit( reffs', sigmas', srfit, 'StartPoint', srinit);
+    % Fit for A(reff)
+    arfit = fittype('k*reffs', 'indep', 'reffs');
+    arinit = [-1];
+    ar_fit = fit( reffs', As', arfit, 'StartPoint', arinit);
+    
+    figure(gcf);
+    subplot(2,2,1)
+    scatter(reffs(reffs<cutoff),sigmas(reffs<cutoff),3)
+    hold on;
+    h1 = plot(sr_fit);
+    set(h1,'LineWidth',2);
+    ylabel('\sigma [m]');
+    xlabel('r_{eff} [m]');
+    title('Odvisnost \sigma(r_{eff})');
+    legend('Izmerjene \sigma',strcat('\sigma(r_{eff})', sprintf(' = %1.1g',sr_fit.k),'* r_{eff}'),'location','southeast');
+    hold off;
+
+    subplot(2,2,2)
+    scatter(reffs(reffs<cutoff),As(reffs<cutoff),3)
+    hold on;
+    h2 = plot(ar_fit);
+    set(h2,'LineWidth',2);
+    ylabel('A [m]');
+    xlabel('r_{eff} [m]');
+    title('Odvisnost A(r_{eff})');
+    legend('Izmerjene globine A',strcat('A(r_{eff})', sprintf(' = %1.1g',ar_fit.k),'* r_{eff}'),'location','southwest');
+    hold off;
+    
+    subplot(2,1,2)
+    scatter(sigmas(reffs<cutoff),As(reffs<cutoff),3)
+    hold on;
+    h3 = plot(as_fit);
+    set(h3,'LineWidth',2);
+    ylabel('A [m]');
+    xlabel('\sigma [m]');
+    title('Odvisnost A(\sigma)');
+    legend('Izmerjene globine A',strcat('A(\sigma)', sprintf(' = %1.1g',as_fit.k),'* \sigma'),'location','southwest');
+    hold off;
+    
+    printpdf(gcf,'../Latex/slike/menisija-A-sigma-reff',25,15);
+end
+%%
+
+if 1
     sf = fittype('k*sigma + const', 'indep', 'sigma');
     af = fittype('k*A + const', 'indep', 'A');
 	sinit = [min(sigmas); range(sigmas)/length(sigmas)];
     ainit = [min(As); range(As)/length(As)];
-    sigma_fit = fit( (1:size(profile_fits,2))', sigmas', sf, 'StartPoint', sinit)
-    As_fit = fit( (1:size(profile_fits,2))', As', af, 'StartPoint', ainit)
+    sigma_fit = fit( (1:size(profile_fits,2))', sigmas', sf, 'StartPoint', sinit);
+    As_fit = fit( (1:size(profile_fits,2))', As', af, 'StartPoint', ainit);
     
     figure(gcf);
     subplot(1,2,1)

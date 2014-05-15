@@ -193,7 +193,7 @@ Izračunamo standardni odklon indeksa konkavnosti $\sigma_{I_k}$. Arbitrarno odl
 Sedaj vrtače zarišemo preko večjega senčenega reliefa: (Slika \ref{fig:menisija-vrtace}). Opazimo, da kljub trudu nekoliko podcenimo velikost vrtač. Za statistično analizo to ni moteče, saj podcenitev napravimo na vseh vrtačah in na enak način.
   \begin{figure}[h]
     \begin{center}
-      \includegraphics[width=9cm]{slike/menisija-vrtace}
+      \includegraphics[width=7cm]{slike/menisija-vrtace}
     \end{center}
     \caption{Del od 8687 zaznanih vrtač na območju Menišije. Poleg vrtač so na sliki vidni tudi dve udornici. Vrtače, ki smo jih zaznali pri izbiri manjšega kolobarja so obkrožene z modro barvo, vrtače srednjega kolobarja z črno in vrtače velikega z rdečo. Pri udornicah je posebno opazna podcenitev velikosti.}
     \label{fig:menisija-vrtace}
@@ -266,44 +266,41 @@ Na (Slika \ref{fig:menisija-profil-21-fit}) prikažemo ujemanje $\bar H(r)$ za p
   \end{figure}
 
 Ker nam povprečna vrtača (Slika \ref{fig:menisija-vrtaca}) ne pove veliko, nadaljujemo tako, da Gaussovo funkcijo (\ref{fit-vrtace}) nalegamo na prej po enačbi (\ref{povprecenje-phi}) izračunanih profilih realnih vrtač in tako izluščimo parametre $\sigma$ in $A$ realnih vrtač.
-Rezultata sta histograma (Slika \ref{fig:menisija-globine-sigme-hist}).
+Rezultata sta histograma na (Slika \ref{fig:menisija-globine-sigme-hist}).
 
   \begin{figure}[h!]
     \begin{center}
       \includegraphics[width=14cm]{slike/menisija-visine-in-sigme-hist}
     \end{center}
-    \caption{Porazdelitev A in $\sigma$ za Gaussovo funkcijo prilegano na vrtače v Menišiji. }
+    \caption{Vsem najdenim vrtačam prilegamo Gaussovo funkcijo (\ref{fit-vrtace}) in s tem izluščimo parametra A ter $\sigma$. Pridobljene podatke prikažemo na zgornjih histogramih. Izračunamo še povprečji ter standardni deviaciji količin $A$ in $\sigma$: $\bar A= -8,2m$, $\sigma_A=7,7m$, $\bar \sigma=24m$, $\sigma_{\sigma}=13m$}
     \label{fig:menisija-globine-sigme-hist}
   \end{figure}
 
-Če izrišemo odvisnost $\sigma (r_{eff})$, dobimo (Slika \ref{fig:menisija-sigma}). Krivulji prilegamo linearno funkcijo (\ref{sigma-od-reff}) in za tipične dimenzije vrtač ($10m < r_{eff} < 100m$) dobimo dobro ujemanje:
-
-  \begin{equation}
-    \sigma (r_{eff}) = k \cdot r_{eff} + C = r_{eff} - 4,7m.
-    \label{sigma-od-reff}
-  \end{equation}
+Iz vzorca izberemo vrtače tipičnih dimenzij ($5m < r_{eff} < 60m$). Izrišemo odvisnosti $\sigma (r_{eff})$, $A (r_{eff})$ ter $A(\sigma)$ in jim prilegamo linearne funkcije. Rezultat prikažemo na (Slika \ref{fig:menisija-sigma}).
 
   \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=12cm]{slike/menisija-sigme}
+      \includegraphics[width=14cm]{slike/menisija-A-sigma-reff}
     \end{center}
-    \caption{$\sigma$ s polmerom narašča.}
+    \caption{Iz vzorca izberemo vrtače tipičnih dimenzij ($5m < r_{eff} < 60m$). Izrišemo odvisnosti $\sigma (r_{eff})$, $A (r_{eff})$ ter $A(\sigma)$ in jim prilegamo linearne funkcije. Vidimo, da izrisane odvisnosti niso naključne.}
     \label{fig:menisija-sigma}
   \end{figure}
 
-  Na podlagi teh podatkov bi težko sklenili, da (\ref{fit-vrtace}) opiše profil idealne vrtače, a ujemanje je dobro in ga bomo uporabili za analitično modeliranje.
+  Na podlagi teh podatkov težko sklenemo, da (\ref{fit-vrtace}) opiše profil idealne vrtače, a ujemanje je dobro in ga bomo uporabili za analitično modeliranje.
 
-  \begin{figure}[h]
+  \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=19cm,angle=90]{slike/vrtace-po-razredih-menisija}
+      \includegraphics[width=17cm,angle=90]{slike/vrtace-po-razredih-menisija}
     \end{center}
-    \caption{Vrtače po velikosti razdelimo v pet razredov (najmanjša petina gre v prvi razred, itn.) in jih znotraj razredov povprečimo.}
+    \caption{Vrtače po velikosti razdelimo v pet razredov (najmanjša petina gre v prvi razred, itn.). Vrtače znotraj razreda tako izrežemo iz površja, da je matrika višinskih točk vrtače vedno enakih dimenzij, pri čemer se vrtača nahaja v sredini. Set vrtač znotraj razredov povprečimo in izrišemo. Dobljeni rezultati so podobni rezultatom povprečenja, pri katerih smo vse vrtače raztegnili na velikost največje v setu: (\ref{fig:menisija-vrtaca}), kar nam da več zaupanja v oba rezultata.}
     \label{fig:menisija-vrtace-po-razredih}
   \end{figure}
 
 
   \chapter{Analitično modeliranje vrtač}
   \label{analiticno-modeliranje}
+
+V tem poglavju bomo za opis časovne dinamike vrtač najprej podali definicije potrebne za opis rasti površin in denudacijo kraškega površja analogno modelirali kot stohastično rast površine. Nato bomo podali in komentirali več modelov rasti, ki se skladajo z uvodno tezo, da vrtače nastanejo na ravnem površju in rastejo dokler ne dosežejo stabilne oblike.
 
   \section{Rast površin}
   \label{definicije}
@@ -377,7 +374,7 @@ Celotna dinamika širine pri balističnem naleganju je za različne velikosti po
       \begin{center}
         \includegraphics[width=12cm]{slike/bdep2}
       \end{center}
-      \caption{Idealni potek širine površja pri balističnem naleganju, za različne velikosti sistema L \cite{schwettmann2003}.}
+      \caption{Idealni potek širine površja pri balističnem naleganju, za različne velikosti sistema L. Začnemo z ravnim površjem ($w(L,t)=0$) in po kratkem prehodnem obdobju Poissonove rasti ($w(L,t) \sim t^{1/2}$), preidemo v obdobje rasti ($w(L,t) \sim t^{\beta}$). To se zaključi po času $t_s \sim L^z$ in preidemo v zasičen režim ($w(L,t) = w_{sat}(L) \sim L^{\alpha}$). Vir \cite{schwettmann2003}.}
       \label{fig:barabasi}
     \end{figure}
 
@@ -400,8 +397,9 @@ kjer je $f(t/t_s)$ funkcija lestvičenja. Vstavimo $w_{sat}$ in $t_s$, po zvezah
   Za $f(u)$ velja:
   \begin{equation}
     f(u) \propto \left \{ \begin{array}{lr} u^{\beta} & \ u\ll 1 \\
-      1 & \ u\gg1\end{array}. \right.
+      1 & \ u\gg1\end{array}, \right.
     \end{equation}
+kjer je $\beta$ eksponent rasti.
 
 Sedaj si ogledamo (Slika \ref{fig:barabasi}). Če se točki zasičenja $(t_s,w(t_s))$ približamo z leve, vidimo, da po (\ref{beta}) velja $w(t_s) \sim t_s^\beta$. Hkrati pa, da če se isti točki približamo z desne po (\ref{alfa}) velja $w(t_s) \sim L^\alpha$. Torej $t_s^\beta \sim L^\alpha$ in po (\ref{z}) sledi zakon o lestvičenju:
 
@@ -414,7 +412,7 @@ Sedaj si ogledamo (Slika \ref{fig:barabasi}). Če se točki zasičenja $(t_s,w(t
     \section{Merjenje hrapavosti Menišije}
     \label{hrapavost}
 
-V uvodu smo postavili tezo, da so vse vrtače stare, stabilne oblike. Ko jih opišemo z definicijami rasti površin, domnevamo da so starejše od časa zasičenja in lahko zvezo (\ref{alfa}) predelamo v $ w_{sat}=C \cdot L^\alpha $ in dobimo:
+V uvodu smo postavili tezo, da so vse vrtače stare, stabilne oblike. Ko jih opišemo z definicijami rasti površin, domnevamo da so starejše od časa zasičenja ($t_s$) in zanje velja zveza (\ref{alfa}). Predelamo jo v $ w_{sat}=C \cdot L^\alpha $ in dobimo sledečo zvezo za eksponent hrapavosti starega površja:
 
     \begin{equation}
       \alpha = \frac{\partial ( ln (w_{sat}) ) }{\partial ( ln L )}.
