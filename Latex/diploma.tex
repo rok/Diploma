@@ -227,9 +227,9 @@ S smiselno velikostjo objektov in pregledom vizualizirane segmentacije (Slika \r
 
   \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=6.5cm]{slike/menisija-vrtaca}
+      \includegraphics[width=14cm]{slike/menisija-vrtaca-sigma}
     \end{center}
-    \caption{Povprečje 8687 realnih vrtač z območja Menišije, pred povprečjem so bile vrtače raztegnjene na velikost največje v setu.}
+    \caption{Levo: povprečje 8687 realnih vrtač z območja Menišije, pred povprečjem so bile vrtače raztegnjene na velikost največje v setu. Desno: standardna deviacija istega seta vrtač od povprečja.}
     \label{fig:menisija-vrtaca}
   \end{figure}
 
@@ -272,7 +272,7 @@ Rezultata sta histograma na (Slika \ref{fig:menisija-globine-sigme-hist}).
     \begin{center}
       \includegraphics[width=14cm]{slike/menisija-visine-in-sigme-hist}
     \end{center}
-    \caption{Vsem najdenim vrtačam prilegamo Gaussovo funkcijo (\ref{fit-vrtace}) in s tem izluščimo parametra A ter $\sigma$. Pridobljene podatke prikažemo na zgornjih histogramih. Izračunamo še povprečji ter standardni deviaciji količin $A$ in $\sigma$: $\bar A= -8,2m$, $\sigma_A=7,7m$, $\bar \sigma=24m$, $\sigma_{\sigma}=13m$}
+    \caption{Vsem najdenim vrtačam prilegamo Gaussovo funkcijo (\ref{fit-vrtace}) in s tem izluščimo parametra A ter $\sigma$. Pridobljene podatke prikažemo na zgornjih histogramih. Izračunamo še povprečji ter standardni deviaciji količin $A$ in $\sigma$: $\bar A= -8,2m$, $\sigma_A=7,7m$, $\bar \sigma=24m$, $\sigma_{\sigma}=13m$.}
     \label{fig:menisija-globine-sigme-hist}
   \end{figure}
 
@@ -399,7 +399,7 @@ kjer je $f(t/t_s)$ funkcija lestvičenja. Vstavimo $w_{sat}$ in $t_s$, po zvezah
     f(u) \propto \left \{ \begin{array}{lr} u^{\beta} & \ u\ll 1 \\
       1 & \ u\gg1\end{array}, \right.
     \end{equation}
-kjer je $\beta$ eksponent rasti.
+kjer je $\beta$ eksponent rasti in $u=\frac{t}{t_s}$.
 
 Sedaj si ogledamo (Slika \ref{fig:barabasi}). Če se točki zasičenja $(t_s,w(t_s))$ približamo z leve, vidimo, da po (\ref{beta}) velja $w(t_s) \sim t_s^\beta$. Hkrati pa, da če se isti točki približamo z desne po (\ref{alfa}) velja $w(t_s) \sim L^\alpha$. Torej $t_s^\beta \sim L^\alpha$ in po (\ref{z}) sledi zakon o lestvičenju:
 
@@ -422,56 +422,103 @@ V uvodu smo postavili tezo, da so vse vrtače stare, stabilne oblike. Ko jih opi
     Na LiDARskem modelu Menišije izračunamo ${w}_{sat}$ za vse mogoče za prereze v smereh sever-jug in vzhod-zahod. Širine površij prerezov $w_{sat}$ nato narišemo v odvisnosti od velikosti prerezov površij $L$.\\
 Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha =  0.409 \pm 0.02$.
 
-    \begin{figure}[h]
-      \begin{center}
-        \includegraphics{slike/menisija-alfa.pdf}
-      \end{center}
-      \caption{Prileganje premice $f(ln(L)) = \alpha \cdot x$ h krivulji $ln(w_{sat}(ln(L)))$ nam poda eksponent hrapavosti $\alpha$.}
-      \label{fig:menisija-alfa}
-    \end{figure}
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics{slike/menisija-alfa.pdf}
+  \end{center}
+  \caption{Prileganje premice $f(ln(L)) = \alpha \cdot x$ h krivulji $ln(w_{sat}(ln(L)))$ nam poda eksponent hrapavosti $\alpha$.}
+  \label{fig:menisija-alfa}
+\end{figure}
 
 
     \section{Model Kardar-Parisi-Zhang}
 
-    Za modeliranje procesa nastanka vrtač lahko vzamemo, da kamnina razpada stohastično kot $\eta(\mathbf{x},t)$, ki je bel Gaussov šum, za katerega velja: $ \langle \eta(\mathbf{x},t) \rangle=0 $ in
-    \begin{equation}
-      \langle \eta(\mathbf{x},t) \eta(\mathbf{x'},t')\rangle = 2 D \delta^d(\mathbf{x}-\mathbf{x'})(t-t').
-    \end{equation}
+    Za modeliranje nastanka vrtač najprej privzamemo, da ima proces poleg stalne hitrosti denudacije kamnine $v$ še stohastično komponento $\eta(\mathbf{x},t)$:
+\begin{equation}
+  \frac{\mathrm{d} h}{\mathrm{d} t} \bigg|_{denudacija} = v + \eta(\mathbf{x},t),
+\end{equation}
+kjer $\mathbf{x}$ predstavlja lokacijo na površini ravnine, $v$ povprečno hitrost denudacije, $h(\mathbf{x},t)$ pa višino površine v tej točki ob času $t$. 
 
-    Ko se del kamnine raztopi, pomaknemo površino površja v smeri normale (Slika \ref{fig:kpz}), torej se površje v smeri osi h v času $\delta t$ pomakne za 
-    \begin{equation}
-      \delta h = \sqrt{ (v \delta t)^2 + (v \delta t \nabla h)^2}.
-    \end{equation}
+Za $\eta (\mathbf{x},t)$ privzamemo, da je časovno in prostorsko nekoreliran šum: 
+\begin{equation} 
+  \langle \eta(\mathbf{x},t) \rangle=0,
+\end{equation}
+velja naj tudi:
+\begin{equation}
+  \langle \eta(\mathbf{x},t) \eta(\mathbf{x'},t')\rangle = 2 D \delta^d(\mathbf{x}-\mathbf{x'})(t-t'),
+\end{equation}
+kjer je $D$ parameter modela in $d$ število dimenzij prostora.
 
-    Če je $|\nabla h| \ll 1$, dobimo: 
-    \begin{equation}
-      \dot h = v \sqrt{1 + (\nabla h)^2} \simeq v + \frac{v}{2} (\nabla h)^2 + \ldots.
-    \end{equation}
+Taka površina raste kot:
+\begin{equation}
+  h(\mathbf{x},t) = v \cdot t + \int_0^t \mathrm{d} t' \eta (\mathbf{x},t).
+\end{equation}
+Zaradi časovne nekoreliranosti šuma $\eta({\mathbf{x},t})$ bi tako površje ohranjalo začetno obliko:
 
+\begin{equation}
+  \langle h(\mathbf{x},t) \rangle = v \cdot t.
+\end{equation}
+
+Ker je razpadanje kamnine počasen proces in se iz podlage odkrušeni kamni lahko premikajo, privzamemo v naš model še difuzijski člen:
+\begin{equation}
+  \frac{\mathrm{d} h}{\mathrm{d} t} \bigg|_{difuzija} = \nu \nabla^2 h,
+\end{equation}
+kjer je $\nu$ utež 'površinske napetosti', ki določa kako močno bo difuzijski člen izravnaval površje.
+
+Končno privzamemo še, da je smer raztapljanja kamnine obrnjena v kamnino, v smeri normale površja (Slika \ref{fig:KPZ}). 
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=4cm]{slike/KPZ.jpg}
+  \end{center}
+  \caption{Denudacijo privzamemo v smeri normale površja. $v$ je hitrost denudacije v smeri normale.}
+  \label{fig:KPZ}
+\end{figure}
+\\ Zapišemo Pitagorov izrek za $\delta h$:
+\begin{equation}
+  \delta h = \sqrt{(v \delta t)^2 + (v \delta t \nabla h)^2} = v \delta t \sqrt{1 + (\nabla h)^2},
+  \label{kpz-normala}
+\end{equation}
+privzamemo $|\nabla h| \ll 1$ in razvijemo (\ref{kpz-normala}) v:
+\begin{equation}
+  \frac{\partial h}{\partial t} \simeq v + \frac{v}{2} (\nabla h)^2 + \dots.
+\end{equation}
+Zanemarimo višje člene in zapišemo:
+\begin{equation}
+  \frac{\partial h}{\partial t} \bigg|_{nelinearno} = v + \frac{v}{2} (\nabla h)^2
+\end{equation}
+
+\begin{comment}
     \begin{figure}[h]
       \begin{center}
-        \includegraphics[width=9cm]{slike/kpz}
+        \includegraphics[width=9cm]{slike/kpz.png}
       \end{center}
       \caption{Zaporedni profili deterministične rasti, priraščanje v smeri normale površja je prikazano desno zgoraj.}
       \label{fig:kpz}
     \end{figure}
+\end{comment}
 
-    To nam da člen $\frac{\lambda}{2} (\nabla h)^2$.
+Pripravljene člene zdužimo v enačbo, hitrost nelinearnega člena zamenjamo z $\lambda$ $(v \rightarrow \lambda)$:
+\begin{equation}
+  \frac{\partial h}{\partial t} = \frac{\partial h}{\partial t} \bigg|_{denudacija} + \frac{\partial h}{\partial t} \bigg|_{difuzija} + \frac{\partial h}{\partial t} \bigg|_{nelinearno},
+  \label{KPZ1}
+\end{equation}
+oziroma:
+\begin{equation}
+  \frac{\partial h}{\partial t} = v + \nu \nabla^2 h + \lambda + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t).
+  \label{KPZ2}
+\end{equation}
+Postavimo se v premikajoč sistem, ki se premika s hitrostjo $v + \lambda$ v smeri osi $h$ in dobimo Kardar-Parisi-Zhang enačbo (\cite{kardar1986dynamic}):
+\begin{equation}
+  \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t).
+  \label{KPZ}
+\end{equation}
 
-    Vzamemo, da zaradi počasnosti procesa prihaja do difuzije površja in dodamo člen $\nu \nabla^2 h$.
 
-    Sestavljeni nam ti členi dajo Kardar-Parisi-Zhang enačbo (\cite{kardar1986dynamic}):
-
+    Če vzamemo nastavek:
     \begin{equation}
-      \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t).
-      \label{KPZ}
+      h(\mathbf{x},t) = \frac{2 \nu}{\lambda} log(Z(\mathbf{x},t)),
     \end{equation}
-
-    Vzamemo nastavek:
-    \begin{equation}
-      h(\mathbf{x},t) = \frac{2 \nu}{\lambda} log(Z(\mathbf{x},t))
-    \end{equation}
-    in dobimo stohastično difuzijsko enačbo:
+    dobimo difuzijsko enačbo v časovno odvisnem naključnem potencialu:
 
     \begin{equation}
       \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z,
@@ -482,21 +529,31 @@ Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha 
       h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h(\xi,0) \right] \right).
     \end{equation}
 
-    Avtorji \cite{kardar1986dynamic} nato v Fourierovem prostoru s prostim propagatorjem in pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. To se relativno dobro ujema z $\alpha =  0.409 \pm 0.02$ namerjenim v (Poglavje \ref{hrapavost}).
+    Avtorji \cite{kardar1986dynamic} nato v Fourierovem prostoru s pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. To se relativno dobro ujema z $\alpha =  0.409 \pm 0.02$ namerjenim v (Poglavje \ref{hrapavost}).
 
+Da bi kvalitativno ocenili kakšno površje nastane z stohastično denudacijo površja, napravimo preprosto numerično simulacijo. Začnemo z ravnim površjem velikosti $80\times80$ točk, določimo časovni korak $\mathrm{d}t=10^{-3}$ in $10^6$-krat izračunamo:
+\begin{equation} 
+  h_{i+1} = h_i - dt (\nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t)),
+\end{equation}
+kjer je $h_{i+1}$ nova vrednost v obravnavani točki, $h_{i}$ stara vrednost v obravnavani točki, $\eta (\mathbf{x},t) \in [0,1]$ in določimo $\nu = \lambda = 1$. (Slika \ref{fig:KPZ-numericno}) je primer tako simuliranega površja.
 
-    Če simuliramo stohastično rast površja, opazimo, da je končno stanje površja modela precej stabilno, a ne ravnovesno in precej odvisno od začetnih pogojev. Oblike, ki na površju nastanejo, so si med seboj podobne po obliki in velikosti. (Slika \ref{fig:KPZ-numericno}) je primer tako simuliranega površja.
+Končno stanje površja pri tem ni statično, med koraki prihaja do manjših premikov. Vendar pa so oblike, ki na površju nastanejo, stabilne ter med seboj podobne po obliki in velikosti.
 
     \begin{figure}[h]
       \begin{center}
-        \includegraphics[width=13cm]{slike/KPZ-numericno}
+        \includegraphics[width=10cm]{slike/KPZ-numericno}
       \end{center}
       \caption{Numerična simulacija po Kardar-Parisi-Zhang enačbi razvijajočega se površja po $10^5$ korakih.}
       \label{fig:KPZ-numericno}
     \end{figure}
 
+    \section{Reakcijsko-difuzijski model dinamike vrtač}
 
-    \section{Modeliranje dinamike vrtač}
+
+[TODO]Doslej kolektivni opis statistične porazdelitve velikosti. Kaj pa posamezne vrtače? Bolj kompleksen problem, ker ni univerzalen, pač pa bi moral temeljiti na ustreznem dinamičnem modelu rasti ene same vrtače. Na to temo konsenza v literaturi ni. Pregled literature..
+Lpt nadomestek (mikroskopskega) modela dinamike si ogledamo nekaj fenomenoloških modelov rasti, ki temeljijo na reakcijsko difuzijski dinamiki opisa rasti, ki je primeren za opis prostorsko porazdeljenih kemijskih reakcij.
+Opišite en primer ko ko deluje!
+Ima dva dela difuzijsko in deterministično dinamiko.[TODO]
 
     Za modeliranje dinamike posamezne vrtače stohastični procesi niso primerni, zato si za opis pogledamo dinamično enačbo (\ref{dinamicna-splosna}) z različnimi variacijami člena rasti $F(h)$ (\ref{dinamicna-variacije}). Izbor enačb je povzet po \cite{kandler2010population}.
 
@@ -504,7 +561,7 @@ Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha 
       \frac{ \partial h(t,x) }{ \partial t} = F(h).
       \label{dinamicna-splosna}
     \end{equation}
-
+[TODO]Nadrobnejši opis kaj to pomeni, v kakšnem kontekstu se to uporablja[TODO]
     \begin{equation}
       F(h) = \left \{ \begin{array}{lr} 
         a \cdot h \\
@@ -623,6 +680,7 @@ Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha 
       \caption{Vzeli smo $h_0=-1$ in $a_0=0,1$ in variirali $k=0,1;0,25;0,5;1$.}
       \label{fig:gompertzova-rast}
     \end{figure}
+[TODO]Opis razlik in podobnosti med temi modeli deterministične dinamike[TODO]
 
     \section{Difuzijsko modeliranje dinamike vrtač}
 
@@ -632,6 +690,7 @@ Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha 
       \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + F(h).
       \label{difuzija-splosna}
     \end{equation}
+[TODO]Komentar te enačbe[TODO]
 
     \begin{equation}
       F(h) = \left \{ \begin{array}{lr} 
@@ -643,8 +702,10 @@ Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha 
       \label{difuzijska-variacije}
     \end{equation}
 
+
     Rešitve teh enačb bomo iskali numerično in komentirali njihovo časovno dinamiko. Vzeli bomo naslednje robne pogoje:
 
+[TODO]Komentar[TODO]
     \begin{equation}
       \begin{aligned}
         h(0,x) =  - e^{-x^2}, x \in D \\
@@ -670,10 +731,12 @@ Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha 
       \label{fig:difuzija-eksponentna-rast}
     \end{figure}
 
-    Eksponentna rast za vrtače ni primeren model, saj zelo velikih vrtač v naravi ne opazimo.
+[TODO]Kdaj je to primeren mode. Primeri.[TODO]
+
+Eksponentna rast za vrtače ni primeren model, saj zelo velikih vrtač v naravi ne opazimo.
 
     \subsection{Logistična rast}
-
+[TODO]Več opisa.[TODO]
     Dobimo t.i. Fisher-Kolmogorovo enačbo:
 
     \begin{equation}
@@ -733,7 +796,8 @@ Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha 
 
     Vidimo, da rast tokrat s časom upada (Slika \ref{fig:difuzija-gompertzova-rast}). Tako profil najprej zraste, nato pa se difuzijsko izravna, ko difuzija prevlada.
     Model se zdi za modeliranje vrtač neprimeren, saj nimamo jasne razlage, kaj bi povzročilo faktor rasti, ki bi nato eksponentno zamrl.
-
+\newpage
+[TODO]Primerjava vseh fenomenoloških reakcijsko difuzijskih modelov in njihove primernosti za opis našega problema.[TODO]
 
     \chapter{Zaključek}
 
@@ -745,7 +809,12 @@ Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha 
 
     Za nepopoln model dinamike rasti vrtač predlagajmo model difuzijsko logistične rasti (\ref{fig:difuzija-logisticna-rast}), ki se zdi fizikalno najbolj smiseln.
 
-    Za popolnejši študij in dober model vrtač bi verjetno potrebovali bolj poglobljene informacije o prsti, geoloških in bioloških dejavnikih, ki lahko vplivajo na časovno dinamiko terena. Zanimiva ideja bi bila z geološkim študijem najti in datirati vrtače v različnih stopnjah razvoja ter s pomočjo te informacije oblikovati dinamičen nastavek, na podlagi katerega bi potem morda bolj osvetlili dinamično enačbo.
+    Za popolnejši študij in dober model vrtač bi verjetno potrebovali bolj poglobljene informacije o prsti, geoloških in bioloških dejavnikih, ki lahko vplivajo na časovno dinamiko terena. Zanimiva ideja bi bila z geološkim študijem najti in datirati vrtače v različnih stopnjah razvoja ter s pomočjo te informacije oblikovati dinamičen nastavek, na podlagi katerega bi potem morda bolj osvetlili dinamično enačbo. \newline
+[TODO] \newline
+- povzetek kaj ste naredili \newline
+- povzetek glavnih rezultatov \newline
+- kaj bi se še dalo oizboljšati \newline
+[TODO]
 
 \chapter{Priloge}
 
