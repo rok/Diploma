@@ -119,14 +119,6 @@ Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj de
 
 Najširše sprejet model nastanka vrtač v geomorfološki literaturi podata Ford in Williams \cite{ford2007karst}: (Slika \ref{fig:vrtaca-ford-williams}). Na ta model se bomo oprli, ko bomo poskusili modelirati dinamiko vrtač.
 
-  \begin{figure}[h]
-    \begin{center}
-      \includegraphics[width=7cm]{slike/vrtaca-ford-williams}
-    \end{center}
-    \caption{Geomorfološka skica nastanka vrtač. Na sprva ravnem površju neka začetna točka malenkost bolje odvaja vodo v podzemlje. Zaradi večjega pretoka vode se tam na stiku prsti in kamnine poveča raztapljanje apnenca. Raztapljanje in odnašanje apnenca v podtalnico poglobi površje in s tem poveča lokalno povodje in s tem količino vode odvajane v začetno točko. Dobimo pozitivno povratno zanko in oblikujejo se vrtače. Vir: \cite{ford2007karst}.}
-    \label{fig:vrtaca-ford-williams}
-  \end{figure}
-
   Za študij realnih vrtač uporabimo digitalni model reliefa Menišije (Slika \ref{fig:menisija-karta}) ločljivosti 1m, ki nam da natančno višinsko karto velike količine vrtač, ter omogoči zanesljivo identifikacijo in študij tega pojava (Slika \ref{fig:menisija-relief}).
 
   \begin{figure}[h]
@@ -372,7 +364,7 @@ Celotna dinamika širine pri balističnem naleganju je za različne velikosti po
 
     \begin{figure}[h]
       \begin{center}
-        \includegraphics[width=12cm]{slike/bdep2}
+        \includegraphics[width=12cm]{slike/bdep3}
       \end{center}
       \caption{Idealni potek širine površja pri balističnem naleganju, za različne velikosti sistema L. Začnemo z ravnim površjem ($w(L,t)=0$) in po kratkem prehodnem obdobju Poissonove rasti ($w(L,t) \sim t^{1/2}$), preidemo v obdobje rasti ($w(L,t) \sim t^{\beta}$). To se zaključi po času $t_s \sim L^z$ in preidemo v zasičen režim ($w(L,t) = w_{sat}(L) \sim L^{\alpha}$). Vir \cite{schwettmann2003}.}
       \label{fig:barabasi}
@@ -393,8 +385,7 @@ kjer je $f(t/t_s)$ funkcija lestvičenja. Vstavimo $w_{sat}$ in $t_s$, po zvezah
     w(L,t) \sim L^\alpha f(\frac{t}{L^z}).
     \label{family-vicsek}
   \end{equation}
-
-  Za $f(u)$ velja:
+Za $f(u)$ velja:
   \begin{equation}
     f(u) \propto \left \{ \begin{array}{lr} u^{\beta} & \ u\ll 1 \\
       1 & \ u\gg1\end{array}, \right.
@@ -512,22 +503,19 @@ Postavimo se v premikajoč sistem, ki se premika s hitrostjo $v + \lambda$ v sme
   \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t).
   \label{KPZ}
 \end{equation}
+Če vzamemo nastavek:
+\begin{equation}
+  h(\mathbf{x},t) = \frac{2 \nu}{\lambda} log(Z(\mathbf{x},t)),
+\end{equation}
+dobimo difuzijsko enačbo v časovno odvisnem naključnem potencialu:
 
-
-    Če vzamemo nastavek:
-    \begin{equation}
-      h(\mathbf{x},t) = \frac{2 \nu}{\lambda} log(Z(\mathbf{x},t)),
-    \end{equation}
-    dobimo difuzijsko enačbo v časovno odvisnem naključnem potencialu:
-
-    \begin{equation}
-      \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z,
-    \end{equation}
-
-    katere rešitev je:
-    \begin{equation}
-      h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h(\xi,0) \right] \right).
-    \end{equation}
+\begin{equation}
+  \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z,
+\end{equation}
+katere rešitev je:
+\begin{equation}
+  h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h(\xi,0) \right] \right).
+\end{equation}
 
     Avtorji \cite{kardar1986dynamic} nato v Fourierovem prostoru s pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. To se relativno dobro ujema z $\alpha =  0.409 \pm 0.02$ namerjenim v (Poglavje \ref{hrapavost}).
 
@@ -541,27 +529,43 @@ Končno stanje površja pri tem ni statično, med koraki prihaja do manjših pre
 
     \begin{figure}[h]
       \begin{center}
-        \includegraphics[width=10cm]{slike/KPZ-numericno}
+        \includegraphics[width=12cm]{slike/KPZ-numericno}
       \end{center}
       \caption{Numerična simulacija po Kardar-Parisi-Zhang enačbi razvijajočega se površja po $10^5$ korakih.}
       \label{fig:KPZ-numericno}
     \end{figure}
 
-    \section{Reakcijsko-difuzijski model dinamike vrtač}
+\newpage
+\section{Reakcijsko-difuzijski model dinamike vrtač}
 
+Do sedaj smo modelirali vrtače kot posledico stohastičnega procesa. Sedaj bomo poskusili modelirati še rast posamezne vrtače. Ker nimamo jasnega modela na katerega bi se oprli je ta problem bolj kompleksen, saj mora v upoštevati vse dejavnike rasti ene same vrtače.
+Grobo prevedemo in povzamemo najbolj priznan geomorfološki vir \cite{ford2007karst} (str. 242) ter skico (Slika \ref{fig:vrtaca-ford-williams}), ki konceptualno opišeta dinamiko vrtač:
 
-[TODO]Doslej kolektivni opis statistične porazdelitve velikosti. Kaj pa posamezne vrtače? Bolj kompleksen problem, ker ni univerzalen, pač pa bi moral temeljiti na ustreznem dinamičnem modelu rasti ene same vrtače. Na to temo konsenza v literaturi ni. Pregled literature..
-Lpt nadomestek (mikroskopskega) modela dinamike si ogledamo nekaj fenomenoloških modelov rasti, ki temeljijo na reakcijsko difuzijski dinamiki opisa rasti, ki je primeren za opis prostorsko porazdeljenih kemijskih reakcij.
-Opišite en primer ko ko deluje!
-Ima dva dela difuzijsko in deterministično dinamiko.[TODO]
+\begin{quotation}
+Skledasta oblika vrtač kaže, da je bilo iz njihovega centra odnešene več kamnine kot z njihovega roba. To nakazuje da je na delu skupen naravni proces, ki fokusira raztapljanje. ... \\
+Ko se površje malenkost poglobi, se vzpostavi pozitivna povratna zanka, ki poganja nadaljnje poglabljanje zaradi centripetalnega vodnega toka in posledično korozije. Agresivnost vode se še poveča z biogeno produkcijo $CO_2$ v prsti, ki se ponavadi nabira na dnu depresije. ... \\
+Z učinkovitim navpičnim odvajanjem, ki ga omogoči korozijsko razširjanje razpok, se povečuje povprečna hitrost vodnega toka in z njo količina mehansko izprane prsti in kamnine. ... \\
+Čeprav je glavna težnja pri nastajanju doline samo ojačitev, imajo nekateri efekti negativen povratni vpliv. Na primer, nekatere prsti, ki pokrivajo kras imajo manjšo prepustnost kot živa skala."
+\end{quotation}
 
-    Za modeliranje dinamike posamezne vrtače stohastični procesi niso primerni, zato si za opis pogledamo dinamično enačbo (\ref{dinamicna-splosna}) z različnimi variacijami člena rasti $F(h)$ (\ref{dinamicna-variacije}). Izbor enačb je povzet po \cite{kandler2010population}.
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=7cm]{slike/vrtaca-ford-williams.jpg}
+  \end{center}
+  \caption{Geomorfološka skica nastanka vrtač. Na sprva ravnem površju neka začetna točka malenkost bolje odvaja vodo v podzemlje. Zaradi večjega pretoka vode se tam na stiku prsti in kamnine poveča raztapljanje apnenca. Raztapljanje in odnašanje apnenca v podtalnico poglobi površje in s tem poveča lokalno povodje in s tem količino vode odvajane v začetno točko. Dobimo pozitivno povratno zanko in oblikujejo se vrtače. S časom se v vrtačah nabere slabše prepustna prst, odvajanje vode skozi večje razpoke se izboljša, raztapljanje na dnu vrtače zmanjša. To deluje kot negativna povratna zanka. Vir: \cite{ford2007karst}.}
+\label{fig:vrtaca-ford-williams}
+\end{figure}
 
-    \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = F(h).
-      \label{dinamicna-splosna}
-    \end{equation}
-[TODO]Nadrobnejši opis kaj to pomeni, v kakšnem kontekstu se to uporablja[TODO]
+Ker mikroskopskega modela take dinamike ne moremo postaviti, si ogledamo nekaj fenomenoloških modelov rasti, ki temeljijo na reakcijsko-difuzijski dinamiki (\ref{dinamicna-splosna}) opisa rasti, ki je primeren za opis prostorsko porazdeljenih kemijskih reakcij. Ti modeli predpostavijo, kako na neko količino neke vpliva izbrana deterministična dinamika in difuzija.
+
+\begin{equation}
+  \frac{ \partial h(t,x) }{ \partial t} = D \Delta h + F(h).
+  \label{dinamicna-splosna}
+\end{equation}
+
+Najprej ločeno pogledamo različne variacije determinističnega člena $F(h)$ za (\ref{dinamicna-splosna}). Izbor je povzet po \cite{kandler2010population}.
+
+\begin{comment}
     \begin{equation}
       F(h) = \left \{ \begin{array}{lr} 
         a \cdot h \\
@@ -571,6 +575,7 @@ Ima dva dela difuzijsko in deterministično dinamiko.[TODO]
       \end{array}. \right. 
       \label{dinamicna-variacije}
     \end{equation}
+\end{comment}
 
     \subsection{Eksponentna rast}
 
@@ -684,35 +689,17 @@ Ima dva dela difuzijsko in deterministično dinamiko.[TODO]
 
     \section{Difuzijsko modeliranje dinamike vrtač}
 
-    Zaradi počasnosti procesa, ki oblikuje vrtače, domnevamo, da difuzija ni nepomembna, in dodamo dinamičnim modelom iz prejšnjega podpoglavja  (\ref{difuzijska-variacije}) še difuzijski člen (\ref{difuzija-splosna}).
+V prejšnjem poglavju predlagane deterministične nastavke dinamike sedaj zaporedno vstavljamo v splošno reakcijsko-difuzijsko enačbo (\ref{dinamicna-splosna}) in jo numerično rešujemo pri robnih pogojih (\ref{rd-robni}). Rešitve prikažemo in komentiramo njeno časovno dinamiko. Izbrani robni pogoji
 
-    \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + F(h).
-      \label{difuzija-splosna}
-    \end{equation}
-[TODO]Komentar te enačbe[TODO]
-
-    \begin{equation}
-      F(h) = \left \{ \begin{array}{lr} 
-        a \cdot h \\
-        a \cdot h \cdot (1 - \frac{h}{K}) \\
-        a \cdot (K - h) \\
-        - h \cdot e^{-a t}
-      \end{array} .\right. 
-      \label{difuzijska-variacije}
-    \end{equation}
-
-
-    Rešitve teh enačb bomo iskali numerično in komentirali njihovo časovno dinamiko. Vzeli bomo naslednje robne pogoje:
-
-[TODO]Komentar[TODO]
     \begin{equation}
       \begin{aligned}
         h(0,x) =  - e^{-x^2}, x \in D \\
         h(t,x) = 0, x \in \partial D \\
-        \frac{\partial h(t,x)}{\partial n} = 0, x \in \partial D. 
+        \frac{\partial h(t,x)}{\partial n} = 0, x \in \partial D
       \end{aligned}
+\label{rd-robni}
     \end{equation}
+postavijo, da začnemo na ravni podlagi, z majhno udrtino Gaussove oblike. Vrednost $h(t,x)$ in njen prvi odvod po normali na robu območja postavimo na $0$.
 
     \subsection{Eksponentna rast}
 
