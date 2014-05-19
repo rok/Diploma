@@ -556,14 +556,14 @@ Z učinkovitim navpičnim odvajanjem, ki ga omogoči korozijsko razširjanje raz
 \label{fig:vrtaca-ford-williams}
 \end{figure}
 
-Ker mikroskopskega modela take dinamike ne moremo postaviti, si ogledamo nekaj fenomenoloških modelov rasti, ki temeljijo na reakcijsko-difuzijski dinamiki (\ref{dinamicna-splosna}) opisa rasti, ki je primeren za opis prostorsko porazdeljenih kemijskih reakcij. Ti modeli predpostavijo, kako na neko količino neke vpliva izbrana deterministična dinamika in difuzija.
+Ker mikroskopskega modela take dinamike ne moremo postaviti, si ogledamo nekaj fenomenoloških modelov rasti, ki temeljijo na reakcijsko-difuzijski dinamiki (\ref{dinamicna-splosna}) opisa rasti, ki so primerni za opis prostorsko porazdeljenih kemijskih reakcij in mehanskega transporta materiala v vrtačah. Ti modeli predpostavijo, kako na neko količino vpliva izbrana deterministična dinamika in difuzija.
 
 \begin{equation}
   \frac{ \partial h(t,x) }{ \partial t} = D \Delta h + F(h).
   \label{dinamicna-splosna}
 \end{equation}
 
-Najprej ločeno pogledamo različne variacije determinističnega člena $F(h)$ za (\ref{dinamicna-splosna}). Izbor je povzet po \cite{kandler2010population}.
+Najprej ločeno pogledamo različne variacije determinističnega člena $F(h)$ za (\ref{dinamicna-splosna}). Izbor členov je delno povzet po \cite{kandler2010population}.
 
 \begin{comment}
     \begin{equation}
@@ -579,7 +579,7 @@ Najprej ločeno pogledamo različne variacije determinističnega člena $F(h)$ z
 
     \subsection{Eksponentna rast}
 
-    V modelu eksponentne rasti predpostavimo, da je rast sorazmerna z vrednostjo ($h(t)$) v izbrani točki. Dobimo enačbo (\ref{dinamicna-eksponentna}), ki jo reši funkcija (\ref{dinamicna-eksponentna-resitev}), in jo pri variaciji parametra $a$ narišemo (Slika \ref{fig:eksponentna-rast}).
+    Dinamiko eksponentne rasti izpeljemo tako da postavimo, da je hitrost naraščanja količine $h(t)$ sorazmerna z vrednostjo te količine. Dobimo enačbo (\ref{dinamicna-eksponentna}), ki jo reši funkcija (\ref{dinamicna-eksponentna-resitev}), in jo pri variaciji koeficienta rasti $a$ narišemo (Slika \ref{fig:eksponentna-rast}).
 
     \begin{equation}
       \frac{\partial h(t)}{\partial t} = a \cdot h(t).
@@ -599,13 +599,39 @@ Najprej ločeno pogledamo različne variacije determinističnega člena $F(h)$ z
       \label{fig:eksponentna-rast}
     \end{figure}
 
-    Če je parameter $a > 0$, bomo vedno dobili neomejeno rast, kar zmanjšuje splošnost tega modela. Vseeno pa je v omejenih intervalih uporaben za npr. opis rasti populacij držav, širjenje virusov, jedrskih verižnih reakcij, itn. Uporabnost modela se konča, ko se sistem zasiti - to je, ko zmanjka virov, ki rast poganjajo (če gledamo dane primere - ko zmanjka hrane, celic, jeder).
-    Pri vrtačah je možno, da imamo eksponentno rast v začetku, a tega ne moremo ne dokazati ne ovreči. Vsekakor pa je ni v ravnovesni fazi, saj zelo globokih vrtač ne opazimo.
+Če velja $a > 0$, bomo vedno dobili neomejeno eksponentno rast, ki je v omejenih intervalih uporaben model za npr. opis rasti populacij držav, širjenje virusov, jedrskih verižnih reakcij, itn. Uporabnost modela se konča, ko se sistem zasiti - to je, ko zmanjka virov, ki rast poganjajo (če gledamo dane primere - ko zmanjka hrane, celic, jeder).\\
+Pri vrtačah pričakujemo, da bo njihova rast na nek način odvisna od njihove globine, saj se voda steka proti nižjim točkam in tam povzroča hitrejšo denudacijo. Eksponentno rast bi torej pričakovali, a v naravi ne opazimo zelo globokih vrtač. Sklepamo torej, da je eksponentna rast v vrtačah v nekem obdobju razvoja možna, a pri starih, ravnovesnih vrtačah prevlada drugačna dinamika.
 
 
-    \subsection{Logistična rast}
+\subsection{Omejena eksponentna rast}
 
-    V model logistične rasti predpostavimo, da je rast sorazmerna z višino v izbrani točki, ter da se zmanjšuje, ko se približujemo fizikalnim omejitvam sistema (npr. pomanjkanju hrane, življenjskega prostora, itn). To zapišemo v enačbo (\ref{dinamicna-logisticna}), ki jo reši funkcija (\ref{dinamicna-logisticna-resitev}).
+Model omejene eksponentne rasti predpostavi, da je hitrost rasti količine $h(t)$ tem večja, čim dlje je od nosilne kapacitete sistema $K$. To zapišemo v enačbo (\ref{dinamicna-omejena-eksponentna}), rešimo z (\ref{dinamicna-omejena-eksponentna-resitev}) in narišemo (Slika \ref{fig:omejena-eksponentna-rast}) ob variiranju začetne vrednosti $h_0$ ter koeficienta rasti $a$.
+
+    \begin{equation}
+      \frac{\partial h(t)}{\partial t} = a \cdot ( K - h(t) ) = a K - a h(t).
+      \label{dinamicna-omejena-eksponentna}
+    \end{equation}
+Rešitev pa je
+    \begin{equation}
+      h(t) = K - (K - h_0) e^{-a t}.
+      \label{dinamicna-omejena-eksponentna-resitev}
+    \end{equation}
+
+    Medtem ko je omejena eksponentna rast podobna logistični, po tem, da se ustali pri $K$, pa ima logistična v začetku položnejšo rast. Omejena eksponentna rast se uporablja za modeliranje sistemov, v katerih dinamiko poganjajo zunanji dejavniki, medtem ko znotraj sistemov ni interakcij, na primer pri širjenju informacij v družbi preko medijev.\\
+V začetku hitra rast, ki se na koncu ustali bi bila lahko primeren model za vrtače in se zdi primernejša od čisto eksponentne rasti.
+
+    \begin{figure}[h]
+      \begin{center}
+        \includegraphics[width=14cm]{slike/omejena-eksponentna-rast}
+      \end{center}
+      \caption{Omejena eksponentna rast po (\ref{dinamicna-omejena-eksponentna-resitev}). Vzeli smo $K=-10$ in variirali ostale parametre. V prvem primeru smo pri $a=0,1$ vzeli $h_0=-0,1;-1;-5;-15$. V drugem pa pri $h_0=-1$, $a=0.01;0.1;0.2;0,5$.}
+      \label{fig:omejena-eksponentna-rast}
+    \end{figure}
+
+
+\subsection{Logistična rast}
+
+V modelu logistične rasti postavimo, da je hitrost spreminjanja količine $h(t)$ sorazmerna z vrednostjo te količine in razdaljo ($1 - \frac{h(t)}{K}$) do neke fizikalne omejitve sistema (npr. količine hrane v okolju, življenjskega prostora, itn). $K$ imenujemo nosilna kapaciteta sistema, $a$ pa koeficient rasti. To zapišemo v enačbo (\ref{dinamicna-logisticna}), ki jo reši funkcija (\ref{dinamicna-logisticna-resitev}).
 
     \begin{equation}
       \frac{\partial h(t)}{\partial t} = a \cdot \left( 1 - \frac{h(t)}{K} \right) h(t).
@@ -626,45 +652,19 @@ Najprej ločeno pogledamo različne variacije determinističnega člena $F(h)$ z
     \end{figure}
 
     Vidimo, da ne glede na izbiro začetne točke $h_0$, vrednost h(t) konvergira proti vrednosti $K$. Torej je rast omejena s kapaciteto sistema K.
-    Če funkcijo (\ref{dinamicna-logisticna-resitev}) Taylorjevo razvijemo, vidimo, da je rast, kjer $h(t) \ll K$, približno $a h(t)$. V območju, kjer je $h(t)$ bližji $K$, pa postane drugi člen v razvoju $-a h(t)^2 / K$ pomembnejši in rast se po dolgem času ustavi.
-    Model logistične rasti se uporablja za modeliranje človeških in živalskih populacij, rasti tumorjev, širjenje inovacij v družbi in sprememb v jeziku. Zaradi omejene rasti pa se zdi tudi zanimiv kandidat za modeliranje dinamike vrtač.
-
-
-    \subsection{Omejena eksponentna rast}
-
-    Model omejene eksponentne rasti pravi, da je rast tem večja, čim dlje smo od omejitve sistema $K$ in vedno v smeri proti vrednosti $K$. To zapišemo v enačbo (\ref{dinamicna-omejena-eksponentna}) in rešimo z (\ref{dinamicna-omejena-eksponentna-resitev}).
-
-    \begin{equation}
-      \frac{\partial h(t)}{\partial t} = a \cdot ( K - h(t) ) = a K - a h(t).
-      \label{dinamicna-omejena-eksponentna}
-    \end{equation}
-
-    Rešitev pa je
-    \begin{equation}
-      h(t) = K - (K - h_0) e^{-a t}.
-      \label{dinamicna-omejena-eksponentna-resitev}
-    \end{equation}
-
-    Medtem ko je omejena eksponentna rast podobna logistični, pa ima logistična v začetku položnejšo rast. Omejena eksponentna rast se uporablja za modeliranje sistemov, v katerih dinamiko poganjajo zunanji dejavniki in znotraj katerih ni interakcij. Naprimer pri širjenju inovacij v družbi.
-
-    \begin{figure}[h]
-      \begin{center}
-        \includegraphics[width=14cm]{slike/omejena-eksponentna-rast}
-      \end{center}
-      \caption{Omejena eksponentna rast po (\ref{dinamicna-omejena-eksponentna-resitev}). Vzeli smo $K=-10$ in variirali ostale parametre. V prvem primeru smo pri $a=0,1$ vzeli $h_0=-0,1;-1;-5;-15$. V drugem pa pri $h_0=-1$, $a=0.01;0.1;0.2;0,5$.}
-      \label{fig:omejena-eksponentna-rast}
-    \end{figure}
-
+    Če funkcijo (\ref{dinamicna-logisticna-resitev}) Taylorjevo razvijemo, vidimo, da je rast, kjer $h(t) \ll K$, približno $a h(t)$. V območju, kjer je $h(t)$ bližji $K$, pa postane drugi člen v razvoju $-a h(t)^2 / K$ pomembnejši in rast se po dolgem času ustavi.\\
+    Model logistične rasti se uporablja za modeliranje človeških in živalskih populacij, rasti tumorjev, širjenje inovacij v družbi in sprememb v jeziku. Zaradi na začetku in koncu počasne rasti pa se zdi zanimiv kandidat za modeliranje dinamike vrtač.
 
 
     \subsection{Gompertzova rast}
 
-    Pri modelu Gompertzove rasti vzamemo, da se faktor rasti s časom spreminja po enačbi (\ref{dinamicna-gompertzova-faktor}), kar nam da enačbo (\ref{dinamicna-gompertzova}) in rešitev (\ref{dinamicna-gompertzova-resitev}), iz katere lahko dobimo še asimptotsko rešitev (\ref{dinamicna-gompertzova-faktor}), ki je podobna zasičenosti modela pri prejšnjih dveh primerih, a nastopi zaradi postopnega prenehanja rasti, in ne zaradi povratne zanke (kot v primeru logistične in omejene eksponentne rasti).
+    Model Gompertzove rasti dopolni eksponentno rast tako, da koeficient rasti $a(t)$ iz enačbe za eksponentno rast (\ref{dinamicna-eksponentna}) s časom spreminja po predpisu (\ref{dinamicna-gompertzova-faktor}), kar nam da enačbo (\ref{dinamicna-gompertzova}) in rešitev (\ref{dinamicna-gompertzova-resitev}). Ta ima tudi asimptotsko rešitev (\ref{dinamicna-gompertzova-limita}). Rast torej poganja količina $h(t)$, ustavlja pa jo zmanjšujoč se koeficient rasti $a(t)$.
 
     \begin{equation}
-      a(t) = a_0 \cdot e^{- k t}.
+      a(t) = a_0 \cdot e^{- k t},
       \label{dinamicna-gompertzova-faktor}
     \end{equation}
+kjer je $k > 0$ koeficient pojemanja rasti, $a_0$ pa začetni koeficient rasti.
     \begin{equation}
       \frac{\partial h(t)}{\partial t} = a(t) \cdot h(t) = a_0 e^{ -k t} h(t).
       \label{dinamicna-gompertzova}
@@ -685,7 +685,14 @@ Najprej ločeno pogledamo različne variacije determinističnega člena $F(h)$ z
       \caption{Vzeli smo $h_0=-1$ in $a_0=0,1$ in variirali $k=0,1;0,25;0,5;1$.}
       \label{fig:gompertzova-rast}
     \end{figure}
+
+Po začetni hitrejši rasti, se količina $h(t)$ postopoma ustali pri asimptotski vrednosti in nam torej da dinamiko, ki ustreza našim zahtevam za vrtače. Zmanjšujočo se hitrost rasti bi lahko pripisali bolj učinkovitemu odvajanju vode skozi apnenec, zaradi česar bi se čas ko je voda v stiku s kamnino in jo lahko raztaplja zmanjšal.
+Gompertzov model se uporablja za modeliranje rasti slabo prekrvavljenih tumorjev.
+
+\begin{comment} 
+\subsection{Komentar}
 [TODO]Opis razlik in podobnosti med temi modeli deterministične dinamike[TODO]
+\end{comment}
 
     \section{Difuzijsko modeliranje dinamike vrtač}
 
@@ -784,6 +791,7 @@ Eksponentna rast za vrtače ni primeren model, saj zelo velikih vrtač v naravi 
     Vidimo, da rast tokrat s časom upada (Slika \ref{fig:difuzija-gompertzova-rast}). Tako profil najprej zraste, nato pa se difuzijsko izravna, ko difuzija prevlada.
     Model se zdi za modeliranje vrtač neprimeren, saj nimamo jasne razlage, kaj bi povzročilo faktor rasti, ki bi nato eksponentno zamrl.
 \newpage
+\subsection{Komentar}
 [TODO]Primerjava vseh fenomenoloških reakcijsko difuzijskih modelov in njihove primernosti za opis našega problema.[TODO]
 
     \chapter{Zaključek}
