@@ -31,6 +31,8 @@ prezentacija/main.snm
 *.asv
 *.mat
 *.grd
+*.srf
+*.psd
 
 #################
 ## Eclipse

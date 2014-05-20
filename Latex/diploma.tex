@@ -404,23 +404,20 @@ Sedaj si ogledamo (Slika \ref{fig:barabasi}). Če se točki zasičenja $(t_s,w(t
     \label{hrapavost}
 
 V uvodu smo postavili tezo, da so vse vrtače stare, stabilne oblike. Ko jih opišemo z definicijami rasti površin, domnevamo da so starejše od časa zasičenja ($t_s$) in zanje velja zveza (\ref{alfa}). Predelamo jo v $ w_{sat}=C \cdot L^\alpha $ in dobimo sledečo zvezo za eksponent hrapavosti starega površja:
-
     \begin{equation}
       \alpha = \frac{\partial ( ln (w_{sat}) ) }{\partial ( ln L )}.
       \label{alpha-numeric}
     \end{equation}
 
-    Na LiDARskem modelu Menišije izračunamo ${w}_{sat}$ za vse mogoče za prereze v smereh sever-jug in vzhod-zahod. Širine površij prerezov $w_{sat}$ nato narišemo v odvisnosti od velikosti prerezov površij $L$.\\
-Dobimo graf (Slika \ref{fig:menisija-alfa}), s katerega odberemo, da je $\alpha =  0.409 \pm 0.02$.
+Na LiDARski model Menišije polagamo plakete velikosti $L\times L$, na njih pa izračunamo ${w}_{sat}$. Odvisnost ${w}_{sat}(L^2)$ izrišemo na (Slika \ref{fig:menisija-alfa}) in z grafa odberemo, da je $\alpha =  0,36 \pm 0.02$.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \begin{center}
-    \includegraphics{slike/menisija-alfa.pdf}
+    \includegraphics[width=14cm]{slike/menisija-alfa-3d.pdf}
   \end{center}
-  \caption{Prileganje premice $f(ln(L)) = \alpha \cdot x$ h krivulji $ln(w_{sat}(ln(L)))$ nam poda eksponent hrapavosti $\alpha$.}
+  \caption{Izračunane ${w}_{sat}(L^2)$ izrišemo na levi sliki. Na desni pa za vsak $L^2$ izračunamo $\bar w_{sat}(L^2)$ in prilegamo premico. Dobimo rezultat: $f(ln(L^2)) = f(2 \cdot ln(L)) = 0,71 \cdot L^2 - 1,86 = 2 \cdot (0,36 \cdot L^2 - 0,93)$.}
   \label{fig:menisija-alfa}
 \end{figure}
-
 
     \section{Model Kardar-Parisi-Zhang}
 
