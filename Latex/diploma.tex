@@ -236,9 +236,11 @@ Porazdelitev efektivnih polmerov pokažemo na histogramu (Slika \ref{fig:menisij
     \begin{center}
       \includegraphics[width=15cm]{slike/menisija-polmeri-hist}
     \end{center}
-    \caption{Polmeri konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, standardna deviacija efektivnega polmera pa je $\sigma_{r_{eff}}=24m$.}
+    \caption{Polmeri konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, standardna deviacija efektivnega polmera pa je $\sigma_{r_{eff}}=24m$. [TODO]Videti je kot Maxwellova porazdelitev: $ N = A r_{eff}^2 e^{r_{eff}^2/2 \sigma_{reff}^2}$
+Je to res? Se da nafitati? $\sigma_{eff}$[TODO]}
     \label{fig:menisija-polmeri-hist}
   \end{figure}
+
 Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, standardna deviacija efektivnega polmera pa $\sigma_{r_{eff}}=24m$. Za $71\%$ objektov velja: $2m < r_{eff} < 50m$.
 Zavržemo objekte izven tega intervala in z ročnim pregledom posameznih vrtač preverimo, da je večina najdenih objektov res vrtač.
 
@@ -422,6 +424,7 @@ Po dolgem času rast površja preide v zasičeni režim, v katerem je površje p
     \label{alfa}
   \end{equation}
 Eksponent hrapavosti $\alpha$ je tudi odvisen od korelacijskega mehanizma in nam pove kako je hrapavosti zasičenega površja odvisna od njegove velikosti.
+[TODO]Neke vrste fraktalna odvisnost, $\alpha$ fraktalna dimenzija.[TODO]
 
 Čas zasičenja $t_s$, ob katerem rast površja preide iz nenasičenega v nasičen režim, je odvisen od velikosti površja in je:
   \begin{equation}
@@ -531,6 +534,7 @@ Ker je razpadanje kamnine počasen proces in se iz podlage odkrušeni kamni lahk
   \frac{\mathrm{d} h}{\mathrm{d} t} \bigg|_{difuzija} = \nu \nabla^2 h,
 \end{equation}
 kjer je $\nu$ utež 'površinske napetosti', ki določa kako močno bo difuzijski člen izravnaval površje.
+[TODO]Difuzija je 'entropijska' in kaže vedno invarianti gradienta. Sledi kratek opis difuzije v tekočini.[TODO]
 
 Končno privzamemo še, da je smer mikroskopske denudacije kamnine obrnjena v kamnino, v smeri normale površja (Slika \ref{fig:KPZ}). 
 \begin{figure}[h!]
@@ -584,9 +588,9 @@ Postavimo se v premikajoč sistem, ki se premika s hitrostjo $v + \lambda$ v sme
   h(\mathbf{x},t) = \frac{2 \nu}{\lambda} log(Z(\mathbf{x},t)),
 \end{equation}
 dobimo difuzijsko enačbo v časovno odvisnem naključnem potencialu:
-
 \begin{equation}
   \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z,
+  \label{KPZ3}
 \end{equation}
 katere formalna rešitev se da dobiti kot:
 \begin{equation}
@@ -594,11 +598,24 @@ katere formalna rešitev se da dobiti kot:
 \end{equation}
 Kjer je $d$ število dimenzij v prostoru.
 
+Primerjajmo to z običajno difuzijsko enačbo za gostoto ob prisotnosti izvirov:
+\begin{equation}
+  \frac{ \partial \rho}{ \partial t} = \mathbf{\nabla} \cdot \mathbf{j} = \mathbf{\nabla} (D \cdot \mathbf{\nabla} \rho) + \mathbf{\nabla} \cdot \mathbf{j_0},
+  \label{dinamicna-splosna-3}
+\end{equation}
+kjer je zadnji člen na desni gostota izvirov, predzadnji pa je Fickov člen. Če za jakost izvirov velja:
+\begin{equation}
+  \mathbf{\nabla} \cdot \mathbf{j_0} = \frac{\partial \rho}{\partial t}\bigg|_{0} = C \cdot \rho.
+  \label{jakost-izvirov}
+\end{equation}
+Potem vidimo, da (\ref{KPZ3}) ustreza izvorom s stohastično jakostjo $C$, ki je odvisna še od $C=C(\mathbf{x},t)$. Tu imamo torej že neke vrste stohastičen reakcijsko difuzijski sistem.
+
+
     Avtorji \cite{kardar1986dynamic} nato v Fourierovem prostoru s pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. Izpeljava ni preprosta in jo bomo tu zgolj privzeli. Rezultat se relativno dobro ujema z $\alpha =  0,71 \pm 0.01$ namerjenim v (Poglavje \ref{hrapavost}).
 
 Da bi kvalitativno ocenili kakšno površje nastane z stohastično denudacijo površja, napravimo preprosto numerično simulacijo. Začnemo z ravnim površjem velikosti $80\times80$ točk, določimo časovni korak $\mathrm{d}t=10^{-3}$ in $10^6$-krat izračunamo:
 \begin{equation} 
-  h_{i+1} = h_i - dt (\nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t)),
+  h_{i+1} = h_i - dt (\nu \frac{\partial^2}{\partial x^2} h + \frac{\lambda}{2} (\frac{\partial}{\partial x} h)^2 + \eta (\mathbf{x},t)),
 \end{equation}
 kjer je $h_{i+1}$ nova vrednost v obravnavani točki, $h_{i}$ stara vrednost v obravnavani točki, $\eta (\mathbf{x},t) \in [0,1]$ in določimo $\nu = \lambda = 1$. (Slika \ref{fig:KPZ-numericno}) je primer tako simuliranega površja.
 
@@ -618,6 +635,8 @@ Končno stanje površja pri tem ni statično, med koraki prihaja do manjših pre
 Do sedaj smo modelirali vrtače kot posledico stohastičnega procesa. Kardar-Parisi-Zhang je neke vrste stohastična reakcijsko difuzijska enačba, kot smo pokazali v prejšnjem podpoglavju. Zdi se, da Kardar-Parisi-Zhang model nakazuje, da obstaja povezava med reakcijsko difuzijskimi modeli in dinamiko vrtače. Zato poskusimo modelirati rast vrtač še z nekaj drugimi reakcijsko difuzijskimi modeli. Ker nimamo jasnega modela na katerega bi se oprli je ta problem bolj kompleksen, saj mora v upoštevati vse dejavnike rasti ene same vrtače. 
 
 Ker mikroskopskega modela take dinamike ne moremo postaviti, si ogledamo nekaj fenomenoloških modelov rasti, ki temeljijo na reakcijsko-difuzijski dinamiki (\ref{dinamicna-splosna}) opisa rasti, ki jo potrjuje tudi Kardar-Parisi-Zhang model. Predlagani modeli so primerni za opis prostorsko porazdeljenih kemijskih reakcij in mehanskega transporta materiala v vrtačah. Ti modeli predpostavijo, kako na neko količino vpliva izbrana deterministična dinamika in difuzija.
+
+[TODO] Povežite to z denudacijo in hrapavostjo površja (opisno!) [TODO]
 
 \begin{equation}
   \frac{ \partial h(t,x) }{ \partial t} = D \Delta h + F(h).
@@ -771,10 +790,11 @@ V prejšnjem poglavju predlagane deterministične nastavke dinamike sedaj zapore
     \end{equation}
 postavijo, da začnemo na ravni podlagi, z majhno udrtino Gaussove oblike. Vrednost $h(t,x)$ in njen prvi odvod po normali na robu območja postavimo na $0$.
 
+Uporabljeni seti enačb in robnih pogojev so torej nelinearni in popolnoma deterministični, medtem ko smo pri Kardar-Parisi-Zhangovem modelu študirali stohastično a linearno rast.
     \subsection{Eksponentna rast}
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot h(t,x).
+      \frac{ \partial h(t,x) }{ \partial t} = D \frac{\partial^2}{\partial x^2} h(t,x) + a \cdot h(t,x).
       \label{difuzija-eksponentna-rast}
     \end{equation}
 
@@ -784,7 +804,7 @@ Eksponenta rast z difuzijo je v določenem intervalu smiseln model za opis popul
       \begin{center}
         \includegraphics[width=7cm]{slike/difuzija-eksponentna-rast2}
       \end{center}
-      \caption{Vzeli smo $D=1$, $a=1$.}
+      \caption{Prikaz časovnega razvoja površja po modelu eksponentne rasti z difuzijskim členom, podanim z (\ref{difuzija-eksponentna-rast}). Vzeli smo $D=1$, $a=1$.}
       \label{fig:difuzija-eksponentna-rast}
     \end{figure}
 
@@ -793,14 +813,14 @@ Eksponenta rast z difuzijo je v določenem intervalu smiseln model za opis popul
     Omejena eksponentna rast z difuzijo upošteva nosilno kapaciteto sistema in se uporablja za opis modelov, kjer znotraj populacije ni interakcij. Na primer pri širjenju v družbi preko medijev, brez medosebnega prenosa.\\
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot (K - h(t,x)).
+      \frac{ \partial h(t,x) }{ \partial t} = D \frac{\partial^2}{\partial x^2} h(t,x) + a \cdot (K - h(t,x)).
       \label{difuzija-omejena-eksponentna-rast}
     \end{equation}
     \begin{figure}[h]
       \begin{center}
         \includegraphics[width=7cm]{slike/difuzija-omejena-eksponentna-rast2}
       \end{center}
-      \caption{Vzeli smo $D=1$, $a=\frac{1}{50}$, $K=-10$.}
+      \caption{Prikaz časovnega razvoja površja po modelu omejene eksponentne rasti z difuzijskim členom, podanim z (\ref{difuzija-omejena-eksponentna-rast}). Vzeli smo $D=1$, $a=\frac{1}{50}$, $K=-10$.}
       \label{fig:difuzija-omejena-eksponentna-rast}
     \end{figure}
 
@@ -808,21 +828,27 @@ Eksponenta rast z difuzijo je v določenem intervalu smiseln model za opis popul
 
 
     \subsection{Logistična rast}
-Logistična rast z difuzijo nam da Fisher-Kolmogorovo enačbo:
+Logistična rast z difuzijo nam da Fisher-Kolmogorovo enačbo, ki se uporablja v populacijski genetiki:
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) + a \cdot h(t,x) \cdot (1 - \frac{h(t,x)}{K}).
+      \frac{ \partial h(t,x) }{ \partial t} = D \frac{\partial^2}{\partial x^2} h(t,x) + a \cdot h(t,x) \cdot (1 - \frac{h(t,x)}{K}).
       \label{difuzija-logisticna-rast}
     \end{equation}
     \begin{figure}[h!]
       \begin{center}
         \includegraphics[width=9cm]{slike/difuzija-logisticna-rast2}
       \end{center}
-      \caption{Vzeli smo $D=1$, $a=\frac{1}{50}$, $K=-10$.}
+      \caption{Prikaz časovnega razvoja površja po modelu logistične rasti z difuzijskim členom, podanim z (\ref{difuzija-logisticna-rast}).Vzeli smo $D=1$, $a=\frac{1}{50}$, $K=-10$.}
       \label{fig:difuzija-logisticna-rast}
     \end{figure}
 
-Fisher je ta model originalno predlagal za opis širjenja ugodnih genov po populaciji. Parameter $a$ je bil v tem kontekstu metrika za koristnost gena. Model se uporablja še za opis širjenja človeških populacij po originalno praznih območjih, npr. naselitev Severne Amerike.\\
+Fisher je ta model originalno predlagal za opis širjenja ugodnih genov po populaciji \cite{broadbridge2002huxley}. Parameter $a$ je bil v tem kontekstu metrika za koristnost gena. Model se uporablja še za opis širjenja človeških populacij po originalno praznih območjih, npr. naselitev Severne Amerike.\\
+
+[TODO] Nekaj več? Samoorganizacija?
+Se nekaj: zdi se mi, da je model z logisticno rastjo v difuzijsko-reakcijski enacbi
+bolj smiselen kot drugi saj daj intrinzicno velikost pobocja, ki je ne doloca robni
+pogoj. V ostalih promerih je robni pogoj tisti, ki doloci koncno obliko, ne?[TODO]
+
 Ko se pobočje enkrat oblikuje, ne spreminja več oblike, ampak potuje kot valovna fronta navzven (Slika \ref{fig:difuzija-logisticna-rast}). Pokažemo lahko, da je dolžina vala odvisna od difuzijske konstante $D$ in faktorja rasti $a$, ter da velja: 
 
     \[ \lambda \sim \sqrt{D/a}. \]
@@ -853,6 +879,18 @@ Logistična rast z difuzijo nam da dober model za dinamiko vrtač. Začetna rast
 
 Po pregledu predlaganih fenomenoloških reakcijsko difuzijskih modelov sklenemo, da eksponentna in Gompertzova rast zaradi zgoraj navedenih razlogov nista primerna modela. Omejena eksponentna in logistična rast pri previdno izbranih robnih pogojih dajo intuitivno sprejemljive rezultate, pri čemer se logistična rast zdi bolj smiselna glede na geomorfološko literaturo.
 
+
+[TODO]
+Še enkrat primerjajte statističen opis populacije vrtač in deterministični opis vrtače. V obeh primerih:
+\begin{equation}
+  \frac{ \partial h(t,x) }{ \partial t} = D \Delta h + F(h).
+  \label{dinamicna-splosna3}
+\end{equation}
+
+1.) $F(h) = \eta h$ ($\eta$ = gaussov šum)
+2.) $F(h)$ nelinearna a deterministična
+[TODO]
+
     \chapter{Zaključek}
 
     Izkaže se, da je zaznava in segmentacija vrtač na digitalnem modelu reliefa relativno enostavna naloga, izvedljiva na osebnem računalniku. Kodo, ki sem jo za ta postopek spisal, sem dokumentirano objavil na spletu in bo morda služila za obsežnejšo katalogizacijo vrtač.
@@ -860,12 +898,19 @@ Po pregledu predlaganih fenomenoloških reakcijsko difuzijskih modelov sklenemo,
 
     Precej zahtevnejša naloga je bila izbira fizikalnega modela in dinamičnega opisa vrtače zaradi omejene količine podatkov o časovni dinamiki (domnevali smo, da so vse vrtače že v ravnovesnem stanju) in nepoznavanja dejanskega procesa, ki znižuje površje.
 
+[TODO]
+Zopet opis filozofije stohastičnega modela populacije vrtač in determinističnega modela ene vrtače.
+[TODO]
+
     Kardar-Parisi-Zhangova rast površin nam da rezultat podoben kraškemu površju z vrtačami. Teoretično napovedan eksponent hrapavosti pa se relativno dobro ujema z izmerjenim na področju Menišije. Teh rezultatov ne moremo obravnavati kot dokaz, morda le spodbudo za nadaljnji študij.
 
     Za nepopoln model dinamike rasti vrtač predlagajmo model logistične rasti z difuzijo (\ref{fig:difuzija-logisticna-rast}), ki se zdi fizikalno najbolj smiseln. Odprto ostaja vprašanje robnih pogojev - če ta model velja, kaj omejuje velikost vrtač?
 
     Za popolnejši študij in dober model vrtač bi verjetno potrebovali bolj poglobljene informacije o prsti, geoloških in bioloških dejavnikih, ki lahko vplivajo na časovno dinamiko terena. Zanimiva ideja bi bila z geološkim študijem najti in datirati vrtače v različnih stopnjah razvoja ter s pomočjo te informacije oblikovati dinamičen nastavek, na podlagi katerega bi potem morda bolj osvetlili dinamično enačbo.
 
+[TODO]
+Ali se da najti statistiko kraterjev na Luni  in primerjati?
+[TODO]
 
 
     \newpage \thispagestyle{empty}
