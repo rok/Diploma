@@ -73,7 +73,7 @@ if 1
     title('Porazdelitev \sigma prislonjenih funkcij')
     xlabel('\sigma [m]')
     ylabel('N(\sigma)')
-    printpdf(gcf,'../Latex/slike/menisija-visine-in-sigme-hist',20,7); %'-S750,420'
+    printpdf(gcf,'../Latex/slike/menisija-visine-in-sigme-hist',20,9); %'-S750,420'
 end
 
 %%
@@ -156,7 +156,7 @@ if 1
     load(strrep(data,'.grd','-profiles.mat'))
     all_fits = [s.fit];
     sigmas=sqrt([all_fits.sx].^2 + [all_fits.sx].^2);
-    As=[all_fits.A];
+    As = [all_fits.A];
     reffs = [s.profilesize];
 
     %Remove positive As and too small reffs
@@ -179,7 +179,7 @@ if 1
     % Fit for A(sigma)
     asfit = fittype('k*as', 'indep', 'as');
     asinit = [-0.5];
-    as_fit = fit( sigmas', As', asfit, 'StartPoint', asinit);
+    as_fit = fit( 0.4*sigmas', abs(As'), asfit, 'StartPoint', asinit);
     % Fit for sigma(reff)
     srfit = fittype('k*sigmas', 'indep', 'sigmas');
     srinit = [1];
@@ -187,7 +187,7 @@ if 1
     % Fit for A(reff)
     arfit = fittype('k*reffs', 'indep', 'reffs');
     arinit = [-1];
-    ar_fit = fit( reffs', As', arfit, 'StartPoint', arinit);
+    ar_fit = fit( reffs', abs(As'), arfit, 'StartPoint', arinit);
     
     figure(gcf);
     subplot(2,2,1)
@@ -198,29 +198,32 @@ if 1
     ylabel('\sigma [m]');
     xlabel('r_{eff} [m]');
     title('Odvisnost \sigma(r_{eff})');
-    legend('Izmerjene \sigma',strcat('\sigma(r_{eff})', sprintf(' = %1.1g',sr_fit.k),'* r_{eff}'),'location','southeast');
+    legend('Izmerjene \sigma',strcat('\sigma(r_{eff})', sprintf(' = %1.1g',sr_fit.k),'\cdot r_{eff}'),'location','northwest');
     hold off;
 
     subplot(2,2,2)
-    scatter(reffs(reffs<cutoff),As(reffs<cutoff),3)
+    scatter(reffs(reffs<cutoff),abs(As(reffs<cutoff)),3)
     hold on;
     h2 = plot(ar_fit);
+    ylim([0,20])
     set(h2,'LineWidth',2);
-    ylabel('A [m]');
+    ylabel('|A| [m]');
     xlabel('r_{eff} [m]');
-    title('Odvisnost A(r_{eff})');
-    legend('Izmerjene globine A',strcat('A(r_{eff})', sprintf(' = %1.1g',ar_fit.k),'* r_{eff}'),'location','southwest');
+    title('Odvisnost |A(r_{eff})|');
+    %legend('Izmerjene globine A',strcat('|A(r_{eff})|', sprintf(' = %1.1g',ar_fit.k),'* r_{eff}'),'location','northwest');
+    legend('Izmerjene globine |A|',strcat('|A(r_{eff})|', sprintf(' = %1.1g',ar_fit.k),' \cdot r_{eff}'),'location','northwest');
     hold off;
     
     subplot(2,1,2)
-    scatter(sigmas(reffs<cutoff),As(reffs<cutoff),3)
+    scatter(0.4*sigmas(reffs<cutoff),abs(As(reffs<cutoff)),3)
     hold on;
     h3 = plot(as_fit);
+    ylim([0,25])
     set(h3,'LineWidth',2);
-    ylabel('A [m]');
-    xlabel('\sigma [m]');
-    title('Odvisnost A(\sigma)');
-    legend('Izmerjene globine A',strcat('A(\sigma)', sprintf(' = %1.1g',as_fit.k),'* \sigma'),'location','southwest');
+    ylabel('|A| [m]');
+    xlabel('0,4 \cdot \sigma [m]');
+    title('Odvisnost |A(0,4 \cdot \sigma)|');
+    legend('Izmerjene globine |A|',strcat('|A(0,4 \cdot \sigma)| = ', sprintf('%1.2g',as_fit.k),' \cdot (0,4 \cdot \sigma)'),'location','northwest');
     hold off;
     
     printpdf(gcf,'../Latex/slike/menisija-A-sigma-reff',25,15);
