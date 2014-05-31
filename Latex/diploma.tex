@@ -218,31 +218,32 @@ Sedaj vrtače zarišemo preko večjega senčenega reliefa: (Slika \ref{fig:menis
     \label{fig:menisija-vrtace}
   \end{figure}
 
+Z ročnim pregledom celotnega reliefa preverimo, da je večina najdenih objektov res vrtač.
+
   \section{Analiza}
 
   Površino vrtač definiramo s številom višinskih točk (pikslov), ki jo sestavljajo:
     \begin{equation}
       A = \sum pikslov.
     \end{equation}
-
 S to količino nato definiramo efektivni polmer objektov:
-
     \begin{equation} 
       r_{eff} = \sqrt{\frac{A}{\pi}}. 
     \end{equation}
 
-Porazdelitev efektivnih polmerov pokažemo na histogramu (Slika \ref{fig:menisija-polmeri-hist}).
+  Če histogramu efektivnih polmerov (Slika \ref{fig:menisija-polmeri-hist}) prilegamo Maxwellovo porazdelitev:
+\begin{equation} 
+  N(r_{eff}) = A r_{eff}^2 e^{-r_{eff}^2/ 2 \sigma_{eff}^2},
+\end{equation}
+dobimo rezultat $\sigma_{eff}=17m$ in $A=1,2m$. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$.
+
   \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=15cm]{slike/menisija-polmeri-hist}
+      \includegraphics[width=12cm]{slike/menisija-polmeri-hist-maxwell}
     \end{center}
-    \caption{Polmeri konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, standardna deviacija efektivnega polmera pa je $\sigma_{r_{eff}}=24m$. [TODO]Videti je kot Maxwellova porazdelitev: $ N = A r_{eff}^2 e^{r_{eff}^2/2 \sigma_{reff}^2}$
-Je to res? Se da nafitati? $\sigma_{eff}$[TODO]}
+    \caption{Histogram efektivnih polmerov konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, prilegana Maxwellova porazdelitev: $ N = A r_{eff}^2 e^{r_{eff}^2/2 \sigma_{reff}^2}$, pa ima parametre $\sigma_{eff}=17m$ in $A=1,2m$}
     \label{fig:menisija-polmeri-hist}
   \end{figure}
-
-Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, standardna deviacija efektivnega polmera pa $\sigma_{r_{eff}}=24m$. Za $71\%$ objektov velja: $2m < r_{eff} < 50m$.
-Zavržemo objekte izven tega intervala in z ročnim pregledom posameznih vrtač preverimo, da je večina najdenih objektov res vrtač.
 
   Posamezne realne vrtače zaradi lokalnih pogojev in zgodovine razvoja reliefa niso simetrične, a zdi se, da so si med seboj podobne. Da bi ugotovili statistično najverjetnejšo obliko vrtače, izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo na isto velikost in povprečimo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh.
 

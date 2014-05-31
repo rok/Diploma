@@ -1,5 +1,5 @@
 function plot_results(data)
-
+data='menisija.grd';
 load(strrep(data,'.grd','-profiles.mat'))
 
 %%
@@ -22,22 +22,26 @@ if 1
     profile_sizes = [s.profilesize];
     profile_sizes = profile_sizes(profile_sizes < 120);
     profile_sizes = profile_sizes(profile_sizes~=0);
-    histo = hist(profile_sizes,max(profile_sizes)-3);
-    
-    mf = fittype('k*sigma + const', 'indep', 'sigma');
-%	init = [min(sigmas); range(sigmas)/length(sigmas)];
-%    sigma_fit = fit( (1:size(profile_fits,2))', sigmas', sf, 'StartPoint', init)
-    
+    histo = [0,0,0,0,hist(profile_sizes,max(profile_sizes)-4)];
+
+    mf = fittype('a*x*x*exp(-x*x/(2*b*b))','dependent',{'y'},'independent',{'x'},'coefficients',{'a', 'b'});
+    mfo = fitoptions('method','NonlinearLeastSquares','Lower',[1 1],'Upper',[100000  10000]);
+    mfit = fit((1:numel(histo))',histo',mf,mfo);
+
     figure(gcf);
-    
-    hist(profile_sizes,max(profile_sizes)-3)
+    bar(histo);
     hold on;
     plot(mfit);
     title('Porazdelitev konkavnih objektov po efektivnem polmeru')
+    %legend('Izmerjene \sigma',strcat('\sigma(r_{eff})', sprintf(' = %1.1g',sr_fit.k),'\cdot r_{eff}'),'location','norteast');
+    legend('Število konkavnih objektov','N(r_{eff}) = A r_{eff}^2 e^{-r_{eff}^2/2\sigma_{eff}^2}');
+    annotation('textbox',[0.584 0.65 0.15 0.11],'String',{...
+        strcat('\sigma_{eff} =', sprintf(' %1.2g',mfit.b)),...
+        strcat('A =', sprintf(' %1.2g',mfit.a))});
     xlabel('Efektivni polmer r_{eff} [m]')
     ylabel('N')
     hold off;
-    %printpdf(gcf,'../Latex/slike/menisija-polmeri-hist',18,5); %'-S750,420'
+    printpdf(gcf,'../Latex/slike/menisija-polmeri-hist-maxwell',18,10); %'-S750,420'
 end
 
 %%
