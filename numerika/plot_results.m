@@ -17,6 +17,30 @@ if 1
 end
 
 %%
+% Plot histogram of profile size and fit maxwell distribution onto it
+if 1
+    profile_sizes = [s.profilesize];
+    profile_sizes = profile_sizes(profile_sizes < 120);
+    profile_sizes = profile_sizes(profile_sizes~=0);
+    histo = hist(profile_sizes,max(profile_sizes)-3);
+    
+    mf = fittype('k*sigma + const', 'indep', 'sigma');
+%	init = [min(sigmas); range(sigmas)/length(sigmas)];
+%    sigma_fit = fit( (1:size(profile_fits,2))', sigmas', sf, 'StartPoint', init)
+    
+    figure(gcf);
+    
+    hist(profile_sizes,max(profile_sizes)-3)
+    hold on;
+    plot(mfit);
+    title('Porazdelitev konkavnih objektov po efektivnem polmeru')
+    xlabel('Efektivni polmer r_{eff} [m]')
+    ylabel('N')
+    hold off;
+    %printpdf(gcf,'../Latex/slike/menisija-polmeri-hist',18,5); %'-S750,420'
+end
+
+%%
 % Plot histogram of fitted As
 if 1 
     all_fits = [s.fit];

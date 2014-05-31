@@ -110,7 +110,7 @@ Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj de
 
   \begin{figure}[h]
     \begin{center}
-      \includegraphics[width=7cm]{slike/bpetrovac}
+      \includegraphics[width=8cm]{slike/bpetrovac}
     \end{center}
     \caption{Skupina vrtač vrezanih v staro kraško polje v bližini Bosanskega Petrovca, BiH \cite{bpetrovac}.}
     \label{fig:vrtace-bpetrovac}
@@ -126,7 +126,7 @@ Z učinkovitim navpičnim odvajanjem, ki ga omogoči korozijsko razširjanje raz
 \end{quotation}
 \begin{figure}[h!]
   \begin{center}
-    \includegraphics[width=6.5cm]{slike/vrtaca-ford-williams.jpg}
+    \includegraphics[width=7.5cm]{slike/vrtaca-ford-williams.jpg}
   \end{center}
   \caption{Geomorfološka skica nastanka vrtač. Na sprva ravnem površju neka začetna točka malenkost bolje odvaja vodo v podzemlje. Zaradi večjega pretoka vode se tam na stiku prsti in kamnine poveča raztapljanje apnenca. Raztapljanje in odnašanje apnenca v podtalnico poglobi površje in s tem poveča lokalno povodje in s tem količino vode odvajane v začetno točko. Dobimo pozitivno povratno zanko in oblikujejo se vrtače. S časom se v vrtačah nabere slabše prepustna prst, odvajanje vode skozi večje razpoke se izboljša, raztapljanje na dnu vrtače zmanjša. To deluje kot negativna povratna zanka. Vir: \cite{ford2007karst}.}
 \label{fig:vrtaca-ford-williams}
@@ -141,7 +141,7 @@ Na ta model se bomo oprli, ko bomo poskusili modelirati dinamiko vrtač.
 
   \begin{figure}[h]
     \begin{center}
-      \includegraphics[width=6cm]{slike/menisija-karta}
+      \includegraphics[width=7cm]{slike/menisija-karta}
     \end{center}
     \caption{Menišija, $60 km^2$ veliko območje med Cerknico in Logatcem, vsebuje nekaj tisoč vrtač ter nekaj udornic in predstavlja približno odstotek slovenskega krasa. Osenčen del zemljevida označuje področje digitalnega modela reliefa uporabljenega v tej nalogi (Slika \ref{fig:menisija-relief}). Vira: Geopedia, Geodetski inštitut Slovenije.}
     \label{fig:menisija-karta}
@@ -162,7 +162,7 @@ Da dinamiko vrtač bolje osvetlimo, bomo v (Poglavje \ref{realne-vrtace}) pregle
 
  \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=6.5cm]{slike/menisija-relief}
+      \includegraphics[width=7.5cm]{slike/menisija-relief}
     \end{center}
     \caption{Senčen digitalni model reliefa dela Menišije uporabljen v tej nalogi. Vir: Geodetski inštitut Slovenije \cite{LAK} po metodi REIN \cite{Kobler20079}.}
     \label{fig:menisija-relief}
@@ -592,12 +592,6 @@ dobimo difuzijsko enačbo v časovno odvisnem naključnem potencialu:
   \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z,
   \label{KPZ3}
 \end{equation}
-katere formalna rešitev se da dobiti kot:
-\begin{equation}
-  h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h(\xi,0) \right] \right).
-\end{equation}
-Kjer je $d$ število dimenzij v prostoru.
-
 Primerjajmo to z običajno difuzijsko enačbo za gostoto ob prisotnosti izvirov:
 \begin{equation}
   \frac{ \partial \rho}{ \partial t} = \mathbf{\nabla} \cdot \mathbf{j} = \mathbf{\nabla} (D \cdot \mathbf{\nabla} \rho) + \mathbf{\nabla} \cdot \mathbf{j_0},
@@ -610,6 +604,11 @@ kjer je zadnji člen na desni gostota izvirov, predzadnji pa je Fickov člen. Č
 \end{equation}
 Potem vidimo, da (\ref{KPZ3}) ustreza izvorom s stohastično jakostjo $C$, ki je odvisna še od $C=C(\mathbf{x},t)$. Tu imamo torej že neke vrste stohastičen reakcijsko difuzijski sistem.
 
+Formalna rešitev (\ref{KPZ3}) se da dobiti kot:
+\begin{equation}
+  h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h(\xi,0) \right] \right),
+\end{equation}
+kjer je $d$ število dimenzij v prostoru.
 
     Avtorji \cite{kardar1986dynamic} nato v Fourierovem prostoru s pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. Izpeljava ni preprosta in jo bomo tu zgolj privzeli. Rezultat se relativno dobro ujema z $\alpha =  0,71 \pm 0.01$ namerjenim v (Poglavje \ref{hrapavost}).
 
