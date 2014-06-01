@@ -891,15 +891,11 @@ Za deterministični model vrtače predlagamo nelinearno enačbo:
   \label{dinamicna-splosna4}
 \end{equation}
 
-Modeliranje denudacije kraškega površja s stohastičnim procesom nas je pr
-Potencialno zanimiva sta torej sta dva nastavka za difuzijsko enačbo
-[TODO]
-Še enkrat primerjajte statističen opis populacije vrtač in deterministični opis vrtače. V obeh primerih:
-
-
-1.) $F(h) = \eta h$ ($\eta$ = gaussov šum)
-2.) $F(h)$ nelinearna a deterministična
-[TODO]
+Za bolj holističen pristop modeliranja denudacije kraškega površja s stohastičnim procesom in s tem nastanka vrtač smo uporabili nastavek $F(h) = \eta h$, kjer je $\eta$ Gaussov šum. S primerjavo izmerjene in po modelu pričakovane hrapavosti površja, smo pokazali da je Kardar-Parisi-Zhangov model morda primeren za opis dinamike vrtač. Podamo jo z nelinearno stohastično enačno:
+\begin{equation}
+  \frac{ \partial h}{ \partial t} = D \nabla^2 h + \eta h.
+  \label{dinamicna-splosna5}
+\end{equation}
 
     \chapter{Zaključek}
 
