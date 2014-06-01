@@ -534,6 +534,7 @@ Ker je razpadanje kamnine počasen proces in se iz podlage odkrušeni kamni lahk
   \frac{\mathrm{d} h}{\mathrm{d} t} \bigg|_{difuzija} = \nu \nabla^2 h,
 \end{equation}
 kjer je $\nu$ utež 'površinske napetosti', ki določa kako močno bo difuzijski člen izravnaval površje.
+
 [TODO]Difuzija je 'entropijska' in kaže vedno invarianti gradienta. Sledi kratek opis difuzije v tekočini.[TODO]
 
 Končno privzamemo še, da je smer mikroskopske denudacije kamnine obrnjena v kamnino, v smeri normale površja (Slika \ref{fig:KPZ}). 
@@ -855,7 +856,7 @@ Velikost pobočja je za razliko od ostalih reakcijsko-difuzijskih modelov intrin
     Deterministični model Gompertzove rasti z difuzijskim členom nam da:
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \Delta h(t,x) - h(t,x) \cdot e^{-a t}.
+      \frac{ \partial h(t,x) }{ \partial t} = D \frac{\partial^2}{ \partial x^2} h(t,x) - h(t,x) \cdot e^{-a t}.
       \label{difuzija-gompertzova-rast}
     \end{equation}
     \begin{figure}[h]
