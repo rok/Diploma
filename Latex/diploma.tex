@@ -424,8 +424,7 @@ Po dolgem času rast površja preide v zasičeni režim, v katerem je površje p
     \begin{array}{lr} w(L,t_s) = w_{sat}(L) \sim L^\alpha & (t \gg t_s). \end{array}
     \label{alfa}
   \end{equation}
-Eksponent hrapavosti $\alpha$ je tudi odvisen od korelacijskega mehanizma in nam pove kako je hrapavosti zasičenega površja odvisna od njegove velikosti.
-[TODO]Neke vrste fraktalna odvisnost, $\alpha$ fraktalna dimenzija.[TODO]
+Eksponent hrapavosti $\alpha$ je tudi odvisen od korelacijskega mehanizma in nam pove kako je hrapavosti zasičenega površja odvisna od njegove velikosti. Če je $\alpha = 0$, je površje gladko, saj hrapavost površja s povečevanjem $L$ ne narašča. Za $\alpha > 0$ hrapavost površja divergira pri $L \rightarrow \infty$, tako površje je grobo. \cite{krim1993roughness}
 
 Čas zasičenja $t_s$, ob katerem rast površja preide iz nenasičenega v nasičen režim, je odvisen od velikosti površja in je:
   \begin{equation}
@@ -877,15 +876,26 @@ Logistična rast z difuzijo nam da dober model za dinamiko vrtač. Začetna rast
 
 \subsection{Komentar}
 
-Po pregledu predlaganih fenomenoloških reakcijsko difuzijskih modelov sklenemo, da eksponentna in Gompertzova rast zaradi zgoraj navedenih razlogov nista primerna modela. Omejena eksponentna in logistična rast pri previdno izbranih robnih pogojih dajo intuitivno sprejemljive rezultate, pri čemer se logistična rast zdi bolj smiselna glede na geomorfološko literaturo.
-
-
-[TODO]
-Še enkrat primerjajte statističen opis populacije vrtač in deterministični opis vrtače. V obeh primerih:
+Vse predlagane modele vrtač lahko podamo z variiranjem nastavka $F(h)$ v difuzijski enačbi:
 \begin{equation}
-  \frac{ \partial h(t,x) }{ \partial t} = D \Delta h + F(h).
+  \frac{ \partial h(t,x) }{ \partial t} = D \nabla^2 h + F(h).
   \label{dinamicna-splosna3}
 \end{equation}
+
+Od fenomenoloških reakcijsko difuzijskih enačb, pridobljenih z determinističnim nastavkom $F(h)$, sta najbolj obetavna modela omejena eksponentna in logistična rast. Pri previdno izbranih robnih pogojih dajo intuitivno sprejemljive rezultate, pri čemer se logistična rast zdi bolj smiselna glede na geomorfološko literaturo. Zanimiva lastnost logistične difuzijske rasti je tudi oblika pobočja, ki je neodvisna od robnih pogojev.
+Rezultata eksponentne in Gompertzove rasti po dolgem času nista skladna z opažanji v naravi.
+
+Za deterministični model vrtače predlagamo nelinearno enačbo:
+\begin{equation}
+  \frac{ \partial h}{ \partial t} = D \nabla^2 h + a \cdot h (1 - \frac{h}{K}).
+  \label{dinamicna-splosna4}
+\end{equation}
+
+Modeliranje denudacije kraškega površja s stohastičnim procesom nas je pr
+Potencialno zanimiva sta torej sta dva nastavka za difuzijsko enačbo
+[TODO]
+Še enkrat primerjajte statističen opis populacije vrtač in deterministični opis vrtače. V obeh primerih:
+
 
 1.) $F(h) = \eta h$ ($\eta$ = gaussov šum)
 2.) $F(h)$ nelinearna a deterministična
