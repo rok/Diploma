@@ -635,7 +635,7 @@ Do sedaj smo modelirali vrtače kot posledico stohastičnega procesa. Kardar-Par
 
 Ker mikroskopskega modela take dinamike ne moremo postaviti, si ogledamo nekaj fenomenoloških modelov rasti, ki temeljijo na reakcijsko-difuzijski dinamiki (\ref{dinamicna-splosna}) opisa rasti, ki jo potrjuje tudi Kardar-Parisi-Zhang model. Predlagani modeli so primerni za opis prostorsko porazdeljenih kemijskih reakcij in mehanskega transporta materiala v vrtačah. Ti modeli predpostavijo, kako na neko količino vpliva izbrana deterministična dinamika in difuzija.
 
-[TODO] Povežite to z denudacijo in hrapavostjo površja (opisno!) [TODO]
+Predlagali bomo torej več modelov, kako naj globina in oblika vrtače vpliva na njeno poglabljanje. Opirali se bomo na geomorfološko tezo, da globlja in večja kot je vrtača, več vode zbira in se posledično hitreje poglablja. Hkrati pa ima tudi nekakšen zaviralni mehanizem, ki rast v določenem trenutku zaustavi, saj bi sicer dobili brezno.
 
 \begin{equation}
   \frac{ \partial h(t,x) }{ \partial t} = D \Delta h + F(h).
@@ -843,17 +843,12 @@ Logistična rast z difuzijo nam da Fisher-Kolmogorovo enačbo, ki se uporablja v
 
 Fisher je ta model originalno predlagal za opis širjenja ugodnih genov po populaciji \cite{broadbridge2002huxley}. Parameter $a$ je bil v tem kontekstu metrika za koristnost gena. Model se uporablja še za opis širjenja človeških populacij po originalno praznih območjih, npr. naselitev Severne Amerike.\\
 
-[TODO] Nekaj več? Samoorganizacija?
-Se nekaj: zdi se mi, da je model z logisticno rastjo v difuzijsko-reakcijski enacbi
-bolj smiselen kot drugi saj daj intrinzicno velikost pobocja, ki je ne doloca robni
-pogoj. V ostalih promerih je robni pogoj tisti, ki doloci koncno obliko, ne?[TODO]
-
 Ko se pobočje enkrat oblikuje, ne spreminja več oblike, ampak potuje kot valovna fronta navzven (Slika \ref{fig:difuzija-logisticna-rast}). Pokažemo lahko, da je dolžina vala odvisna od difuzijske konstante $D$ in faktorja rasti $a$, ter da velja: 
-
     \[ \lambda \sim \sqrt{D/a}. \]
 Iz te zveze lahko pokažemo tudi, da je hitrost takega vala $v = 2 \sqrt{D a}$.
 
 Logistična rast z difuzijo nam da dober model za dinamiko vrtač. Začetna rast je počasna, nato se pohitri in končno ustali, kar pričakujemo iz geomorfološke skice (Slika \ref{fig:vrtaca-ford-williams}) - v začetku homogena podlaga postopoma vedno bolje odvaja vodo in na koncu procesa z dobrim odvajanjem ter neprepustno prstjo stabilizira vrtačo v neki končni obliki.
+Velikost pobočja je za razliko od ostalih reakcijsko-difuzijskih modelov intrinzična lastnost in ne določena z robnimi pogoji, kot pri ostalih modelih. To se zdi po opazovanju vrtač v naravi bolj smiselno.
 
     \subsection{Gompertzova rast}
 
