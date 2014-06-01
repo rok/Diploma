@@ -900,17 +900,15 @@ Za bolj holističen pristop modeliranja denudacije kraškega površja s stohasti
     \chapter{Zaključek}
 
     Izkaže se, da je zaznava in segmentacija vrtač na digitalnem modelu reliefa relativno enostavna naloga, izvedljiva na osebnem računalniku. Kodo, ki sem jo za ta postopek spisal, sem dokumentirano objavil na spletu in bo morda služila za obsežnejšo katalogizacijo vrtač.
-    Za nekoliko težjo nalogo se izkaže določanje idealne oblike vrtače, saj le-ta ne obstaja. Pravo vprašanje bi se moralo glasiti, kakšna je idealna oblika vrtače na izotropni podlagi po dolgem času. Vseeno sem se odločil, da za idealno vrtačo vzamem povprečje velike količine vrtač.
+    Za nekoliko težjo nalogo se izkaže določanje idealne oblike vrtače, saj le-ta v naravi ne obstaja. Pravo vprašanje bi se moralo glasiti, kakšna je idealna oblika vrtače na izotropni podlagi po dolgem času. Vseeno sem se odločil, da za idealno vrtačo vzamem povprečje velike količine vrtač.
 
-    Precej zahtevnejša naloga je bila izbira fizikalnega modela in dinamičnega opisa vrtače zaradi omejene količine podatkov o časovni dinamiki (domnevali smo, da so vse vrtače že v ravnovesnem stanju) in nepoznavanja dejanskega procesa, ki znižuje površje.
+    Precej zahtevnejša naloga je izbira fizikalnega modela in dinamičnega opisa vrtače zaradi omejene količine podatkov o časovni dinamiki (domnevali smo, da so vse vrtače že v ravnovesnem stanju) in nepoznavanja dejanskega procesa, ki znižuje površje.
 
-[TODO]
-Zopet opis filozofije stohastičnega modela populacije vrtač in determinističnega modela ene vrtače.
-[TODO]
+    Pri modeliranju smo vedno predpostavili difuzijo in različne vplive, ki bi jih prisotnost vrtače na kraškem površju lahko imela na raztapljanje površja. Poleg determinističnih modelov rasti, smo predlagali tudi stohastičnega.
 
-    Kardar-Parisi-Zhangova rast površin nam da rezultat podoben kraškemu površju z vrtačami. Teoretično napovedan eksponent hrapavosti pa se relativno dobro ujema z izmerjenim na področju Menišije. Teh rezultatov ne moremo obravnavati kot dokaz, morda le spodbudo za nadaljnji študij.
+    Stohastičnen model Kardar-Parisi-Zhangove rasti površin nam da rezultat podoben kraškemu površju z vrtačami. Simulirano površje pa je kvalitativno podobno realnim površjem z vrtačami. Teoretično napovedan eksponent hrapavosti se relativno dobro ujema z izmerjenim na področju Menišije. Tega rezultata ne moremo obravnavati kot dokaz, morda le spodbudo za nadaljnji študij. Zanimiv nadaljnji korak bi bil študij statistike dimenzij konkavnih objektov na simuliranem površju.
 
-    Za nepopoln model dinamike rasti vrtač predlagajmo model logistične rasti z difuzijo (\ref{fig:difuzija-logisticna-rast}), ki se zdi fizikalno najbolj smiseln. Odprto ostaja vprašanje robnih pogojev - če ta model velja, kaj omejuje velikost vrtač?
+    Kot determinističen model dinamike rasti posamezne vrtače se posebno dolikuje model logistične rasti z difuzijo (\ref{fig:difuzija-logisticna-rast}), ki da časovno najbolj smiseln potek rasti vrtače. Intrinzična lastnost modela je tudi oblika pobočij vrtač, kar od dobrega modela vrtače vsekakor pričakujemo. Odprto ostaja vprašanje robnih pogojev - če ta model velja, kaj omejuje velikost vrtač?
 
     Za popolnejši študij in dober model vrtač bi verjetno potrebovali bolj poglobljene informacije o prsti, geoloških in bioloških dejavnikih, ki lahko vplivajo na časovno dinamiko terena. Zanimiva ideja bi bila z geološkim študijem najti in datirati vrtače v različnih stopnjah razvoja ter s pomočjo te informacije oblikovati dinamičen nastavek, na podlagi katerega bi potem morda bolj osvetlili dinamično enačbo.
 
