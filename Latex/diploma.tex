@@ -231,7 +231,7 @@ S to količino nato definiramo efektivni polmer objektov:
       r_{eff} = \sqrt{\frac{A}{\pi}}. 
     \end{equation}
 
-Iz oblike histograma efektivnih polmerov (Slika \ref{fig:menisija-polmeri-hist}) se zdi smiselno, da ga prilegamo k standardni Maxwellovi porazdelitvi, čeprav za to nimamo globljih teoretičnih argumentov:
+Zaradi oblike histograma efektivnih polmerov (Slika \ref{fig:menisija-polmeri-hist}) se zdi smiselno, da ga prilegamo k standardni Maxwellovi porazdelitvi, čeprav za to nimamo globljih teoretičnih argumentov:
 \begin{equation} 
   N(r_{eff}) = A r_{eff}^2 e^{-r_{eff}^2/ 2 \sigma_{eff}^2},
 \end{equation}
@@ -245,7 +245,7 @@ dobimo rezultat $\sigma_{eff}=17m$ in $A=1,2m$. Povprečen efektivni polmer obje
     \label{fig:menisija-polmeri-hist}
   \end{figure}
 
-  Posamezne realne vrtače zaradi lokalnih pogojev in zgodovine razvoja reliefa niso simetrične, a zdi se, da so si med seboj podobne. Da bi ugotovili statistično najverjetnejšo obliko vrtače, izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa - pri prvem (Slika \ref{fig:menisija-vrtaca}) vrtače različnih velikosti raztegnemo na isto velikost in povprečimo, pri drugem (Slika \ref{fig:menisija-vrtace-po-razredih}) pa jih razdelimo v velikostne razrede in jih povprečimo znotraj le-teh.
+  Posamezne realne vrtače zaradi lokalnih pogojev in zgodovine razvoja reliefa niso simetrične, a zdi se, da so si med seboj podobne. Da bi ugotovili statistično najverjetnejšo obliko vrtače, izračunamo povprečje velikega števila realnih vrtač. Uporabimo dva pristopa. Pri prvem vrtače različnih velikosti z najmanjšim možnim kvadratom objamemo in izrežemo, nato jih vse raztegnemo na isto velikost in povprečimo. Dobimo (Slika \ref{fig:menisija-vrtaca}). Pri drugem pristopu pa vrtače razdelimo v pet velikostnih razredov (20\% najmanjših gre v prvi razred, itn.) in jih znotraj razredov povprečimo, a jih za razliko od prvega pristopa ne raztegnemo. Dobimo (Slika \ref{fig:menisija-vrtace-po-razredih}).
 
   \begin{figure}[h!]
     \begin{center}
@@ -257,39 +257,34 @@ dobimo rezultat $\sigma_{eff}=17m$ in $A=1,2m$. Povprečen efektivni polmer obje
 
   \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=14cm,angle=90]{slike/vrtace-po-razredih-menisija}
+      \includegraphics[width=15cm,angle=90]{slike/vrtace-po-razredih-menisija}
     \end{center}
     \caption{Vrtače po velikosti razdelimo v pet razredov (najmanjša petina gre v prvi razred, itn.). Vrtače znotraj razreda tako izrežemo iz površja, da je matrika višinskih točk vrtače vedno enakih dimenzij, pri čemer se vrtača nahaja v sredini. Set vrtač znotraj razredov povprečimo in izrišemo. Dobljeni rezultati so podobni rezultatom povprečenja, pri katerih smo vse vrtače raztegnili na velikost največje v setu: (\ref{fig:menisija-vrtaca}), kar nam da več zaupanja v oba rezultata.}
     \label{fig:menisija-vrtace-po-razredih}
   \end{figure}
 
-Na prvi pogled se zdi dobljena povprečna vrtača (Slika \ref{fig:menisija-vrtaca}) cilindrično simetrična in Gaussove oblike:
-\begin{equation}
-  h(r) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C,
-  \label{fit-vrtace}
-\end{equation}
-kjer smo uporabili cilindrične koordinate in točko $r_0$ postavili v dno vrtače. $A$ nam poda globino vrtače, $\sigma$ širino, $C$ pa jo po $z$ osi umesti na pravo nadmorsko višino.
-Enako se zdi za povprečne vrtače po razredih (Slika \ref{fig:menisija-vrtace-po-razredih}).
-
-Po histogramu (Slika \ref{fig:menisija-polmeri-hist}) vemo, da obstaja velik razred vrtač, katerih dimenzije so $23,5m < r_{eff} < 24,5m$. Definiramo povprečen profil vrtače, tako da povprečimo $h(r,\phi)$ po $\phi$:
+Na prvi pogled se zdi dobljena povprečna vrtača (Slika \ref{fig:menisija-vrtaca}) približno cilindrično simetrična. Enako se zdi za povprečne vrtače po razredih (Slika \ref{fig:menisija-vrtace-po-razredih}), zato se zdi smiselno vpeljati povprečen profil vrtače, tako da povprečimo detajlno odvisnost globine posamezne realne vrtače $h(r,\phi)$ od radija $r$ in polarnega kota $\phi$, po $\phi$:
 \begin{equation} 
   \bar h(r) = \frac{1}{2 \pi} \int_0^{2\pi} h(r,\phi) \mathrm{d}\phi,
   \label{povprecenje-phi}
 \end{equation}
-in tako izračunamo povprečne profile vseh vrtač v tem velikostnem razredu.
-
-Izračunamo povprečni profil vrtač v razredu $23,5m < r_{eff} < 24,5m$ $\bar H (r)$:
+in tako izračunamo povprečne profile vseh vrtač v velikostnem razredu $23,5m < r_{eff} < 24,5m$ saj po histogramu (Slika \ref{fig:menisija-polmeri-hist}) vemo, da obstaja velik razred vrtač s temi dimenzijami. Iz dobljenih povprečnih profilov posameznih vrtač $h_i(r)$ nato izračunamo povprečni profil veh vrtač $\bar H (r)$ v razredu $23,5m < r_{eff} < 24,5m$:
 \begin{equation} 
   \bar H(r) = \frac{1}{N} \sum_{i} \bar h_i(r).
   \label{povprecenje-profilov}
 \end{equation}
 
-Dobljenemu povprečnemu profilu $\bar H(r)$ prilegamo Gaussovo funkcijo (\ref{fit-vrtace}) in izrišemo razliko $f(r)$:
+Dobljenemu profilu $\bar H(r)$ sedaj prilegamo Gaussovo funkcijo (\ref{fit-vrtace}):
+\begin{equation}
+  h(r) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C,
+  \label{fit-vrtace}
+\end{equation}
+kjer smo uporabili cilindrične koordinate in točko $r_0$ postavili v dno vrtače. $A$ nam poda globino vrtače, $\sigma$ širino, $C$ pa jo po $z$ osi umesti na pravo nadmorsko višino. Nato definiramo odstopanje modela $f(r)$:
 \begin{equation}
   f(r) = \bar{H}(r) - A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C,
   \label{ujemanje-fita}
 \end{equation}
-Ter jo izrišemo na (Slika \ref{fig:menisija-profil-21-fit}). Ujemanje ocenimo za dovolj dobro in nadaljujemo.
+Ter ga izrišemo na (Slika \ref{fig:menisija-profil-21-fit}). Ujemanje ocenimo za dovolj dobro in nadaljujemo.
 
   \begin{figure}[h!]
     \begin{center}
@@ -314,7 +309,7 @@ Iz vzorca izberemo vrtače tipičnih dimenzij ($5m < r_{eff} < 60m$). Izrišemo 
 
   \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=13cm]{slike/menisija-A-sigma-reff}
+      \includegraphics[width=14cm]{slike/menisija-A-sigma-reff}
     \end{center}
     \caption{Iz vzorca izberemo vrtače tipičnih dimenzij ($5m < r_{eff} < 60m$). Izrišemo odvisnosti $\sigma (r_{eff})$, $A (r_{eff})$ ter $A(\sigma)$ in jim prilegamo linearne funkcije. Vidimo, da izrisane odvisnosti niso naključne.}
     \label{fig:menisija-sigma}
@@ -337,7 +332,7 @@ Površje je meja med praznino in naloženimi delčki ter originalnim površjem.
 
     \begin{figure}[h]
       \begin{center}
-        \includegraphics[width=7cm]{slike/bdep}
+        \includegraphics[width=8cm]{slike/bdep}
       \end{center}
       \caption{Skica balističnega nalaganja v eni dimenziji. Delčki A, B in C ob različnih časih $t$ padejo poti površju in se prilepijo na lokacije A’, B’ in C’.}
       \label{fig:bdep}
@@ -535,7 +530,9 @@ Ker je razpadanje kamnine počasen proces in se iz podlage odkrušeni kamni lahk
 \end{equation}
 kjer je $D$ utež 'površinske napetosti', ki opisuje površinsko difuzijo. Ta člen očitno deluje 'entropijsko'  saj želi izravnavati stohastične variacije površine. Njegova vloga je podobna kot jo ima Fickov zakon pri difuziji delcev v raztopinah.
 
+\begin{comment}
 [TODO]Difuzija je 'entropijska' in kaže vedno invarianti gradienta. Sledi kratek opis difuzije v tekočini.[TODO]
+\end{comment}
 
 Končno privzamemo še, da je smer mikroskopske denudacije kamnine obrnjena v kamnino, v smeri normale površja (Slika \ref{fig:KPZ}). 
 \begin{figure}[h!]
@@ -569,28 +566,28 @@ Zanemarimo višje člene in zapišemo:
     \end{figure}
 \end{comment}
 
-Pripravljene člene zdužimo v enačbo, hitrost nelinearnega člena zamenjamo z $\lambda$ $(u \rightarrow \lambda)$:
+Pripravljene člene zdužimo v enačbo:
 \begin{equation}
   \frac{\partial h}{\partial t} = \frac{\partial h}{\partial t} \bigg|_{denudacija} + \frac{\partial h}{\partial t} \bigg|_{difuzija} + \frac{\partial h}{\partial t} \bigg|_{nelinearno},
   \label{KPZ1}
 \end{equation}
 oziroma:
 \begin{equation}
-  \frac{\partial h}{\partial t} = v + \nu \nabla^2 h + \lambda + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t).
+  \frac{\partial h}{\partial t} = v + D \nabla^2 h + u + \frac{u}{2} (\nabla h)^2 + \eta (\mathbf{x},t).
   \label{KPZ2}
 \end{equation}
-Postavimo se v premikajoč sistem, ki se premika s hitrostjo $v + \lambda$ v smeri osi $h$ in dobimo Kardar-Parisi-Zhang enačbo (\cite{kardar1986dynamic}):
+Postavimo se v premikajoč koordinatni sistem, ki se premika s hitrostjo $v + u$ v smeri osi $h$ in dobimo Kardar-Parisi-Zhang enačbo (\cite{kardar1986dynamic}):
 \begin{equation}
-  \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t).
+  \frac{\partial h}{\partial t} = D \nabla^2 h + \frac{u}{2} (\nabla h)^2 + \eta (\mathbf{x},t).
   \label{KPZ}
 \end{equation}
 Če vzamemo nastavek:
 \begin{equation}
-  h(\mathbf{x},t) = \frac{2 \nu}{\lambda} log(Z(\mathbf{x},t)),
+  h(\mathbf{x},t) = \frac{2 D}{u} log(Z(\mathbf{x},t)),
 \end{equation}
 dobimo difuzijsko enačbo v časovno odvisnem naključnem potencialu:
 \begin{equation}
-  \frac{\partial Z}{\partial t} = \nu \nabla^2 Z + \frac{\lambda}{2 \nu} \eta(\mathbf{x},t) Z,
+  \frac{\partial Z}{\partial t} = D \nabla^2 Z + \frac{u}{2 D} \eta(\mathbf{x},t) Z,
   \label{KPZ3}
 \end{equation}
 Primerjajmo to z običajno difuzijsko enačbo za gostoto ob prisotnosti izvirov:
@@ -607,7 +604,7 @@ Potem vidimo, da (\ref{KPZ3}) ustreza izvorom s stohastično jakostjo $C$, ki je
 
 Formalno se da rešitev (\ref{KPZ3}) dobiti v obliki:
 \begin{equation}
-  h(\mathbf{x},t) = \frac{2 \nu}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi \nu t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 \nu t} + \frac{\lambda}{2 \nu}h(\xi,0) \right] \right),
+  h(\mathbf{x},t) = \frac{2 D}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi D t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 D t} + \frac{u}{2 D}h(\xi,0) \right] \right),
 \end{equation}
 kjer je $d$ število dimenzij v prostoru.
 
@@ -615,15 +612,15 @@ kjer je $d$ število dimenzij v prostoru.
 
 Da bi kvalitativno ocenili kakšno površje nastane z stohastično denudacijo površja, napravimo preprosto numerično simulacijo. Začnemo z ravnim površjem velikosti $80\times80$ točk, določimo časovni korak $\mathrm{d}t=10^{-3}$ in $10^6$-krat izračunamo:
 \begin{equation} 
-  h_{i+1} = h_i - dt (\nu \frac{\partial^2}{\partial x^2} h + \frac{\lambda}{2} (\frac{\partial}{\partial x} h)^2 + \eta (\mathbf{x},t)),
+  h_{i+1} = h_i - dt (D \frac{\partial^2}{\partial x^2} h + \frac{u}{2} (\frac{\partial}{\partial x} h)^2 + \eta (\mathbf{x},t)),
 \end{equation}
-kjer je $h_{i+1}$ nova vrednost v obravnavani točki, $h_{i}$ stara vrednost v obravnavani točki, $\eta (\mathbf{x},t) \in [0,1]$ in določimo $\nu = \lambda = 1$. (Slika \ref{fig:KPZ-numericno}) je primer tako simuliranega površja.
+kjer je $h_{i+1}$ nova vrednost v obravnavani točki, $h_{i}$ stara vrednost v obravnavani točki, $\eta (\mathbf{x},t) \in [0,1]$ in določimo $D = u = 1$. (Slika \ref{fig:KPZ-numericno}) je primer tako simuliranega površja.
 
 Končno stanje površja pri tem ni statično, med koraki prihaja do manjših premikov. Vendar pa so oblike, ki na površju nastanejo, stabilne ter med seboj podobne po obliki in velikosti.
 
     \begin{figure}[h]
       \begin{center}
-        \includegraphics[width=12cm]{slike/KPZ-numericno}
+        \includegraphics[width=10cm]{slike/KPZ-numericno}
       \end{center}
       \caption{Numerična simulacija po Kardar-Parisi-Zhang enačbi razvijajočega se površja po $10^5$ korakih.}
       \label{fig:KPZ-numericno}
@@ -637,11 +634,12 @@ Do sedaj smo modelirali vrtače kot posledico stohastičnega procesa. Kardar-Par
 Ker mikroskopskega modela take dinamike ne moremo postaviti, si ogledamo nekaj fenomenoloških modelov rasti, ki temeljijo na reakcijsko-difuzijski dinamiki (\ref{dinamicna-splosna}) opisa rasti, ki jo potrjuje tudi Kardar-Parisi-Zhang model. Predlagani modeli so primerni za opis prostorsko porazdeljenih kemijskih reakcij in mehanskega transporta materiala v vrtačah. Ti modeli predpostavijo, kako na neko količino vpliva izbrana deterministična dinamika in difuzija.
 
 Predlagali bomo torej več modelov, kako naj globina in oblika vrtače vpliva na njeno poglabljanje. Opirali se bomo na geomorfološko tezo, da globlja in večja kot je vrtača, več vode zbira in se posledično hitreje poglablja. Hkrati pa ima tudi nekakšen zaviralni mehanizem, ki rast v določenem trenutku zaustavi, saj bi sicer dobili brezno.
-
+Zapišimo Kardar-Parisi-Zhang enačbo v obliki:
 \begin{equation}
-  \frac{ \partial h(t,x) }{ \partial t} = D \Delta h + F(h).
+  \frac{ \partial h(t,x) }{ \partial t} = D \nabla^2 h + F(h),
   \label{dinamicna-splosna}
 \end{equation}
+kjer je $F(h)$ linearna funkcija $h$ s stohastično jakostjo kot je razvidno iz (\ref{KPZ3}). Sedaj predpostavimo obratno, namreč, da je jakost izvorov sicer deterministična funkcija $h$, ampak ni več linearna funkcija kot pri Kardar-Parisi-Zhangovi enačbi. Ob odsotnosti boljših morfoloških modelov nastanka vrtač se zdi to smiselna posplošitev.
 
 Najprej ločeno pogledamo različne variacije determinističnega člena $F(h)$ za (\ref{dinamicna-splosna}). Izbor determinističnih členov rasti $F(h)$ je delno povzet po \cite{kandler2010population}. Medtem ko je pri Kardar-Parisi-Zhang modelu $F(h)$ stohastičen člen, sedaj torej raje predpostavimo, da je rast v primeru posamezne vrtače deterministična in v splošnem nelinearna.
 
@@ -659,17 +657,17 @@ Najprej ločeno pogledamo različne variacije determinističnega člena $F(h)$ z
 
 \subsection{Eksponentna rast}
 
-Prvi deterministični nastavek za rast nam da dinamiko eksponentne rasti, ki jo izpeljemo tako da postavimo, da je hitrost naraščanja količine $h(t)$ sorazmerna z vrednostjo te količine. Dobimo enačbo (\ref{dinamicna-eksponentna}), ki jo reši funkcija (\ref{dinamicna-eksponentna-resitev}), in jo pri variaciji koeficienta rasti $a$ narišemo (Slika \ref{fig:eksponentna-rast}).
-
+Prvi deterministični nastavek za rast nam da dinamiko eksponentne rasti, ki jo izpeljemo tako da postavimo, da je hitrost naraščanja količine $h(t)$ sorazmerna z vrednostjo te količine. Dobimo enačbo:
     \begin{equation}
-      \frac{\partial h(t)}{\partial t} = a \cdot h(t).
+      \frac{\partial h(t)}{\partial t} = a \cdot h(t),
       \label{dinamicna-eksponentna}
     \end{equation}
-
+ki jo reši funkcija:
     \begin{equation}
       h(t) = h_0 e^{a t}.
       \label{dinamicna-eksponentna-resitev}
     \end{equation}
+Pri variaciji koeficienta rasti $a$ narišemo več rešitev:
 
     \begin{figure}[h]
       \begin{center}
@@ -685,20 +683,17 @@ Pri vrtačah pričakujemo, da bo njihova rast na nek način odvisna od njihove g
 
 \subsection{Omejena eksponentna rast}
 
-Model omejene eksponentne rasti predpostavi, da je hitrost rasti količine $h(t)$ tem večja, čim dlje je od nosilne kapacitete sistema $K$. To zapišemo v enačbo (\ref{dinamicna-omejena-eksponentna}), rešimo z (\ref{dinamicna-omejena-eksponentna-resitev}) in narišemo (Slika \ref{fig:omejena-eksponentna-rast}) ob variiranju začetne vrednosti $h_0$ ter koeficienta rasti $a$.
-
+Model omejene eksponentne rasti predpostavi, da je hitrost rasti količine $h(t)$ tem večja, čim dlje je od nosilne kapacitete sistema $K$. To zapišemo v enačbo:
     \begin{equation}
-      \frac{\partial h(t)}{\partial t} = a \cdot ( K - h(t) ) = a K - a h(t).
+      \frac{\partial h(t)}{\partial t} = a \cdot ( K - h(t) ) = a K - a h(t),
       \label{dinamicna-omejena-eksponentna}
     \end{equation}
-Rešitev pa je
-    \begin{equation}
+in jo rešimo z:
+   \begin{equation}
       h(t) = K - (K - h_0) e^{-a t}.
       \label{dinamicna-omejena-eksponentna-resitev}
     \end{equation}
-
-    Medtem ko je omejena eksponentna rast podobna logistični, po tem, da se ustali pri $K$, pa ima logistična v začetku položnejšo rast. Omejena eksponentna rast se uporablja za modeliranje sistemov, v katerih dinamiko poganjajo zunanji dejavniki, medtem ko znotraj sistemov ni interakcij, na primer pri širjenju informacij v družbi preko medijev.\\
-V začetku hitra rast, ki se na koncu ustali bi bila lahko primeren model za vrtače in se zdi primernejša od čisto eksponentne rasti.
+Rezultat izrišemo na (Slika \ref{fig:omejena-eksponentna-rast}) ob variiranju začetne vrednosti $h_0$ ter koeficienta rasti $a$.
 
     \begin{figure}[h]
       \begin{center}
@@ -708,21 +703,23 @@ V začetku hitra rast, ki se na koncu ustali bi bila lahko primeren model za vrt
       \label{fig:omejena-eksponentna-rast}
     \end{figure}
 
+    Medtem ko je omejena eksponentna rast podobna logistični, po tem, da se ustali pri $K$, pa ima logistična v začetku položnejšo rast. Omejena eksponentna rast se uporablja za modeliranje sistemov, v katerih dinamiko poganjajo zunanji dejavniki, medtem ko znotraj sistemov ni interakcij, na primer pri širjenju informacij v družbi preko medijev.\\
+V začetku hitra rast, ki se na koncu ustali bi bila lahko primeren model za vrtače in se zdi primernejša od čisto eksponentne rasti.
+
 
 \subsection{Logistična rast}
 
-V modelu logistične rasti postavimo, da je hitrost spreminjanja količine $h(t)$ sorazmerna z vrednostjo te količine in razdaljo ($1 - \frac{h(t)}{K}$) do neke fizikalne omejitve sistema (npr. količine hrane v okolju, življenjskega prostora, itn). $K$ imenujemo nosilna kapaciteta sistema, $a$ pa koeficient rasti. To zapišemo v enačbo (\ref{dinamicna-logisticna}), ki jo reši funkcija (\ref{dinamicna-logisticna-resitev}).
-
+V modelu logistične rasti postavimo, da je hitrost spreminjanja količine $h(t)$ sorazmerna z vrednostjo te količine in razdaljo ($1 - \frac{h(t)}{K}$) do neke fizikalne omejitve sistema (npr. količine hrane v okolju, življenjskega prostora, itn). $K$ imenujemo nosilna kapaciteta sistema, $a$ pa koeficient rasti. To zapišemo v enačbo:
     \begin{equation}
       \frac{\partial h(t)}{\partial t} = a \cdot \left( 1 - \frac{h(t)}{K} \right) h(t),
       \label{dinamicna-logisticna}
     \end{equation}
-oziroma od tod:
+ki jo reši funkcija:
     \begin{equation}
       h(t) = \frac{h_0 K e^{a t}}{K + h_0 (e^{a t}-1)}.
       \label{dinamicna-logisticna-resitev}
     \end{equation}
-
+Rezultat prikažemo z variiranjem parametrov $h_0$ in $a$ na (Slika \ref{fig:logisticna-rast}).
     \begin{figure}[h]
       \begin{center}
         \includegraphics[width=14cm]{slike/logisticna-rast}
@@ -738,27 +735,28 @@ oziroma od tod:
 
     \subsection{Gompertzova rast}
 
-    Model Gompertzove rasti dopolni eksponentno rast tako, da koeficient rasti $a(t)$ iz enačbe za eksponentno rast (\ref{dinamicna-eksponentna}) s časom spreminja po predpisu (\ref{dinamicna-gompertzova-faktor}), kar nam da enačbo (\ref{dinamicna-gompertzova}) in rešitev (\ref{dinamicna-gompertzova-resitev}). Ta ima tudi asimptotsko rešitev (\ref{dinamicna-gompertzova-limita}). Rast torej poganja količina $h(t)$, ustavlja pa jo zmanjšujoč se koeficient rasti $a(t)$.
-
+    Model Gompertzove rasti dopolni eksponentno rast tako, da koeficient rasti $a$ iz enačbe za eksponentno rast (\ref{dinamicna-eksponentna}) s časom spreminja po predpisu:
     \begin{equation}
       a(t) = a_0 \cdot e^{- k t},
       \label{dinamicna-gompertzova-faktor}
     \end{equation}
 kjer je $k > 0$ koeficient pojemanja rasti, $a_0$ pa začetni koeficient rasti.
+To nam da enačbo:
     \begin{equation}
       \frac{\partial h(t)}{\partial t} = a(t) \cdot h(t) = a_0 e^{ -k t} h(t),
       \label{dinamicna-gompertzova}
     \end{equation}
-oziroma od tod:
+in rešitev:
     \begin{equation}
-      h(t) = h_0 \cdot e^{\frac{a_0}{k}(1-e^{-kt})},
+      h(t) = h_0 \cdot e^{\frac{a_0}{k}(1-e^{-kt})}.
       \label{dinamicna-gompertzova-resitev}
     \end{equation}
-kar ima limito:
+V časovni limiti pa tudi asimptotsko rešitev:
     \begin{equation}
       h(t) = h_0 \cdot e^{\frac{a_0}{k}} \quad \text{pri} \quad t \rightarrow \infty.
       \label{dinamicna-gompertzova-limita}
     \end{equation}
+Rast torej poganja količina $h(t)$, ustavlja pa jo zmanjšujoč se koeficient rasti $a(t)$. Rezultat narišemo na (Slika \ref{fig:gompertzova-rast}).
 
     \begin{figure}[h!]
       \begin{center}
@@ -793,6 +791,7 @@ postavijo, da začnemo na ravni podlagi, z majhno udrtino Gaussove oblike. Vredn
 Uporabljeni seti enačb in robnih pogojev so torej nelinearni in popolnoma deterministični, medtem ko smo pri Kardar-Parisi-Zhangovem modelu študirali stohastično a linearno rast.
     \subsection{Eksponentna rast}
 
+Model eksponentne rasti z difuzijo postavi, da je rast linearno odvisna od stanja sistema in difuzije. Mehanizma, ki bi rast ustavljal ni.
     \begin{equation}
       \frac{ \partial h(t,x) }{ \partial t} = D \frac{\partial^2}{\partial x^2} h(t,x) + a \cdot h(t,x).
       \label{difuzija-eksponentna-rast}
@@ -889,11 +888,12 @@ Za deterministični model rasti vrtače torej na osnovi opisanih lastnosti razli
   \label{dinamicna-splosna4}
 \end{equation}
 
-Determinističen reakcijsko-difuzijski model bi bil uporaben za modeliranje ene same vrtace, a ker nima nobene stohastične komponente z njim ne moremo pristopati k analizi populacije vrtač, ki sicer ustrezajo istemu modelu rasti, a s stohastično variacijo parametrov, ki v teh modelih nastopajo. Stohastično komponento modeliranja denudacije kraškega površja pač bolje izrazi Kardar-Parisi-Zhang model, ki temelji na linearni rasti z velikostjo, ki jo podaja Gaussov šum. S primerjavo izmerjene in po modelu pričakovane hrapavosti površja, smo pokazali da je Kardar-Parisi-Zhangov model morda primeren za opis dinamike vrtač. Podamo jo z nelinearno stohastično enačbo:
+Determinističen reakcijsko-difuzijski model bi bil uporaben za modeliranje ene same vrtače, a ker nima nobene stohastične komponente z njim ne moremo pristopati k analizi populacije vrtač, ki sicer ustrezajo istemu modelu rasti, a s stohastično variacijo parametrov, ki v teh modelih nastopajo. Stohastično komponento modeliranja denudacije kraškega površja pač bolje izrazi Kardar-Parisi-Zhang model, ki temelji na linearni rasti z velikostjo, ki jo podaja Gaussov šum. S primerjavo izmerjene in po modelu pričakovane hrapavosti površja, smo pokazali da je Kardar-Parisi-Zhangov model morda primeren za opis dinamike vrtač. Morda bi bil najustreznejši model za opis vrtač Fisher-Kolmogorova enačba, a s stohastično velikostjo dinamike:
 \begin{equation}
-  \frac{ \partial h}{ \partial t} = D \nabla^2 h + \eta h.
+  \frac{ \partial h}{ \partial t} = D \nabla^2 h + \eta(\mathbf{x},t) \cdot h(1 - \frac{h}{K}),
   \label{dinamicna-splosna5}
 \end{equation}
+ki pa zahteva poglobljeno analizo v okviru teorije stohastičnih procesov in je v tem delu ne bomo nadaljevali.
 
     \chapter{Zaključek}
 
