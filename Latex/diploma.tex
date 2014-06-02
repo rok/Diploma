@@ -265,7 +265,7 @@ dobimo rezultat $\sigma_{eff}=17m$ in $A=1,2m$. Povprečen efektivni polmer obje
 
 Na prvi pogled se zdi dobljena povprečna vrtača (Slika \ref{fig:menisija-vrtaca}) cilindrično simetrična in Gaussove oblike:
 \begin{equation}
-  h(ri) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C,
+  h(r) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C,
   \label{fit-vrtace}
 \end{equation}
 kjer smo uporabili cilindrične koordinate in točko $r_0$ postavili v dno vrtače. $A$ nam poda globino vrtače, $\sigma$ širino, $C$ pa jo po $z$ osi umesti na pravo nadmorsko višino.
@@ -320,8 +320,7 @@ Iz vzorca izberemo vrtače tipičnih dimenzij ($5m < r_{eff} < 60m$). Izrišemo 
     \label{fig:menisija-sigma}
   \end{figure}
 
-  Na podlagi teh podatkov težko sklenemo, da (\ref{fit-vrtace}) opiše profil idealne vrtače, a ujemanje je dobro in ga bomo uporabili za analitično modeliranje.
-
+  Na podlagi teh podatkov se zdi, da (\ref{fit-vrtace}) v grobem opiše profil idealne vrtače in ga bomo zato uporabili za analitično modeliranje.
 
   \chapter{Analitično modeliranje vrtač}
   \label{analiticno-modeliranje}
@@ -409,14 +408,15 @@ Hrapavost površja za balistično nalaganje je torej:
 Pri navadnem balističnem usedanju, kjer so višine stolpcev nekorelirane, se hrapavost površja s časom zgolj povečuje. Če pri verjetnosti za usedanje delca $p$ upoštevamo še na primer višino prvih sosednjih stolpcev, višina stolpcev sčasoma postane korelirana in hrapavost površja preneha rasti. \\
 Sedaj si poglejmo celotno časovno odvisnost hrapavosti površja. Začnemo z ravno površino hrapavosti $w(L,t=0)=0$. Sledi kratko prehodno obdobje nekorelirane, Poissonove rasti, ko se delčki nekorelirano usedajo na ravno podlago. Kot smo ravnokar dokazali v tem obdobju velja:
 \begin{equation}
-  w(L,t) \sim t^{1/2}.
+  \begin{array}{lr} w(L,t) \sim t^{1/2} & \ t < t_b, \end{array}
 \end{equation}
-Zaradi korelacij med sosednjimi stolpci to obdbje ne traja dolgo, pač pa preide v obdobje rasti, kjer predpostavimo, da velja:
+kjer je $t_b$ čas balističnega usedanja, ki je odvisen od mehanizma korelacije sosednjih stolpcev.
+Zaradi korelacij med sosednjimi stolpci to obdobje ne traja dolgo, pač pa v času $t_b < t \ll t_s$ preide v obdobje rasti, kjer je $t_s$ čas zasičenja rasti hrapavosti. V obdobju rasti, predpostavimo da velja:
   \begin{equation}
-    \begin{array}{lr} w(L,t) \sim t^\beta  & \ t \ll t_s, \end{array}
+    \begin{array}{lr} w(L,t) \sim t^\beta  & \ t_b < t \ll t_s, \end{array}
     \label{beta}
   \end{equation}
-kjer je $\beta$ eksponent rasti, ki je odvisen od korelacijskega mehanizma in poda časovno dinamiko hrapavosti površja, $t_s$ pa čas zasičenja.
+kjer je $\beta$ eksponent rasti, ki je odvisen od korelacijskega mehanizma in poda časovno dinamiko hrapavosti površja.
 
 Po dolgem času rast površja preide v zasičeni režim, v katerem je površje popolnoma korelirano in se časovna rast hrapavosti ustavi ter sama hrapavost ni več odvisna od časa, doseže zasičeno vrednost $w_{sat}(L)$, ki je od velikosti sistema $L$ odvisna takole:
 
@@ -437,7 +437,7 @@ Celotna dinamika hrapavosti pri balističnem naleganju je za različne velikosti
 
     \begin{figure}[h]
       \begin{center}
-        \includegraphics[width=10cm]{slike/bdep3}
+        \includegraphics[width=10cm]{slike/bdep3.pdf}
       \end{center}
       \caption{Idealni potek hrapavosti površja pri balističnem naleganju, za različne velikosti sistema L. Začnemo z ravnim površjem ($w(L,t)=0$) in po kratkem prehodnem obdobju Poissonove rasti ($w(L,t) \sim t^{1/2}$), preidemo v obdobje rasti ($w(L,t) \sim t^{\beta}$). To se zaključi po času $t_s \sim L^z$ in preidemo v zasičen režim ($w(L,t) = w_{sat}(L) \sim L^{\alpha}$). Vir \cite{schwettmann2003}.}
       \label{fig:barabasi}
@@ -470,7 +470,7 @@ Sedaj si ogledamo (Slika \ref{fig:barabasi}). Če se točki zasičenja $(t_s,w(t
     \end{equation}
 To je torej zveza med eksponenti lestvičenja, ki jo lahko izpeljmo.
 
-Uvedli smo potrebne definicije za opis stohastičnega usedanja površin, ki ga bomo sedaj uporabili za opis denudacije kraškega površja. Proces denudacije, ki oblikuje kraške vrtače je seveda drugačen od balističnega usedanja, ki smo ga uporabili za primer. \\
+Uvedli smo potrebne definicije za opis stohastičnega usedanja površin, ki ga bomo sedaj uporabili za opis denudacije kraškega površja. Proces denudacije, ki oblikuje kraške vrtače je seveda drugačen od balističnega usedanja, ki smo ga uporabili za predstavitev definicij. Najpomembnejša razlika je, da je model rasti površin inverzen modelu denudacije in si ga zamišljamo kot negativno rast površja. Seveda pričakujemo, tudi korelacijo med sosednjimi točkami površja. \\
 Sedaj predlagamo model stohastičnega usedanja in izračunamo hrapavost v njegovem zasičenem režimu, ter jo primerjamo z izmerjeno hrapavostjo na pravem kraškem površju z vrtačami.
 
 \section{Merjenje hrapavosti Menišije}
@@ -531,9 +531,9 @@ Zaradi časovne nekoreliranosti šuma $\eta({\mathbf{x},t})$ bi tako površje oh
 
 Ker je razpadanje kamnine počasen proces in se iz podlage odkrušeni kamni lahko premikajo, privzamemo v naš model še difuzijski člen:
 \begin{equation}
-  \frac{\mathrm{d} h}{\mathrm{d} t} \bigg|_{difuzija} = \nu \nabla^2 h,
+  \frac{\mathrm{d} h}{\mathrm{d} t} \bigg|_{difuzija} = D \nabla^2 h,
 \end{equation}
-kjer je $\nu$ utež 'površinske napetosti', ki opisuje površinsko difuzijo. Ta člen očitno deluje "entropijsko" saj želi izravnavati stohastične variacije površine. Njegova vloga je podobna kot jo ima Fickov zakon pri difuziji delcev v raztopinah.
+kjer je $D$ utež 'površinske napetosti', ki opisuje površinsko difuzijo. Ta člen očitno deluje 'entropijsko'  saj želi izravnavati stohastične variacije površine. Njegova vloga je podobna kot jo ima Fickov zakon pri difuziji delcev v raztopinah.
 
 [TODO]Difuzija je 'entropijska' in kaže vedno invarianti gradienta. Sledi kratek opis difuzije v tekočini.[TODO]
 
