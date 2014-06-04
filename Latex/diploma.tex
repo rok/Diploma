@@ -235,17 +235,17 @@ S to količino nato definiramo efektivni polmer objektov:
       r_{eff} = \sqrt{\frac{A}{\pi}}. 
     \end{equation}
 
-Zaradi oblike histograma efektivnih polmerov (Slika \ref{fig:menisija-polmeri-hist}) se zdi smiselno, da ga prilegamo k standardni Maxwellovi porazdelitvi, čeprav za to nimamo globljih teoretičnih argumentov:
+Zaradi oblike histograma efektivnih polmerov (Slika \ref{fig:menisija-polmeri-hist}) se zdi smiselno, da ga prilegamo k Maxwellovi podobni porazdelitvi, čeprav za to nimamo globljih teoretičnih argumentov:
 \begin{equation} 
-  N(r_{eff}) = A r_{eff}^2 e^{-r_{eff}^2/ 2 \sigma_{eff}^2},
+  N(r_{eff}) = A r_{eff}^2 e^{-(r_{eff}/ 2 \sigma_{eff})^{\alpha}},
 \end{equation}
-dobimo rezultat $\sigma_{eff}=17m$ in $A=1,2m$. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$.
+dobimo rezultat $\sigma_{eff}=12m$, $A=0,24m$ in $\alpha=2,5$. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$.
 
   \begin{figure}[h!]
     \begin{center}
       \includegraphics[width=12cm]{slike/menisija-polmeri-hist-maxwell}
     \end{center}
-    \caption{Histogram efektivnih polmerov konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, prilegana Maxwellova porazdelitev: $ N = A r_{eff}^2 e^{r_{eff}^2/2 \sigma_{reff}^2}$, pa ima parametre $\sigma_{eff}=17m$ in $A=1,2m$}
+    \caption{Histogram efektivnih polmerov konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, prilegana Maxwellovi podobna porazdelitev: $ N = A r_{eff}^{\alpha} e^{-(r_{eff}/2 \sigma_{reff})^{\alpha}}$, pa ima parametre $\sigma_{eff}=12m$, $A=0,24m$ in $\alpha=2,5$}
     \label{fig:menisija-polmeri-hist}
   \end{figure}
 
@@ -337,7 +337,7 @@ Površje je meja med praznino in naloženimi delčki ter originalnim površjem.
 
     \begin{figure}[h]
       \begin{center}
-        \includegraphics[width=8cm]{slike/bdep}
+        \includegraphics[width=8cm]{slike/bdep2.pdf}
       \end{center}
       \caption{Skica balističnega nalaganja v eni dimenziji. Delčki A, B in C ob različnih časih $t$ padejo poti površju in se prilepijo na lokacije A’, B’ in C’.}
       \label{fig:bdep}
@@ -631,7 +631,7 @@ kjer je $d$ število dimenzij v prostoru.
 
 Da bi kvalitativno ocenili kakšno površje nastane z stohastično denudacijo površja, napravimo preprosto numerično simulacijo. Začnemo z ravnim površjem velikosti $80\times80$ točk, določimo časovni korak $\mathrm{d}t=10^{-3}$ in $10^6$-krat izračunamo:
 \begin{equation} 
-  h_{i+1} = h_i - dt (D \frac{\partial^2}{\partial x^2} h + \frac{u}{2} (\frac{\partial}{\partial x} h)^2 + \eta (\mathbf{x},t)),
+  h_{i+1} = h_i - dt (D \nabla^2 h_i + \frac{u}{2} (\nabla h_i)^2 + \eta (\mathbf{x},t)),
 \end{equation}
 kjer je $h_{i+1}$ nova vrednost v obravnavani točki, $h_{i}$ stara vrednost v obravnavani točki, $\eta (\mathbf{x},t) \in [0,1]$ in določimo $D = u = 1$. (Slika \ref{fig:KPZ-numericno}) je primer tako simuliranega površja.
 
