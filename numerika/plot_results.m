@@ -24,7 +24,7 @@ if 1
     profile_sizes = profile_sizes(profile_sizes~=0);
     histo = [0,0,0,0,hist(profile_sizes,max(profile_sizes)-4)];
 
-    mf = fittype('a*x^c*exp(-(x/(2*b))^c)','dependent',{'y'},'independent',{'x'},'coefficients',{'a','b','c'});
+    mf = fittype('a*x^c*exp(-(x/(2*b))^2)','dependent',{'y'},'independent',{'x'},'coefficients',{'a','b','c'});
     %mf = fittype('a*x^2*exp(-(x/(2*b))^2)','dependent',{'y'},'independent',{'x'},'coefficients',{'a','b'});
     mfo = fitoptions('method','NonlinearLeastSquares','Lower',[0 1 1],'Upper',[100000  10000]);
     mfit = fit((1:numel(histo))',histo',mf,mfo);
@@ -35,10 +35,10 @@ if 1
     plot(mfit);
     title('Porazdelitev konkavnih objektov po efektivnem polmeru')
     %legend('Izmerjene \sigma',strcat('\sigma(r_{eff})', sprintf(' = %1.1g',sr_fit.k),'\cdot r_{eff}'),'location','norteast');
-    legend('Število konkavnih objektov','N(r_{eff}) = A r_{eff}^{\alpha} e^{-(r_{eff}/2\sigma_{eff})^{\alpha}}');
+    legend('Število konkavnih objektov','N(r_{eff}) = A r_{eff}^{\alpha} e^{-(r_{eff}/2\sigma_{eff})^2}');
     annotation('textbox',[0.584 0.60 0.15 0.16],'String',{...
-        strcat('\sigma_{eff} =', sprintf(' %1.2g',mfit.b)),...
-        strcat('A =', sprintf(' %1.2g',mfit.a)),...
+        strcat('\sigma_{eff} =', sprintf(' %1.2g',mfit.b),'m'),...
+        strcat('A =', sprintf(' %1.1g',mfit.a),'m'),...
         strcat('\alpha =', sprintf(' %1.2g',mfit.c))});
     xlabel('Efektivni polmer r_{eff} [m]')
     ylabel('N')

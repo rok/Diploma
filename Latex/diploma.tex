@@ -177,7 +177,7 @@ V tem poglavju bomo iz celotnega LiDARskega posnetka Menišije (Slika \ref{fig:m
 
   \section{Segmentacija vrtač}
 
-Identifikacijo velike količine objektov se lotimo s segmentacijo po indeksu konkavnosti, kot predlaga \cite{doctor13}. Uvedemo lokalni indeks konkavnosti $I_k$ (\ref{ik}), ki ga izračunamo tako, da od izbrane točke v matriki višinskih točk odštejemo povprečno vrednost točk, izbrani točki koncentričnega kolobarja:
+Identifikacijo velike količine objektov se lotimo s segmentacijo po indeksu konkavnosti, kot predlaga \cite{doctor13}. Uvedemo lokalni indeks konkavnosti $I_k$ (\ref{ik}), ki ga izračunamo tako, da od izbrane točke v matriki višinskih točk odštejemo povprečno vrednost točk koncentričnega kolobarja:
 \begin{equation}  I_k(r_0,r_1,r_2) = h(r_0)- \frac{1}{N}\sum\limits_{r_1<r<r_2} h(r). \label{ik} \end{equation}
 
   \begin{figure}[h!]
@@ -237,15 +237,15 @@ S to količino nato definiramo efektivni polmer objektov:
 
 Zaradi oblike histograma efektivnih polmerov (Slika \ref{fig:menisija-polmeri-hist}) se zdi smiselno, da ga prilegamo k Maxwellovi podobni porazdelitvi, čeprav za to nimamo globljih teoretičnih argumentov:
 \begin{equation} 
-  N(r_{eff}) = A r_{eff}^2 e^{-(r_{eff}/ 2 \sigma_{eff})^{\alpha}},
+  N(r_{eff}) = A r_{eff}^{\alpha} e^{-(r_{eff}/ 2 \sigma_{eff})^2},
 \end{equation}
-dobimo rezultat $\sigma_{eff}=12m$, $A=0,24m$ in $\alpha=2,5$. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$.
+dobimo rezultat $\sigma_{eff}=9,3m$, $A=0,04m$ in $\alpha=3,3$. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$.
 
   \begin{figure}[h!]
     \begin{center}
       \includegraphics[width=12cm]{slike/menisija-polmeri-hist-maxwell}
     \end{center}
-    \caption{Histogram efektivnih polmerov konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, prilegana Maxwellovi podobna porazdelitev: $ N = A r_{eff}^{\alpha} e^{-(r_{eff}/2 \sigma_{reff})^{\alpha}}$, pa ima parametre $\sigma_{eff}=12m$, $A=0,24m$ in $\alpha=2,5$}
+    \caption{Histogram efektivnih polmerov konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, prilegana Maxwellovi podobna porazdelitev: $ N = A r_{eff}^{\alpha} e^{-(r_{eff}/2 \sigma_{reff})^2}$, pa ima parametre $\sigma_{eff}=9,3m$, $A=0,04m$ in $\alpha=3,3$}
     \label{fig:menisija-polmeri-hist}
   \end{figure}
 
@@ -261,7 +261,7 @@ dobimo rezultat $\sigma_{eff}=12m$, $A=0,24m$ in $\alpha=2,5$. Povprečen efekti
 
   \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=15cm,angle=90]{slike/vrtace-po-razredih-menisija}
+      \includegraphics[width=14cm]{slike/vrtace-po-razredih-menisija}
     \end{center}
     \caption{Vrtače po velikosti razdelimo v pet razredov (najmanjša petina gre v prvi razred, itn.). Vrtače znotraj razreda tako izrežemo iz površja, da je matrika višinskih točk vrtače vedno enakih dimenzij, pri čemer se vrtača nahaja v sredini. Set vrtač znotraj razredov povprečimo in izrišemo. Dobljeni rezultati so podobni rezultatom povprečenja, pri katerih smo vse vrtače raztegnili na velikost največje v setu: (\ref{fig:menisija-vrtaca}), kar nam da več zaupanja v oba rezultata.}
     \label{fig:menisija-vrtace-po-razredih}
@@ -440,7 +440,7 @@ Celotna dinamika hrapavosti pri balističnem naleganju je za različne velikosti
 
     \begin{figure}[h]
       \begin{center}
-        \includegraphics[width=10cm]{slike/bdep3.pdf}
+        \includegraphics[width=11cm]{slike/bdep3.pdf}
       \end{center}
       \caption{Idealni potek hrapavosti površja pri balističnem naleganju, za različne velikosti sistema L. Začnemo z ravnim površjem ($w(L,t)=0$) in po kratkem prehodnem obdobju Poissonove rasti ($w(L,t) \sim t^{1/2}$), preidemo v obdobje rasti ($w(L,t) \sim t^{\beta}$). To se zaključi po času $t_s \sim L^z$ in preidemo v zasičen režim ($w(L,t) = w_{sat}(L) \sim L^{\alpha}$). Vir \cite{schwettmann2003}.}
       \label{fig:barabasi}
@@ -610,12 +610,12 @@ dobimo difuzijsko enačbo v časovno odvisnem naključnem potencialu:
 
 Primerjajmo to z običajno difuzijsko enačbo za gostoto ob prisotnosti izvirov:
 \begin{equation}
-  \frac{ \partial \rho}{ \partial t} = \mathbf{\nabla} \cdot \mathbf{j} = \mathbf{\nabla} (D \cdot \mathbf{\nabla} \rho) + \mathbf{\nabla} \cdot \mathbf{j_0},
+  \frac{ \partial \rho}{ \partial t} = \boldsymbol\nabla \cdot \mathbf{j} = \boldsymbol\nabla \cdot (D \nabla \rho) + \boldsymbol\nabla \cdot \mathbf{j_0},
   \label{dinamicna-splosna-3}
 \end{equation}
 kjer je zadnji člen na desni gostota izvirov, predzadnji pa je Fickov člen. Če za jakost izvirov velja:
 \begin{equation}
-  \mathbf{\nabla} \cdot \mathbf{j_0} = \frac{\partial \rho}{\partial t}\bigg|_{0} = C \cdot \rho.
+  \boldsymbol \nabla \cdot \mathbf{j_0} = \frac{\partial \rho}{\partial t}\bigg|_{0} = C \cdot \rho.
   \label{jakost-izvirov}
 \end{equation}
 
@@ -623,15 +623,15 @@ Potem vidimo, da (\ref{KPZ3}) ustreza izvorom s stohastično jakostjo $C$, ki je
 
 Formalno se da rešitev (\ref{KPZ3}) dobiti v obliki:
 \begin{equation}
-  h(\mathbf{x},t) = \frac{2 D}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \xi}{(4 \pi D t)^{d/2}} \cdot exp \left[-\frac{(x-\xi)^2}{4 D t} + \frac{u}{2 D}h(\xi,0) \right] \right),
+  h(\mathbf{x},t) = \frac{2 D}{\lambda} ln \left( \int_{-\infty}^{\infty} \frac{d^d \boldsymbol\xi}{(4 \pi D t)^{d/2}} \cdot exp \left[-\frac{(\mathbf{x}-\boldsymbol\xi)^2}{4 D t} + \frac{u}{2 D}h(\boldsymbol\xi,0) \right] \right),
 \end{equation}
 kjer je $d$ število dimenzij v prostoru.
 
-    To formalno rešitev avtorji \cite{kardar1986dynamic} nato v Fourierovem prostoru s pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Tej izpeljavi tukaj ne bomo sledili, ker je formalno prezahtevna. Zato se bomo poglobili le v numerično reševanje KPZ enačbe. Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. Rezultat se relativno dobro ujema z $\alpha =  0,71 \pm 0.01$ namerjenim v (Poglavje \ref{hrapavost}).
+    To formalno rešitev avtorji \cite{kardar1986dynamic} nato v Fourierovem prostoru s pogojem za beli šum perturbativno rešijo (\ref{KPZ}). Tej izpeljavi tukaj ne bomo sledili, ker je formalno prezahtevna. Zato se bomo poglobili le v numerično reševanje Kardar-Parisi-Zhang enačbe. Končno pokažejo, da za stohastično priraščanje površja velja: $z = \frac{3}{2}$ in $\alpha=\frac{1}{2}$. Rezultat se relativno dobro ujema z $\alpha =  0,71 \pm 0.01$ namerjenim v (Poglavje \ref{hrapavost}).
 
 Da bi kvalitativno ocenili kakšno površje nastane z stohastično denudacijo površja, napravimo preprosto numerično simulacijo. Začnemo z ravnim površjem velikosti $80\times80$ točk, določimo časovni korak $\mathrm{d}t=10^{-3}$ in $10^6$-krat izračunamo:
 \begin{equation} 
-  h_{i+1} = h_i - dt (D \nabla^2 h_i + \frac{u}{2} (\nabla h_i)^2 + \eta (\mathbf{x},t)),
+  h_{i+1} = h_i - dt (D \nabla^2 h_i + \frac{u}{2} (\boldsymbol\nabla h_i \cdot \boldsymbol\nabla h_i) + \eta (\mathbf{x},t)),
 \end{equation}
 kjer je $h_{i+1}$ nova vrednost v obravnavani točki, $h_{i}$ stara vrednost v obravnavani točki, $\eta (\mathbf{x},t) \in [0,1]$ in določimo $D = u = 1$. (Slika \ref{fig:KPZ-numericno}) je primer tako simuliranega površja.
 
@@ -659,12 +659,12 @@ Ker mikroskopskega modela take dinamike ne moremo postaviti, si ogledamo nekaj f
 Predlagali bomo torej več modelov, kako naj globina in oblika vrtače vpliva na njeno poglabljanje. Opirali se bomo na geomorfološko tezo, da globlja in večja kot je vrtača, več vode zbira in se posledično hitreje poglablja. Hkrati pa ima tudi nekakšen zaviralni mehanizem, ki rast v določenem trenutku zaustavi, saj bi sicer dobili brezno.
 Zapišimo Kardar-Parisi-Zhang enačbo v obliki:
 \begin{equation}
-  \frac{ \partial h(t,x) }{ \partial t} = D \nabla^2 h + F(h),
+  \frac{ \partial h(\mathbf{x},t) }{ \partial t} = D \nabla^2 h(\mathbf{x},t) + F(h(\mathbf{x},t)),
   \label{dinamicna-splosna}
 \end{equation}
-kjer je $F(h)$ linearna funkcija $h$ s stohastično jakostjo kot je razvidno iz (\ref{KPZ3}). Sedaj predpostavimo obratno, namreč, da je jakost izvorov sicer deterministična funkcija $h$, ampak ni več linearna funkcija kot pri Kardar-Parisi-Zhangovi enačbi. Ob odsotnosti boljših morfoloških modelov nastanka vrtač se zdi to smiselna posplošitev.
+kjer je $F(h(\mathbf{x},t))$ linearna funkcija $h(\mathbf{x},t)$ s stohastično jakostjo kot je razvidno iz (\ref{KPZ3}). Sedaj predpostavimo obratno, namreč, da je jakost izvorov sicer deterministična funkcija $h$, ampak ni več linearna funkcija kot pri Kardar-Parisi-Zhangovi enačbi. Ob odsotnosti boljših morfoloških modelov nastanka vrtač se zdi to smiselna posplošitev.
 
-Najprej ločeno pogledamo različne variacije determinističnega člena $F(h)$ za (\ref{dinamicna-splosna}). Izbor determinističnih členov rasti $F(h)$ je delno povzet po \cite{kandler2010population}. Medtem ko je pri Kardar-Parisi-Zhang modelu $F(h)$ stohastičen člen, sedaj torej raje predpostavimo, da je rast v primeru posamezne vrtače deterministična in v splošnem nelinearna.
+Najprej ločeno pogledamo različne variacije determinističnega člena \newline $F(h(\mathbf{x},t))$ za (\ref{dinamicna-splosna}). Izbor determinističnih členov rasti $F(h(\mathbf{x},t))$ je delno povzet po \cite{kandler2010population}. Medtem ko je pri Kardar-Parisi-Zhang modelu $F(h(\mathbf{x},t))$ stohastičen člen, sedaj torej raje predpostavimo, da je rast v primeru posamezne vrtače deterministična in v splošnem nelinearna.
 
 \begin{comment}
     \begin{equation}
@@ -804,24 +804,24 @@ Gompertzov model se recimo uporablja za modeliranje rasti slabo prekrvavljenih t
 
     \section{Difuzijsko modeliranje dinamike vrtač}
 
-V prejšnjem poglavju predlagane deterministične nastavke dinamike sedaj zaporedno vstavljamo v splošno reakcijsko-difuzijsko enačbo (\ref{dinamicna-splosna}) in jo numerično rešujemo pri robnih pogojih (\ref{rd-robni}). Omejimo se na eno dimenzijo, $x$, ki nam pove kje v prerezu vrtače se nahajamo, višino $h(t,x)$, ki nam pove višino površja v točki $x$ ob času $t$ in čas $t$. Rešitve prikažemo in komentiramo njeno časovno dinamiko. Izbrani robni pogoji
+V prejšnjem poglavju predlagane deterministične nastavke dinamike sedaj zaporedno vstavljamo v splošno reakcijsko-difuzijsko enačbo (\ref{dinamicna-splosna}) in jo numerično rešujemo pri robnih pogojih (\ref{rd-robni}). Omejimo se na eno dimenzijo, $x$, ki nam pove kje v prerezu vrtače se nahajamo, višino $h(\mathbf{x},t)$, ki nam pove višino površja v točki $\mathbf{x}$ ob času $t$ in čas $t$. Rešitve prikažemo in komentiramo njeno časovno dinamiko. Izbrani robni pogoji
 
     \begin{equation}
       \begin{aligned}
-        h(0,x) =  - e^{-x^2}, x \in D \\
-        h(t,x) = 0, x \in \partial D \\
-        \frac{\partial h(t,x)}{\partial n} = 0, x \in \partial D
+        h(\mathbf{x},0) =  - e^{-\mathbf{x}^2}, \mathbf{x} \in D \\
+        h(\mathbf{x},t) = 0, \mathbf{x} \in \partial D \\
+        \mathbf{n} \cdot \boldsymbol \nabla h(\mathbf{x},t) = 0, \mathbf{x} \in \partial D
       \end{aligned}
 \label{rd-robni}
     \end{equation}
-postavijo, da začnemo na ravni podlagi, z majhno udrtino Gaussove oblike. Vrednost $h(t,x)$ in njen prvi odvod po normali na robu območja postavimo na $0$.
+postavijo, da začnemo na ravni podlagi, z majhno udrtino Gaussove oblike. Vrednost $h(\mathbf{x},t)$ in njen prvi odvod po normali na robu območja postavimo na $0$.
 
 Uporabljeni seti enačb in robnih pogojev so torej nelinearni in popolnoma deterministični, medtem ko smo pri Kardar-Parisi-Zhangovem modelu študirali stohastično a linearno rast.
     \subsection{Eksponentna rast}
 
 Model eksponentne rasti z difuzijo postavi, da je rast linearno odvisna od stanja sistema in difuzije. Mehanizma, ki bi rast ustavljal ni.
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \frac{\partial^2}{\partial x^2} h(t,x) + a \cdot h(t,x).
+      \frac{ \partial h(\mathbf{x},t) }{ \partial t} = D \frac{\partial^2}{\partial \mathbf{x}^2} h(\mathbf{x},t) + a \cdot h(\mathbf{x},t).
       \label{difuzija-eksponentna-rast}
     \end{equation}
 
@@ -840,7 +840,7 @@ Eksponenta rast z difuzijo je v določenem intervalu smiseln model za opis popul
     Omejena eksponentna rast z difuzijo upošteva nosilno kapaciteto sistema in se uporablja za opis modelov, kjer znotraj populacije ni interakcij. Na primer pri širjenju v družbi preko medijev, brez medosebnega prenosa.\\
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \frac{\partial^2}{\partial x^2} h(t,x) + a \cdot (K - h(t,x)).
+      \frac{ \partial h(\mathbf{x},t) }{ \partial t} = D \frac{\partial^2}{\partial \mathbf{x}^2} h(\mathbf{x},t) + a \cdot (K - h(\mathbf{x},t)).
       \label{difuzija-omejena-eksponentna-rast}
     \end{equation}
     \begin{figure}[h]
@@ -858,7 +858,7 @@ Eksponenta rast z difuzijo je v določenem intervalu smiseln model za opis popul
 Logistična rast z difuzijo nam da Fisher-Kolmogorovo enačbo, ki se uporablja v populacijski genetiki in predstvalja časovno-prostorsko rast populacije ob končnih prehrambenih kapacitetah okolja:
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \frac{\partial^2}{\partial x^2} h(t,x) + a \cdot h(t,x) \cdot (1 - \frac{h(t,x)}{K}).
+      \frac{ \partial h(\mathbf{x},t) }{ \partial t} = D \frac{\partial^2}{\partial \mathbf{x}^2} h(\mathbf{x},t) + a \cdot h(\mathbf{x},t) \cdot (1 - \frac{h(\mathbf{x},t)}{K}).
       \label{difuzija-logisticna-rast}
     \end{equation}
     \begin{figure}[h!]
@@ -885,7 +885,7 @@ Velikost pobočja je za razliko od ostalih reakcijsko-difuzijskih modelov intrin
     Deterministični model Gompertzove rasti z difuzijskim členom nam da:
 
     \begin{equation}
-      \frac{ \partial h(t,x) }{ \partial t} = D \frac{\partial^2}{ \partial x^2} h(t,x) - h(t,x) \cdot e^{-a t}.
+      \frac{ \partial h(\mathbf{x},t) }{ \partial t} = D \frac{\partial^2}{ \partial \mathbf{x}^2} h(\mathbf{x},t) - h(\mathbf{x},t) \cdot e^{-a t}.
       \label{difuzija-gompertzova-rast}
     \end{equation}
     \begin{figure}[h]
@@ -901,24 +901,24 @@ Velikost pobočja je za razliko od ostalih reakcijsko-difuzijskih modelov intrin
 
 \subsection{Primerjava reakcijsko-difuzijskih modelov}
 
-Vse predlagane modele vrtač lahko podamo z variiranjem nastavka $F(h)$ v difuzijski enačbi:
+Vse predlagane modele vrtač lahko podamo z variiranjem nastavka $F(h(\mathbf{x},t))$ v difuzijski enačbi:
 \begin{equation}
-  \frac{ \partial h(t,x) }{ \partial t} = D \nabla^2 h + F(h).
+  \frac{ \partial h(\mathbf{x},t) }{ \partial t} = D \nabla^2 h(\mathbf{x},t) + F(h(\mathbf{x},t)).
   \label{dinamicna-splosna3}
 \end{equation}
 
-Od fenomenoloških reakcijsko difuzijskih enačb, pridobljenih z determinističnim nastavkom $F(h)$, sta najbolj obetavna modela omejena eksponentna in logistična rast. Pri previdno izbranih robnih pogojih dajo intuitivno sprejemljive rezultate, pri čemer se logistična rast zdi bolj smiselna glede na geomorfološko literaturo. Zanimiva lastnost logistične difuzijske rasti je tudi oblika pobočja, ki je neodvisna od robnih pogojev.
+Od fenomenoloških reakcijsko difuzijskih enačb, pridobljenih z determinističnim nastavkom $F(h(\mathbf{x},t))$, sta najbolj obetavna modela omejena eksponentna in logistična rast. Pri previdno izbranih robnih pogojih dajo intuitivno sprejemljive rezultate, pri čemer se logistična rast zdi bolj smiselna glede na geomorfološko literaturo. Zanimiva lastnost logistične difuzijske rasti je tudi oblika pobočja, ki je neodvisna od robnih pogojev.
 Rezultata eksponentne in Gompertzove rasti po dolgem času nista skladna z opažanji v naravi.
 
 Za deterministični model rasti vrtače torej na osnovi opisanih lastnosti različnih predstavljenih modelov predlagamo tistega, ki temelji na Fisher-Kolmogorovi reakcijsko-difuzijski enačbi:
 \begin{equation}
-  \frac{ \partial h}{ \partial t} = D \nabla^2 h + a \cdot h (1 - \frac{h}{K}).
+  \frac{ \partial h(\mathbf{x},t)}{ \partial t} = D \nabla^2 h(\mathbf{x},t) + a \cdot h(\mathbf{x},t) (1 - \frac{h(\mathbf{x},t)}{K}).
   \label{dinamicna-splosna4}
 \end{equation}
 
 Determinističen reakcijsko-difuzijski model bi bil uporaben za modeliranje ene same vrtače, a ker nima nobene stohastične komponente z njim ne moremo pristopati k analizi populacije vrtač, ki sicer ustrezajo istemu modelu rasti, a s stohastično variacijo parametrov, ki v teh modelih nastopajo. Stohastično komponento modeliranja denudacije kraškega površja pač bolje izrazi Kardar-Parisi-Zhang model, ki temelji na linearni rasti z velikostjo, ki jo podaja Gaussov šum. S primerjavo izmerjene in po modelu pričakovane hrapavosti površja, smo pokazali da je Kardar-Parisi-Zhangov model morda primeren za opis dinamike vrtač. Morda bi bil najustreznejši model za opis vrtač Fisher-Kolmogorova enačba, a s stohastično velikostjo dinamike:
 \begin{equation}
-  \frac{ \partial h}{ \partial t} = D \nabla^2 h + \eta(\mathbf{x},t) \cdot h(1 - \frac{h}{K}),
+  \frac{ \partial h(\mathbf{x},t)}{ \partial t} = D \nabla^2 h(\mathbf{x},t) + \eta(\mathbf{x},t) \cdot h(\mathbf{x},t)(1 - \frac{h(\mathbf{x},t)}{K}),
   \label{dinamicna-splosna5}
 \end{equation}
 ki pa zahteva poglobljeno analizo v okviru teorije stohastičnih procesov in je v tem delu ne bomo nadaljevali.
