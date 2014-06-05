@@ -106,7 +106,7 @@
 
 Namen tega dela je na podlagi digitalnega modela reliefa dokumentirati in statistično preučiti velik vzorec kraških vrtač na slovenskem Dinarskem krasu, predlagati analitično funkcijo, ki bi opisala idealno vrtačo, ter na podlagi le-te poskusiti modelirati dejavnike, ki povzročajo nastanek in obliko vrtač.
 
-Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Prvi jih leta 1893 opiše in poimenuje Cvijić \cite{cvijic1893}. Najdemo jih na starih kraških poljih in planotah po celotnem Dinarskem krasu. Medtem ko v literaturi ocene časa potrebnega za nastanek vrtač ne najdemo, v nadaljevanju ta čas ocenimo na 0,5 do 3,5 milijona let. Primer starega polja z razvitimi vrtačami: (Slika \ref{fig:vrtace-bpetrovac}). 
+Vrtače so zaobljene lijakaste globeli, globine nekaj metrov in premera nekaj deset metrov. Prvi jih leta 1893 opiše in poimenuje Cvijić \cite{cvijic1893}. Najdemo jih na starih kraških poljih in planotah po celotnem Dinarskem krasu. Medtem ko v literaturi splošno sprejete ocene časa potrebnega za nastanek vrtač ne najdemo, v nadaljevanju ta čas ocenimo na 0,5 do 3,5 milijona let. Primer starega kraškega polja z razvitimi vrtačami: (Slika \ref{fig:vrtace-bpetrovac}). 
 
   \begin{figure}[h]
     \begin{center}
@@ -128,7 +128,7 @@ Z učinkovitim navpičnim odvajanjem, ki ga omogoči korozijsko razširjanje raz
   \begin{center}
     \includegraphics[width=7.5cm]{slike/vrtaca-ford-williams.jpg}
   \end{center}
-  \caption{Geomorfološka skica nastanka vrtač. Na sprva ravnem površju neka začetna točka malenkost bolje odvaja vodo v podzemlje. Zaradi večjega pretoka vode se tam na stiku prsti in kamnine poveča raztapljanje apnenca. Raztapljanje in odnašanje apnenca v podtalnico poglobi površje in s tem poveča lokalno povodje in s tem količino vode odvajane v začetno točko. Dobimo pozitivno povratno zanko in oblikujejo se vrtače. S časom se v vrtačah nabere slabše prepustna prst, odvajanje vode skozi večje razpoke se izboljša, raztapljanje na dnu vrtače zmanjša. To deluje kot negativna povratna zanka. Vir: \cite{ford2007karst}.}
+  \caption{Geomorfološka skica nastanka vrtač. Na sprva ravnem površju neka začetna točka malenkost bolje odvaja vodo v podzemlje. Zaradi večjega pretoka vode se tam na stiku prsti in kamnine poveča raztapljanje apnenca. Raztapljanje in odnašanje apnenca poglobi površje in s tem poveča lokalno povodje in s tem količino vode odvajane v začetno točko. Dobimo pozitivno povratno zanko in oblikujejo se vrtače. S časom se v vrtačah nabere slabše prepustna prst, odvajanje vode skozi večje razpoke se izboljša, raztapljanje na dnu vrtače zmanjša. To deluje kot negativna povratna zanka. Vir: \cite{ford2007karst}.}
 \label{fig:vrtaca-ford-williams}
 \end{figure}
 
@@ -138,7 +138,7 @@ Na ta model se bomo oprli, ko bomo poskusili modelirati dinamiko vrtač.
 
   LiDAR je okrajšava za Light Detection And Ranging. Pri LiDARskih meritvi relief preleti letalo, ki s pomočjo GPSa, žiroskopov in akcelerometrov natančno spremlja svojo lokacijo in orientacijo v prostoru, ter hkrati meri odbojni čas laserskega žarka, s katerim prečesava relief pravokotno na smer svojega leta. Iz odbojnih časov in lokacije letala nato izračunamo oblak višinskih točk, ki vključujejo točke na tleh, drevesih, umetnih objektih, itn. Komercialni LiDARji delujejo do višine 5000m in zajamejo $5 \cdot 10^5$točk/sekundo. Višinska natančnost meritev je nekaj centimetrov, en prelet pa tipično posname pas širine enega kilometra. Rezultat je oblak višinski točk z gostoto od 1 do 10 točk $/ m^2$.
 
-  Ker je Menišija z gozdom poraščeno območje, je Geodetski inštitut Slovenije, ki je meritve pridobil, iz oblaka višinskih točk po metodi REIN \cite{Kobler20079}, odfiltriral višinske točke dreves in ostalega rastja. Metoda REIN (REpetetive INterpolation) z naključnim vzorčenjem oblaka višinskih točk interpolira površje in na podlagi interpoliranega površja izbere in zavrže osamele točke oblaka točk.
+  Ker je Menišija z gozdom poraščeno območje, je Geodetski inštitut Slovenije, ki je meritve pridobil, iz oblaka višinskih točk po metodi REIN \cite{Kobler20079}, odfiltriral višinske točke dreves in ostalega rastja. Metoda REIN (REpetetive INterpolation) z naključnim vzorčenjem oblaka višinskih točk interpolira površje in na podlagi interpoliranega površja izbere in zavrže osamele točke, ki ne predstavljajo tal.
 
   \begin{figure}[h]
     \begin{center}
