@@ -150,7 +150,7 @@ Na ta model se bomo oprli, ko bomo poskusili modelirati dinamiko vrtač.
 
   Površje Menišije sestavljajo plasti krednega apnenca (starost nastanka 135-65 milijonov let), ki so bili zaradi dogodkov, povezanih s podrivanjem Adriatske plošče v Miocenu (17-7 milijonov let) prišli na površje. Območje Menišije je bilo do 3.5 milijona let pred sedanjostjo s poplavami uravnavano kraško polje, nato pa se je zaradi tektonske aktivnosti dvignilo nad okolico. S tem se je uravnavanje prenehalo in vzpostavljeni so bili geomorfološki pogoji za nastanek vrtač.
 
-Hitrost zniževanja (denudacije) kraškega površja zaradi kemičnega preperevanja apnenca se ocenjuje na 20-50 m / milijon let, torej se je površje Menišije v času od prenehanja uravnavanja znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. \cite{Vrabec2006} \cite{Placer2010}
+Hitrost zniževanja (denudacije) kraškega površja zaradi kemičnega preperevanja apnenca se ocenjuje na 20-50 m / milijon let, torej se je površje Menišije v času od prenehanja uravnavanja znižalo za 70-175m, hkrati pa so se v njem pojavile vrtače, udornice in brezstrope jame. Vir: \cite{Vrabec2006}, \cite{Placer2010}.
 
 Denudacijo kraškega površja povzroča kemična erozija apnenca. Apnenec raztaplja šibka ogljikova kislina, ki nastane z raztapljanjem ogljikovega dioksida v vodi. Na mestih, kjer se voda ne more zadrževati, na primer na goli skali, je denudacija počasnejša, oblikujejo se škraplje in žlebiči velikosti od nekaj milimetrov do nekaj metrov. Kraška polja, velikosti od deset do sto km, ki so pogosto poplavljena, pa denudacija uravna.
 
@@ -215,7 +215,7 @@ Izračunamo standardno deviacijo indeksa konkavnosti $\sigma_{I_k}$. Arbitrarno 
 Sedaj vrtače zarišemo preko večjega senčenega reliefa: (Slika \ref{fig:menisija-vrtace}). Na sliki opazimo tudi, da kljub trudu nekoliko podcenimo velikost vrtač, saj niso obkrožene točno po robu, ampak nekoliko znotraj njihovega zunanjega oboda. Za statistično analizo to ni moteče, saj podcenitev napravimo na vseh vrtačah in na enak način.
   \begin{figure}[h]
     \begin{center}
-      \includegraphics[width=7cm]{slike/menisija-vrtace}
+      \includegraphics[width=8cm]{slike/menisija-vrtace}
     \end{center}
     \caption{Del od 8687 zaznanih vrtač na območju Menišije. Poleg vrtač sta na sliki vidni tudi dve udornici, ki sta za velikostni red večji in imata ostrejši rob kot vrtače. Vrtače, ki smo jih zaznali pri izbiri manjšega kolobarja, so obkrožene z modro barvo, vrtače srednjega kolobarja s črno in vrtače velikega z rdečo. Pri udornicah je posebno opazna podcenitev velikosti.}
     \label{fig:menisija-vrtace}
@@ -235,18 +235,17 @@ S to količino nato definiramo efektivni polmer objektov:
       r_{eff} = \sqrt{\frac{A}{\pi}}. 
     \end{equation}
 
-Zaradi oblike histograma efektivnih polmerov (Slika \ref{fig:menisija-polmeri-hist}) se zdi smiselno, da ga prilegamo k Maxwellovi podobni porazdelitvi, čeprav za to nimamo globljih teoretičnih argumentov:
+Zaradi podobnosti histograma efektivnih polmerov (Slika \ref{fig:menisija-polmeri-hist}) z Maxwellovo porazdelitvijo, se zdi smiselno, da ga prilegamo k tej porazdelitvi, čeprav za to nimamo globljih teoretičnih argumentov. Ker ujemanje ni najboljše, kot nastavek za porazdelitev uporabimo:
 \begin{equation} 
-  N(r_{eff}) = A r_{eff}^{\alpha} e^{-(r_{eff}/ 2 \sigma_{eff})^2}.
+  N(r_{eff}) = A r_{eff}^{\alpha} e^{-(r_{eff}/ 2 \sigma_{eff})^2},
 \end{equation}
-
-Dobimo rezultat $\sigma_{eff}=9,3m$, $A=0,04m$ in $\alpha=3,3$. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$.
+kjer tudi parameter $\alpha$ dobimo s prileganjem. Dobimo rezultat $\sigma_{eff}=9,3m$, $A=0,04m$ in $\alpha=3,3$. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$.
 
   \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=12cm]{slike/menisija-polmeri-hist-maxwell}
+      \includegraphics[width=11cm]{slike/menisija-polmeri-hist-maxwell}
     \end{center}
-    \caption{Histogram efektivnih polmerov konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, prilegana Maxwellovi podobna porazdelitev: $ N = A r_{eff}^{\alpha} e^{-(r_{eff}/2 \sigma_{reff})^2}$, pa ima parametre $\sigma_{eff}=9,3m$, $A=0,04m$ in $\alpha=3,3$}
+    \caption{Histogram efektivnih polmerov konkavnih objektov v Menišiji. Povprečen efektivni polmer objekta je $\bar r_{eff}=26m$, prilegana porazdelitev: $ N = A r_{eff}^{\alpha} e^{-(r_{eff}/2 \sigma_{reff})^2}$, pa ima parametre $\sigma_{eff}=9,3m$, $A=0,04m$ in $\alpha=3,3$}
     \label{fig:menisija-polmeri-hist}
   \end{figure}
 
@@ -298,7 +297,7 @@ ter ga izrišemo na (Slika \ref{fig:menisija-profil-21-fit}). Ujemanje ocenimo z
     \caption{Povprečimo profile vrtač v velikostnem razredu \newline $23,5m < r_{eff} < 24,5m$ po (\ref{povprecenje-profilov}), jim prilegamo Gaussovko (\ref{fit-vrtace}) in izrišemo ujemanje prileganja $f(r)$ podano z (\ref{ujemanje-fita}).}
     \label{fig:menisija-profil-21-fit}
   \end{figure}
-
+\newpage
 Ker nam povprečna vrtača (Slika \ref{fig:menisija-vrtaca}) ne pove veliko, nadaljujemo tako, da Gaussovo funkcijo (\ref{fit-vrtace}) nalegamo na prej po enačbi (\ref{povprecenje-phi}) izračunanih profilih realnih vrtač in tako izluščimo parametra $\sigma$ in $A$ realnih vrtač.
 
 Rezultata sta histograma na (Slika \ref{fig:menisija-globine-sigme-hist}).
@@ -311,6 +310,7 @@ Rezultata sta histograma na (Slika \ref{fig:menisija-globine-sigme-hist}).
     \label{fig:menisija-globine-sigme-hist}
   \end{figure}
 
+\newpage
 Iz vzorca izberemo vrtače tipičnih dimenzij ($5m < r_{eff} < 60m$). Izrišemo odvisnosti $\sigma (r_{eff})$, $A (r_{eff})$ ter $A(\sigma)$ in jim prilegamo linearne funkcije. Rezultat prikažemo na (Slika \ref{fig:menisija-sigma}).
 
   \begin{figure}[h!]
@@ -320,7 +320,7 @@ Iz vzorca izberemo vrtače tipičnih dimenzij ($5m < r_{eff} < 60m$). Izrišemo 
     \caption{Iz vzorca izberemo vrtače tipičnih dimenzij ($5m < r_{eff} < 60m$). Izrišemo odvisnosti $\sigma (r_{eff})$, $A (r_{eff})$ in $A(\sigma)$ ter jim prilegamo linearne funkcije. Vidimo, da izrisane odvisnosti niso naključne.}
     \label{fig:menisija-sigma}
   \end{figure}
-
+\newpage
   Na podlagi teh podatkov se zdi, da (\ref{fit-vrtace}) v grobem opiše profil idealne vrtače in ga bomo zato uporabili za analitično modeliranje.
 
   \chapter{Analitično modeliranje vrtač}
@@ -331,7 +331,7 @@ V tem poglavju bomo za opis časovne dinamike vrtač najprej podali definicije p
   \section{Usedanje površin}
   \label{definicije}
 
-  V prvem poskusu opisa dinamike vrtač uporabimo definicije s področja rasti površin. Medtem ko pri rasti površin tipično študiramo stohastično priraščanje površin preko različnih mehanizmov, pri vrtačah predpostavimo, da kamnina na površju stohastično razpada in površina posledično upada. Na primeru balističnega usedanja uvedemo potrebne definicije. \cite{barabasi1995fractal}
+  V prvem poskusu opisa dinamike vrtač uporabimo definicije s področja rasti površin. Medtem ko pri rasti površin tipično študiramo stohastično priraščanje površin preko različnih mehanizmov, pri vrtačah predpostavimo, da kamnina na površju stohastično razpada in površina posledično upada. Na primeru balističnega usedanja uvedemo potrebne definicije \cite{barabasi1995fractal}.
 
 Balistično usedanje preučuje model, kjer začnemo z ravnim površjem velikosti $L$. Na površje z razdalje večje od višine najvišje točke na površju in z naključne horizontalne pozicije $x$ padajo kvadratni delčki. Ti navpično padejo na površje ter se tam prilepijo. Tak proces prikazuje (Slika \ref{fig:bdep}).
 Površje je meja med praznino in naloženimi delčki ter originalnim površjem.
@@ -428,7 +428,7 @@ Po dolgem času rast površja preide v zasičeni režim, v katerem je površje p
     \label{alfa}
   \end{equation}
 
-Eksponent hrapavosti $\alpha$ je tudi odvisen od korelacijskega mehanizma in nam pove kako je hrapavosti zasičenega površja odvisna od njegove velikosti. Če je $\alpha = 0$, je površje gladko, saj hrapavost površja s povečevanjem $L$ ne narašča. Za $\alpha > 0$ hrapavost površja divergira pri $L \rightarrow \infty$, tako površje je grobo. \cite{krim1993roughness}
+Eksponent hrapavosti $\alpha$ je tudi odvisen od korelacijskega mehanizma in nam pove kako je hrapavosti zasičenega površja odvisna od njegove velikosti. Če je $\alpha = 0$, je površje gladko, saj hrapavost površja s povečevanjem $L$ ne narašča. Za $\alpha > 0$ hrapavost površja divergira pri $L \rightarrow \infty$, tako površje je grobo \cite{krim1993roughness}.
 
 Čas zasičenja $t_s$, ob katerem rast površja preide iz nenasičenega v nasičen režim, je odvisen od velikosti površja in je:
   \begin{equation}
@@ -447,7 +447,7 @@ Celotna dinamika hrapavosti pri balističnem naleganju je za različne velikosti
       \label{fig:barabasi}
     \end{figure}
 
-Eksponenti $\alpha$, $\beta$ in $z$ med seboj niso neodvisni, pač pa med njimi lahko izpeljemo določene relacije lestvičenja, podobno kot pri kritičnih eksponentih v teoriji faznih prehodov drugega reda.\cite{stanley1987introduction}. Poskusimo izpeljati te povezave.
+Eksponenti $\alpha$, $\beta$ in $z$ med seboj niso neodvisni, pač pa med njimi lahko izpeljemo določene relacije lestvičenja, podobno kot pri kritičnih eksponentih v teoriji faznih prehodov drugega reda \cite{stanley1987introduction}. Poskusimo izpeljati te povezave.
 
 Iz (Slika \ref{fig:barabasi}) in zveze (\ref{alfa}) vidimo, da se krivulje $w(L,t)/w_{sat}(L)$ zasičijo pri isti konstantni vrednosti, ne glede na velikost sistema $L$. Iz zveze (\ref{z}) pa vidimo, da se bodo hrapavosti površij zasitile po istem karakterističnem času $t/t_s$. Sklepamo, da je $w(L,t)/w_{sat}(L)$ funkcija $t/t_s$, torej:
 
@@ -795,7 +795,7 @@ Rast torej poganja količina $h(t)$, ustavlja pa jo zmanjšujoč se koeficient r
     \end{figure}
 
 Po začetni hitrejši rasti se količina $h(t)$ postopoma ustali pri asimptotski vrednosti in nam torej da dinamiko, ki ustreza našim zahtevam za vrtače. Zmanjšujočo se hitrost rasti bi lahko pripisali bolj učinkovitemu odvajanju vode skozi apnenec, zaradi česar bi se čas, ko je voda v stiku s kamnino in jo lahko raztaplja, zmanjšal.
-Gompertzov model se na primer uporablja za modeliranje rasti slabo prekrvavljenih tumorjev. \cite{wheldon1988mathematical}
+Gompertzov model se na primer uporablja za modeliranje rasti slabo prekrvavljenih tumorjev \cite{wheldon1988mathematical}.
 
 \begin{comment} 
 \subsection{Komentar}
@@ -937,7 +937,7 @@ ki pa zahteva poglobljeno analizo v okviru teorije stohastičnih procesov, kar p
 
 Zanimiva ideja bi bila z geološkim študijem najti in datirati vrtače v različnih stopnjah razvoja ter s pomočjo te informacije oblikovati dinamičen nastavek, na podlagi katerega bi potem morda bolj osvetlili dinamično enačbo.
 
-Dobro razumevanje nastanka in dinamike vrtač bi nam lahko omogočilo preprosto geološko datacijo različnih kraških površij na podlagi gostote vrtač, ali pa porazdelitvi njihovih globin oziroma površin. Na podoben način astronomi datirajo površja na planetih - privzamejo stalen pritok meteoritov z nekakšno stalno porazdelitvijo velikosti in iz gostote kraterjev datirajo starost izbranega površja. \cite{trey2011size}
+Dobro razumevanje nastanka in dinamike vrtač bi nam lahko omogočilo preprosto geološko datacijo različnih kraških površij na podlagi gostote vrtač, ali pa porazdelitvi njihovih globin oziroma površin. Na podoben način astronomi datirajo površja na planetih - privzamejo stalen pritok meteoritov z nekakšno stalno porazdelitvijo velikosti in iz gostote kraterjev datirajo starost izbranega površja \cite{trey2011size}.
 
     \newpage \thispagestyle{empty}
 
