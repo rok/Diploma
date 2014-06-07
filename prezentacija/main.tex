@@ -62,12 +62,14 @@
   \end{center}
 \end{frame}
 
+\begin{comment}
 \begin{frame}{Kraške vrtače}{Več predlaganih modelov nastanka}
   \begin{center}
     \hspace*{-0.075\textwidth}\includegraphics[width=1.10\textwidth]{slike/nastanek}
   \tiny{\\Vir: Ford, Williams, Karst Hydrogeology and Geomorphology}
   \end{center}
 \end{frame}
+\end{comment}
 
 \begin{comment}
 \begin{frame}{Kraške vrtače}{Več predlaganih modelov nastanka}
@@ -81,7 +83,7 @@
 
 \begin{columns}
   \begin{column}{0.6\textwidth}
-    \includegraphics[width=\textwidth]{slike/vrtaca-ford-williams.png}
+    \includegraphics[width=\textwidth]{slike/vrtaca-ford-williams}
     \tiny{\\Vir: Ford, Williams, Karst Hydrogeology and Geomorphology}
   \end{column}
 
@@ -105,6 +107,10 @@
 \end{center}
 \end{frame}
 
+\begin{frame}{Računalniški vid}{Merjenje konkavnosti}
+
+\end{frame}
+
 \begin{frame}{Računalniški vid}{Identificiramo konkavnosti v reliefu in jih označimo}
 \begin{columns}
   \begin{column}{0.55\textwidth}
@@ -112,7 +118,7 @@
   \end{column}
 
   \begin{column}{0.7\textwidth}
-    \hspace*{-0.025\textwidth}\includegraphics[width=\textwidth]{slike/menisija-polmeri-hist}
+    \hspace*{-0.025\textwidth}\includegraphics[width=\textwidth]{slike/menisija-polmeri-hist-maxwell}
     \footnotesize
     \[ A = \sum piksli\]
     \[ r_{eff} = \sqrt{\frac{A}{\pi}} \]
@@ -125,7 +131,7 @@
 \begin{columns}
   \begin{column}{0.5\textwidth}
     \includegraphics[width=\textwidth]{slike/menisija-vrtaca}
-    \begin{equation} \resizebox{.75\textwidth}{!}{ $f(r) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C$} \end{equation}
+    \begin{equation} \resizebox{.75\textwidth}{!}{ $h(r) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C$} \end{equation}
   \end{column}
 
   \begin{column}{0.45\textwidth}
@@ -145,7 +151,7 @@
 \begin{frame}{Rast površin}{Širina površine, priraščanje}
 \begin{columns}
   \begin{column}{0.45\textwidth}
-     \hspace*{-0.05\textwidth}\includegraphics[width=1.1\textwidth]{slike/bdep}
+     \hspace*{-0.05\textwidth}\includegraphics[width=1.1\textwidth]{slike/bdep2.pdf}
      \newline
      \newline
      \tiny{Vir: A. Schwettmann, Ballistic deposition: Global scaling and local time series}
@@ -168,7 +174,7 @@
 \begin{frame}{Rast površin}{Povprečna širina površine v času, eksponent hrapavosti}
 \begin{center}
   \footnotesize
-  \includegraphics[width=0.8\textwidth]{slike/bdep2}
+  \includegraphics[width=0.8\textwidth]{slike/bdep3}
   \\ \tiny{Vir: A. Schwettmann, Ballistic deposition: Global scaling and local time series}
   \newline
 
@@ -189,7 +195,7 @@
 \begin{frame}{Rast površin}{Zasičeni režim, hrapavost Menišije}
 \begin{center}
   \footnotesize
-  \hspace*{-0.04\textwidth}\includegraphics[width=1.1\textwidth]{slike/menisija-alfa}
+  \hspace*{-0.04\textwidth}\includegraphics[width=1.1\textwidth]{slike/menisija-alfa-3d}
   \begin{equation} \alpha = \frac{\partial ( ln (w_{sat}) ) }{\partial ( ln L )} =  0.4368 \pm 0.0005 \end{equation}
 \end{center}
 \end{frame}
@@ -203,26 +209,26 @@
 \footnotesize
 \begin{columns}
   \begin{column}{0.45\textwidth}
-    \includegraphics[width=1\textwidth]{slike/kpz}
+    \includegraphics[width=1\textwidth]{slike/denudacija}
     \tiny{\\ Vir: Kardar-Parisi-Zhang, Dynamic Scaling of Growing Interfaces}
     \newline
     \newline
     Površje prirašča v smeri normale:
-    \begin{equation} \delta h = \sqrt{ (v \delta t)^2 + (v \delta t \nabla h)^2} \end{equation}   
+    \begin{equation} \delta h = \sqrt{ (u \delta t)^2 + (u \delta t \nabla h)^2} \end{equation}   
     Če $|\nabla h| \ll 1$ dobimo: 
-    \begin{equation} \dot h = v \sqrt{1 + (\nabla h)^2} \simeq v + \frac{v}{2} (\nabla h)^2 + \ldots \end{equation}
-    Postavimo se v potujoč sistem $\dot h \rightarrow \dot h - v$
+    \begin{equation} \dot h = u \sqrt{1 + (\nabla h)^2} \simeq u + \frac{u}{2} (\nabla h)^2 + \ldots \end{equation}
+    Postavimo se v potujoč sistem $\dot h \rightarrow \dot h - u$
     
   \end{column}
   \begin{column}{0.55\textwidth}
     Predpostavimo, da je poces dovolj počasen, da je difuzija pomembna in še dodamo difuzijski člen:
-    \begin{equation} \nu \nabla^2 h \end{equation}
+    \begin{equation} D \nabla^2 h \end{equation}
     \newline
 
     Rezultat je Kardar-Parisi-Zhangova enačba
-    \begin{equation} \frac{\partial h}{\partial t} = \nu \nabla^2 h + \frac{\lambda}{2} (\nabla h)^2 + \eta (\mathbf{x},t) \end{equation}
+    \begin{equation} \frac{\partial h}{\partial t} = D \nabla^2 h + \frac{u}{2} (\nabla h)^2 + \eta (\mathbf{x},t) \end{equation}
     \newline
-    Kardar-Parisi-Zhang pokažejo, da ob pogoju da je $\eta(x,t)$ beli šum velja:
+    Kardar-Parisi-Zhang pokažejo, da ob pogoju da je $\eta(\mathbf{x},t)$ beli šum velja:
     \begin{equation} \alpha = \frac{1}{2} \end{equation}
   \end{column}
 \end{columns}
