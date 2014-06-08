@@ -109,6 +109,24 @@
 
 \begin{frame}{Računalniški vid}{Merjenje konkavnosti}
 
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \includegraphics[width=\textwidth]{slike/concavity-ring-visualisation-2}
+  \end{column}
+  \begin{column}{0.6\textwidth}
+  \footnotesize
+  \begin{equation}  I_k(r_0,r_1,r_2) = h(r_0)- \frac{1}{N}\sum\limits_{r_1<r<r_2} h(r). \label{ik} \end{equation}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Računalniški vid}{Izračunamo indeks konkavnosti}
+    \includegraphics[width=\textwidth]{slike/concavity-samples}
+\end{frame}
+
+\begin{frame}{Računalniški vid}{Odberemo površje kjer $I_x > \sigma_{I_k}$}
+    \includegraphics[width=\textwidth]{slike/concavity-segmentation-samples}
 \end{frame}
 
 \begin{frame}{Računalniški vid}{Identificiramo konkavnosti v reliefu in jih označimo}
@@ -120,29 +138,29 @@
   \begin{column}{0.7\textwidth}
     \hspace*{-0.025\textwidth}\includegraphics[width=\textwidth]{slike/menisija-polmeri-hist-maxwell}
     \footnotesize
-    \[ A = \sum piksli\]
-    \[ r_{eff} = \sqrt{\frac{A}{\pi}} \]
+    \begin{equation} A = \sum piksli \end{equation}
+    \begin{equation}r_{eff} = \sqrt{\frac{A}{\pi}} \end{equation}
   \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Povprečimo konkavnosti}{Dobimo 'povprečno vrtačo' in standardno deviacijo od povprečja}
+
+    \includegraphics[width=\textwidth]{slike/menisija-vrtaca-sigma}
 \end{frame}
 
 \begin{frame}{Povprečimo konkavnosti}{Dobimo 'povprečno vrtačo', prilegamo gaussovko na vse najdene konkavnosti}
-
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-    \includegraphics[width=\textwidth]{slike/menisija-vrtaca}
-    \begin{equation} \resizebox{.75\textwidth}{!}{ $h(r) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C$} \end{equation}
-  \end{column}
-
-  \begin{column}{0.45\textwidth}
-    \includegraphics[width=\textwidth]{slike/menisija-profil-21-fit} \\
-    \includegraphics[width=\textwidth]{slike/menisija-sigme-hist} \\
-    \includegraphics[width=\textwidth]{slike/menisija-globine-hist}
-  \end{column}
-\end{columns}
-
+    \begin{equation} h(r) = A \cdot e^{-\frac{(r-r_0)^2}{\sigma^2}} + C \end{equation}
+    \includegraphics[width=\textwidth]{slike/menisija-profil-21-fit}
 \end{frame}
 
+\begin{frame}{Povprečimo konkavnosti}{Dobimo 'povprečno vrtačo', prilegamo gaussovko na vse najdene konkavnosti}
+    \includegraphics[width=\textwidth]{slike/menisija-visine-in-sigme-hist}
+\end{frame}
+
+\begin{frame}{Povprečimo konkavnosti}{Dobimo 'povprečno vrtačo', prilegamo gaussovko na vse najdene konkavnosti}
+      \includegraphics[width=\textwidth]{slike/menisija-A-sigma-reff}
+\end{frame}
 
 \section{Rast površin}
 
