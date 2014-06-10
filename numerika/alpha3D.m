@@ -50,7 +50,7 @@ subplot(1,2,1);
 scatter(log(l),log(w),3);
 hold on;
 %plot(cf2_);
-title('Sirina povrsja ln w(ln(L^2))')
+title('Hrapavost povrsja ln w(ln(L^2))')
 xlabel('ln(L^2)')
 ylabel('ln(w_{sat})')
 hold off;
@@ -60,7 +60,7 @@ scatter(log(L),log(W));
 hold on;
 h = plot(cf_);
 set(h,'LineWidth',2);
-title('Povprecna sirina povrsja ln<w(ln(L^2))>')
+title('Povprecna hrapavost povrsja ln<w(ln(L^2))>')
 xlabel('ln(<L^2>)')
 ylabel('ln(<w_{sat}(ln L^2)>)')
 legend('ln <w_{sat}(ln(L^2))>',strcat('f(ln(L^2)) = ',sprintf(' %1.2g',cf_.k),' * ln(L^2) ',sprintf(' %1.1g',cf_.const)),'location','SouthEast');
